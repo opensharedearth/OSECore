@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{476C6CD0-3E85-4B1A-9B43-B01D304ABFC0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSECore", "src\OSECore\OSECore.csproj", "{3B11D33E-BEA9-4263-B67D-2AED0ECDAE1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{5C86120E-ACDA-4E8C-85CE-3E714724D2AA}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assests", "assests", "{FEDB75CD-80EF-4BFD-BE78-B10680D884A2}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\rundl\OneDrive\OSE\Icons\HoloRNS\1x\osecore.png = C:\Users\rundl\OneDrive\OSE\Icons\HoloRNS\1x\osecore.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{93E12EAF-F2EF-4C4B-B8F3-36854168078C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSECore.Test", "test\OSECoreTest\OSECore.Test.csproj", "{74C1AF9B-2F49-4775-9547-60EA884B378C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B11D33E-BEA9-4263-B67D-2AED0ECDAE1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B11D33E-BEA9-4263-B67D-2AED0ECDAE1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B11D33E-BEA9-4263-B67D-2AED0ECDAE1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B11D33E-BEA9-4263-B67D-2AED0ECDAE1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C1AF9B-2F49-4775-9547-60EA884B378C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C1AF9B-2F49-4775-9547-60EA884B378C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C1AF9B-2F49-4775-9547-60EA884B378C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C1AF9B-2F49-4775-9547-60EA884B378C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3B11D33E-BEA9-4263-B67D-2AED0ECDAE1A} = {476C6CD0-3E85-4B1A-9B43-B01D304ABFC0}
+		{74C1AF9B-2F49-4775-9547-60EA884B378C} = {93E12EAF-F2EF-4C4B-B8F3-36854168078C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39D62141-34E3-48E9-A5F5-CDAFDABD622B}
+	EndGlobalSection
+EndGlobal
