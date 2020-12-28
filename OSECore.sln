@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{5C86120E-A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assests", "assests", "{FEDB75CD-80EF-4BFD-BE78-B10680D884A2}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\rundl\OneDrive\OSE\Icons\HoloRNS\1x\osecore.png = C:\Users\rundl\OneDrive\OSE\Icons\HoloRNS\1x\osecore.png
+		assets\osecore.png = assets\osecore.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{93E12EAF-F2EF-4C4B-B8F3-36854168078C}"
