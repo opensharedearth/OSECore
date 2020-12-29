@@ -25,13 +25,13 @@ namespace OSECoreTest
             for (int i = 0; i < normal.Length; i++)
                 Assert.Equal(UnicodeSupport.GetNormalChar(subscripts[i]), normal[i]);
             for (int i = 0; i < altminus.Length; i++)
-                Assert.Equal(UnicodeSupport.GetNormalChar(altminus[i]), '-');
+                Assert.Equal('-', UnicodeSupport.GetNormalChar(altminus[i]));
             for (int i = 0; i < altplus.Length; i++)
-                Assert.Equal(UnicodeSupport.GetNormalChar(altplus[i]), '+');
+                Assert.Equal('+', UnicodeSupport.GetNormalChar(altplus[i]));
             for (int i = 0; i < altslash.Length; i++)
-                Assert.Equal(UnicodeSupport.GetNormalChar(altslash[i]), '/');
+                Assert.Equal('/', UnicodeSupport.GetNormalChar(altslash[i]));
             for (int i = 0; i < altstar.Length; i++)
-                Assert.Equal(UnicodeSupport.GetNormalChar(altstar[i]), '*');
+                Assert.Equal('*', UnicodeSupport.GetNormalChar(altstar[i]));
         }
 
         [Fact]

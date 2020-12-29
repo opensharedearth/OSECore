@@ -22,6 +22,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{93E12EAF-F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSECore.Test", "test\OSECoreTest\OSECore.Test.csproj", "{74C1AF9B-2F49-4775-9547-60EA884B378C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{D9105D6E-1D39-474C-853E-99D99E6AC702}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSECoreSamples", "sample\OSECoreSamples\OSECoreSamples.csproj", "{D0543693-5BDD-4C40-99C3-7AF777933D8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,10 @@ Global
 		{74C1AF9B-2F49-4775-9547-60EA884B378C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74C1AF9B-2F49-4775-9547-60EA884B378C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74C1AF9B-2F49-4775-9547-60EA884B378C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0543693-5BDD-4C40-99C3-7AF777933D8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0543693-5BDD-4C40-99C3-7AF777933D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0543693-5BDD-4C40-99C3-7AF777933D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0543693-5BDD-4C40-99C3-7AF777933D8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +51,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{3B11D33E-BEA9-4263-B67D-2AED0ECDAE1A} = {476C6CD0-3E85-4B1A-9B43-B01D304ABFC0}
 		{74C1AF9B-2F49-4775-9547-60EA884B378C} = {93E12EAF-F2EF-4C4B-B8F3-36854168078C}
+		{D0543693-5BDD-4C40-99C3-7AF777933D8B} = {D9105D6E-1D39-474C-853E-99D99E6AC702}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39D62141-34E3-48E9-A5F5-CDAFDABD622B}

@@ -13,10 +13,10 @@ namespace OSECoreTest.Logging
         public void CtorDefaultTest()
         {
             ResultLog l = new ResultLog();
-            Assert.Equal(l.Count, 0);
-            Assert.Equal(l.GoodCount, 0);
-            Assert.Equal(l.BadCount, 0);
-            Assert.Equal(l.SuspectCount, 0);
+            Assert.Empty(l);
+            Assert.Equal(0, l.GoodCount);
+            Assert.Equal(0, l.BadCount);
+            Assert.Equal(0, l.SuspectCount);
         }
 
         [Fact]
@@ -28,11 +28,11 @@ namespace OSECoreTest.Logging
             ResultLog l1 = new ResultLog();
             l1.LogSuspect("Suspect result.");
             ResultLog l = new ResultLog("Merged", l0, l1);
-            Assert.Equal(l.Caption, "Merged");
-            Assert.Equal(l.Count, 3);
-            Assert.Equal(l.GoodCount, 1);
-            Assert.Equal(l.BadCount, 1);
-            Assert.Equal(l.SuspectCount, 1);
+            Assert.Equal("Merged",l.Caption);
+            Assert.Equal(3, l.Count);
+            Assert.Equal(1, l.GoodCount);
+            Assert.Equal(1, l.BadCount);
+            Assert.Equal(1, l.SuspectCount);
             Assert.False(l.IsGood);
             Assert.False(l.IsSuspect);
             Assert.True((l.IsBad));
@@ -46,9 +46,9 @@ namespace OSECoreTest.Logging
             l0.LogGood("Good result.");
             l0.LogBad("Error result.");
             l0.Clear();
-            Assert.Equal(l0.Count, 0);
-            Assert.Equal(l0.GoodCount, 0);
-            Assert.Equal(l0.BadCount, 0);
+            Assert.Empty(l0);
+            Assert.Equal(0, l0.GoodCount);
+            Assert.Equal(0, l0.BadCount);
             Assert.True(l0.IsNull);
         }
 

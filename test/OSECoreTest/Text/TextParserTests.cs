@@ -66,7 +66,6 @@ namespace OSECoreTest.Text
         [Theory]
         [InlineData(" =",0,"=","=","=")]
         [InlineData(" <<",1,"<<", "<", "<<")]
-        [InlineData(" <<", 1, "<<", "<", "<<")]
         [InlineData(" a", 0, "", "", "")]
         [InlineData(" *", 0, "", "", "")]
         [InlineData("=+a", 0,"=","=", "=")]

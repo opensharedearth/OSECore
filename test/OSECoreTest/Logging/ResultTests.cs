@@ -25,7 +25,7 @@ namespace OSECoreTest.Logging
         {
             Result r = new Result(ResultType.Bad, "Bad result");
             ResultType t = r.Type;
-            Assert.Equal(t, ResultType.Bad);
+            Assert.Equal(ResultType.Bad, t);
         }
     }
 }

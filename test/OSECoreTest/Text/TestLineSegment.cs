@@ -25,7 +25,6 @@ namespace OSECoreTest.Text
         [InlineData("abcd",0,0,"")]
         [InlineData("abcd",1,1,"b")]
         [InlineData("abcd",2,4,"cd")]
-        [InlineData("abcd", 0, 0, "")]
         public void TestGet(string s0, int i0, int l0, string r0)
         {
             LineSegment ls = new LineSegment(i0, l0);

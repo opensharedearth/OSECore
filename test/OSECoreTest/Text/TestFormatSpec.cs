@@ -37,11 +37,11 @@ namespace OSECoreTest.Text
             Assert.Equal(d0, d1);
         }
         [Theory]
-        [InlineData("", -1, -12, -23, -45, -100)]
-        [InlineData("c", -1, -12, -23, -45, -100)]
-        [InlineData("g", -1, -12, -23, -45, -100)]
-        [InlineData("G", -1, -12, -23, -45, -100)]
-        public void TestParseTimeSpan(string f0, int d0, int h0, int m0, int s0, int ms0)
+        [InlineData("", -1, -12, -23, -100)]
+        [InlineData("c", -1, -12, -23, -100)]
+        [InlineData("g", -1, -12, -23, -100)]
+        [InlineData("G", -1, -12, -23, -100)]
+        public void TestParseTimeSpan(string f0, int d0, int h0, int m0, int ms0)
         {
             string format = f0.Length > 0 ? "{0:" + f0 + "}" : "{0}";
             FormatSpec fs = new FormatSpec(format, 0, format.Length);
