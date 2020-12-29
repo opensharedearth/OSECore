@@ -9,13 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSECore", "src\OSECore\OSEC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{5C86120E-ACDA-4E8C-85CE-3E714724D2AA}"
 	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		index.md = index.md
 		LICENSE.md = LICENSE.md
 		README.md = README.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assests", "assests", "{FEDB75CD-80EF-4BFD-BE78-B10680D884A2}"
-	ProjectSection(SolutionItems) = preProject
-		assets\osecore.png = assets\osecore.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{93E12EAF-F2EF-4C4B-B8F3-36854168078C}"
@@ -24,7 +22,30 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSECore.Test", "test\OSECor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{D9105D6E-1D39-474C-853E-99D99E6AC702}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSECoreSamples", "sample\OSECoreSamples\OSECoreSamples.csproj", "{D0543693-5BDD-4C40-99C3-7AF777933D8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSECoreSamples", "sample\OSECoreSamples\OSECoreSamples.csproj", "{D0543693-5BDD-4C40-99C3-7AF777933D8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{44E02327-F079-4540-A84E-AFE2ABF7FCF6}"
+	ProjectSection(SolutionItems) = preProject
+		doc\docfx.json = doc\docfx.json
+		doc\index.md = doc\index.md
+		doc\toc.yml = doc\toc.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{3D63DD3A-3937-4E84-ACFF-D056C5F3F082}"
+	ProjectSection(SolutionItems) = preProject
+		doc\images\osecore.png = doc\images\osecore.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "articles", "articles", "{1B78B59B-2884-4952-AA2B-F2B5EBB1B397}"
+	ProjectSection(SolutionItems) = preProject
+		doc\articles\intro.md = doc\articles\intro.md
+		doc\articles\toc.yml = doc\articles\toc.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{A715CF69-E6D7-48E6-A7A0-A3970E6FE87E}"
+	ProjectSection(SolutionItems) = preProject
+		doc\api\index.md = doc\api\index.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +73,9 @@ Global
 		{3B11D33E-BEA9-4263-B67D-2AED0ECDAE1A} = {476C6CD0-3E85-4B1A-9B43-B01D304ABFC0}
 		{74C1AF9B-2F49-4775-9547-60EA884B378C} = {93E12EAF-F2EF-4C4B-B8F3-36854168078C}
 		{D0543693-5BDD-4C40-99C3-7AF777933D8B} = {D9105D6E-1D39-474C-853E-99D99E6AC702}
+		{3D63DD3A-3937-4E84-ACFF-D056C5F3F082} = {44E02327-F079-4540-A84E-AFE2ABF7FCF6}
+		{1B78B59B-2884-4952-AA2B-F2B5EBB1B397} = {44E02327-F079-4540-A84E-AFE2ABF7FCF6}
+		{A715CF69-E6D7-48E6-A7A0-A3970E6FE87E} = {44E02327-F079-4540-A84E-AFE2ABF7FCF6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39D62141-34E3-48E9-A5F5-CDAFDABD622B}
