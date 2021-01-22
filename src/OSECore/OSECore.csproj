@@ -1,7 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Open Shared Earth, LLC</Authors>
+    <Product>OSE Core Library</Product>
+    <Description>Low level utilities for all platforms</Description>
+    <PackageIcon>osecore.png</PackageIcon>
+    <Copyright>Copyright 2017-2020 Open Shared Earth, LLC</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/opensharedearth/OSECore.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/opensharedearth/OSECore</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>OSE;.NET Standard;IO Utilities;Logging;Text Utilities;Object Utilities;Type Utilities</PackageTags>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -14,6 +25,13 @@
 
   <ItemGroup>
     <PackageReference Include="System.IO.FileSystem.AccessControl" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\doc\images\osecore.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
