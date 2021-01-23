@@ -1,0 +1,287 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:OSEUIControls.WPF"
+    xmlns:graphics="clr-namespace:OSEUI.WPF.Graphics;assembly=OSEUI.WPF"
+    xmlns:converters="clr-namespace:OSEUI.WPF.Converters;assembly=OSEUI.WPF"
+    xmlns:commands="clr-namespace:OSEUI.WPF.Commands;assembly=OSEUI.WPF"
+    >
+    <Style TargetType="{x:Type local:ColorPaletteEditor}">
+        <Setter Property="Padding" Value="5"/>
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Horizontal">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type local:ColorPaletteEditor}">
+                            <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <Grid>
+                                    <Grid.Resources>
+                                        <graphics:Axis x:Key="ColorAxis" Max="1.0" DesiredTicks="3"/>
+                                    </Grid.Resources>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*"/>
+                                        <RowDefinition Height="2*"/>
+                                        <RowDefinition Height="2*"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <local:ColorPaletteChannelEditor x:Name="BlueChannel" Orientation="Horizontal" Channel="Blue" Grid.Row="0" Grid.Column="1" Palette="{TemplateBinding Palette}" Padding="{TemplateBinding Padding}"/>
+                                    <local:ColorPaletteChannelEditor x:Name="GreenChannel"  Orientation="Horizontal" Channel="Green" Grid.Row="1" Grid.Column="1" Palette="{TemplateBinding Palette}" Padding="{TemplateBinding Padding}"/>
+                                    <local:ColorPaletteChannelEditor x:Name="RedChannel" Orientation="Horizontal" Channel="Red" Grid.Row="2" Grid.Column="1" Palette="{TemplateBinding Palette}" Padding="{TemplateBinding Padding}"/>
+                                    <local:ColorPaletteView x:Name="PaletteView" Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Palette="{TemplateBinding Palette}" Padding="{TemplateBinding Padding}"/>
+                                    <local:AxisView x:Name="BlueAxis" Grid.Row="0" Grid.Column="0" Axis="{StaticResource ColorAxis}" Edge="Left" Padding="{TemplateBinding Padding}"/>
+                                    <local:AxisView x:Name="GreenAxis" Grid.Row="1" Grid.Column="0" Axis="{StaticResource ColorAxis}" Edge="Left" Padding="{TemplateBinding Padding}"/>
+                                    <local:AxisView x:Name="RedAxis" Grid.Row="2" Grid.Column="0" Axis="{StaticResource ColorAxis}" Edge="Left" Padding="{TemplateBinding Padding}"/>
+                                    <local:AxisView x:Name="AxisView" Grid.Row="4" Grid.Column="1" Edge="Bottom" Padding="{TemplateBinding Padding}" >
+                                        <local:AxisView.Axis>
+                                            <graphics:Axis Max="255.0" DesiredTicks="17"/>
+                                        </local:AxisView.Axis>
+                                    </local:AxisView>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+            </Trigger>
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type local:ColorPaletteEditor}">
+                            <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <Grid>
+                                    <Grid.Resources>
+                                        <graphics:Axis x:Key="ColorAxis" Max="1.0" DesiredTicks="3"/>
+                                    </Grid.Resources>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <local:AxisView Grid.Column="0" Grid.Row="1" x:Name="AxisView" Edge="Left"  Padding="{TemplateBinding Padding}">
+                                        <local:AxisView.Axis>
+                                            <graphics:Axis Max="255.0" DesiredTicks="17"/>
+                                        </local:AxisView.Axis>
+                                    </local:AxisView>
+                                    <local:ColorPaletteView x:Name="PaletteView" Orientation="Vertical" Grid.Column="1" Grid.Row="1" Palette="{TemplateBinding Palette}" Padding="{TemplateBinding Padding}"/>
+                                    <local:ColorPaletteChannelEditor x:Name="BlueChannel" Orientation="Vertical" Channel="Blue" Grid.Column="2" Grid.Row="1" Palette="{TemplateBinding Palette}" Padding="{TemplateBinding Padding}"/>
+                                    <local:ColorPaletteChannelEditor x:Name="GreenChannel" Orientation="Vertical" Channel="Green" Grid.Column="3" Grid.Row="1" Palette="{TemplateBinding Palette}" Padding="{TemplateBinding Padding}"/>
+                                    <local:ColorPaletteChannelEditor x:Name="RedChannel" Orientation="Vertical" Channel="Red" Grid.Column="4" Grid.Row="1" Palette="{TemplateBinding Palette}" Padding="{TemplateBinding Padding}"/>
+                                    <local:AxisView x:Name="BlueAxis" Grid.Row="0" Grid.Column="2" Axis="{StaticResource ColorAxis}" Edge="Top" Padding="{TemplateBinding Padding}"/>
+                                    <local:AxisView x:Name="GreenAxis" Grid.Row="0" Grid.Column="3" Axis="{StaticResource ColorAxis}" Edge="Top" Padding="{TemplateBinding Padding}"/>
+                                    <local:AxisView x:Name="RedAxis" Grid.Row="0" Grid.Column="4" Axis="{StaticResource ColorAxis}" Edge="Top" Padding="{TemplateBinding Padding}"/>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+            </Trigger>
+
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type local:ColorPaletteView}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ColorPaletteView}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Popup Name="Tracker">
+                                <Border BorderBrush="Black" BorderThickness="2" >
+                                    <Grid Background="White">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Text="Index:" Grid.Column="0" Grid.Row="0" Margin="5"/>
+                                        <TextBlock Text="{Binding Index}" Grid.Column="1" Grid.Row="0" Margin="5"/>
+                                        <TextBlock Text="Red:" Grid.Column="0" Grid.Row="1" Margin="5"/>
+                                        <TextBlock Text="{Binding Red, StringFormat=F3}" Grid.Column="1" Grid.Row="1" Margin="5"/>
+                                        <TextBlock Text="Green:" Grid.Column="0" Grid.Row="2" Margin="5"/>
+                                        <TextBlock Text="{Binding Green, StringFormat=F3}" Grid.Column="1" Grid.Row="2" Margin="5"/>
+                                        <TextBlock Text="Blue:" Grid.Column="0" Grid.Row="3" Margin="5"/>
+                                        <TextBlock Text="{Binding Blue, StringFormat=F3}" Grid.Column="1" Grid.Row="3" Margin="5"/>
+                                    </Grid>
+                                </Border>
+                            </Popup>
+                            <Image x:Name="Image" Margin="{TemplateBinding Padding}"/>
+
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:ColorPaletteChannelEditor}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ColorPaletteChannelEditor}">
+                    <Border x:Name="Border" Background="White"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Popup Name="Tracker">
+                                <Border x:Name="PART_Boundary" BorderBrush="Black" BorderThickness="2">
+                                    <Grid Background="White">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Text="Index:" Grid.Column="0" Grid.Row="0" Margin="5"/>
+                                        <TextBlock Text="{Binding Index}" Grid.Column="1" Grid.Row="0" Margin="5"/>
+                                        <TextBlock Text="Value:" Grid.Column="0" Grid.Row="1" Margin="5"/>
+                                        <TextBlock Text="{Binding Value, StringFormat=F3}" Grid.Column="1" Grid.Row="1" Margin="5"/>
+                                    </Grid>
+                                </Border>
+                            </Popup>
+                            <AdornerDecorator IsHitTestVisible="True">
+                                <Canvas x:Name="Canvas" IsHitTestVisible="True" Background="White"
+                                        Margin="{TemplateBinding Padding}"/>
+                            </AdornerDecorator>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:AxisView}">
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:AxisView}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Canvas x:Name="Canvas" Margin="{TemplateBinding Padding}"  />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type local:ButtonPanel}, ResourceId=ButtonStyle}" TargetType="Button">
+        <Setter Property="Height" Value="33"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+    <Style TargetType="{x:Type local:ButtonPanel}">
+        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType ="{x:Type local:ButtonPanel}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <StackPanel Orientation="Horizontal" Height="75" x:Name="PART_Panel" Background="Transparent"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:FileMetadataPanel}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:FileMetadataPanel}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.Resources>
+                                <converters:StringListConverter x:Key="StringListConverter"/>
+                            </Grid.Resources>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding FileMetadata.IsDefined, RelativeSource={RelativeSource TemplatedParent}}" Margin="5" x:Name="CheckBox">Add Image Metadata</CheckBox>
+                            <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" IsEnabled="{Binding IsChecked, ElementName=CheckBox}">Title:</Label>
+                            <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" IsEnabled="{Binding IsChecked, ElementName=CheckBox}">Subject:</Label>
+                            <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" IsEnabled="{Binding IsChecked, ElementName=CheckBox}">Author:</Label>
+                            <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" IsEnabled="{Binding IsChecked, ElementName=CheckBox}">Copyright:</Label>
+                            <Label Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" IsEnabled="{Binding IsChecked, ElementName=CheckBox}">Keywords:</Label>
+                            <Label Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" IsEnabled="{Binding IsChecked, ElementName=CheckBox}">Comment:</Label>
+                            <TextBox  Grid.Row="1" Grid.Column="1" Text="{Binding FileMetadata.Title, RelativeSource={RelativeSource TemplatedParent}}" IsEnabled="{Binding IsChecked, ElementName=CheckBox}" Margin="5" VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="2" Grid.Column="1" Text="{Binding FileMetadata.Subject, RelativeSource={RelativeSource TemplatedParent}}" IsEnabled="{Binding IsChecked, ElementName=CheckBox}" Margin="5" VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="3" Grid.Column="1" Text="{Binding FileMetadata.Author, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource StringListConverter}}" IsEnabled="{Binding IsChecked, ElementName=CheckBox}" Margin="5" VerticalContentAlignment="Center" 
+                      ToolTip="Multiple authors separated by semicolon."/>
+                            <TextBox  Grid.Row="4" Grid.Column="1" Text="{Binding FileMetadata.Copyright, RelativeSource={RelativeSource TemplatedParent}}" IsEnabled="{Binding IsChecked, ElementName=CheckBox}" Margin="5" VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="5" Grid.Column="1" Text="{Binding FileMetadata.Keywords, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource StringListConverter}}" IsEnabled="{Binding IsChecked, ElementName=CheckBox}" Margin="5" VerticalContentAlignment="Center"
+                      ToolTip="Multiple keywords separated by semicolon."/>
+                            <TextBox  Grid.Row="6" Grid.Column="1" Text="{Binding FileMetadata.Comment, RelativeSource={RelativeSource TemplatedParent}}" IsEnabled="{Binding IsChecked, ElementName=CheckBox}" Margin="5" TextWrapping="Wrap" AcceptsReturn="True"/>
+                            <Label Grid.Row="0" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="2" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                   Content="Metadata not supported." Background="{x:Static SystemColors.ControlLightBrush}" Visibility="Hidden" x:Name="NotSupportedLabel"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style TargetType="{x:Type local:StatusBar}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:StatusBar}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <StatusBar>
+                            <StatusBarItem DockPanel.Dock="Left">
+                                <ToggleButton x:Name="ResultLogButton" Command="commands:DesktopAppCommands.ShowResultLogFormCommand">
+                                    <Image Source="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, Path=ResultLogView.StatusLine, Converter={StaticResource ResultConverter}}" Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, Path=ResultLogView.HasStatusLine, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                </ToggleButton>
+                            </StatusBarItem>
+                            <StatusBarItem DockPanel.Dock="Right">
+                                <Slider x:Name="ZoomSlider" Width="200" HorizontalAlignment="Stretch" Minimum="1" Maximum="5" ToolTip="Zoom level" Visibility="Collapsed"/>
+                            </StatusBarItem>
+                            <StatusBarItem DockPanel.Dock="Right">
+                                <ProgressBar x:Name="ResultProgress" Width="200" Height="20" Minimum="0" Maximum="100" Value="50" Visibility="Collapsed"/>
+                            </StatusBarItem>
+                            <StatusBarItem>
+                                <TextBlock Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, Path=ResultLogView.StatusLine, Converter={StaticResource ResultConverter}}" Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, Path=ResultLogView.StatusLine, Converter={StaticResource ResultConverter}}"/>
+                            </StatusBarItem>
+                        </StatusBar>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

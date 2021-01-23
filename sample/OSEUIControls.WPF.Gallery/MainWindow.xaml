@@ -1,0 +1,207 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OSEUIControls.WPF.Gallery"
+        xmlns:osecontrols="clr-namespace:OSEUIControls.WPF;assembly=OSEUIControls.WPF"
+        xmlns:osecolors="clr-namespace:OSEUI.WPF.Colors;assembly=OSEUI.WPF" 
+        xmlns:graphics="clr-namespace:OSEUI.WPF.Graphics;assembly=OSEUI.WPF"
+        x:Class="OSEUIControls.WPF.Gallery.MainWindow"
+        mc:Ignorable="d"
+        Title="OSE UI Controls Gallery" Height="600" Width="800">
+    <Window.Resources>
+        <!--<Style x:Key="OSEUIControlsButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="33"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>-->
+        <osecolors:ColorPalettes x:Key="Palettes"/>
+        <graphics:Axis x:Key="Axis0" Min="0" Max="255.0" DesiredTicks="17"/>
+        <graphics:Axis x:Key="Axis1" Min="-255.0" Max="255.0" DesiredTicks="9"/>
+        <graphics:Axis x:Key="Axis2" Min="-1e6" Max="1e6" DesiredTicks="6"/>
+        <graphics:Axis x:Key="Axis3" Min="100" Max="1000" DesiredTicks="10"/>
+        <Style x:Key="ButtonStyle1" TargetType="Button" BasedOn="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type osecontrols:ButtonPanel}, ResourceId=ButtonStyle }}">
+            <Setter Property="Background" Value="DarkTurquoise"/>
+            <Setter Property="BorderBrush" Value="Blue"/>
+            <Setter Property="BorderThickness" Value="3"/>
+        </Style>
+    </Window.Resources>
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Undo" CanExecute="CanUndo" Executed="Undo"/>
+        <CommandBinding Command="ApplicationCommands.Redo" CanExecute="CanRedo" Executed="Redo"/>
+        <CommandBinding Command="ApplicationCommands.Cut" CanExecute="CanCut" Executed="Cut"/>
+        <CommandBinding Command="ApplicationCommands.Copy" CanExecute="CanCopy" Executed="Copy"/>
+        <CommandBinding Command="ApplicationCommands.Paste" CanExecute="CanPaste" Executed="Paste"/>
+        <CommandBinding Command="ApplicationCommands.Delete" CanExecute="CanDelete" Executed="Delete"/>
+        <CommandBinding Command="ApplicationCommands.Find" CanExecute="CanFind" Executed="Find"/>
+    </Window.CommandBindings>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <Menu.Items>
+                <MenuItem Header="Gallery">
+                    <MenuItem.Items>
+                        <MenuItem Header="E_xit"/>
+                    </MenuItem.Items>
+                </MenuItem>
+                <MenuItem Header="Edit">
+                    <MenuItem Header="{Binding UndoRedo.UndoTitle}" Command="ApplicationCommands.Undo"/>
+                    <MenuItem Header="{Binding UndoRedo.RedoTitle}" Command="ApplicationCommands.Redo"/>
+                    <Separator/>
+                    <MenuItem Header="Cut" Command="ApplicationCommands.Cut"/>
+                    <MenuItem Header="Copy" Command="ApplicationCommands.Copy"/>
+                    <MenuItem Header="Paste" Command="ApplicationCommands.Paste"/>
+                    <Separator/>
+                    <MenuItem Header="Delete" Command="ApplicationCommands.Delete"/>
+                </MenuItem>
+            </Menu.Items>
+        </Menu>
+        <TabControl>
+            <TabItem Header="Axis">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <osecontrols:AxisView Grid.Column="4" Grid.Row="0" Edge="Top" Order="Ascending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis0}"/>
+                    <osecontrols:AxisView Grid.Column="4" Grid.Row="1" Edge="Top" Order="Ascending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis1}"/>
+                    <osecontrols:AxisView Grid.Column="4" Grid.Row="2" Edge="Top" Order="Descending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis2}"/>
+                    <osecontrols:AxisView Grid.Column="4" Grid.Row="3" Edge="Top" Order="Descending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis3}"/>
+                    <osecontrols:AxisView Grid.Column="0" Grid.Row="0" Grid.RowSpan="9" Edge="Left" Order="Ascending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis0}" />
+                    <osecontrols:AxisView Grid.Column="1" Grid.Row="0" Grid.RowSpan="9"  Edge="Left" Order="Ascending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis1}" />
+                    <osecontrols:AxisView Grid.Column="2" Grid.Row="0" Grid.RowSpan="9"  Edge="Left" Order="Descending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis2}" />
+                    <osecontrols:AxisView Grid.Column="3" Grid.Row="0" Grid.RowSpan="9"  Edge="Left" Order="Descending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis3}" />
+                    <osecontrols:AxisView Grid.Column="4" Grid.Row="5" Edge="Bottom" Order="Ascending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis0}"/>
+                    <osecontrols:AxisView Grid.Column="4" Grid.Row="6" Edge="Bottom" Order="Ascending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis1}"/>
+                    <osecontrols:AxisView Grid.Column="4" Grid.Row="7" Edge="Bottom" Order="Descending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis2}"/>
+                    <osecontrols:AxisView Grid.Column="4" Grid.Row="8" Edge="Bottom" Order="Descending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis3}"/>
+                    <osecontrols:AxisView Grid.Column="5" Grid.Row="0" Grid.RowSpan="9"  Edge="Right" Order="Ascending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis0}" />
+                    <osecontrols:AxisView Grid.Column="6" Grid.Row="0" Grid.RowSpan="9" Edge="Right" Order="Ascending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis1}" />
+                    <osecontrols:AxisView Grid.Column="7" Grid.Row="0" Grid.RowSpan="9"  Edge="Right" Order="Descending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis2}" />
+                    <osecontrols:AxisView Grid.Column="8" Grid.Row="0" Grid.RowSpan="9"  Edge="Right" Order="Descending" BorderBrush="Black" BorderThickness="1" Axis="{StaticResource Axis3}" />
+                </Grid>
+
+
+
+            </TabItem>
+            <TabItem Header="Palette">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <osecontrols:ColorPaletteView Orientation="Vertical" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Palette="GreyScale"/>
+                    <osecontrols:ColorPaletteView Orientation="Vertical" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Palette="BlueGreenRed"/>
+                    <osecontrols:ColorPaletteView Orientation="Vertical" Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Palette="Rainbow"/>
+                    <osecontrols:ColorPaletteView Orientation="Horizontal" Grid.Column="3" Grid.Row="0"  Palette="GreyScale"/>
+                    <osecontrols:ColorPaletteView Orientation="Horizontal" Grid.Column="3" Grid.Row="1"  Palette="BlueGreenRed"/>
+                    <osecontrols:ColorPaletteView Orientation="Horizontal" Grid.Column="3" Grid.Row="2"  Palette="Rainbow"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Channel Editor">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <osecontrols:ColorPaletteChannelEditor Orientation="Vertical" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Palette="Rainbow" Channel="Blue" BorderBrush="Black" BorderThickness="1" Padding="10" UndoRedo="{Binding UndoRedo}"/>
+                    <osecontrols:ColorPaletteChannelEditor Orientation="Vertical" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Palette="Rainbow" Channel="Green" BorderBrush="Black" BorderThickness="1" Padding="10" UndoRedo="{Binding UndoRedo}"/>
+                    <osecontrols:ColorPaletteChannelEditor Orientation="Vertical" Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Palette="Rainbow" Channel="Red" BorderBrush="Black" BorderThickness="1" Padding="10" UndoRedo="{Binding UndoRedo}"/>
+                    <osecontrols:ColorPaletteChannelEditor Orientation="Horizontal" Grid.Column="3" Grid.Row="0"  Palette="Rainbow" Channel="Blue" BorderBrush="Black" BorderThickness="1" Padding="10" UndoRedo="{Binding UndoRedo}"/>
+                    <osecontrols:ColorPaletteChannelEditor Orientation="Horizontal" Grid.Column="3" Grid.Row="1"  Palette="Rainbow" Channel="Green" BorderBrush="Black" BorderThickness="1" Padding="10" UndoRedo="{Binding UndoRedo}"/>
+                    <osecontrols:ColorPaletteChannelEditor Orientation="Horizontal" Grid.Column="3" Grid.Row="2"  Palette="Rainbow" Channel="Red" BorderBrush="Black" BorderThickness="1" Padding="10" UndoRedo="{Binding UndoRedo}"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Palette Editor">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <osecontrols:ColorPaletteEditor Orientation="Vertical" Grid.Column="0" Palette="Rainbow"/>
+                    <osecontrols:ColorPaletteEditor Orientation="Horizontal" Grid.Column="1" Palette="Rainbow"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Button Panel">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <osecontrols:ButtonPanel x:Name="DefaultPanel" Grid.Row="1"/>
+                    <osecontrols:ButtonPanel x:Name="FourButtonPanel" Grid.Row="2" ButtonPressed="ButtonPanel_OnButtonPressed"
+                                             ButtonStyle="{StaticResource ButtonStyle1}">
+                        <osecontrols:ButtonPanel.Buttons>
+                            <osecontrols:ButtonPanelButton Label="1st Button" Tag="1" />
+                            <osecontrols:ButtonPanelButton Label="2nd Button" Tag="2" />
+                            <osecontrols:ButtonPanelButton Label="3rd Button" Tag="3" />
+                            <osecontrols:ButtonPanelButton Label="4th Button" Tag="4" />
+                        </osecontrols:ButtonPanel.Buttons>
+                    </osecontrols:ButtonPanel>
+                    <osecontrols:ButtonPanel x:Name="CancelOKPanel" Grid.Row="3" ButtonOrder="CancelOK" ButtonPressed="ButtonPanel_OnButtonPressed">
+                        <osecontrols:ButtonPanel.Buttons>
+                            <osecontrols:ButtonPanelButton Label="Find" Tag="A" Command="ApplicationCommands.Find" CommandParameter="ABC"/>
+                            <osecontrols:ButtonPanelButton Label="B Button" Tag="B"/>
+                        </osecontrols:ButtonPanel.Buttons>
+                    </osecontrols:ButtonPanel>
+                    <osecontrols:ButtonPanel x:Name="NoOKCancel" Grid.Row="4" HasCancel="False" HasOk="False" ButtonPressed="ButtonPanel_OnButtonPressed">
+                        <osecontrols:ButtonPanel.Buttons>
+                            <osecontrols:ButtonPanelButton Label="a Button" Tag="a" IsEnabled="False"/>
+                            <osecontrols:ButtonPanelButton Label="b Button" Tag="b" IsEnabled="False"/>
+                        </osecontrols:ButtonPanel.Buttons>
+                    </osecontrols:ButtonPanel>
+                    <TextBox x:Name="StatusBox" Height="200" HorizontalAlignment="Stretch" Grid.Row="0" IsReadOnly="True"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="File Metadata">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <CheckBox Grid.Row="0" x:Name="MetadataCheckBox">Is Metadata Supported</CheckBox>
+                    <osecontrols:FileMetadataPanel Grid.Row="1" x:Name="FileMetadataPanel" IsMetadataSupported="{Binding IsChecked, ElementName=MetadataCheckBox, Mode=TwoWay}"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>

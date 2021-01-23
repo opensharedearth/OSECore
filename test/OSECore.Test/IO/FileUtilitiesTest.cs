@@ -7,6 +7,8 @@ using System.Text;
 using OSECore.IO;
 using Xunit;
 
+#pragma warning disable CA1416
+
 namespace OSECoreTest.IO
 {
     public class FileSupportTest : IClassFixture<TestFileFixture>, IDisposable

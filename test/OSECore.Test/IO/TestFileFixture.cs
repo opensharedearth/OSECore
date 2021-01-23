@@ -5,6 +5,8 @@ using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
 
+#pragma warning disable CA1416
+
 namespace OSECoreTest.IO
 {
     public class TestFileFixture : FileFixture

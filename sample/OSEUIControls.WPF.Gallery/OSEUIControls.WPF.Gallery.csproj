@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\OSEUI.WPF\OSEUI.WPF.csproj" />
+    <ProjectReference Include="..\..\src\OSEUIControls.WPF\OSEUIControls.WPF.csproj" />
+  </ItemGroup>
+
+</Project>
