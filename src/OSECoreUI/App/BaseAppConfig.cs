@@ -101,8 +101,8 @@ namespace OSECoreUI.App
             get
             {
                 Assembly a = Assembly.GetEntryAssembly();
-                AssemblyTitleAttribute ta = a.GetCustomAttribute<AssemblyTitleAttribute>();
-                return ta != null ? ta.Title : AppName;
+                AssemblyProductAttribute pa = a.GetCustomAttribute<AssemblyProductAttribute>();
+                return pa != null ? pa.Product : AppName;
             }
         }
 

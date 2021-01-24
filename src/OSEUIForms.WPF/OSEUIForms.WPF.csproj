@@ -6,7 +6,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\badresult.png" />
+    <None Remove="Images\goodresult.png" />
+    <None Remove="Images\suspectresult.png" />
+    <None Remove="Images\unknownresult.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\OSEUI.WPF\OSEUI.WPF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\badresult.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\goodresult.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\suspectresult.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\unknownresult.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

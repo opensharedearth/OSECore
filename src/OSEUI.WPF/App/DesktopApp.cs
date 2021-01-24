@@ -18,7 +18,7 @@ namespace OSEUI.WPF.App
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class DesktopApp : Application
+    public class DesktopApp : Application
     {
         public DesktopDocument CurrentDocument { get; set; }
         public BaseAppConfig Config { get; }

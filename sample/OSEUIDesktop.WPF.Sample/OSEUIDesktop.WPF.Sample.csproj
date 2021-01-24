@@ -1,0 +1,83 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <PackageId>OSEUIDesktop.WPF.Sample</PackageId>
+    <Authors>Open Shared Earth</Authors>
+    <Company>Open Shared Earth</Company>
+    <Product>OSE Sample App</Product>
+    <Description>A WPF sample application that illustrates how to use the OSE WPF assemblies</Description>
+    <Copyright />
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>osecore.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\ic_content_copy_black_24dp.png" />
+    <None Remove="Images\ic_content_cut_black_24dp.png" />
+    <None Remove="Images\ic_content_paste_black_24dp.png" />
+    <None Remove="Images\ic_delete_sweep_black_24dp.png" />
+    <None Remove="Images\ic_mode_edit_black_24dp.png" />
+    <None Remove="Images\ic_my_location_black_24dp.png" />
+    <None Remove="Images\ic_pan_tool_black_24dp.png" />
+    <None Remove="Images\ic_redo_black_24dp.png" />
+    <None Remove="Images\ic_undo_black_24dp.png" />
+    <None Remove="Images\ic_zoom_in_black_24dp.png" />
+    <None Remove="osecore.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\OSECoreUI\OSECoreUI.csproj" />
+    <ProjectReference Include="..\..\src\OSECore\OSECore.csproj" />
+    <ProjectReference Include="..\..\src\OSEUI.WPF\OSEUI.WPF.csproj" />
+    <ProjectReference Include="..\..\src\OSEUIControls.WPF\OSEUIControls.WPF.csproj" />
+    <ProjectReference Include="..\..\src\OSEUIForms.WPF\OSEUIForms.WPF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\osecore.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\ic_content_copy_black_24dp.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_content_cut_black_24dp.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_content_paste_black_24dp.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_delete_sweep_black_24dp.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_mode_edit_black_24dp.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_my_location_black_24dp.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_pan_tool_black_24dp.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_redo_black_24dp.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_undo_black_24dp.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_zoom_in_black_24dp.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="osecore.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>
