@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{5C86120E-A
 		build.sh = build.sh
 		index.md = index.md
 		LICENSE.md = LICENSE.md
+		osecore.ico = osecore.ico
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -65,7 +66,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSEUIControls.WPF.Gallery",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSEUIForms.WPF", "src\OSEUIForms.WPF\OSEUIForms.WPF.csproj", "{4A69E888-0C76-4EEE-81F1-E7E50943F016}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSEUIDesktop.WPF.Sample", "sample\OSEUIDesktop.WPF.Sample\OSEUIDesktop.WPF.Sample.csproj", "{B7B4361A-5F34-45E5-A56E-9C324895F5CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSEUIDesktop.WPF.Sample", "sample\OSEUIDesktop.WPF.Sample\OSEUIDesktop.WPF.Sample.csproj", "{B7B4361A-5F34-45E5-A56E-9C324895F5CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

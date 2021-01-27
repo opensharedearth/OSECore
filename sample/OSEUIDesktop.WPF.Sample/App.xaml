@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:OSEUIDesktop.WPF.Sample"
              xmlns:oseapp="clr-namespace:OSEUI.WPF.App;assembly=OSEUI.WPF"
-             StartupUri="MainWindow.xaml">
+             StartupUri="MainWindow.xaml" Startup="App_OnStartup" Exit="App_OnExit">
     <oseapp:DesktopApp.Resources>
         <DataTemplate x:Key="GeneralSettings">
             <Grid Margin="10">

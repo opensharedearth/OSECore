@@ -3,6 +3,26 @@
   <PropertyGroup>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <Authors>Open Shared Earth, LLC</Authors>
+    <Product>OSE Core UI Library for WPF</Product>
+    <Description>Low level UI utilities for Windows Presentation Foundation</Description>
+    <Copyright>Copyright 2017-2021 Open Shared Earth, LLC</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/opensharedearth/OSECore.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/opensharedearth/OSECore</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>OSE;.NET 5.0;Windows;WPF;</PackageTags>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <ApplicationIcon>osecore.ico</ApplicationIcon>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\bin\Release</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\bin\Debug</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
