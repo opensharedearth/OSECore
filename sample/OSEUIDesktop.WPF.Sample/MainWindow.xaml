@@ -21,6 +21,7 @@
         <CommandBinding Command="ApplicationCommands.Close" CanExecute="CanCloseDocument" Executed="CloseDocumentHandler"/>
         <CommandBinding Command="oseuicommands:DesktopAppCommands.ExitApplication" CanExecute="CanExitApplication" Executed="ExitApplication"/>
         <CommandBinding Command="oseuicommands:DesktopAppCommands.OpenRecentDocument" CanExecute="CanOpenRecentDocument" Executed="OpenRecentDocumentHandler"/>
+        <CommandBinding Command="oseuicommands:DesktopAppCommands.ShowResultLogFormCommand" CanExecute="CanShowResultLogForm" Executed="ShowResultLogForm"/>
         <CommandBinding Command="ApplicationCommands.Undo" CanExecute="CanUndo" Executed="Undo"/>
         <CommandBinding Command="ApplicationCommands.Redo" CanExecute="CanRedo" Executed="Redo"/>
         <CommandBinding Command="ApplicationCommands.Cut" CanExecute="CanCut" Executed="Cut"/>
@@ -30,15 +31,28 @@
         <CommandBinding Command="ApplicationCommands.SelectAll" CanExecute="CanSelectAll" Executed="SelectAll"/>
         <CommandBinding Command="oseformscommands:FormsCommands.ShowAboutBoxCommand" Executed="ShowAboutBoxHandler"/>
         <CommandBinding Command="oseformscommands:FormsCommands.ShowSettingsCommand" Executed="ShowSettingsCommandHandler"/>
+        <CommandBinding Command="local:SampleCommands.AddEntry" CanExecute="CanAddEntry" Executed="AddEntry"/>
+        <CommandBinding Command="local:SampleCommands.EditEntry" CanExecute="CanEditEntry" Executed="EditEntry"/>
+        <CommandBinding Command="local:SampleCommands.DeleteEntry" CanExecute="CanDeleteEntry" Executed="DeleteEntry"/>
     </Window.CommandBindings>
+    <Window.Resources>
+        <Style x:Key="MenuIcon" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="pack://application:,,,/fonts/#FluentSystemIcons-Filled"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <Style x:Key="ToolBarIcon" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="pack://application:,,,/fonts/#FluentSystemIcons-Filled"/>
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="313*"/>
             <ColumnDefinition Width="87*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -46,10 +60,22 @@
             <Menu.Items>
                 <MenuItem Header="_File" x:Name="FileMenu">
                     <MenuItem.Items>
-                        <MenuItem Command="ApplicationCommands.New"/>
+                        <MenuItem Command="ApplicationCommands.New">
+                            <MenuItem.Icon>
+                                <TextBlock Style="{StaticResource MenuIcon}" Text="&#xf9e3;"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
                         <MenuItem Command="ApplicationCommands.Open"/>
-                        <MenuItem Command="ApplicationCommands.Save"/>
-                        <MenuItem Command="ApplicationCommands.SaveAs"/>
+                        <MenuItem Command="ApplicationCommands.Save">
+                            <MenuItem.Icon>
+                                <TextBlock Style="{StaticResource MenuIcon}" Text="&#xf68a;"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Command="ApplicationCommands.SaveAs">
+                            <MenuItem.Icon>
+                                <TextBlock Style="{StaticResource MenuIcon}" Text="&#xf68c;"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
                         <Separator/>
                         <MenuItem Command="ApplicationCommands.Close"/>
                         <Separator />
@@ -63,40 +89,48 @@
                     <MenuItem.Items>
                         <MenuItem Header= "{Binding UndoRedo.UndoTitle}" Command="ApplicationCommands.Undo">
                             <MenuItem.Icon>
-                                <Image Source="Images/ic_undo_black_24dp.png"/>
+                                <TextBlock Style="{StaticResource MenuIcon}" Text="&#xf19a;"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Header="{Binding UndoRedo.RedoTitle}" Command="ApplicationCommands.Redo">
                             <MenuItem.Icon>
-                                <Image Source="Images/ic_redo_black_24dp.png"/>
+                                <TextBlock Style="{StaticResource MenuIcon}" Text="&#xf16f;"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <Separator/>
                         <MenuItem Header="Cut" Command="ApplicationCommands.Cut">
                             <MenuItem.Icon>
-                                <Image Source="Images/ic_content_cut_black_24dp.png"/>
+                                <TextBlock Style="{StaticResource MenuIcon}" Text="&#xf33b;"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Header="Copy" Command="ApplicationCommands.Copy">
                             <MenuItem.Icon>
-                                <Image Source="Images/ic_content_copy_black_24dp.png"/>
+                                <TextBlock Style="{StaticResource MenuIcon}" Text="&#xf32c;"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Header="Paste" Command="ApplicationCommands.Paste">
                             <MenuItem.Icon>
-                                <Image Source="Images/ic_content_paste_black_24dp.png"/>
+                                <TextBlock Style="{StaticResource MenuIcon}" Text="&#xf2d6;"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <Separator/>
                         <MenuItem Header="Delete" Command="ApplicationCommands.Delete">
                             <MenuItem.Icon>
-                                <Image Source="Images/ic_delete_sweep_black_24dp.png"/>
+                                <TextBlock Style="{StaticResource MenuIcon}" Text="&#xf34d;"/>
                             </MenuItem.Icon>
                         </MenuItem>
                     </MenuItem.Items>
                 </MenuItem>
+                <MenuItem Header="_Entry">
+                    <MenuItem Header="_Add Entry"/>
+                    <MenuItem Header="_Edit Entry"/>
+                    <Separator/>
+                    <MenuItem Header="_Delete Entry"/>
+                </MenuItem>
                 <MenuItem Header="_Tools">
-                    <MenuItem Command="oseformscommands:FormsCommands.ShowSettingsCommand"/>
+                    <MenuItem.Items>
+                        <MenuItem Command="oseformscommands:FormsCommands.ShowSettingsCommand"/>
+                    </MenuItem.Items>
                 </MenuItem>
                 <MenuItem Header="_Help">
                     <MenuItem.Items>
@@ -105,20 +139,62 @@
                 </MenuItem>
             </Menu.Items>
         </Menu>
-        <ToolBarTray Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0,373" Grid.RowSpan="2">
-            <ToolBar>
+        <ToolBarTray Grid.Row="1" >
+            <ToolBar VerticalAlignment="Stretch">
                 <ToolBar.Items>
+                    <Button ToolTip="Undo" Command="ApplicationCommands.Undo">
+                        <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf19a;"/>
+                    </Button>
+                    <Button ToolTip="Redo" Command="ApplicationCommands.Redo">
+                        <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf16f;"/>
+                    </Button>
+                    <Separator/>
+                    <Button ToolTip="Cut" Command="ApplicationCommands.Cut">
+                        <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf33b;"/>
+                    </Button>
+                    <Button ToolTip="Copy" Command="ApplicationCommands.Copy">
+                        <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf32c;"/>
+                    </Button>
+                    <Button ToolTip="Paste" Command="ApplicationCommands.Paste">
+                        <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf2d6;"/>
+                    </Button>
+                    <Separator/>
+                    <Button ToolTip="Delete" Command="ApplicationCommands.Delete">
+                        <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf34d;"/>
+                    </Button>
                 </ToolBar.Items>
             </ToolBar>
         </ToolBarTray>
         <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.LayoutTransform>
+                <ScaleTransform ScaleX="{Binding UIZoom.ZoomLevel}" ScaleY="{Binding UIZoom.ZoomLevel}"/>
+            </Grid.LayoutTransform>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20*"/>
                 <ColumnDefinition />
                 <ColumnDefinition Width="80*"/>
             </Grid.ColumnDefinitions>
             <GridSplitter Grid.Column="1" Width="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+            <ListView x:Name="EntryList" Grid.Column="0" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Grid Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="EntryTitle" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Stretch" IsReadOnly="{Binding NotInEdit}" Text="{Binding SelectedEntry.Title}"/>
+                <Image Name="EntryImage" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Stretch" Source="{Binding SelectedEntry.Image}"/>
+                <TextBox x:Name="EntryContent" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="{Binding NotInEdit}" Text="{Binding SelectedEntry.Entry}">
+                </TextBox>
+            </Grid>
         </Grid>
-        <oseforms:ResultBar Grid.Row="3" Height="30" ResultLog="{Binding ResultLog}" Grid.ColumnSpan="2"/>
+        <osecontrols:StatusBar Grid.Row="3" Height="30" ResultLog="{Binding ResultLog}" UIZoom="{Binding UIZoom}"
+                               UIStatus="{Binding UiStatus}" HasProgress="True" HasZoom="True" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

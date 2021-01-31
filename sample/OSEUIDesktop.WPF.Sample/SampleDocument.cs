@@ -12,6 +12,7 @@ namespace OSEUIDesktop.WPF.Sample
     [Serializable]
     public sealed class SampleDocument : DesktopDocument
     {
+        JournalEntries _entries = new JournalEntries();
         public SampleDocument()
         {
             Setup();
@@ -32,5 +33,7 @@ namespace OSEUIDesktop.WPF.Sample
             base.Setup();
         }
         public override bool IsDirty => base.IsDirty;
+
+        public JournalEntries Entries { get => _entries; }
     }
 }

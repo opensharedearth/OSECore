@@ -33,7 +33,25 @@ namespace OSEUI.WPF.Converters
                     return GetIconPath(r.Type);
                 }
             }
-
+            else
+            {
+                if (targetType == typeof(string))
+                {
+                    return String.Empty;
+                }
+                else if (targetType == typeof(Color))
+                {
+                    return GetColor(ResultType.Unknown);
+                }
+                else if (targetType == typeof(Brush))
+                {
+                    return GetBrush(ResultType.Unknown);
+                }
+                else if (targetType == typeof(ImageSource))
+                {
+                    return GetIconPath(ResultType.Unknown);
+                }
+            }
             return null;
         }
 

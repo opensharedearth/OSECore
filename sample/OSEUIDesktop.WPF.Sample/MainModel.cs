@@ -12,5 +12,6 @@ namespace OSEUIDesktop.WPF.Sample
         public static MainModel Instance { get; } = new MainModel();
         private ResultLog _log = new ResultLog();
         public ResultLog Log => _log;
+        public SampleDocument Document { get; set; }
     }
 }

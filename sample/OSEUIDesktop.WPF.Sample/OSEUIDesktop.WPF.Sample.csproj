@@ -15,16 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\ic_content_copy_black_24dp.png" />
-    <None Remove="Images\ic_content_cut_black_24dp.png" />
-    <None Remove="Images\ic_content_paste_black_24dp.png" />
-    <None Remove="Images\ic_delete_sweep_black_24dp.png" />
-    <None Remove="Images\ic_mode_edit_black_24dp.png" />
-    <None Remove="Images\ic_my_location_black_24dp.png" />
-    <None Remove="Images\ic_pan_tool_black_24dp.png" />
-    <None Remove="Images\ic_redo_black_24dp.png" />
-    <None Remove="Images\ic_undo_black_24dp.png" />
-    <None Remove="Images\ic_zoom_in_black_24dp.png" />
+    <None Remove="Fonts\FluentSystemIcons-Filled.ttf" />
     <None Remove="osecore.ico" />
   </ItemGroup>
 
@@ -37,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\FluentSystemIcons-Filled.ttf" />
     <Resource Include="Images\osecore.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -45,36 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\ic_content_copy_black_24dp.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ic_content_cut_black_24dp.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ic_content_paste_black_24dp.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ic_delete_sweep_black_24dp.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ic_mode_edit_black_24dp.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ic_my_location_black_24dp.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ic_pan_tool_black_24dp.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ic_redo_black_24dp.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ic_undo_black_24dp.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ic_zoom_in_black_24dp.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="osecore.ico">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

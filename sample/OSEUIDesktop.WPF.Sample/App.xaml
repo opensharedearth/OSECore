@@ -14,6 +14,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <Label HorizontalAlignment="Right">Default Journal Location:</Label>
+                <TextBox x:Name="DefaultJournalLocation" HorizontalAlignment="Left"/>
             </Grid>
         </DataTemplate>
     </oseapp:DesktopApp.Resources>

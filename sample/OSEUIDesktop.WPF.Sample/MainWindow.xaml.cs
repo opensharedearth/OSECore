@@ -1,9 +1,11 @@
 ﻿using OSECoreUI.App;
 using OSECoreUI.Document;
+using OSECoreUI.Logging;
 using OSEUI.WPF.App;
 using OSEUI.WPF.Commands;
 using OSEUI.WPF.Document;
 using OSEUIForms.WPF.App;
+using OSEUIForms.WPF.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -306,5 +308,75 @@ namespace OSEUIDesktop.WPF.Sample
 
         }
 
+        private void LogGood(object sender, RoutedEventArgs e)
+        {
+            ViewModel.ResultLog.LogGood("This is a good message.");
+        }
+
+        private void LogWarning(object sender, RoutedEventArgs e)
+        {
+            ViewModel.ResultLog.LogSuspect("This is a suspect message.");
+        }
+
+        private void LogError(object sender, RoutedEventArgs e)
+        {
+            ViewModel.ResultLog.LogBad("This is an bad message.");
+        }
+        private ResultLogForm _form = null;
+        protected void CanShowResultLogForm(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        protected void ShowResultLogForm(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (_form != null && _form.IsVisible)
+            {
+                _form.Close();
+                _form = null;
+            }
+            else
+            {
+                _form = new ResultLogForm(new ResultLogView(MainViewModel.ResultLog));
+                _form.Owner = Window.GetWindow(this);
+                _form.Closing += _form_Closing;
+                _form.Show();
+            }
+        }
+
+        protected void _form_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _form = null;
+        }
+
+        private void CanAddEntry(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = !MainViewModel.InEdit;
+        }
+
+        private void AddEntry(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainViewModel.AddEntry();
+        }
+
+        private void CanEditEntry(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = MainViewModel.SelectedEntry != null && !MainViewModel.InEdit;
+        }
+
+        private void EditEntry(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainViewModel.InEdit = true;
+        }
+
+        private void CanDeleteEntry(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = MainViewModel.SelectedEntry != null && !MainViewModel.InEdit;
+        }
+
+        private void DeleteEntry(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainViewModel.DeleteEntry();
+        }
     }
 }

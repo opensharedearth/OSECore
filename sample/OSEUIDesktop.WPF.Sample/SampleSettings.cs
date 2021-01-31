@@ -13,7 +13,6 @@ namespace OSEUIDesktop.WPF.Sample
     {
         public SampleSettings()
         {
-
         }
         public SampleSettings(SerializationInfo info, StreamingContext context)
             : base(info,context)
@@ -25,5 +24,6 @@ namespace OSEUIDesktop.WPF.Sample
             base.GetObjectData(info, context);
         }
         public override bool IsDirty => base.IsDirty;
+
     }
 }

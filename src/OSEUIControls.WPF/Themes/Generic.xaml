@@ -5,6 +5,7 @@
     xmlns:graphics="clr-namespace:OSEUI.WPF.Graphics;assembly=OSEUI.WPF"
     xmlns:converters="clr-namespace:OSEUI.WPF.Converters;assembly=OSEUI.WPF"
     xmlns:commands="clr-namespace:OSEUI.WPF.Commands;assembly=OSEUI.WPF"
+    xmlns:appui="clr-namespace:OSECoreUI.App;assembly=OSECoreUI"
     >
     <Style TargetType="{x:Type local:ColorPaletteEditor}">
         <Setter Property="Padding" Value="5"/>
@@ -257,6 +258,10 @@
 
 
     <Style TargetType="{x:Type local:StatusBar}">
+        <Style.Resources>
+            <appui:UIStatus x:Key="UIStatus"/>
+            <appui:UIZoom x:Key="UIZoom"/>
+        </Style.Resources>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:StatusBar}">
@@ -264,19 +269,26 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <StatusBar>
-                            <StatusBarItem DockPanel.Dock="Left">
-                                <ToggleButton x:Name="ResultLogButton" Command="commands:DesktopAppCommands.ShowResultLogFormCommand">
-                                    <Image Source="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, Path=ResultLogView.StatusLine, Converter={StaticResource ResultConverter}}" Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, Path=ResultLogView.HasStatusLine, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                </ToggleButton>
-                            </StatusBarItem>
-                            <StatusBarItem DockPanel.Dock="Right">
-                                <Slider x:Name="ZoomSlider" Width="200" HorizontalAlignment="Stretch" Minimum="1" Maximum="5" ToolTip="Zoom level" Visibility="Collapsed"/>
-                            </StatusBarItem>
-                            <StatusBarItem DockPanel.Dock="Right">
-                                <ProgressBar x:Name="ResultProgress" Width="200" Height="20" Minimum="0" Maximum="100" Value="50" Visibility="Collapsed"/>
-                            </StatusBarItem>
+                            <StatusBar.Resources>
+                                <converters:ResultConverter x:Key="ResultConverter"/>
+                                <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+                            </StatusBar.Resources>
                             <StatusBarItem>
-                                <TextBlock Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, Path=ResultLogView.StatusLine, Converter={StaticResource ResultConverter}}" Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, Path=ResultLogView.StatusLine, Converter={StaticResource ResultConverter}}"/>
+                                <TextBlock x:Name="StatusText"/>
+                            </StatusBarItem>
+                            <StatusBarItem DockPanel.Dock="Right">
+                                <ProgressBar x:Name="StatusProgress" Width="200" Height="20" Minimum="0" Maximum="100" Value="50" Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HasProgress, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            </StatusBarItem>
+                            <StatusBarItem DockPanel.Dock="Right">
+                                <Slider x:Name="ZoomSlider" Width="200" HorizontalAlignment="Stretch" 
+                                        Minimum="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=UIZoom.MinZoomLevel}" 
+                                        Maximum="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=UIZoom.MaxZoomLevel}" 
+                                        ToolTip="Zoom level" Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HasZoom, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            </StatusBarItem>
+                            <StatusBarItem DockPanel.Dock="Right">
+                                <ToggleButton x:Name="ResultLogButton" Command="commands:DesktopAppCommands.ShowResultLogFormCommand" Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ResultLogView.HasStatusLine, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <Image Source="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ResultLogView.StatusLine, Converter={StaticResource ResultConverter}}"/>
+                                </ToggleButton>
                             </StatusBarItem>
                         </StatusBar>
                     </Border>
