@@ -46,16 +46,29 @@ namespace OSEUIDesktop.WPF.Sample
         public UIZoom UIZoom { get => _uiZoom; }
         public UIStatus UiStatus { get => _uiStatus; }
         public MainModel Model => _model;
-        public JournalEntries Entries => Model.Document.Entries;
+        public JournalEntries Entries => Model.Document?.Entries ?? null;
         public JournalEntry _selectedEntry = null;
         public JournalEntry SelectedEntry
         {
             get => _selectedEntry;
             set
             {
-                if(_selectedEntry != value)
+                if (_selectedEntry != value)
                 {
                     _selectedEntry = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private int _selectedIndex = -1;
+        public int SelectedIndex 
+        {
+            get => _selectedIndex;
+            set
+            {
+                if(_selectedIndex != value)
+                {
+                    _selectedIndex = value;
                     OnPropertyChanged();
                 }
             }
@@ -64,8 +77,12 @@ namespace OSEUIDesktop.WPF.Sample
         public void AddEntry()
         {
             var entry = new JournalEntry();
+            int index = Model.Document.Entries.Count;
             Model.Document.Entries.Add(entry);
-            _selectedEntry = entry;
+            Model.Document.Dirty();
+            CommitEdit();
+            SelectedIndex = index;
+            StartEdit();
             UndoRedo.PushUndo(new UndoObject(
                 "add journal entry",
                 new UndoContext(entry),
@@ -73,7 +90,7 @@ namespace OSEUIDesktop.WPF.Sample
                 {
                     var entry = uc[0] as JournalEntry;
                     int index = Model.Document.Entries.IndexOf(entry);
-                    if(index >= 0)
+                    if (index >= 0)
                     {
                         Model.Document.Entries.RemoveAt(index);
                     }
@@ -92,37 +109,38 @@ namespace OSEUIDesktop.WPF.Sample
             get => _inEdit;
             set
             {
-                if(_inEdit != value)
+                if (_inEdit != value)
                 {
-                    var entry = SelectedEntry;
-                    int index = Model.Document.Entries.IndexOf(entry);
-                    if (entry != null && index >= 0)
-                    {
-                        _inEdit = value;
-                        if(_inEdit)
-                        {
-                            UndoRedo.StartSequence();
-                            UndoRedo.PushUndo(new UndoObject(
-                                "edit journal entry",
-                                new UndoContext(index, new JournalEntry(entry)),
-                                (uc) =>
-                                {
-                                    var newEntry = Model.Document.Entries[index];
-                                    Model.Document.Entries[index] = newEntry;
-                                    return new UndoContext(index, newEntry);
-                                },
-                                (rc) =>
-                                {
-                                    Model.Document.Entries[(int)rc[0]] = rc[1] as JournalEntry;
-                                }
-                                ));
-                        }
-                        else
-                        {
-                            UndoRedo.EndSequence("edit journal entry");
-                        }
-                        OnPropertyChanged();
-                    }
+                    _inEdit = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(NotInEdit));
+                }
+            }
+        }
+
+        private bool _showDocumentToolBar = true;
+        public bool ShowDocumentToolBar
+        {
+            get => _showDocumentToolBar;
+            set
+            {
+                if(_showDocumentToolBar != value)
+                {
+                    _showDocumentToolBar = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private bool _showEditToolBar = true;
+        public bool ShowEditToolBar
+        {
+            get => _showEditToolBar;
+            set
+            {
+                if (_showEditToolBar != value)
+                {
+                    _showEditToolBar = value;
+                    OnPropertyChanged();
                 }
             }
         }
@@ -130,10 +148,10 @@ namespace OSEUIDesktop.WPF.Sample
         internal void DeleteEntry()
         {
             var entry = SelectedEntry;
-            if(entry != null)
+            if (entry != null)
             {
                 int index = _model.Document.Entries.IndexOf(entry);
-                if(index >= 0)
+                if (index >= 0)
                 {
                     _model.Document.Entries.RemoveAt(index);
                     UndoRedo.PushUndo(new UndoObject(
@@ -151,6 +169,61 @@ namespace OSEUIDesktop.WPF.Sample
                         ));
                 }
             }
+        }
+
+        public void StartEdit()
+        {
+            if (!_inEdit && SelectedEntry != null)
+            {
+                var entry = new JournalEntry(SelectedEntry);
+                SelectedEntry = entry;
+                InEdit = true;
+            }
+        }
+        public void CommitEdit()
+        {
+            var index = SelectedIndex;
+            var entry = SelectedEntry;
+            if (_inEdit && entry != null && index >= 0 && !entry.Equals(Entries[SelectedIndex]))
+            {
+                Entries[index] = entry;
+                SelectedIndex = index;
+                UndoRedo.PushUndo(new UndoObject(
+                     "edit journal entry",
+                     new UndoContext(SelectedIndex, new JournalEntry(entry)),
+                     (uc) =>
+                     {
+                         var newEntry = Model.Document.Entries[index];
+                         Model.Document.Entries[index] = newEntry;
+                         return new UndoContext(index, newEntry);
+                     },
+                     (rc) =>
+                     {
+                         Model.Document.Entries[(int)rc[0]] = rc[1] as JournalEntry;
+                     }
+                     ));
+                InEdit = false;
+                Model.Document.Dirty();
+            }
+            else if(_inEdit)
+            {
+                CancelEdit();
+            }
+        }
+
+        internal void CancelEdit()
+        {
+            var index = SelectedIndex;
+            var entry = SelectedEntry;
+            if (_inEdit && entry != null && index >= 0)
+            {
+                SelectedEntry = Entries[index];
+                InEdit = false;
+            }
+        }
+        public void UpdateViewModel()
+        {
+            OnPropertyChanged(nameof(Entries));
         }
     }
 }

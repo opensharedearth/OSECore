@@ -34,6 +34,8 @@
         <CommandBinding Command="local:SampleCommands.AddEntry" CanExecute="CanAddEntry" Executed="AddEntry"/>
         <CommandBinding Command="local:SampleCommands.EditEntry" CanExecute="CanEditEntry" Executed="EditEntry"/>
         <CommandBinding Command="local:SampleCommands.DeleteEntry" CanExecute="CanDeleteEntry" Executed="DeleteEntry"/>
+        <CommandBinding Command="local:SampleCommands.AddImage" CanExecute="CanAddImage" Executed="AddImage"/>
+        <CommandBinding Command="local:SampleCommands.DeleteImage" CanExecute="CanDeleteImage" Executed="DeleteImage"/>
     </Window.CommandBindings>
     <Window.Resources>
         <Style x:Key="MenuIcon" TargetType="TextBlock">
@@ -44,6 +46,7 @@
             <Setter Property="FontFamily" Value="pack://application:,,,/fonts/#FluentSystemIcons-Filled"/>
             <Setter Property="FontSize" Value="24"/>
         </Style>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -51,12 +54,12 @@
             <ColumnDefinition Width="87*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Menu Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,13" Grid.RowSpan="2">
+        <Menu Grid.Row="0" Grid.ColumnSpan="2">
             <Menu.Items>
                 <MenuItem Header="_File" x:Name="FileMenu">
                     <MenuItem.Items>
@@ -122,10 +125,20 @@
                     </MenuItem.Items>
                 </MenuItem>
                 <MenuItem Header="_Entry">
-                    <MenuItem Header="_Add Entry"/>
-                    <MenuItem Header="_Edit Entry"/>
+                    <MenuItem Header="_Add Entry" Command="local:SampleCommands.AddEntry"/>
+                    <MenuItem Header="_Edit Entry" Command="local:SampleCommands.EditEntry"/>
                     <Separator/>
-                    <MenuItem Header="_Delete Entry"/>
+                    <MenuItem Header="_Delete Entry" Command="local:SampleCommands.DeleteEntry"/>
+                </MenuItem>
+                <MenuItem Header="_View">
+                    <MenuItem.Items>
+                        <MenuItem Header="Toolbars">
+                            <MenuItem.Items>
+                                <MenuItem Header="Document" IsCheckable="True" IsChecked="{Binding ShowDocumentToolBar}"/>
+                                <MenuItem Header="Edit" IsCheckable="True" IsChecked="{Binding ShowEditToolBar}"/>
+                            </MenuItem.Items>
+                        </MenuItem>
+                    </MenuItem.Items>
                 </MenuItem>
                 <MenuItem Header="_Tools">
                     <MenuItem.Items>
@@ -139,28 +152,47 @@
                 </MenuItem>
             </Menu.Items>
         </Menu>
-        <ToolBarTray Grid.Row="1" >
-            <ToolBar VerticalAlignment="Stretch">
+        <ToolBarTray Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
+            <ToolBar Name="EntryToolBar"
+                     Visibility="{Binding Path=ShowDocumentToolBar, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <ToolBar.Items>
-                    <Button ToolTip="Undo" Command="ApplicationCommands.Undo">
+                    <Button ToolTip="New Document" Command="ApplicationCommands.New">
+                        <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf9e3;"/>
+                    </Button>
+                    <Button ToolTip="Save Document" Command="ApplicationCommands.Save">
+                        <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf68a;"/>
+                    </Button>
+                    <Separator/>
+                    <Button ToolTip="Add Journal Entry" Command="local:SampleCommands.AddEntry">
+                        <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf301;"/>
+                    </Button>
+                    <Button ToolTip="Edit Journal Entry" Command="local:SampleCommands.EditEntry">
+                        <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf9a8;"/>
+                    </Button>
+                    <Separator/>
+                    <Button ToolTip="Remove Journal Entry" Command="local:SampleCommands.DeleteEntry">
+                        <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xfbf5;"/>
+                    </Button>
+                </ToolBar.Items>
+            </ToolBar>
+            <ToolBar Name="EditToolBar"
+                    Visibility="{Binding Path=ShowEditToolBar, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <ToolBar.Items>
+                    <Button ToolTip="_Undo" Command="ApplicationCommands.Undo">
                         <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf19a;"/>
                     </Button>
-                    <Button ToolTip="Redo" Command="ApplicationCommands.Redo">
+                    <Button ToolTip="_Redo" Command="ApplicationCommands.Redo">
                         <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf16f;"/>
                     </Button>
                     <Separator/>
-                    <Button ToolTip="Cut" Command="ApplicationCommands.Cut">
+                    <Button ToolTip="_Cut" Command="ApplicationCommands.Cut">
                         <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf33b;"/>
                     </Button>
-                    <Button ToolTip="Copy" Command="ApplicationCommands.Copy">
+                    <Button ToolTip="C_opy" Command="ApplicationCommands.Copy">
                         <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf32c;"/>
                     </Button>
-                    <Button ToolTip="Paste" Command="ApplicationCommands.Paste">
+                    <Button ToolTip="_Paste" Command="ApplicationCommands.Paste">
                         <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf2d6;"/>
-                    </Button>
-                    <Separator/>
-                    <Button ToolTip="Delete" Command="ApplicationCommands.Delete">
-                        <TextBlock Style="{StaticResource ToolBarIcon}" Text="&#xf34d;"/>
                     </Button>
                 </ToolBar.Items>
             </ToolBar>
@@ -175,23 +207,54 @@
                 <ColumnDefinition Width="80*"/>
             </Grid.ColumnDefinitions>
             <GridSplitter Grid.Column="1" Width="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-            <ListView x:Name="EntryList" Grid.Column="0" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <ListView x:Name="EntryList" Grid.Column="0" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{Binding Entries}" SelectionChanged="EntryListSelectionChanged"
+                      SelectedIndex="{Binding SelectedIndex}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn/>
+                        <GridViewColumn Header="Posted" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                   <TextBlock TextWrapping="Wrap" Text="{Binding DateLine}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Title" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding Title}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Grid Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <ScrollViewer Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="{Binding NotInEdit, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <StackPanel>
+                    <TextBlock FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Center" Text="{Binding SelectedEntry.Title}"/>
+                    <Image HorizontalAlignment="Center" Source="{Binding SelectedEntry.Image}"/>
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding SelectedEntry.Entry}"/>
+                </StackPanel>
+            </ScrollViewer>
+            <Grid Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="{Binding InEdit, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="20*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <TextBox x:Name="EntryTitle" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Stretch" IsReadOnly="{Binding NotInEdit}" Text="{Binding SelectedEntry.Title}"/>
-                <Image Name="EntryImage" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Stretch" Source="{Binding SelectedEntry.Image}"/>
-                <TextBox x:Name="EntryContent" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="{Binding NotInEdit}" Text="{Binding SelectedEntry.Entry}">
-                </TextBox>
+                <ScrollViewer Grid.Row="0" VerticalAlignment="Stretch">
+                    <StackPanel>
+                        <TextBox x:Name="EntryTitle" FontSize="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Stretch" Text="{Binding SelectedEntry.Title}" GotKeyboardFocus="OnTitleFocused"/>
+                        <Image Name="EntryImage" HorizontalAlignment="Center" Source="{Binding SelectedEntry.Image}"/>
+                        <TextBox x:Name="EntryContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="{Binding NotInEdit}" 
+                        Text="{Binding SelectedEntry.Entry}" GotKeyboardFocus="OnContentFocused"
+                        AcceptsReturn="True"/>
+                    </StackPanel>
+                </ScrollViewer>
+                <osecontrols:ButtonPanel Grid.Row="1" x:Name="OkCancel" ButtonPressed="EditFormButtonPressed" Visibility="{Binding Path=InEdit, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <osecontrols:ButtonPanel.Buttons>
+                        <osecontrols:ButtonPanelButton Tag="AddImage" Label="Add Image" Command="local:SampleCommands.AddImage"/>
+                        <osecontrols:ButtonPanelButton Tag="DeleteImage" Label="Remove Image" Command="local:SampleCommands.DeleteImage"/>
+                    </osecontrols:ButtonPanel.Buttons>
+                </osecontrols:ButtonPanel>
             </Grid>
         </Grid>
         <osecontrols:StatusBar Grid.Row="3" Height="30" ResultLog="{Binding ResultLog}" UIZoom="{Binding UIZoom}"

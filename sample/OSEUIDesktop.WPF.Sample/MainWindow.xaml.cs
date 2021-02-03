@@ -1,14 +1,17 @@
-﻿using OSECoreUI.App;
+﻿using Microsoft.Win32;
+using OSECoreUI.App;
 using OSECoreUI.Document;
 using OSECoreUI.Logging;
 using OSEUI.WPF.App;
 using OSEUI.WPF.Commands;
 using OSEUI.WPF.Document;
+using OSEUIControls.WPF;
 using OSEUIForms.WPF.App;
 using OSEUIForms.WPF.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +38,17 @@ namespace OSEUIDesktop.WPF.Sample
             UpdateRecentDocumentMenu();
             UpdateView();
             UpdateTitle();
+            ViewModel.PropertyChanged += ViewModel_PropertyChanged;
         }
+
+        private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "InEdit" && ViewModel.InEdit)
+            {
+                EntryTitle.Focus();
+            }
+        }
+
         protected override void OnInitialized(EventArgs e)
         {
             DesktopApp.Instance.Settings.ApplyMainWindowBounds(this);
@@ -207,6 +220,7 @@ namespace OSEUIDesktop.WPF.Sample
             {
                 DesktopApp.Instance.NewDocument();
             }
+            MainModel.Instance.Document = CurrentDocument as SampleDocument;
             UpdateTitle();
         }
         private void CanOpenDocument(object sender, CanExecuteRoutedEventArgs e)
@@ -221,6 +235,7 @@ namespace OSEUIDesktop.WPF.Sample
             UpdateRecentFiles();
             UpdateRecentDocumentMenu();
             UpdateTitle();
+            MainModel.Instance.Document = CurrentDocument as SampleDocument;
             UpdateView();
         }
         private void UpdateRecentFiles()
@@ -232,13 +247,22 @@ namespace OSEUIDesktop.WPF.Sample
         }
         private void UpdateView()
         {
+            MainViewModel.UpdateViewModel();
             if (CurrentDocument != null)
             {
+                if(MainViewModel.SelectedIndex < 0 && CurrentDocument.Entries.Count > 0)
+                {
+                    MainViewModel.SelectedIndex = 0;
+                }
+            }
+            else
+            {
+                MainViewModel.SelectedIndex = -1;
             }
         }
         private void CanSaveDocument(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = CurrentDocument != null && (CurrentDocument.IsDirty || CurrentDocument.IsEmpty);
+            e.CanExecute = CurrentDocument != null && CurrentDocument.IsDirty;
         }
         private void SaveDocumentHandler(object sender, ExecutedRoutedEventArgs e)
         {
@@ -281,6 +305,7 @@ namespace OSEUIDesktop.WPF.Sample
         {
             DesktopApp.Instance.CloseDocument();
             UpdateTitle();
+            MainModel.Instance.Document = null;
             UpdateView();
         }
         private void CanOpenRecentDocument(object sender, CanExecuteRoutedEventArgs e)
@@ -303,25 +328,12 @@ namespace OSEUIDesktop.WPF.Sample
                 DesktopApp.Instance.CurrentDocument = BaseDocument.Open(path, ViewModel.ResultLog) as SampleDocument;
                 DesktopApp.Instance.UpdateDocumentFolder();
                 UpdateTitle();
+                MainModel.Instance.Document = CurrentDocument as SampleDocument;
                 UpdateView();
             }
 
         }
 
-        private void LogGood(object sender, RoutedEventArgs e)
-        {
-            ViewModel.ResultLog.LogGood("This is a good message.");
-        }
-
-        private void LogWarning(object sender, RoutedEventArgs e)
-        {
-            ViewModel.ResultLog.LogSuspect("This is a suspect message.");
-        }
-
-        private void LogError(object sender, RoutedEventArgs e)
-        {
-            ViewModel.ResultLog.LogBad("This is an bad message.");
-        }
         private ResultLogForm _form = null;
         protected void CanShowResultLogForm(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -366,7 +378,7 @@ namespace OSEUIDesktop.WPF.Sample
 
         private void EditEntry(object sender, ExecutedRoutedEventArgs e)
         {
-            MainViewModel.InEdit = true;
+            MainViewModel.StartEdit();
         }
 
         private void CanDeleteEntry(object sender, CanExecuteRoutedEventArgs e)
@@ -377,6 +389,69 @@ namespace OSEUIDesktop.WPF.Sample
         private void DeleteEntry(object sender, ExecutedRoutedEventArgs e)
         {
             MainViewModel.DeleteEntry();
+        }
+
+        private void EntryListSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(e.AddedItems.Count > 0)
+            {
+                MainViewModel.SelectedEntry = e.AddedItems[0] as JournalEntry;
+            }
+            else
+            {
+                MainViewModel.SelectedEntry = null;
+            }
+        }
+
+        private void EditFormButtonPressed(object sender, OSEUIControls.WPF.Events.PanelButtonEventArgs args)
+        {
+            if(args.ButtonTag == ButtonPanel.OKTag)
+            {
+                if (EntryTitle.IsFocused) EntryTitle.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+                MainViewModel.CommitEdit();
+            }
+            else if(args.ButtonTag == ButtonPanel.CancelTag)
+            {
+                MainViewModel.CancelEdit();
+            }
+        }
+
+        private void CanAddImage(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = MainViewModel.SelectedEntry != null && MainViewModel.SelectedEntry.Image == null;
+        }
+
+        private void AddImage(object sender, ExecutedRoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            dialog.InitialDirectory = App.Instance.Settings.DocumentFolder;
+            dialog.Filter = "Images {*.gif, *.jpg, *.png, *.bmp)|*.gif;*.jpg;*.jpeg;*.png;*.bmp|All Files (*.*)|*.*";
+            if(dialog.ShowDialog() == true)
+            {
+                string path = dialog.FileName;
+                var bitmap = new BitmapImage(new Uri(path, UriKind.Absolute));
+                MainViewModel.SelectedEntry.Image = bitmap;
+            }
+        }
+
+        private void CanDeleteImage(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = MainViewModel.SelectedEntry != null && MainViewModel.SelectedEntry.Image != null;
+        }
+
+        private void DeleteImage(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainViewModel.SelectedEntry.Image = null;
+        }
+
+        private void OnTitleFocused(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            EntryTitle.CaretIndex = EntryTitle.Text.Length;
+        }
+
+        private void OnContentFocused(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            EntryContent.CaretIndex = EntryTitle.Text.Length;
         }
     }
 }

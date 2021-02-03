@@ -21,6 +21,7 @@ namespace OSEUIDesktop.WPF.Sample
                 ))
         {
             Instance = this;
+            MainModel.Instance.Document = CurrentDocument as SampleDocument;
         }
         public new static App Instance { get; private set; }
 
