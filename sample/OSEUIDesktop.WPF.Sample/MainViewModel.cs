@@ -24,6 +24,7 @@ namespace OSEUIDesktop.WPF.Sample
         {
             ResultLog = new ResultLog();
             UndoRedo = new UndoRedoFrameworkView(DesktopApp.Instance.UndoRedo);
+            UiStatus.StopProgress();
         }
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

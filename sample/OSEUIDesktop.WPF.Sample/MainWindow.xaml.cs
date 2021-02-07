@@ -234,6 +234,7 @@ namespace OSEUIDesktop.WPF.Sample
             }
             MainModel.Instance.Document = CurrentDocument as SampleDocument;
             UpdateTitle();
+            MainViewModel.UiStatus.Status = "Created new document.";
         }
         private void CanOpenDocument(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -249,6 +250,7 @@ namespace OSEUIDesktop.WPF.Sample
             UpdateTitle();
             MainModel.Instance.Document = CurrentDocument as SampleDocument;
             UpdateView();
+            MainViewModel.UiStatus.Status = $"Opened '{CurrentDocument.Title}'";
         }
         private void UpdateRecentFiles()
         {
@@ -285,6 +287,7 @@ namespace OSEUIDesktop.WPF.Sample
             {
                 UpdateTitle();
                 DesktopApp.Instance.UndoRedo.Clear();
+                MainViewModel.UiStatus.Status = $"Saved '{CurrentDocument.Title}'";
             }
         }
         private void CanSaveAsDocument(object sender, CanExecuteRoutedEventArgs e)
@@ -317,10 +320,12 @@ namespace OSEUIDesktop.WPF.Sample
 
         private void CloseDocumentHandler(object sender, ExecutedRoutedEventArgs e)
         {
+            string title = CurrentDocument.Title;
             DesktopApp.Instance.CloseDocument();
             UpdateTitle();
             MainModel.Instance.Document = null;
             UpdateView();
+            MainViewModel.UiStatus.Status = $"Closed '{title}'";
         }
         private void CanOpenRecentDocument(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -344,6 +349,7 @@ namespace OSEUIDesktop.WPF.Sample
                 UpdateTitle();
                 MainModel.Instance.Document = CurrentDocument as SampleDocument;
                 UpdateView();
+                MainViewModel.UiStatus.Status = $"Opened '{CurrentDocument.Title}'";
             }
 
         }
