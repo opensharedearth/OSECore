@@ -107,7 +107,19 @@ namespace OSEUIDesktop.WPF.Sample
                 }
             }
         }
-        public DateTime DateLine { get => _dateLine; set => _dateLine = value; }
+        public DateTime DateLine 
+        { 
+            get => _dateLine;
+            set
+            {
+                if(_dateLine != value)
+                {
+                    _dateLine = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string DateLineString => _dateLine.ToString(App.Instance.Settings.DateFormatString);
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

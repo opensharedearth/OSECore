@@ -223,7 +223,7 @@
                         <GridViewColumn Header="Posted" Width="100">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                   <TextBlock TextWrapping="Wrap" Text="{Binding DateLine}" />
+                                   <TextBlock TextWrapping="Wrap" Text="{Binding DateLineString}" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -287,6 +287,7 @@
             </Grid>
         </Grid>
         <osecontrols:StatusBar Grid.Row="3" Height="30" ResultLog="{Binding ResultLog}" UIZoom="{Binding UIZoom}"
-                               UIStatus="{Binding UiStatus}" HasProgress="True" HasZoom="True" Grid.ColumnSpan="2"/>
+                               UIStatus="{Binding UiStatus}" Grid.ColumnSpan="2"
+                               HasProgress="False" HasZoom="False"/>
     </Grid>
 </Window>

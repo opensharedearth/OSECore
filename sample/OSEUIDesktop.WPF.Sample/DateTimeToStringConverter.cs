@@ -15,7 +15,7 @@ namespace OSEUIDesktop.WPF.Sample
         {
             if(value is DateTime dt)
             {
-                return dt.ToString();
+                return dt.ToString(App.Instance.Settings.DateFormatString);
             }
             return DependencyProperty.UnsetValue;
         }

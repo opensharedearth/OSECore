@@ -25,6 +25,8 @@ namespace OSEUIDesktop.WPF.Sample
         }
         public new static App Instance { get; private set; }
 
+        public new SampleSettings Settings => base.Settings as SampleSettings;
+
         bool _abort = false;
         private void App_OnStartup(object sender, StartupEventArgs e)
         {

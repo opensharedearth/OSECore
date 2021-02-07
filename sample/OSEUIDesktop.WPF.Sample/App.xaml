@@ -8,14 +8,21 @@
         <DataTemplate x:Key="GeneralSettings">
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="70*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label HorizontalAlignment="Right">Default Journal Location:</Label>
-                <TextBox x:Name="DefaultJournalLocation" HorizontalAlignment="Left"/>
+                <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Default Journal Location:</Label>
+                <TextBox Grid.Column="1"  Grid.Row="0" x:Name="DefaultJournalLocation" HorizontalAlignment="Stretch"
+                         Text="{Binding Context.DocumentFolder}"/>
+                <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Date Format:</Label>
+                <ComboBox Grid.Column="1" Grid.Row="1" x:Name="DateFormat"
+                         ItemsSource="{Binding Context.DateFormats}" DisplayMemberPath="Example" 
+                         SelectedIndex="{Binding Context.DateFormatIndex}"/>
             </Grid>
         </DataTemplate>
     </oseapp:DesktopApp.Resources>

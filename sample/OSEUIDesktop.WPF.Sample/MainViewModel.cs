@@ -44,6 +44,7 @@ namespace OSEUIDesktop.WPF.Sample
             }
         }
 
+        public SampleSettings Settings => App.Instance.Settings;
         public UIZoom UIZoom { get => _uiZoom; }
         public UIStatus UiStatus { get => _uiStatus; }
         public MainModel Model => _model;
