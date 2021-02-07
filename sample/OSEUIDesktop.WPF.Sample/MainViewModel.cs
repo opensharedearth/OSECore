@@ -60,6 +60,20 @@ namespace OSEUIDesktop.WPF.Sample
                 }
             }
         }
+        public JournalEntry _entryInEdit = null;
+        public JournalEntry EntryInEdit
+        {
+            get => _entryInEdit;
+            set
+            {
+                if(_entryInEdit != value)
+                {
+                    _entryInEdit = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         private int _selectedIndex = -1;
         public int SelectedIndex 
         {
@@ -85,20 +99,23 @@ namespace OSEUIDesktop.WPF.Sample
             StartEdit();
             UndoRedo.PushUndo(new UndoObject(
                 "add journal entry",
-                new UndoContext(entry),
+                new UndoContext(index, entry),
                 (uc) =>
                 {
-                    var entry = uc[0] as JournalEntry;
-                    int index = Model.Document.Entries.IndexOf(entry);
-                    if (index >= 0)
-                    {
-                        Model.Document.Entries.RemoveAt(index);
-                    }
+                    var index = (int)uc[0];
+                    var entry = uc[1] as JournalEntry;
+                    CancelEdit();
+                    Model.Document.Entries.RemoveAt(index);
                     return new UndoContext(index, entry);
                 },
                 (rc) =>
                 {
-                    Model.Document.Entries.Insert((int)rc[0], rc[1] as JournalEntry);
+                    var index = (int)rc[0];
+                    var entry = rc[1] as JournalEntry;
+                    CancelEdit();
+                    Model.Document.Entries.Insert(index,entry);
+                    SelectedIndex = index;
+                    StartEdit();
                 }
                 ));
         }
@@ -147,27 +164,28 @@ namespace OSEUIDesktop.WPF.Sample
 
         internal void DeleteEntry()
         {
-            var entry = SelectedEntry;
-            if (entry != null)
+            var index = SelectedIndex;
+            if(index >= 0 && index < _model.Document.Entries.Count)
             {
-                int index = _model.Document.Entries.IndexOf(entry);
-                if (index >= 0)
-                {
-                    _model.Document.Entries.RemoveAt(index);
-                    UndoRedo.PushUndo(new UndoObject(
-                        "delete journal entry",
-                        new UndoContext(index, entry),
-                        (uc) =>
-                        {
-                            _model.Document.Entries.Insert((int)uc[0], uc[1] as JournalEntry);
-                            return uc;
-                        },
-                        (rc) =>
-                        {
-                            _model.Document.Entries.RemoveAt((int)rc[0]);
-                        }
-                        ));
-                }
+                var entry = _model.Document.Entries[index];
+                CancelEdit();
+                _model.Document.Entries.RemoveAt(index);
+                _model.Document.Dirty();
+                UndoRedo.PushUndo(new UndoObject(
+                    "delete journal entry",
+                    new UndoContext(index, entry),
+                    (uc) =>
+                    {
+                        CancelEdit();
+                        _model.Document.Entries.Insert((int)uc[0], uc[1] as JournalEntry);
+                        return uc;
+                    },
+                    (rc) =>
+                    {
+                        CancelEdit();
+                        _model.Document.Entries.RemoveAt((int)rc[0]);
+                    }
+                    ));
             }
         }
 
@@ -175,31 +193,39 @@ namespace OSEUIDesktop.WPF.Sample
         {
             if (!_inEdit && SelectedEntry != null)
             {
-                var entry = new JournalEntry(SelectedEntry);
-                SelectedEntry = entry;
+                EntryInEdit = new JournalEntry(SelectedEntry);
                 InEdit = true;
             }
         }
         public void CommitEdit()
         {
             var index = SelectedIndex;
-            var entry = SelectedEntry;
-            if (_inEdit && entry != null && index >= 0 && !entry.Equals(Entries[SelectedIndex]))
+            var entry = EntryInEdit;
+            var entry0 = SelectedEntry;
+            if (_inEdit && entry != null && index >= 0 && !entry.Equals(entry0))
             {
                 Entries[index] = entry;
                 SelectedIndex = index;
                 UndoRedo.PushUndo(new UndoObject(
                      "edit journal entry",
-                     new UndoContext(SelectedIndex, new JournalEntry(entry)),
+                     new UndoContext(index, new JournalEntry(entry0)),
                      (uc) =>
                      {
+                         int index = (int)uc[0];
+                         var entry = uc[1] as JournalEntry;
+                         CancelEdit();
                          var newEntry = Model.Document.Entries[index];
-                         Model.Document.Entries[index] = newEntry;
+                         Model.Document.Entries[index] = entry;
+                         SelectedEntry = entry;
                          return new UndoContext(index, newEntry);
                      },
                      (rc) =>
                      {
-                         Model.Document.Entries[(int)rc[0]] = rc[1] as JournalEntry;
+                         CancelEdit();
+                         int index = (int)rc[0];
+                         var entry = rc[1] as JournalEntry;
+                         Model.Document.Entries[index] = entry;
+                         SelectedEntry = entry;
                      }
                      ));
                 InEdit = false;
@@ -213,11 +239,9 @@ namespace OSEUIDesktop.WPF.Sample
 
         internal void CancelEdit()
         {
-            var index = SelectedIndex;
-            var entry = SelectedEntry;
-            if (_inEdit && entry != null && index >= 0)
+            if (_inEdit)
             {
-                SelectedEntry = Entries[index];
+                EntryInEdit = null;
                 InEdit = false;
             }
         }

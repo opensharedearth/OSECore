@@ -9,7 +9,7 @@
         xmlns:oseuicommands="clr-namespace:OSEUI.WPF.Commands;assembly=OSEUI.WPF"
         xmlns:osecontrols="clr-namespace:OSEUIControls.WPF;assembly=OSEUIControls.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Icon="osecore.ico">
+        Title="MainWindow" Height="800" Width="800" Icon="osecore.ico">
     <Window.DataContext>
         <local:MainViewModel x:Name="MainViewModel"/>
     </Window.DataContext>
@@ -46,7 +46,16 @@
             <Setter Property="FontFamily" Value="pack://application:,,,/fonts/#FluentSystemIcons-Filled"/>
             <Setter Property="FontSize" Value="24"/>
         </Style>
+        <Style x:Key="validationStyleTextBox" TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" 
+                    Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <local:DateTimeToStringConverter x:Key="DateTimeToStringConverter"/>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -230,9 +239,9 @@
             </ListView>
             <ScrollViewer Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="{Binding NotInEdit, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <StackPanel>
-                    <TextBlock FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Center" Text="{Binding SelectedEntry.Title}"/>
-                    <Image HorizontalAlignment="Center" Source="{Binding SelectedEntry.Image}"/>
-                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding SelectedEntry.Entry}"/>
+                    <TextBlock Margin="10"  FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Center" Text="{Binding SelectedEntry.Title}"/>
+                    <Image Margin="10" Name="EntryImage" HorizontalAlignment="Center" Source="{Binding SelectedEntry.Image}"/>
+                    <TextBlock Margin="10" TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding SelectedEntry.Entry}"/>
                 </StackPanel>
             </ScrollViewer>
             <Grid Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="{Binding InEdit, Converter={StaticResource BooleanToVisibilityConverter}}">
@@ -242,11 +251,31 @@
                 </Grid.RowDefinitions>
                 <ScrollViewer Grid.Row="0" VerticalAlignment="Stretch">
                     <StackPanel>
-                        <TextBox x:Name="EntryTitle" FontSize="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Stretch" Text="{Binding SelectedEntry.Title}" GotKeyboardFocus="OnTitleFocused"/>
-                        <Image Name="EntryImage" HorizontalAlignment="Center" Source="{Binding SelectedEntry.Image}"/>
-                        <TextBox x:Name="EntryContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="{Binding NotInEdit}" 
-                        Text="{Binding SelectedEntry.Entry}" GotKeyboardFocus="OnContentFocused"
-                        AcceptsReturn="True"/>
+                        <Label Margin="10,0,0,0">Date Line:</Label>
+                        <TextBox Margin="10,0,10,0" x:Name="EntryDateLine" Style="{StaticResource validationStyleTextBox}">
+                            <TextBox.Text>
+                                <Binding Path="EntryInEdit.DateLine" Converter="{StaticResource DateTimeToStringConverter}">
+                                    <Binding.ValidationRules>
+                                        <local:DateTimeValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <Label Margin="10,0,0,0">Title:</Label>
+                        <TextBox Margin="10,0,10,0" x:Name="EntryTitle" FontSize="24" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Stretch" Text="{Binding EntryInEdit.Title}" GotKeyboardFocus="OnTitleFocused"/>
+                        <Label Margin="10,0,0,0">Image:</Label>
+                        <local:SelectablePanel Margin="10,0,10,0" x:Name="ImagePanel" Background="White"
+                                   Focusable="true"
+                                   >
+                            <local:SelectablePanel.CommandBindings>
+                                <CommandBinding Command="ApplicationCommands.Paste" CanExecute="CanPaste" Executed="Paste"/>
+                            </local:SelectablePanel.CommandBindings>
+                            <Image HorizontalAlignment="Center" Source="{Binding EntryInEdit.Image}" MinHeight="100"/>
+                        </local:SelectablePanel>
+                        <Label Margin="10,0,0,0">Entry:</Label>
+                        <TextBox Margin="10,0,10,0" x:Name="EntryContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                            Text="{Binding EntryInEdit.Entry}" GotKeyboardFocus="OnContentFocused"
+                            AcceptsReturn="True" MinHeight="100"/>
                     </StackPanel>
                 </ScrollViewer>
                 <osecontrols:ButtonPanel Grid.Row="1" x:Name="OkCancel" ButtonPressed="EditFormButtonPressed" Visibility="{Binding Path=InEdit, Converter={StaticResource BooleanToVisibilityConverter}}">

@@ -157,8 +157,14 @@ namespace OSEUIDesktop.WPF.Sample
         {
             try
             {
-                IDataObject d = Clipboard.GetDataObject();
-                e.CanExecute = false;
+                if(sender == ImagePanel)
+                {
+                    e.CanExecute = Clipboard.ContainsImage();
+                }
+                else
+                {
+                    e.CanExecute = false;
+                }
             }
             catch (Exception)
             {
@@ -169,7 +175,13 @@ namespace OSEUIDesktop.WPF.Sample
         {
             try
             {
-                IDataObject d = Clipboard.GetDataObject();
+                if(sender == ImagePanel)
+                {
+                    IDataObject d = Clipboard.GetDataObject();
+                    var bitmap = d.GetData(DataFormats.Bitmap) as BitmapSource;
+                    MainViewModel.EntryInEdit.Image = bitmap;
+                }
+
             }
             catch (Exception)
             {
@@ -247,6 +259,7 @@ namespace OSEUIDesktop.WPF.Sample
         }
         private void UpdateView()
         {
+            MainViewModel.CancelEdit();
             MainViewModel.UpdateViewModel();
             if (CurrentDocument != null)
             {
@@ -258,6 +271,7 @@ namespace OSEUIDesktop.WPF.Sample
             else
             {
                 MainViewModel.SelectedIndex = -1;
+                MainViewModel.SelectedEntry = null;
             }
         }
         private void CanSaveDocument(object sender, CanExecuteRoutedEventArgs e)
@@ -298,7 +312,7 @@ namespace OSEUIDesktop.WPF.Sample
         }
         private void CanCloseDocument(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = !CurrentDocument?.IsUnsaved ?? false;
+            e.CanExecute = CurrentDocument != null;
         }
 
         private void CloseDocumentHandler(object sender, ExecutedRoutedEventArgs e)
@@ -363,12 +377,13 @@ namespace OSEUIDesktop.WPF.Sample
 
         private void CanAddEntry(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = !MainViewModel.InEdit;
+            e.CanExecute = CurrentDocument != null && !MainViewModel.InEdit;
         }
 
         private void AddEntry(object sender, ExecutedRoutedEventArgs e)
         {
             MainViewModel.AddEntry();
+            UpdateTitle();
         }
 
         private void CanEditEntry(object sender, CanExecuteRoutedEventArgs e)
@@ -389,6 +404,7 @@ namespace OSEUIDesktop.WPF.Sample
         private void DeleteEntry(object sender, ExecutedRoutedEventArgs e)
         {
             MainViewModel.DeleteEntry();
+            UpdateTitle();
         }
 
         private void EntryListSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -407,8 +423,14 @@ namespace OSEUIDesktop.WPF.Sample
         {
             if(args.ButtonTag == ButtonPanel.OKTag)
             {
-                if (EntryTitle.IsFocused) EntryTitle.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+                if(Validation.GetHasError(EntryDateLine))
+                {
+                    MessageBox.Show("Date line entry in error", "Journal Entry Edit", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                    return;
+                }
+                if (EntryTitle.IsFocused || EntryDateLine.IsFocused || EntryContent.IsFocused) EntryTitle.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
                 MainViewModel.CommitEdit();
+                UpdateTitle();
             }
             else if(args.ButtonTag == ButtonPanel.CancelTag)
             {
@@ -430,7 +452,7 @@ namespace OSEUIDesktop.WPF.Sample
             {
                 string path = dialog.FileName;
                 var bitmap = new BitmapImage(new Uri(path, UriKind.Absolute));
-                MainViewModel.SelectedEntry.Image = bitmap;
+                MainViewModel.EntryInEdit.Image = bitmap;
             }
         }
 
@@ -441,7 +463,7 @@ namespace OSEUIDesktop.WPF.Sample
 
         private void DeleteImage(object sender, ExecutedRoutedEventArgs e)
         {
-            MainViewModel.SelectedEntry.Image = null;
+            MainViewModel.EntryInEdit.Image = null;
         }
 
         private void OnTitleFocused(object sender, KeyboardFocusChangedEventArgs e)
