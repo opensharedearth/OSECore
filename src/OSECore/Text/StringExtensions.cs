@@ -198,5 +198,75 @@ namespace OSECore.Text
 
             return fields.ToArray();
         }
+        public static T GetValue<T>(this string s, T defaultValue = default(T)) where T : struct
+        {
+            if (s == null)
+            {
+                return default(T);
+            }
+            else if (typeof(T) == typeof(string))
+            {
+                return (T)(object)s;
+            }
+            else if (typeof(T) == typeof(int) && int.TryParse(s, out int iv))
+            {
+                return (T)(object)iv;
+            }
+            else if (typeof(T) == typeof(float) && float.TryParse(s, out float fv))
+            {
+                return (T)(object)fv;
+            }
+            else if (typeof(T) == typeof(double) && double.TryParse(s, out double dv))
+            {
+                return (T)(object)dv;
+            }
+            else if (typeof(T) == typeof(bool) && bool.TryParse(s, out bool bv))
+            {
+                return (T)(object)bv;
+            }
+            else if (typeof(T) == typeof(DateTime) && DateTime.TryParse(s, out DateTime dtv))
+            {
+                return (T)(object)dtv;
+            }
+            else if (typeof(T).IsEnum && Enum.TryParse<T>(s, out T ev))
+            {
+                return (T)ev;
+            }
+            else
+            {
+                return defaultValue;
+            }
+        }
+        public static string SetValue(object value)
+        {
+            if (value == null)
+            {
+                return null;
+            }
+            else if (value is int || value is bool)
+            {
+                return value.ToString();
+            }
+            else if (value is float)
+            {
+                return ((float)value).ToString("R");
+            }
+            else if (value is double)
+            {
+                return ((double)value).ToString("R");
+            }
+            else if (value is DateTime)
+            {
+                return ((DateTime)value).ToString("R");
+            }
+            else if (value.GetType().IsEnum)
+            {
+                return value.ToString();
+            }
+            else
+            {
+                return value.ToString();
+            }
+        }
     }
 }
