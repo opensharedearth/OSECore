@@ -24,28 +24,36 @@ namespace OSELogic.Command
             var result = ParseArguments(fields);
             if (!result.Succeeded) throw new ArgumentException(result.ToString());
         }
-        public CommandLine(IEnumerable<CommandArg> args)
+        public CommandLine(string commandName, string[] args)
+        {
+            List<string> line = new List<string>();
+            line.Add(commandName);
+            line.AddRange(args);
+            var result = ParseArguments(line.ToArray());
+            if (!result.Succeeded) throw new ArgumentException(result.ToString());
+        }
+        protected CommandLine(IEnumerable<CommandArg> args)
         {
             _list.AddRange(args);
         }
-        public CommandArg this[int index] { get => _list[index]; set => throw new NotImplementedException(); }
+        public CommandLine(CommandLine args)
+        {
+            _list.AddRange(args);
+        }
+        public CommandArg this[int index] 
+        { 
+            get => GetPositional(index) ?? CommandArg.Null; 
+            set => throw new NotImplementedException(); 
+        }
 
         public CommandArg this[string name] 
         {
-            get
-            {
-                if (_list.Count == 0) return CommandArg.Null;
-                var arg = (from d in _list where d.Name == name select d).FirstOrDefault();
-                return arg == null ? CommandArg.Null : arg;
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get => GetSwitch(name) ?? CommandArg.Null;
+            set => throw new NotImplementedException();
         }
         public int Count => _list.Count;
 
-        public bool IsReadOnly => true;
+        public bool IsReadOnly => false;
 
         public void Add(CommandArg item)
         {
@@ -70,16 +78,20 @@ namespace OSELogic.Command
         public T GetValue<T>(string name, T defaultValue = default(T)) where T : struct
         {
             var arg = this[name];
-            if(arg.Value == null)
-            {
-                return defaultValue;
-            }
-            else
-            {
-                return arg.Value.GetValue<T>();
-            }
+            return this[name]?.Value.GetValue<T>() ?? defaultValue;
         }
-
+        public T GetValue<T>(int index, T defaultValue = default(T)) where T : struct
+        {
+            return this[index]?.Value.GetValue<T>() ?? defaultValue;
+        }
+        public T GetResolvedValue<T>(string name, T defaultValue = default(T))
+        {
+            return (T) this[name]?.ResolvedValue ?? defaultValue;
+        }
+        public T GetResolvedValue<T>(int index, T defaultValue = default(T))
+        {
+            return (T)this[index]?.ResolvedValue ?? defaultValue;
+        }
         public IEnumerator<CommandArg> GetEnumerator()
         {
             return _list.GetEnumerator();
@@ -111,6 +123,7 @@ namespace OSELogic.Command
         }
         public static string[] ParseFields(string line)
         {
+            if (line == null) throw new ArgumentNullException("Command line is null");
             List<string> fields = new List<string>();
             List<char> field = new List<char>();
             char quote = '\0';
@@ -171,10 +184,9 @@ namespace OSELogic.Command
                         break;
                 }
             }
-            if (escape != 0)
-            {
-                field.Add(escape);
-            }
+            if (escape != 0) throw new ArgumentException("Dangling escape character");
+            if (quote != 0) throw new ArgumentException("Unmatached quote character");
+
             if (field.Count > 0)
             {
                 fields.Add(new string(field.ToArray()));
@@ -183,8 +195,15 @@ namespace OSELogic.Command
         }
         public CommandResult ParseArguments(string commandLine)
         {
-            string[] fields = ParseFields(commandLine);
-            return ParseArguments(fields);
+            try
+            {
+                string[] fields = ParseFields(commandLine);
+                return ParseArguments(fields);
+            }
+            catch(Exception ex)
+            {
+                return new CommandResult(false, "Unable to parse command line", ex);
+            }
         }
         public CommandResult ParseArguments(string[] fields)
         {
@@ -197,25 +216,31 @@ namespace OSELogic.Command
                     string name = field.Substring(2);
                     string value = null;
                     int eq = field.IndexOf('=');
-                    if (eq < 0)
+                    if (eq >= 0)
                     {
                         name = field.Substring(2, eq - 2);
                         value = field.Substring(eq + 1);
                     }
-                    var arg = new CommandArg(name);
-                    arg.Value = value;
+                    var arg = new CommandArg(name, value);
                     this.Add(arg);
                 }
                 else if (field.StartsWith("-"))
                 {
                     foreach (char c in field.Substring(1))
                     {
-                        this.Add(new CommandArg(new string(c, 1)));
+                        if(char.IsLetterOrDigit(c))
+                        {
+                            this.Add(new CommandArg(new string(c, 1)));
+                        }
+                        else
+                        {
+                            result.Append(new CommandResult(false, $"Invalid character in command line"));
+                        }
                     }
                 }
                 else
                 {
-                    Add(new CommandArg($"Arg{pos++}", field));
+                    Add(new CommandArg(pos++, field));
                 }
             }
             return result;
@@ -227,6 +252,10 @@ namespace OSELogic.Command
         public CommandArg GetSwitch(string name)
         {
             return (from arg in this where arg.IsSwitch && arg.Name == name select arg).FirstOrDefault();
+        }
+        public CommandArg GetPositional(int order)
+        {
+            return (from arg in this where arg.PositionIndex == order select arg).FirstOrDefault();
         }
     }
 }

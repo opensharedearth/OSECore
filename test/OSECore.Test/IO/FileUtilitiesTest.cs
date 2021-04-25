@@ -29,6 +29,23 @@ namespace OSECoreTest.IO
         {
             Assert.False(FileSupport.IsFileWritable(_fixture.UnwritableFilePath));
             Assert.True(FileSupport.IsFileWritable(_fixture.WritableFilePath));
+            Assert.False(FileSupport.IsFileWritable(_fixture.NonExistentFilePath));
+            Assert.False(FileSupport.IsFileWritable(_fixture.InvalidFilePath));
+        }
+
+        [Fact]
+        public void IsFolderReadableTest()
+        {
+            Assert.False(FileSupport.IsFolderReadable(_fixture.UnreadableFolderPath));
+            Assert.True(FileSupport.IsFolderReadable(_fixture.ReadableFolderPath));
+            Assert.False(FileSupport.IsFolderReadable(_fixture.InvalidFilePath));
+        }
+        [Fact]
+        public void IsFolderWritableTest()
+        {
+            Assert.False(FileSupport.IsFolderWritable(_fixture.UnwritableFolderPath));
+            Assert.True(FileSupport.IsFolderWritable(_fixture.UnreadableFolderPath));
+            Assert.False(FileSupport.IsFolderWritable(_fixture.InvalidFilePath));
         }
 
         [Fact]
@@ -44,6 +61,7 @@ namespace OSECoreTest.IO
             Assert.True(FileSupport.IsFileReadable(_fixture.UnwritableFilePath));
             Assert.True(FileSupport.IsFileReadable(_fixture.WritableFilePath));
             Assert.False(FileSupport.IsFileReadable(_fixture.UnreadableFilePath));
+            Assert.False(FileSupport.IsFileReadable(_fixture.InvalidFilePath));
         }
         [Fact]
         public void HasFilePermissionTest()
@@ -87,6 +105,8 @@ namespace OSECoreTest.IO
             Assert.True(FileSupport.IsValidPath(Path.GetFileName(_fixture.WritableFilePath)));
             Assert.True(FileSupport.IsValidPath(".."));
             Assert.False(FileSupport.IsValidPath("  "));
+            Assert.False(FileSupport.IsValidPath(""));
+            Assert.False(FileSupport.IsValidPath(_fixture.InvalidFilePath));
         }
         [Fact]
         public void GetFullPathTest()
@@ -104,6 +124,7 @@ namespace OSECoreTest.IO
             string validName = "file[]()------'name";
             string name = FileSupport.MakeValidFileName(invalidName);
             Assert.Equal(name, validName);
+            Assert.Equal(validName, FileSupport.MakeValidFileName("", "", validName));
         }
     }
 }

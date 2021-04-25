@@ -21,6 +21,10 @@ namespace OSELogic.Command
         {
             return Execute(new CommandLine(fields));
         }
+        public CommandResult Execute(string commandName, string[] args)
+        {
+            return Execute(new CommandLine(commandName, args));
+        }
         public CommandResult Execute(CommandLine line)
         {
             CommandResult result = new CommandResult();

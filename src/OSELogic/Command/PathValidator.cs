@@ -32,7 +32,7 @@ namespace OSELogic.Command
                 {
                     return new CommandResult(false, $"File '{path}' is not readable.");
                 }
-                arg.Value = path;
+                arg.ResolvedValue = path;
             }
             return result;
         }

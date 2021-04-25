@@ -1,10 +1,11 @@
-﻿using OSELogic.Config;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using OSECore.Program;
+using OSELogic.Config;
 
 namespace OSELogic.Command
 {
@@ -19,16 +20,27 @@ namespace OSELogic.Command
         }
         public static void RegisterAll()
         {
-            CommandLineProtoRegistry.Instance.Define("", "", "", Null);
-            CommandLineProtoRegistry.Instance.Define(Names.VersionCommand, "Program version", "Version", Version);
-            CommandLineProtoRegistry.Instance.Define(Names.HelpCommand, "General Program Help", "Help", Help,
-                new CommandArgProto("Command", "Command name")
-            );
-            CommandLineProtoRegistry.Instance.Define(Names.WorkingFolder, "Get or set working folder", "Working-Folder [folder]", WorkingFolder,
-                new CommandArgProto("Folder", "Path to working folder", "", new FolderValidator())
+            CommandLineProtoRegistry.Instance.Define("", new Usage(), Null);
+            RegisterVersionCommand();
+            RegisterHelpCommand();
+            RegisterWorkingFolderCommand();
+        }
+        public static void RegisterVersionCommand()
+        {
+            CommandLineProtoRegistry.Instance.Define(Names.VersionCommand, new Usage("Program version", new UsageProto("Version")), Version);
+        }
+        public static void RegisterHelpCommand()
+        {
+            CommandLineProtoRegistry.Instance.Define(Names.HelpCommand, new Usage("General Program Help", new UsageProto("Help")), Help,
+                new CommandArgProto("Command", new Usage("Command name"))
             );
         }
-
+        public static void RegisterWorkingFolderCommand()
+        {
+            CommandLineProtoRegistry.Instance.Define(Names.WorkingFolder, new Usage("Get or set working folder", new UsageProto("Working-Folder [folder]")), WorkingFolder,
+                new CommandArgProto("folder", new Usage("Path to working folder"), "", new FolderValidator(), CommandArgOptions.IsPositional)
+            );
+        }
         public static CommandResult Null(CommandLine args)
         {
             return new CommandResult();
@@ -53,9 +65,9 @@ namespace OSELogic.Command
         public static CommandResult GeneralHelp(CommandLineProtoRegistry commands)
         {
             CommandResult result = new CommandResult();
-            result.AddMessage($"{GetProgramName()} {GetProgramVersion()}");
+            result.AddMessage($"{ProgramInfo.GetProgramName()} {ProgramInfo.GetProgramVersion()}");
             result.AddMessage();
-            var description = GetProgramDescription();
+            var description = ProgramInfo.GetProgramDescription();
             if (!String.IsNullOrEmpty(description))
             {
                 result.AddMessage(description);
@@ -64,7 +76,7 @@ namespace OSELogic.Command
             var names = from name in commands.Keys orderby name select name;
             foreach (var name in names)
             {
-                string commandDescription = commands[name].Description;
+                string commandDescription = commands[name].Usage.Description;
                 result.AddMessage($"{name}\t{commandDescription}");
             }
             return result;
@@ -74,7 +86,7 @@ namespace OSELogic.Command
             if(commands.TryGetValue(command, out CommandLineProto cd))
             {
                 CommandResult result = new CommandResult();
-                result.AddMessage($"{command}\t{cd.Description}");
+                result.AddMessage($"{command}\t{cd.Usage.Description}");
                 result.AddMessage();
                 result.AddMessage($"{cd.Syntax}");
                 if(cd.Count > 0)
@@ -101,32 +113,6 @@ namespace OSELogic.Command
                 GeneralParameters.Instance.WorkingFolder = args[1].Value;
             }
             return new CommandResult(true, GeneralParameters.Instance.WorkingFolder);
-        }
-        public static string GetProgramName()
-        {
-            Assembly a = Assembly.GetEntryAssembly();
-            var name = a.GetName();
-            return name.Name;
-        }
-        public static string GetProgramVersion()
-        {
-            Assembly a = Assembly.GetEntryAssembly();
-            var name = a.GetName();
-            return name.Version.ToString();
-
-        }
-        public static string GetProgramDescription()
-        {
-            Assembly a = Assembly.GetEntryAssembly();
-            var description = a.GetCustomAttribute<AssemblyDescriptionAttribute>();
-            if (description != null)
-            {
-                return description.Description;
-            }
-            else
-            {
-                return "";
-            }
         }
     }
 }

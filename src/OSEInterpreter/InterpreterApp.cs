@@ -20,9 +20,9 @@ namespace OSEInterpreter
         protected override void DefineCommands()
         {
             base.DefineCommands();
-            Commands.Define("", "", "", StandardCommands.Null);
-            Commands.Define("Working-Folder", "Get or set working folder", "Working-Folder [folder]", StandardCommands.WorkingFolder,
-                new CommandArgProto("Folder", "Path to working folder", "", new FolderValidator())
+            Commands.Define("", new Usage(), StandardCommands.Null);
+            Commands.Define("Working-Folder", new Usage("Get or set working folder", new UsageProto("Working-Folder [folder]")), StandardCommands.WorkingFolder,
+                new CommandArgProto("Folder", new Usage("Path to working folder"), "", new FolderValidator())
             );
         }
     }

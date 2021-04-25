@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -225,6 +226,7 @@ namespace OSELogic.Config
             }
             return sb.ToString();
         }
+        [SupportedOSPlatform("windows")]
         public void SetSecretValue(string s)
         {
             if(!String.IsNullOrEmpty(s))
@@ -239,6 +241,7 @@ namespace OSELogic.Config
                 SetValue(s);
             }
         }
+        [SupportedOSPlatform("windows")]
         public string GetSecretValue()
         {
             if(_value == null || _value.GetType() != typeof(string))

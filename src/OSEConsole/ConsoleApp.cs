@@ -10,6 +10,7 @@ namespace OSEConsole
 {
     public class ConsoleApp
     {
+        public static ConsoleApp Instance { get; private set; } = null;
         public CommandLineProtoRegistry Commands = new CommandLineProtoRegistry();
         public CommandLine CommandLine { get; set; } 
         static int Main(string[] args)
@@ -45,12 +46,19 @@ namespace OSEConsole
                 CommandResult result = ScriptingEngine.Instance.Execute(StandardCommands.Names.HelpCommand);
                 return result.ErrorCode;
             }
+            else
+            {
+                CommandResult result = ScriptingEngine.Instance.Execute(CommandLine);
+            }
             return 0;
         }
 
         public ConsoleApp(CommandLine args)
         {
             CommandLine = args;
+            StandardCommands.RegisterVersionCommand();
+            StandardCommands.RegisterHelpCommand();
+            Instance = this;
         }
         public void WriteError(AggregateException exs)
         {

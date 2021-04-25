@@ -2,10 +2,37 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>Open Shared Earth, LLC</Authors>
+    <Product>Microsoft Excel spreadsheet adaptor</Product>
+    <Description>This library is an API for reading and writing Excel spreadsheets.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/opensharedearth/OSECore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/opensharedearth/OSECore.git</RepositoryUrl>
+    <PackageIcon>osecore.png</PackageIcon>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>OSE;.NET Core;Excel</PackageTags>
+    <PackageReleaseNotes>Add WorksheetReference class</PackageReleaseNotes>
+    <Version>1.1.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\bin\Release</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\bin\Debug</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.12.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\doc\images\osecore.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

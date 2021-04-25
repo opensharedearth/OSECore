@@ -34,7 +34,7 @@ namespace OSELogic.Command
                     {
                         return new CommandResult(false, $"Folder '{path}' does not exist or is not readable");
                     }
-                    arg.Value = path;
+                    arg.ResolvedValue = path;
                 }
             }
             return result;

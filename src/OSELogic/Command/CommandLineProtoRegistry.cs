@@ -7,14 +7,14 @@ namespace OSELogic.Command
     public class CommandLineProtoRegistry : Dictionary<string, CommandLineProto>
     {
         public static CommandLineProtoRegistry Instance { get; } = new CommandLineProtoRegistry();
-        public static CommandLineProto NullDefinition = new CommandLineProto("", "The null command", "", StandardCommands.Null);
+        public static CommandLineProto NullDefinition = new CommandLineProto("", new Usage("The null command"), StandardCommands.Null);
         public CommandLineProtoRegistry() : base(StringComparer.CurrentCultureIgnoreCase)
         {
         }
 
-        public void Define(string name, string description, string syntax, Func<CommandLine, CommandResult> func, params CommandArgProto[] args)
+        public void Define(string name, Usage usage, Func<CommandLine, CommandResult> func, params CommandArgProto[] args)
         {
-            this[name] = new CommandLineProto(name, description, syntax, func, args);
+            this[name] = new CommandLineProto(name, usage, func, args);
         }
         public CommandLineProto Find(string name)
         {
@@ -22,7 +22,7 @@ namespace OSELogic.Command
             {
                 return cd;
             }
-            return new CommandLineProto(name, "", "", StandardCommands.InvalidCommand, new CommandArgProto("Ignored","", "",null, CommandArgOptions.HasMultiple));
+            return new CommandLineProto(name, new Usage(), StandardCommands.InvalidCommand, new CommandArgProto("Ignored",new Usage(),null, null, CommandArgOptions.HasMultiple));
         }
     }
 }

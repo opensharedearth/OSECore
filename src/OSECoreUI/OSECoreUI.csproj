@@ -11,9 +11,10 @@
     <PackageProjectUrl>https://github.com/opensharedearth/OSECore</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>OSE;.NET Standard;Logging;Desktop Utilities;</PackageTags>
-    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>Add validation</PackageReleaseNotes>
     <ApplicationIcon>osecore.ico</ApplicationIcon>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

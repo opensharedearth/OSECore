@@ -1,7 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Authors>Open Shared Earth, LLC</Authors>
+    <Product>Command and config library</Product>
+    <Description>Classes used by console and interpreter apps as well as other for retaining configuration and running commands.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>osecore.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/opensharedearth/OSECore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/opensharedearth/OSECore.git</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>OSE;.NET Core;Command;Config</PackageTags>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\bin\Debug</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\bin\Release</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +30,13 @@
   <ItemGroup>
     <ProjectReference Include="..\OSECoreUI\OSECoreUI.csproj" />
     <ProjectReference Include="..\OSECore\OSECore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\doc\images\osecore.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

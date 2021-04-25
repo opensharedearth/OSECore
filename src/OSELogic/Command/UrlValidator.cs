@@ -15,6 +15,7 @@ namespace OSELogic.Command
             {
                 if(Uri.TryCreate(arg.Value.ToString(), UriKind.Absolute, out Uri uri))
                 {
+                    arg.ResolvedValue = uri;
                     return result;
                 }
             }

@@ -31,7 +31,7 @@ namespace OSELogic.Command
         {
             Succeeded = succeeded;
             Continue = cont;
-            error = error;
+            ErrorCode = error;
             _messages.AddRange(message);
         }
         public string GetMessages()
@@ -96,6 +96,10 @@ namespace OSELogic.Command
                 Continue = false;
             if (r.ErrorCode != 0)
                 ErrorCode = r.ErrorCode;
+        }
+        public override string ToString()
+        {
+            return GetMessages();
         }
     }
 }

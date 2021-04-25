@@ -8,17 +8,25 @@ namespace OSELogic.Command
 {
     public class CommandArgProto : CommandArg
     {
+        public Usage Usage { get; } = Usage.Null;
         public string Description { get; } = "";
         public bool IsRequired => (Options & CommandArgOptions.IsRequired) != 0;
         public bool HasMultiple => (Options & CommandArgOptions.HasMultiple) != 0;
-        private ArgValidator _validator = new ArgValidator();
-        private CommandArgOptions Options { get; } = CommandArgOptions.None;
-        public CommandArgProto(string name, string description, string value = null, ArgValidator validator = null, CommandArgOptions options = CommandArgOptions.None)
+        public bool HasArgument => (Options & CommandArgOptions.HasArgument) != 0;
+        public override bool IsSwitch => (Options & CommandArgOptions.IsPositional) == 0;
+        public override bool IsPositional => (Options & CommandArgOptions.IsPositional) != 0;
+        private ArgValidator _validator = null;
+        public CommandArgOptions Options { get; } = CommandArgOptions.None;
+        public CommandArgProto(string name, Usage usage, string value = null, ArgValidator validator = null, CommandArgOptions options = CommandArgOptions.None)
             : base(name, value)
         {
-            Description = description;
-            Value = value;
-            if (validator != null) _validator = validator;
+            Usage ??= usage;
+            _validator = validator ?? new ArgValidator();
+            Options = options;
+        }
+        public CommandResult Validate(string field)
+        {
+            return _validator.Validate(new CommandArg(Name, field));
         }
         public CommandResult Validate(CommandArg arg)
         {

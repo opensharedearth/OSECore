@@ -62,5 +62,20 @@ namespace OSECoreTest.Logging
             Assert.True(s.Contains("Good result") && s.Contains("Error result"));
         }
 
+        [Fact]
+        public void IListTests()
+        {
+            ResultLog l0 = new ResultLog();
+            Result r0 = new Result(ResultType.Bad, "Error message");
+            l0.Insert(0, r0);
+            Assert.Contains<Result>(r0, l0);
+            Assert.Equal(0, l0.IndexOf(r0));
+            l0.Remove(r0);
+            Assert.Empty(l0);
+            l0.Add(r0);
+            Assert.Single(l0);
+            l0.RemoveAt(0);
+            Assert.Empty(l0);
+        }
     }
 }
