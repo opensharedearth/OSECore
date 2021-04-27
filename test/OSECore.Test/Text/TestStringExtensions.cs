@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using OSECore.Text;
 using Xunit;
@@ -27,6 +28,22 @@ namespace OSECoreTest.Text
             {
                 Assert.Equal(dl0[i], dl1[i]);
             }
+        }
+        enum E { a, b, c };
+        [Theory]
+        [InlineData("123",typeof(int))]
+        [InlineData("2.3",typeof(float))]
+        [InlineData("2.456",typeof(double))]
+        [InlineData("2021-04-21T05:23:10.0000000",typeof(DateTime))]
+        [InlineData("a",typeof(E))]
+        public void GetSetValueTest(string s0, Type t0)
+        {
+            var m = typeof(StringExtensions).GetMethod("GetValue", BindingFlags.Static | BindingFlags.Public);
+            var gm = m.MakeGenericMethod(t0);
+            var v1 = gm.Invoke(null, new object[] { s0, null });
+            Assert.Equal(v1.GetType(), t0);
+            var s1 = StringExtensions.SetValue(v1);
+            Assert.Equal(s0, s1);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using OSEConsole;
-using OSELogic.Command;
+using OSECommand;
 using System;
 
 namespace OSEInterpreter

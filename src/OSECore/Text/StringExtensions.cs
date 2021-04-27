@@ -204,10 +204,6 @@ namespace OSECore.Text
             {
                 return default(T);
             }
-            else if (typeof(T) == typeof(string))
-            {
-                return (T)(object)s;
-            }
             else if (typeof(T) == typeof(int) && int.TryParse(s, out int iv))
             {
                 return (T)(object)iv;
@@ -257,7 +253,7 @@ namespace OSECore.Text
             }
             else if (value is DateTime)
             {
-                return ((DateTime)value).ToString("R");
+                return ((DateTime)value).ToString("O");
             }
             else if (value.GetType().IsEnum)
             {

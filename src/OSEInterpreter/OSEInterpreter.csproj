@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OSECommand\OSECommand.csproj" />
     <ProjectReference Include="..\OSEConsole\OSEConsole.csproj" />
   </ItemGroup>
 

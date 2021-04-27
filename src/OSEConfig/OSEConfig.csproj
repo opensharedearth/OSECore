@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Authors>Open Shared Earth, LLC</Authors>
+    <Product>OSE Config Library</Product>
+    <Description>Class library that implements configuration file support for console, desktop and other apps</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/opensharedearth/OSECore</PackageProjectUrl>
+    <PackageIcon>osecore.png</PackageIcon>
+    <RepositoryUrl>https://github.com/opensharedearth/OSECore.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>OSE;.NET;Configuration File</PackageTags>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\bin\Release</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\bin\Debug</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\doc\images\osecore.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OSECoreUI\OSECoreUI.csproj" />
+  </ItemGroup>
+
+</Project>

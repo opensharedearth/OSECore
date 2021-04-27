@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OSECommand\OSECommand.csproj" />
     <ProjectReference Include="..\OSECore\OSECore.csproj" />
-    <ProjectReference Include="..\OSELogic\OSELogic.csproj" />
   </ItemGroup>
 
 </Project>
