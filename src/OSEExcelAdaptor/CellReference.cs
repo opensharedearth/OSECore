@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace OSEExcelAdaptor
 {
-    public class CellReference
+    public class CellReference : IEquatable<CellReference>, IComparable<CellReference>
     {
         public static CellReference Null = new CellReference();
         public string Column { get; } = "";
@@ -112,13 +111,13 @@ namespace OSEExcelAdaptor
         {
             if ((Object)cref0 == null) return (Object)cref1 != null;
             else if ((Object)cref1 == null) return false;
-            else return cref0.ColumnIndex < cref1.ColumnIndex || (cref0.Column == cref1.Column && cref0.Row < cref1.Row);
+            else return cref0.CompareTo(cref1) < 0;
         }
         public static bool operator>(CellReference cref0, CellReference cref1)
         {
             if ((Object)cref0 == null) return false;
             else if ((Object)cref1 == null) return true;
-            return cref0.ColumnIndex > cref1.ColumnIndex || (cref0.Column == cref1.Column && cref0.Row > cref1.Row);
+            else return cref0.CompareTo(cref1) > 0;
         }
         public static bool operator<=(CellReference cref0, CellReference cref1)
         {
@@ -134,6 +133,34 @@ namespace OSEExcelAdaptor
                 return "";
             else
                 return Column + Row.ToString();
+        }
+
+        public int CompareTo(CellReference other)
+        {
+            if(other != null)
+            {
+                if(!Equals(other))
+                {
+                    return ColumnIndex < other.ColumnIndex 
+                        || (Column == other.Column && Row < other.Row) 
+                        ? -1 : 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            return 1;
+        }
+
+        public bool Equals(CellReference other)
+        {
+            if(other != null)
+            {
+                return Column == other.Column && Row == other.Row;
+
+            }
+            return false;
         }
     }
 }
