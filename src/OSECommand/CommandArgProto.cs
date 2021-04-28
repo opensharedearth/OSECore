@@ -8,19 +8,27 @@ namespace OSECommand
 {
     public class CommandArgProto : CommandArg
     {
-        public Usage Usage { get; } = Usage.Null;
+        public Usage Usage { get; } = null;
         public string Description { get; } = "";
         public bool IsRequired => (Options & CommandArgOptions.IsRequired) != 0;
         public bool HasMultiple => (Options & CommandArgOptions.HasMultiple) != 0;
         public bool HasArgument => (Options & CommandArgOptions.HasArgument) != 0;
         public override bool IsSwitch => (Options & CommandArgOptions.IsPositional) == 0;
         public override bool IsPositional => (Options & CommandArgOptions.IsPositional) != 0;
+        public override bool IsMnemonic => base.IsMnemonic;
         private ArgValidator _validator = null;
         public CommandArgOptions Options { get; } = CommandArgOptions.None;
-        public CommandArgProto(string name, Usage usage, string value = null, ArgValidator validator = null, CommandArgOptions options = CommandArgOptions.None)
-            : base(name, value)
+        public CommandArgProto(string name, char mnemonic = '\0', Usage usage = null, string value = null, ArgValidator validator = null, CommandArgOptions options = CommandArgOptions.None)
+            : base(name, mnemonic, value)
         {
-            Usage ??= usage;
+            Usage = usage ?? Usage.Null;
+            _validator = validator ?? new ArgValidator();
+            Options = options;
+        }
+        public CommandArgProto(string name, int index, Usage usage = null, string value = null, ArgValidator validator = null, CommandArgOptions options = CommandArgOptions.None)
+            : base(index, value)
+        {
+            Usage = usage ?? Usage.Null;
             _validator = validator ?? new ArgValidator();
             Options = options;
         }

@@ -129,16 +129,18 @@ namespace OSECommand.Test
         }
         [Theory]
         [InlineData("a --b -cde", 5, 
-            new string[] { "Arg0", "b", "c", "d", "e" },
+            new string[] { "Arg0", "b", "", "", "" },
+            new char[] { '\0', '\0', 'c', 'd', 'e'},
             new string[] { "a", null, null, null, null },
             new bool[] { false, true, true, true, true }
         )]
         [InlineData("a --b=c e -de", 5,
-            new string[] { "Arg0", "b", "Arg1", "d", "e" },
+            new string[] { "Arg0", "b", "Arg1", "", "" },
+            new char[] { '\0', '\0', '\0', 'd', 'e' },
             new string[] { "a", "c", "e", null, null },
             new bool[] { false, true, false, true, true }
         )]
-        public void ParseArgumentsTest(string l0, int n0, string[] name, string[] value, bool[] isSwitch)
+        public void ParseArgumentsTest(string l0, int n0, string[] name, char[] mnemonic, string[] value, bool[] isSwitch)
         {
             var d = new CommandLine(l0);
             Assert.Equal(n0, d.Count);
@@ -146,6 +148,7 @@ namespace OSECommand.Test
             foreach(var r1 in d)
             {
                 Assert.Equal(name[iarg], r1.Name);
+                Assert.Equal(mnemonic[iarg], r1.Mnemonic);
                 Assert.Equal(value[iarg], r1.Value);
                 Assert.Equal(isSwitch[iarg], r1.IsSwitch);
                 iarg++;

@@ -42,13 +42,13 @@ namespace OSECommand
         }
         public CommandArg this[int index] 
         { 
-            get => GetPositional(index) ?? CommandArg.Null; 
+            get => _list[index]; 
             set => throw new NotImplementedException(); 
         }
 
         public CommandArg this[string name] 
         {
-            get => GetSwitch(name) ?? CommandArg.Null;
+            get => (from arg in _list where name == arg.Name select arg).FirstOrDefault();
             set => throw new NotImplementedException();
         }
         public int Count => _list.Count;
@@ -78,19 +78,19 @@ namespace OSECommand
         public T GetValue<T>(string name, T defaultValue = default(T)) where T : struct
         {
             var arg = this[name];
-            return this[name]?.Value.GetValue<T>() ?? defaultValue;
+            return GetSwitch(name)?.Value.GetValue<T>() ?? defaultValue;
         }
         public T GetValue<T>(int index, T defaultValue = default(T)) where T : struct
         {
-            return this[index]?.Value.GetValue<T>() ?? defaultValue;
+            return GetPositional(index)?.Value.GetValue<T>() ?? defaultValue;
         }
         public T GetResolvedValue<T>(string name, T defaultValue = default(T))
         {
-            return (T) this[name]?.ResolvedValue ?? defaultValue;
+            return (T)GetSwitch(name)?.ResolvedValue ?? defaultValue;
         }
         public T GetResolvedValue<T>(int index, T defaultValue = default(T))
         {
-            return (T)this[index]?.ResolvedValue ?? defaultValue;
+            return (T)GetPositional(index)?.ResolvedValue ?? defaultValue;
         }
         public IEnumerator<CommandArg> GetEnumerator()
         {
@@ -230,7 +230,7 @@ namespace OSECommand
                     {
                         if(char.IsLetterOrDigit(c))
                         {
-                            this.Add(new CommandArg(new string(c, 1)));
+                            this.Add(new CommandArg(c));
                         }
                         else
                         {
@@ -247,15 +247,25 @@ namespace OSECommand
         }
         public bool HasSwitch(string name)
         {
-            return (from arg in this where arg.IsSwitch && arg.Name == name select arg).Count() > 0;
+            return (from arg in this where arg.MatchName(name) select arg).Count() > 0;
         }
         public CommandArg GetSwitch(string name)
         {
-            return (from arg in this where arg.IsSwitch && arg.Name == name select arg).FirstOrDefault();
+            return (from arg in this where arg.MatchName(name) select arg).FirstOrDefault();
         }
         public CommandArg GetPositional(int order)
         {
             return (from arg in this where arg.PositionIndex == order select arg).FirstOrDefault();
+        }
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            foreach(CommandArg arg in this)
+            {
+                if (sb.Length > 0) sb.Append(' ');
+                sb.Append(arg.ToString());
+            }
+            return sb.ToString();
         }
     }
 }

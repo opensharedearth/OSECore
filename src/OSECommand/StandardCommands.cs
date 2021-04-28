@@ -31,13 +31,13 @@ namespace OSECommand
         public static void RegisterHelpCommand()
         {
             CommandLineProtoRegistry.Instance.Define(Names.HelpCommand, new Usage("General Program Help", new UsageProto("Help")), Help,
-                new CommandArgProto("Command", new Usage("Command name"))
+                new CommandArgProto("Command", 1, new Usage("Command name"))
             );
         }
         public static void RegisterWorkingFolderCommand()
         {
             CommandLineProtoRegistry.Instance.Define(Names.WorkingFolder, new Usage("Get or set working folder", new UsageProto("Working-Folder [folder]")), WorkingFolder,
-                new CommandArgProto("folder", new Usage("Path to working folder"), "", new FolderValidator(), CommandArgOptions.IsPositional)
+                new CommandArgProto("folder", 1, new Usage("Path to working folder"), "", new FolderValidator(), CommandArgOptions.IsPositional)
             );
         }
         public static CommandResult Null(CommandLine args)

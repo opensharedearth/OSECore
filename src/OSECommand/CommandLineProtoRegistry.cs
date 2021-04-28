@@ -22,7 +22,7 @@ namespace OSECommand
             {
                 return cd;
             }
-            return new CommandLineProto(name, new Usage(), StandardCommands.InvalidCommand, new CommandArgProto("Ignored",new Usage(),null, null, CommandArgOptions.HasMultiple));
+            return new CommandLineProto(name, new Usage(), StandardCommands.InvalidCommand, new CommandArgProto("Ignored",'\0',new Usage(),null, null, CommandArgOptions.HasMultiple));
         }
     }
 }

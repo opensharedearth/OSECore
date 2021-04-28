@@ -22,7 +22,7 @@ namespace OSEInterpreter
             base.DefineCommands();
             Commands.Define("", new Usage(), StandardCommands.Null);
             Commands.Define("Working-Folder", new Usage("Get or set working folder", new UsageProto("Working-Folder [folder]")), StandardCommands.WorkingFolder,
-                new CommandArgProto("Folder", new Usage("Path to working folder"), "", new FolderValidator())
+                new CommandArgProto("Folder", '\0', new Usage("Path to working folder"), "", new FolderValidator())
             );
         }
     }

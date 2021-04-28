@@ -8,6 +8,7 @@ namespace OSECommand
     {
         public static CommandArg Null = new CommandArg();
         public string Name { get; } = "";
+        public char Mnemonic { get; } = '\0';
         public string Value { get; } = null;
         private object _resolvedValue = null;
         public object ResolvedValue { 
@@ -16,21 +17,30 @@ namespace OSECommand
         }
         public virtual bool IsPositional => !IsSwitch && !IsNull;
         public virtual bool IsSwitch { get; } = false;
+        public virtual bool IsMnemonic => Mnemonic != '\0';
         public bool IsNull => String.IsNullOrEmpty(Name);
         public int PositionIndex { get; } = -1;
         public CommandArg()
         {
 
         }
-        public CommandArg(string name, string value)
+        public CommandArg(char c, string value = null)
+        {
+            Mnemonic = c;
+            Value = value;
+            IsSwitch = true;
+        }
+        public CommandArg(string name, string value = null)
         {
             Name = name;
             Value = value;
             IsSwitch = true;
         }
-        public CommandArg(string name)
+        protected CommandArg(string name, char mnemonic, string value = null)
         {
             Name = name;
+            Mnemonic = mnemonic;
+            Value = value;
             IsSwitch = true;
         }
         public CommandArg(int index, string value)
@@ -52,11 +62,27 @@ namespace OSECommand
         }
         public override string ToString()
         {
-            return (IsSwitch ? "--" : "") + Name + (Value == null ? "" : "=" + Value.ToString());
+            if (IsMnemonic)
+                return "-" + Mnemonic + (Value == null ? "" : " " + Value.ToString());
+            else if (IsSwitch)
+                return "--" + Name + (Value == null ? "" : "=" + Value.ToString());
+            else
+                return (Value == null ? "" : Value.ToString());
         }
         public override int GetHashCode()
         {
             return Name.GetHashCode() ^ (Value?.GetHashCode() ?? 0) ^ IsSwitch.GetHashCode();
+        }
+        public bool MatchName(string name)
+        {
+            if(!String.IsNullOrEmpty(name) && IsSwitch)
+            {
+                if (name.Length == 1 && name[0] == Mnemonic)
+                    return true;
+                else if (name == Name)
+                    return true;
+            }
+            return false;
         }
     }
 }

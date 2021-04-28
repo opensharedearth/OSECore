@@ -14,22 +14,24 @@ namespace OSECommand.Test
         public void CtorTest()
         {
             string n0 = "a";
+            char c0 = 'c';
             Usage u0 = new Usage("usage");
             string v0 = "b";
             CommandArgOptions o0 = CommandArgOptions.HasArgument
                 | CommandArgOptions.HasMultiple
-                | CommandArgOptions.IsRequired
-                | CommandArgOptions.IsPositional;
-            var d = new CommandArgProto(n0, u0, v0, null, o0);
+                | CommandArgOptions.IsRequired;
+            var d = new CommandArgProto(n0, c0, u0, v0, null, o0);
             Assert.Equal(n0, d.Name);
+            Assert.Equal(c0, d.Mnemonic);
             Assert.Equal(u0, d.Usage);
             Assert.Equal(v0, d.Value);
             Assert.Equal(o0, d.Options);
             Assert.True(d.IsRequired);
             Assert.True(d.HasMultiple);
             Assert.True(d.HasArgument);
-            Assert.False(d.IsSwitch);
-            Assert.True(d.IsPositional);
+            Assert.True(d.IsSwitch);
+            Assert.True(d.IsMnemonic);
+            Assert.False(d.IsPositional);
         }
         [Fact]
         public void ValidateTest()
@@ -38,7 +40,7 @@ namespace OSECommand.Test
             Usage u0 = new Usage("usage");
             string v00 = "1abc";
             string v01 = "abc1";
-            var d = new CommandArgProto(n0, u0, null, new NameValidator());
+            var d = new CommandArgProto(n0, '\0', u0, null, new NameValidator());
             var r00 = d.Validate(v00);
             var r01 = d.Validate(v01);
             Assert.False(r00.Succeeded);
@@ -51,7 +53,7 @@ namespace OSECommand.Test
             Usage u0 = new Usage("usage");
             string v00 = "localhost";
             string v01 = "http://localhost";
-            var d = new CommandArgProto(n0, u0, v01, new UrlValidator());
+            var d = new CommandArgProto(n0, '\0', u0, v01, new UrlValidator());
             Assert.Throws<ArgumentException>(() => d.Resolve(v00));
             Assert.True((Uri)d.Resolve(v01).ResolvedValue == new Uri(v01));
         }
