@@ -15,8 +15,7 @@ namespace OSECommand
         }
         public string Name { get; } = "";
         public Usage Usage { get; } = Usage.Null;
-        public string Syntax { get; } = "";
-        public Func<CommandLine, CommandResult> _command = null;
+        private Func<CommandLine, CommandResult> _command = null;
         public CommandResult Execute(string[] fields)
         {
             return Execute(new CommandLine(fields));
@@ -87,6 +86,7 @@ namespace OSECommand
                     if(proto == null)
                     {
                         result.Append(new CommandResult(false, $"Too many arguments for command"));
+                        break;
                     }
                     else
                     {

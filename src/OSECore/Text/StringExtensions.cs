@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -198,7 +199,78 @@ namespace OSECore.Text
 
             return fields.ToArray();
         }
-        public static T GetValue<T>(this string s, T defaultValue = default(T)) where T : struct
+        public static T GetObject<T>(this string s, T defaultValue) where T : class
+        {
+            var ctor = typeof(T).GetConstructor(new Type[] { typeof(string) });
+            if(ctor != null)
+            {
+                try
+                {
+                    return ctor.Invoke(new object[] { s }) as T;
+                }
+                catch(Exception ex)
+                {
+                    Trace.WriteLine($"Constructor for {typeof(T).Name} failed: {ex.Message}");
+                    return defaultValue;
+                }
+            }
+            return defaultValue;
+        }
+        public static T GetObject<T>(this string s) where T : class
+        {
+            var ctor = typeof(T).GetConstructor(new Type[] { typeof(string) });
+            if (ctor != null)
+            {
+                try
+                {
+                    return ctor.Invoke(new object[] { s }) as T;
+                }
+                catch(Exception ex)
+                {
+                    throw new ArgumentException("Unable to construct {T.Name} from string", ex);
+                }
+            }
+            throw new ArgumentException("No constructor found for {T.Name} which takes a single string argument");
+        }
+        public static T GetValue<T>(this string s) where T : struct
+        {
+            if (s == null)
+            {
+                throw new ArgumentNullException("String cannot be null.");
+            }
+            else if (typeof(T) == typeof(int))
+            {
+                return (T)(object)int.Parse(s);
+            }
+            else if (typeof(T) == typeof(float))
+            {
+                return (T)(object)float.Parse(s);
+            }
+            else if (typeof(T) == typeof(double))
+            {
+                return (T)(object)double.Parse(s);
+            }
+            else if (typeof(T) == typeof(bool))
+            {
+                return (T)(object)bool.Parse(s);
+            }
+            else if (typeof(T) == typeof(DateTime))
+            {
+                return (T)(object)DateTime.Parse(s);
+            }
+            else if (typeof(T).IsEnum)
+            {
+                if (Enum.TryParse<T>(s, out T ev))
+                    return (T)(object)ev;
+                else
+                    throw new ArgumentException($"{s} is not a valid member of {typeof(T).Name}");
+            }
+            else
+            {
+                throw new ArgumentException($"No conversion supported for {typeof(T).Name}");
+            }
+        }
+        public static T GetValue<T>(this string s, T defaultValue) where T : struct
         {
             if (s == null)
             {

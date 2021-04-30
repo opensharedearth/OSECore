@@ -29,6 +29,8 @@ namespace OSECoreTest.Text
                 Assert.Equal(dl0[i], dl1[i]);
             }
         }
+        static MethodInfo getValue2ArgMethod = GetMethod(typeof(StringExtensions), "GetValue", BindingFlags.Static | BindingFlags.Public, 2);
+        static MethodInfo getValue1ArgMethod = GetMethod(typeof(StringExtensions), "GetValue", BindingFlags.Static | BindingFlags.Public, 1);
         enum E { a, b, c };
         [Theory]
         [InlineData("123",typeof(int))]
@@ -38,12 +40,39 @@ namespace OSECoreTest.Text
         [InlineData("a",typeof(E))]
         public void GetSetValueTest(string s0, Type t0)
         {
-            var m = typeof(StringExtensions).GetMethod("GetValue", BindingFlags.Static | BindingFlags.Public);
-            var gm = m.MakeGenericMethod(t0);
-            var v1 = gm.Invoke(null, new object[] { s0, null });
+            var gm = getValue1ArgMethod.MakeGenericMethod(t0);
+            var v1 = gm.Invoke(null, new object[] { s0 });
             Assert.Equal(v1.GetType(), t0);
             var s1 = StringExtensions.SetValue(v1);
             Assert.Equal(s0, s1);
+        }
+        [Theory]
+        [InlineData("123", typeof(int), 456)]
+        [InlineData("2.3", typeof(float), 4.5f)]
+        [InlineData("2.456", typeof(double), 5.6)]
+        [InlineData("2021-04-21T05:23:10.0000000", typeof(DateTime),null)]
+        [InlineData("a", typeof(E), E.a)]
+        public void GetSetValueWithDefaultTest(string s0, Type t0, object d0)
+        {
+            var gm = getValue2ArgMethod.MakeGenericMethod(t0);
+            var v1 = gm.Invoke(null, new object[] { s0, d0 });
+            Assert.Equal(v1.GetType(), t0);
+            var s1 = StringExtensions.SetValue(v1);
+            Assert.Equal(s0, s1);
+        }
+
+        private static MethodInfo GetMethod(Type type, string name, BindingFlags bindingFlags, int narg)
+        {
+            MemberInfo[] members = type.GetMember(name, bindingFlags);
+            foreach(var m in members)
+            {
+                if(m is MethodInfo mi)
+                {
+                    if (mi.GetParameters().Length == narg)
+                        return mi;
+                }
+            }
+            return null;
         }
     }
 }

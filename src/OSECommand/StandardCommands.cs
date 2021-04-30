@@ -87,7 +87,7 @@ namespace OSECommand
                 CommandResult result = new CommandResult();
                 result.AddMessage($"{command}\t{cd.Usage.Description}");
                 result.AddMessage();
-                result.AddMessage($"{cd.Syntax}");
+                result.AddMessage($"{cd.Usage.Description}");
                 if(cd.Count > 0)
                 {
                     result.AddMessage();

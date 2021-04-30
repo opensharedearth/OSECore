@@ -37,7 +37,11 @@ namespace OSECommand
         public string GetMessages()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (string s in _messages) sb.AppendLine(s);
+            foreach (string s in _messages)
+            {
+                if (sb.Length > 0) sb.AppendLine();
+                sb.Append(s);
+            }
             return sb.ToString();
         }
         public void AddMessage(string message = null)

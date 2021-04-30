@@ -23,14 +23,14 @@ namespace OSECommand
         {
             Usage = usage ?? Usage.Null;
             _validator = validator ?? new ArgValidator();
-            Options = options;
+            Options = options & ~CommandArgOptions.IsPositional;
         }
         public CommandArgProto(string name, int index, Usage usage = null, string value = null, ArgValidator validator = null, CommandArgOptions options = CommandArgOptions.None)
-            : base(index, value)
+            : base(index, name)
         {
             Usage = usage ?? Usage.Null;
             _validator = validator ?? new ArgValidator();
-            Options = options;
+            Options = options | CommandArgOptions.IsPositional;
         }
         public CommandResult Validate(string field)
         {
