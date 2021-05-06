@@ -15,6 +15,7 @@ namespace OSECommand
         public CommandResult(bool succeeded = true, string message = null, Exception ex = null)
         {
             Succeeded = succeeded;
+            ErrorCode = succeeded ? 0 : 1;
             Continue = succeeded;
             AddMessage(message);
             AddException(ex);

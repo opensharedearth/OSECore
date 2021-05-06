@@ -102,7 +102,7 @@ namespace OSECommand.Test
             d.Add(new CommandArg(i0, a0.ToString()));
             Assert.Equal(v0, d.GetResolvedValue<string>(n0));
             Assert.Equal(a0, d.GetResolvedValue<string>(i0));
-            Assert.Equal(s0, d.GetResolvedValue<string>(v0, s0));
+            Assert.Equal(s0, d.GetResolvedValue<string>(v0, '\0', s0));
             Assert.Equal(s0, d.GetResolvedValue<string>(2, s0));
         }
         [Theory]

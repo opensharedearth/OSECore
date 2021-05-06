@@ -9,6 +9,10 @@ namespace OSEConfig
 {
     public class GeneralParameters
     {
+        static GeneralParameters()
+        {
+            _instance = new GeneralParameters();
+        }
         public struct Names
         {
             public const string GeneralSection = "General";

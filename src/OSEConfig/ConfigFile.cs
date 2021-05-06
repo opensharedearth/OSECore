@@ -15,6 +15,10 @@ namespace OSEConfig
 {
     public class ConfigFile : IDictionary<string, ConfigSection>, IDirty, IDirtyEventSource, IDirtyEvents
     {
+        static ConfigFile()
+        {
+            Instance = new ConfigFile();
+        }
         public static ConfigFile _instance;
         public static ConfigFile Instance 
         { 

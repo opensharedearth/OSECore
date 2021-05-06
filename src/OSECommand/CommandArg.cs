@@ -36,7 +36,7 @@ namespace OSECommand
             Value = value;
             IsSwitch = true;
         }
-        protected CommandArg(string name, char mnemonic, string value = null)
+        public CommandArg(string name, char mnemonic, string value = null)
         {
             Name = name;
             Mnemonic = mnemonic;
@@ -77,10 +77,7 @@ namespace OSECommand
         {
             if(!String.IsNullOrEmpty(name) && IsSwitch)
             {
-                if (name.Length == 1 && name[0] == Mnemonic)
-                    return true;
-                else if (name == Name)
-                    return true;
+                return String.Compare(Name, name, true) == 0;
             }
             return false;
         }

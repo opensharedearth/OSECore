@@ -39,18 +39,21 @@ namespace OSEConsole
             if(CommandLine.HasSwitch(StandardCommands.Names.VersionCommand))
             {
                 CommandResult result = ScriptingEngine.Instance.Execute(StandardCommands.Names.VersionCommand);
+                WriteError(result.ToString());
                 return result.ErrorCode;
             }
             else if(CommandLine.HasSwitch(StandardCommands.Names.HelpCommand))
             {
                 CommandResult result = ScriptingEngine.Instance.Execute(StandardCommands.Names.HelpCommand);
+                WriteError(result.ToString());
                 return result.ErrorCode;
             }
             else
             {
                 CommandResult result = ScriptingEngine.Instance.Execute(CommandLine);
+                WriteError(result.ToString());
+                return result.ErrorCode;
             }
-            return 0;
         }
 
         public ConsoleApp(CommandLine args)
@@ -91,9 +94,44 @@ namespace OSEConsole
                 WriteError(line);
             }
         }
+        public void WriteOut()
+        {
+            Console.Out.WriteLine();
+        }
+        public void WriteOut(string line, bool addLF = true)
+        {
+            if (addLF)
+                Console.Out.WriteLine(line);
+            else
+                Console.Out.Write(line);
+        }
+        public void WriteOut(string[] lines)
+        {
+            foreach (var line in lines)
+            {
+                WriteOut(line);
+            }
+        }
         protected virtual void DefineCommands()
         {
             StandardCommands.RegisterAll();
+        }
+        public bool GetConfirmation(string prompt)
+        {
+            bool? answer = null;
+            while(answer == null)
+            {
+                Console.Error.Write($"{prompt} [Y/N] ");
+                string s = Console.ReadLine();
+                int deadman = 10;
+                if(!String.IsNullOrEmpty(s) && s.Length == 1)
+                {
+                    if (s[0] == 'Y' || s[0] == 'y') answer = true;
+                    if (s[0] == 'N' || s[0] == 'n') answer = false;
+                    if (--deadman <= 0) throw new ApplicationException("No valid confirmation after 10 tries");
+                }
+            }
+            return (bool)answer;
         }
     }
 }

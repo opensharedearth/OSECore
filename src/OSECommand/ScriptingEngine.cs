@@ -27,13 +27,11 @@ namespace OSECommand
         }
         public CommandResult Execute(CommandLine line)
         {
-            CommandResult result = new CommandResult();
-            if (line.Count > 0)
-            {
-                var command = CommandLineProtoRegistry.Instance.Find(line[0].Name);
+            var command = CommandLineProtoRegistry.Instance.Find(line);
+            if (command != null)
                 return command.Execute(line);
-            }
-            return result;
+            else
+                return new CommandResult(false, "Invalid command line");
         }
         public CommandResult Execute(CommandLineProto cd, CommandLine args)
         {

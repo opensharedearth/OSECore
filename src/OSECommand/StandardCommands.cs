@@ -19,25 +19,24 @@ namespace OSECommand
         }
         public static void RegisterAll()
         {
-            CommandLineProtoRegistry.Instance.Define("", new Usage(), Null);
             RegisterVersionCommand();
             RegisterHelpCommand();
             RegisterWorkingFolderCommand();
         }
         public static void RegisterVersionCommand()
         {
-            CommandLineProtoRegistry.Instance.Define(Names.VersionCommand, new Usage("Program version", new UsageProto("Version")), Version);
+            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(Names.VersionCommand, new Usage("Program version", new UsageProto("Version")), Version));
         }
         public static void RegisterHelpCommand()
         {
-            CommandLineProtoRegistry.Instance.Define(Names.HelpCommand, new Usage("General Program Help", new UsageProto("Help")), Help,
-                new CommandArgProto("Command", 1, new Usage("Command name"))
+            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(Names.HelpCommand, new Usage("General Program Help", new UsageProto("Help")), Help,
+                new CommandArgProto("Command", 1, new Usage("Command name")))
             );
         }
         public static void RegisterWorkingFolderCommand()
         {
-            CommandLineProtoRegistry.Instance.Define(Names.WorkingFolder, new Usage("Get or set working folder", new UsageProto("Working-Folder [folder]")), WorkingFolder,
-                new CommandArgProto("folder", 1, new Usage("Path to working folder"), "", new FolderValidator(), CommandArgOptions.IsPositional)
+            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(Names.WorkingFolder, new Usage("Get or set working folder", new UsageProto("Working-Folder [folder]")), WorkingFolder,
+                new CommandArgProto("folder", 1, new Usage("Path to working folder"), "", new FolderValidator(), CommandArgOptions.IsPositional))
             );
         }
         public static CommandResult Null(CommandLine args)
@@ -72,38 +71,37 @@ namespace OSECommand
                 result.AddMessage(description);
                 result.AddMessage();
             }
-            var names = from name in commands.Keys orderby name select name;
-            foreach (var name in names)
+            CommandLineProto[] protos = commands.GetAll();
+            foreach (var proto in protos)
             {
-                string commandDescription = commands[name].Usage.Description;
-                result.AddMessage($"{name}\t{commandDescription}");
+                result.AddMessage($"{proto.GetName()}\t{proto.GetDescription()}");
             }
             return result;
         }
         public static CommandResult CommandHelp(string command, CommandLineProtoRegistry commands)
         {
-            if(commands.TryGetValue(command, out CommandLineProto cd))
+            CommandLineProto[] protos = commands.Find(command);
+            CommandResult result = new CommandResult();
+            foreach (var proto in protos)
             {
-                CommandResult result = new CommandResult();
-                result.AddMessage($"{command}\t{cd.Usage.Description}");
+                result.AddMessage($"{proto.GetName()}\t{proto.GetDescription()}");
                 result.AddMessage();
-                result.AddMessage($"{cd.Usage.Description}");
-                if(cd.Count > 0)
+                if(proto.Count > 0)
                 {
                     result.AddMessage();
                     result.AddMessage("Where:");
                     result.AddMessage();
-                    foreach(var arg in cd.OfType<CommandArgProto>())
+                    foreach(var arg in proto.OfType<CommandArgProto>())
                     {
                         result.AddMessage($"{arg.Name}\t{arg.Description}");
                     }
                 }
-                return result;
             }
-            else
+            if(protos.Length == 0)
             {
                 return new CommandResult(false, "'{command}' is not a command");
             }
+            return result;
         }
         public static CommandResult WorkingFolder(CommandLine args)
         {

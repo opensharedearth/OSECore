@@ -11,12 +11,10 @@ namespace OSECommand
     {
         public virtual CommandResult Validate(CommandArg arg)
         {
-            if (!String.IsNullOrEmpty(arg.Name))
-            {
-                return new CommandResult();
-            }
+            if (String.IsNullOrEmpty(arg.Name) && arg.Mnemonic == '\0')
+                return new CommandResult(false, $"Invalid argument in command line");
             else
-                return new CommandResult(false, $"{arg.Name} cannot be empty.");
-        }
+                return new CommandResult();
     }
+}
 }

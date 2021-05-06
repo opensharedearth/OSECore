@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "PathTool": {
+      "commandName": "Project",
+      "commandLineArgs": "add documents",
+      "workingDirectory": "C:\\Users\\rundl"
+    }
+  }
+}

@@ -22,8 +22,8 @@ namespace OSECommand.Test
                 new CommandArgProto("add1", 1),
                 new CommandArgProto("add2", 2)
                 );
-            Assert.Equal(n0, d.Name);
-            Assert.Equal(d0, d.Usage.Description);
+            Assert.Equal(n0, d.GetName());
+            Assert.Equal(d0, d.GetDescription());
         }
         [Fact]
         public void ExecuteTest()

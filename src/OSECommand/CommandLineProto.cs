@@ -4,17 +4,15 @@ using System.Text;
 
 namespace OSECommand
 {
-    public class CommandLineProto : CommandLine
+    public class CommandLineProto : CommandLine, IEquatable<CommandLineProto>, IComparable<CommandLineProto>
     {
         public CommandLineProto(string name, Usage usage, Func<CommandLine, CommandResult> func, params CommandArgProto[] args)
             : base(args)
         {
-            Name = name;
-            Usage = usage ?? Usage.Null;
+            CommandArgProto proto = new CommandArgProto(name, 0, usage);
+            Insert(0, proto);
             _command = func;
         }
-        public string Name { get; } = "";
-        public Usage Usage { get; } = Usage.Null;
         private Func<CommandLine, CommandResult> _command = null;
         public CommandResult Execute(string[] fields)
         {
@@ -48,17 +46,17 @@ namespace OSECommand
                 }
                 else
                 {
-                    var proto = GetSwitch(arg.Name) as CommandArgProto;
+                    var proto = GetSwitch(arg.Name, arg.Mnemonic) as CommandArgProto;
                     if(proto == null)
                     {
-                        result.Append(new CommandResult(false, $"{arg.Name} is not a valid option"));
+                        result.Append(new CommandResult(false, $"{arg.ToString()} is not a valid option"));
                     }
                     else if(proto.HasArgument)
                     {
                         var switchArg = args.GetPositional(iPos++);
                         if(switchArg != null)
                         {
-                            args1.Add(new CommandArg(arg.Name, switchArg.Value));
+                            args1.Add(new CommandArg(arg.Name, arg.Mnemonic, switchArg.Value));
                             ++nArg;
                         }
                         else
@@ -128,14 +126,129 @@ namespace OSECommand
             {
                 if(arg.IsPositional)
                 {
-                    result.Append((this[arg.PositionIndex] as CommandArgProto).Validate(arg));
+                    result.Append((GetPositional(arg.PositionIndex) as CommandArgProto).Validate(arg));
                 }
                 else if(arg.IsSwitch)
                 {
-                    result.Append((this[arg.Name] as CommandArgProto).Validate(arg));
+                    result.Append((GetSwitch(arg.Name, arg.Mnemonic) as CommandArgProto).Validate(arg));
                 }
             }
             return args;
+        }
+        public string GetProto()
+        {
+            StringBuilder sb = new StringBuilder();
+            bool first = true;
+            foreach(CommandArgProto proto in this)
+            {
+                if(proto.IsPositional)
+                {
+                    if (!first) sb.Append(' ');
+                    first = false;
+                    sb.Append(proto.Value);
+                }
+            }
+            return sb.ToString();
+        }
+        public string GetName()
+        {
+            var arg = GetPositional(0);
+            if (arg != null)
+                return arg.Value;
+            else
+                return "";
+        }
+        public string GetDescription()
+        {
+            var arg = GetPositional(0) as CommandArgProto;
+            if (arg != null)
+                return arg.Usage.Description;
+            else
+                return "";
+        }
+
+        public bool Equals(CommandLineProto other)
+        {
+            if(other != null)
+            {
+                return GetProto().Equals(other.GetProto());
+            }
+            return false;
+        }
+
+        public int CompareTo(CommandLineProto other)
+        {
+            if(other != null)
+            {
+                return GetProto().CompareTo(other.GetProto());
+            }
+            return 1;
+        }
+        public override bool Equals(object obj)
+        {
+            if(obj is CommandLineProto proto)
+            {
+                return Equals(proto);
+            }
+            return false;
+        }
+        public override int GetHashCode()
+        {
+            return GetProto().GetHashCode();
+        }
+        public static bool operator==(CommandLineProto a, CommandLineProto b)
+        {
+            if ((object)a == null)
+                return (object)b == null;
+            else if ((object)b == null)
+                return false;
+            else
+                return a.Equals(b);
+        }
+        public static bool operator!=(CommandLineProto a, CommandLineProto b)
+        {
+            if ((object)a == null)
+                return (object)b != null;
+            else if ((object)b == null)
+                return true;
+            else
+                return !a.Equals(b);
+        }
+        public static bool operator<(CommandLineProto a, CommandLineProto b)
+        {
+            if ((object)a == null)
+                return (object)b != null;
+            else if ((object)b == null)
+                return false;
+            else
+                return a.CompareTo(b) < 0;
+        }
+        public static bool operator>(CommandLineProto a, CommandLineProto b)
+        {
+            if ((object)a == null)
+                return (object)b != null;
+            else if ((object)b == null)
+                return true;
+            else
+                return a.CompareTo(b) > 0;
+        }
+        public static bool operator<=(CommandLineProto a, CommandLineProto b)
+        {
+            if ((object)a == null)
+                return true;
+            else if ((object)b == null)
+                return false;
+            else
+                return a.CompareTo(b) <= 0;
+        }
+        public static bool operator >=(CommandLineProto a, CommandLineProto b)
+        {
+            if ((object)a == null)
+                return (object)b == null;
+            else if ((object)b == null)
+                return true;
+            else
+                return a.CompareTo(b) >= 0;
         }
     }
 }

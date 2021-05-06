@@ -75,18 +75,17 @@ namespace OSECommand
             _list.CopyTo(array, arrayIndex);
         }
 
-        public T GetValue<T>(string name, T defaultValue = default(T)) where T : struct
+        public T GetValue<T>(string name, char mnemonic = '\0', T defaultValue = default(T)) where T : struct
         {
-            var arg = this[name];
-            return GetSwitch(name)?.Value.GetValue<T>() ?? defaultValue;
+            return GetSwitch(name, mnemonic)?.Value.GetValue<T>() ?? defaultValue;
         }
         public T GetValue<T>(int index, T defaultValue = default(T)) where T : struct
         {
             return GetPositional(index)?.Value.GetValue<T>() ?? defaultValue;
         }
-        public T GetResolvedValue<T>(string name, T defaultValue = default(T))
+        public T GetResolvedValue<T>(string name, char mnemonic = '\0', T defaultValue = default(T))
         {
-            return (T)GetSwitch(name)?.ResolvedValue ?? defaultValue;
+            return (T)GetSwitch(name, mnemonic)?.ResolvedValue ?? defaultValue;
         }
         public T GetResolvedValue<T>(int index, T defaultValue = default(T))
         {
@@ -245,13 +244,17 @@ namespace OSECommand
             }
             return result;
         }
-        public bool HasSwitch(string name)
+        public bool HasSwitch(string name, char mnemonic = '\0')
         {
-            return (from arg in this where arg.MatchName(name) select arg).Count() > 0;
+            return (from arg in this where arg.MatchName(name) || (arg.IsMnemonic && arg.Mnemonic == mnemonic) select arg).Count() > 0;
         }
-        public CommandArg GetSwitch(string name)
+        public CommandArg GetSwitch(string name, char mnemonic = '\0')
         {
-            return (from arg in this where arg.MatchName(name) select arg).FirstOrDefault();
+            return (from arg in this where arg.MatchName(name) || (arg.IsMnemonic && arg.Mnemonic == mnemonic) select arg).FirstOrDefault();
+        }
+        public CommandArg GetSwitch(char mnemonic)
+        {
+            return (from arg in this where arg.Mnemonic == mnemonic select arg).FirstOrDefault();
         }
         public CommandArg GetPositional(int order)
         {

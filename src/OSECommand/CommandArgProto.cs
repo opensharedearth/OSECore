@@ -8,6 +8,7 @@ namespace OSECommand
 {
     public class CommandArgProto : CommandArg
     {
+        public const char NoMnemonic = '\0';
         public Usage Usage { get; } = null;
         public string Description { get; } = "";
         public bool IsRequired => (Options & CommandArgOptions.IsRequired) != 0;
