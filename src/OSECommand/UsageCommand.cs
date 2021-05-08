@@ -6,34 +6,31 @@ using System.Threading.Tasks;
 
 namespace OSECommand
 {
-    public class UsageProto : UsageElement
+    public class UsageCommand : UsageElement
     {
-        public string Proto { get; set; } = "";
-        public UsageProto(string proto, string description = "")
+        public string Name { get; private set; }
+        public UsageCommand(string name, string description)
             : base(description)
         {
-            if (proto == null) throw new ArgumentNullException("Proto cannot be null");
-            Proto = proto;
+            if (name == null) throw new ArgumentNullException("Command name cannot be null");
+            Name = name;
         }
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(Proto);
-            if(HasDescription)
-            {
-                sb.Append(GetPadding(sb.Length + 1));
-                sb.Append(Description);
-            }
+            sb.Append(Name);
+            sb.Append(GetPadding(sb.Length + 1));
+            sb.Append(Description);
             return sb.ToString();
         }
         public override UsageType GetUsageType()
         {
-            return UsageType.Proto;
+            return UsageType.Command;
         }
         public override string GetHeading()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Usage:");
+            sb.AppendLine("Commands:");
             return sb.ToString();
         }
     }

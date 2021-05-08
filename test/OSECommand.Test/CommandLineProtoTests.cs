@@ -18,7 +18,7 @@ namespace OSECommand.Test
             var d = new CommandLineProto(
                 n0,
                 new Usage(d0),
-                (args) => { return new CommandResult(true, (args.GetValue<int>(1) + args.GetValue<int>(2)).ToString()); },
+                (proto, args) => { return new CommandResult(true, (args.GetValue<int>(1) + args.GetValue<int>(2)).ToString()); },
                 new CommandArgProto("add1", 1),
                 new CommandArgProto("add2", 2)
                 );
@@ -33,7 +33,7 @@ namespace OSECommand.Test
             var d = new CommandLineProto(
                 n0,
                 new Usage(d0),
-                (args) => { return new CommandResult(true, (args.GetValue<int>(0) + args.GetValue<int>(1)).ToString()); },
+                (proto, args) => { return new CommandResult(true, (args.GetValue<int>(0) + args.GetValue<int>(1)).ToString()); },
                 new CommandArgProto("add1", 0),
                 new CommandArgProto("add2", 1)
                 );

@@ -158,6 +158,7 @@ namespace OSECore.Text
                             continue;
                         case '\n':
                             lines.Add(new string(line.ToArray()));
+                            line.Clear();
                             break;
                         default:
                             line.Add(c);

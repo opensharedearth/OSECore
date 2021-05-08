@@ -1,9 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>pathtool</AssemblyName>
+    <Authors>Open Shared Earth, LLC</Authors>
+    <Product>pathtool - command line utility for managing the PATH variable</Product>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>pathtool is a command line utility that performs various operations on the PATH variable including listing and validating elements, removing elements, moving elements, adding folders and cleaning out invalid folders.</Description>
+    <Copyright>Copyright (c) 2021 Open Shared Earth</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

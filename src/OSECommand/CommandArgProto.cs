@@ -19,17 +19,17 @@ namespace OSECommand
         public override bool IsMnemonic => base.IsMnemonic;
         private ArgValidator _validator = null;
         public CommandArgOptions Options { get; } = CommandArgOptions.None;
-        public CommandArgProto(string name, char mnemonic = '\0', Usage usage = null, string value = null, ArgValidator validator = null, CommandArgOptions options = CommandArgOptions.None)
+        public CommandArgProto(string name, char mnemonic = '\0', UsageElement usage = null, string value = null, ArgValidator validator = null, CommandArgOptions options = CommandArgOptions.None)
             : base(name, mnemonic, value)
         {
-            Usage = usage ?? Usage.Null;
+            Usage = Usage.CreateUsage(name, mnemonic, usage);
             _validator = validator ?? new ArgValidator();
             Options = options & ~CommandArgOptions.IsPositional;
         }
-        public CommandArgProto(string name, int index, Usage usage = null, string value = null, ArgValidator validator = null, CommandArgOptions options = CommandArgOptions.None)
+        public CommandArgProto(string name, int index, UsageElement usage = null, string value = null, ArgValidator validator = null, CommandArgOptions options = CommandArgOptions.None)
             : base(index, name)
         {
-            Usage = usage ?? Usage.Null;
+            Usage = Usage.CreateUsage(name, usage);
             _validator = validator ?? new ArgValidator();
             Options = options | CommandArgOptions.IsPositional;
         }

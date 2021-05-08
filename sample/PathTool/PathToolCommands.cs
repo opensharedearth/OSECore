@@ -1,5 +1,6 @@
 ﻿using OSECommand;
 using OSEConsole;
+using OSECore.Program;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,6 @@ namespace PathTool
     {
         public struct Names 
         {
-            public const string ProgramName = "pathtool";
             public const string ListCommand = "list";
             public const string AddCommand = "add";
             public const string RemoveCommand = "remove";
@@ -42,7 +42,7 @@ namespace PathTool
         }
         public static void RegisterAll()
         {
-            var pathArg = new CommandArgProto(Names.ProgramName, 0);
+            string programName = ProgramInfo.GetProgramName();
             var filterArg = new CommandArgProto(Names.FilterSwitch, Names.FilterMnemonic,
                 new Usage("Filter list of folders with expression",
                     new UsageWhere("exp", "Regular expression")),
@@ -62,11 +62,13 @@ namespace PathTool
             var userArg = new CommandArgProto(Names.UserSwitch, Names.UserMnemonic, new Usage("Use user PATH variable.  By default the local process path is used. Incompatible with -m"));
             var quietArg = new CommandArgProto(Names.QuietSwitch, Names.QuietMnemonic, new Usage("Do not confirm operation.  Otherwise Y/N confirmation is required."));
             var inlineArg = new CommandArgProto(Names.InlineSwitch, Names.InlineMnemonic, new Usage("Inline formating.  Creates output suitable for command execution.  Incompatible with -v"));
-            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(Names.ProgramName,
-                new Usage("pathtool list [--filter exp] [--verbose | --inline] [--machine | --user] [--sort]"),
+            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName,
+                new Usage(
+                    new UsageProto("pathtool list [--filter exp] [--verbose | --inline] [--machine | --user] [--sort]"),
+                    new UsageExample("pathtool -v","List folders in path with position and validity")
+                    ),
                 ListCommand,
-                pathArg,
-                new CommandArgProto(Names.ListCommand, 1, new Usage("List elements of path")),
+                new CommandArgProto(Names.ListCommand, 1, new UsageCommand(Names.ListCommand, "List elements of path")),
                 filterArg,
                 verboseArg,
                 sortArg,
@@ -74,34 +76,35 @@ namespace PathTool
                 userArg,
                 inlineArg
                 ));
-            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(Names.ProgramName,
-                new Usage("pathtool clean [--machine | --user] [--quiet] [--verbose | --inline]"),
+            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName,
+                new Usage(
+                    new UsageProto("pathtool clean [--machine | --user] [--quiet] [--verbose | --inline]"),
+                    new UsageExample("$env:PATH=$(pathtool clean -q)","Clean PATH in local powershell")
+                    ),
                 CleanCommand,
-                new CommandArgProto(Names.CleanCommand, 1, new Usage("Clean path of invalid and duplicate elements")),
+                new CommandArgProto(Names.CleanCommand, 1, new UsageCommand(Names.CleanCommand, "Clean path of invalid and duplicate elements"), null, null, CommandArgOptions.IsRequired),
                 quietArg,
                 machineArg,
                 userArg,
                 verboseArg,
                 inlineArg
                 ));
-            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(Names.ProgramName,
-                new Usage("pathtool add [--machine | --user] [--verbose | --inline] [--position pos] [--quiet] folder1 folder2 ..."),
+            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName,
+                new UsageProto("pathtool add [--machine | --user] [--verbose | --inline] [--position pos] [--quiet] folder <folder> ..."),
                 AddCommand,
-                pathArg,
-                new CommandArgProto(Names.AddCommand, 1, new Usage("Add folders to path"), null, null, CommandArgOptions.IsRequired),
+                new CommandArgProto(Names.AddCommand, 1, new UsageCommand(Names.AddCommand, "Add folders to path"), null, null, CommandArgOptions.IsRequired),
                 machineArg,
                 userArg,
                 verboseArg,
                 inlineArg,
                 positionArg,
                 quietArg,
-                new CommandArgProto(Names.FolderArgument, 2, new Usage("Folder to add to path"), null, new FolderValidator(), CommandArgOptions.IsRequired | CommandArgOptions.HasMultiple)
+                new CommandArgProto(Names.FolderArgument, 2, new UsageWhere(Names.FolderArgument,"Folder to add to path"), null, new FolderValidator(), CommandArgOptions.IsRequired | CommandArgOptions.HasMultiple)
                 ));
-            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(Names.ProgramName,
-                new Usage("pathtool remove [--machine | --user] [--verbose | --inline] [--position pos [--length len] | --filter exp] [--quiet]"),
+            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName,
+                new UsageProto("pathtool remove [--machine | --user] [--verbose | --inline] [--position pos [--length len] | --filter exp] [--quiet]"),
                 RemoveCommand,
-                pathArg,
-                new CommandArgProto(Names.RemoveCommand, 1, new Usage("Remove folders from path"), null, null, CommandArgOptions.IsRequired),
+                new CommandArgProto(Names.RemoveCommand, 1, new UsageCommand(Names.RemoveCommand, "Remove folders from path"), null, null, CommandArgOptions.IsRequired),
                 machineArg,
                 userArg,
                 verboseArg,
@@ -111,10 +114,13 @@ namespace PathTool
                 filterArg,
                 quietArg
                 ));
-            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(Names.ProgramName,
-                new Usage("pathtool move [--machine | --user] [--verbose | --inline] [--position pos] [--length len] [--distance dist] [--quiet]"),
+            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName,
+                new Usage(
+                    new UsageProto("pathtool move [--machine | --user] [--verbose | --inline] [--position pos] [--length len] [--distance dist] [--quiet]"),
+                    new UsageExample("pathtool move -pt 15 1","move folder at position 15 to first in PATH")
+                    ),
                 MoveCommand,
-                new CommandArgProto(Names.MoveCommand, 1, new Usage("Move folders within PATH"), null, null, CommandArgOptions.IsRequired),
+                new CommandArgProto(Names.MoveCommand, 1, new UsageCommand(Names.MoveCommand, "Move folders within PATH"), null, null, CommandArgOptions.IsRequired),
                 machineArg,
                 userArg,
                 verboseArg,
@@ -139,7 +145,7 @@ namespace PathTool
             }
             return options;
         }
-        public static CommandResult RemoveCommand(CommandLine args)
+        public static CommandResult RemoveCommand(CommandLineProto proto, CommandLine args)
         {
             try
             {
@@ -149,8 +155,10 @@ namespace PathTool
                 bool isQuiet = args.HasSwitch(Names.QuietSwitch, Names.QuietMnemonic);
                 var folders = new PathFolders(options);
                 folders.Fill();
-                int pos = args.GetValue<int>(Names.PositionSwitch, Names.PositionMnemonic, 1);
-                int len = args.GetValue<int>(Names.LengthSwitch, Names.LengthMnemonic, 1);
+                int defaultPos = proto.GetValue<int>(Names.PositionSwitch);
+                int pos = args.GetValue<int>(Names.PositionSwitch, Names.PositionMnemonic, defaultPos);
+                int defaultLen = proto.GetValue<int>(Names.LengthSwitch);
+                int len = args.GetValue<int>(Names.LengthSwitch, Names.LengthMnemonic, defaultLen);
                 if (pos < 1 || pos + len - 1 > folders.Count)
                     throw new ApplicationException("Position and length outside valid range for remove operation");
                 if(!isQuiet)
@@ -176,7 +184,7 @@ namespace PathTool
                 return new CommandResult(false, "Unable to remove folders from PATH", ex);
             }
         }
-        public static CommandResult MoveCommand(CommandLine args)
+        public static CommandResult MoveCommand(CommandLineProto proto, CommandLine args)
         {
             CommandResult result = new CommandResult();
             try
@@ -187,9 +195,12 @@ namespace PathTool
                 bool isQuiet = args.HasSwitch(Names.QuietSwitch, Names.QuietMnemonic);
                 var folders = new PathFolders(options);
                 folders.Fill();
-                int pos = args.GetValue<int>(Names.PositionSwitch, Names.PositionMnemonic, 1);
-                int len = args.GetValue<int>(Names.LengthSwitch, Names.LengthMnemonic, 1);
-                int to = args.GetValue<int>(Names.ToSwitch, Names.ToMnemonic, 1);
+                int defaultPos = proto.GetValue<int>(Names.PositionSwitch);
+                int pos = args.GetValue<int>(Names.PositionSwitch, Names.PositionMnemonic, defaultPos);
+                int defaultLength = proto.GetValue<int>(Names.LengthSwitch);
+                int len = args.GetValue<int>(Names.LengthSwitch, Names.LengthMnemonic, defaultLength);
+                int defaultTo = proto.GetValue<int>(Names.ToSwitch);
+                int to = args.GetValue<int>(Names.ToSwitch, Names.ToMnemonic, defaultTo);
                 if (pos < 1 || pos + len - 1> folders.Count)
                     throw new ApplicationException("Position and length outside valid range for move operation");
                 if (to < 1 || to >  folders.Count)
@@ -233,12 +244,13 @@ namespace PathTool
                 return new CommandResult(false, "Unable to move folders in PATH", ex);
             }
         }
-        public static CommandResult AddCommand(CommandLine args)
+        public static CommandResult AddCommand(CommandLineProto proto, CommandLine args)
         {
             var app = ConsoleApp.Instance;
             try
             {
-                int pos = args.GetValue<int>(Names.PositionSwitch, Names.PositionMnemonic, 1);
+                int defaultPos = proto.GetValue<int>(Names.PositionSwitch);
+                int pos = args.GetValue<int>(Names.PositionSwitch, Names.PositionMnemonic, defaultPos);
                 var options = GetPathFolderOptions(args);
                 bool isVerbose = args.HasSwitch(Names.VerboseSwitch, Names.VerboseMnemonic);
                 bool isQuiet = args.HasSwitch(Names.QuietSwitch, Names.QuietMnemonic);
@@ -247,6 +259,7 @@ namespace PathTool
                 var added = new PathFolders(options);
                 int parg = 2;
                 string path = args.GetResolvedValue<string>(parg++);
+                bool commit = true;
                 while(path != null)
                 {
                     added.Add(new PathFolder(path));
@@ -263,26 +276,31 @@ namespace PathTool
                     app.WriteError();
                     app.WriteError(isVerbose ? folders.ToVerboseString() : folders.ToString());
                     app.WriteError();
-                    if(!app.GetConfirmation($"at position {pos}"))
-                        return new CommandResult(false, "Add folders operation canceled");
+                    commit = app.GetConfirmation($"at position {pos}"));
                 }
-                int p = pos - 1;
-                foreach(var f in added)
+                if(commit)
                 {
-                    folders.Insert(p++, f);
+                    int p = pos - 1;
+                    foreach (var f in added)
+                    {
+                        folders.Insert(p++, f);
+                    }
                 }
                 if (options == PathFolderOptions.Process)
                     app.WriteOut(folders.ToInlineString());
-                else
+                else if(commit)
                     folders.Commit();
-                return new CommandResult(true, $"{added.Count} folder(s) added to PATH at position {pos}");
+                if(commit)
+                    return new CommandResult(true, $"{added.Count} folder(s) added to PATH at position {pos}");
+                else
+                    return new CommandResult(false, "Add folders operation canceled");
             }
             catch (Exception ex)
             {
                 return new CommandResult(false, "Unable to add folders to command", ex);
             }
         }
-        public static CommandResult CleanCommand(CommandLine args)
+        public static CommandResult CleanCommand(CommandLineProto proto, CommandLine args)
         {
             try
             {
@@ -324,7 +342,7 @@ namespace PathTool
                 return new CommandResult(false, "Unable to clean invalid PATH elements", ex);
             }
         }
-        public static CommandResult ListCommand(CommandLine args)
+        public static CommandResult ListCommand(CommandLineProto proto, CommandLine args)
         {
             try
             {

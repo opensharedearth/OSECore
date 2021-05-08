@@ -6,14 +6,14 @@ namespace OSECommand
 {
     public class CommandLineProto : CommandLine, IEquatable<CommandLineProto>, IComparable<CommandLineProto>
     {
-        public CommandLineProto(string name, Usage usage, Func<CommandLine, CommandResult> func, params CommandArgProto[] args)
+        public CommandLineProto(string name, UsageElement usage, Func<CommandLineProto, CommandLine, CommandResult> func, params CommandArgProto[] args)
             : base(args)
         {
             CommandArgProto proto = new CommandArgProto(name, 0, usage);
             Insert(0, proto);
             _command = func;
         }
-        private Func<CommandLine, CommandResult> _command = null;
+        private Func<CommandLineProto, CommandLine, CommandResult> _command = null;
         public CommandResult Execute(string[] fields)
         {
             return Execute(new CommandLine(fields));
@@ -24,7 +24,7 @@ namespace OSECommand
             CommandLine args = Resolve(argList, result);
             if(result.Succeeded)
             {
-                return _command(args);
+                return _command(this, args);
             }
             return result;
         }
@@ -100,13 +100,31 @@ namespace OSECommand
             }
             return args1;
         }
+        public bool HasRequired(CommandLine args)
+        {
+            foreach (var proto in this)
+            {
+                if ((proto as CommandArgProto).IsRequired)
+                {
+                    if (proto.IsSwitch && args.GetSwitch(proto.Name, proto.Mnemonic) == null)
+                    {
+                        return false;
+                    }
+                    else if (proto.IsPositional && args.GetPositional(proto.PositionIndex) == null)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
         public void CheckRequired(CommandLine args, CommandResult result)
         {
             foreach(var proto in this)
             {
                 if((proto as CommandArgProto).IsRequired)
                 {
-                    if(proto.IsSwitch && args.GetSwitch(proto.Name) == null)
+                    if(proto.IsSwitch && args.GetSwitch(proto.Name, proto.Mnemonic) == null)
                     {
                         result.Append(new CommandResult(false, $"Required option {proto.Name} missing"));
                     }
@@ -249,6 +267,26 @@ namespace OSECommand
                 return true;
             else
                 return a.CompareTo(b) >= 0;
+        }
+        public static Usage GetUsage(IEnumerable<CommandLineProto> protos)
+        {
+            Usage u = new Usage();
+            foreach(var proto in protos)
+            {
+                u.Merge(GetUsage(proto));
+            }
+            u.Normalize();
+            return u;
+        }
+        public static Usage GetUsage(CommandLineProto proto)
+        {
+            Usage u = new Usage();
+            foreach(CommandArgProto argProto in proto)
+            {
+                u.Merge(argProto.Usage);
+            }
+            u.Normalize();
+            return u;
         }
     }
 }

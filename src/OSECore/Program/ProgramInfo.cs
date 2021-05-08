@@ -26,5 +26,17 @@ namespace OSECore.Program
             var description = a.GetCustomAttribute<AssemblyDescriptionAttribute>();
             return description?.Description ?? "";
         }
+        public static string GetCopyright()
+        {
+            Assembly a = Assembly.GetEntryAssembly();
+            var copyright = a.GetCustomAttribute<AssemblyCopyrightAttribute>();
+            return copyright?.Copyright ?? "";
+        }
+        public static string GetCompany()
+        {
+            Assembly a = Assembly.GetEntryAssembly();
+            var company = a.GetCustomAttribute<AssemblyCompanyAttribute>();
+            return company?.Company ?? "";
+        }
     }
 }

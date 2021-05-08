@@ -14,8 +14,9 @@ namespace OSECommand
         public struct Names
         {
             public const string WorkingFolder = "working-folder";
-            public const string VersionCommand = "Version";
-            public const string HelpCommand = "Help";
+            public const string VersionCommand = "version";
+            public const string HelpCommand = "help";
+            public const char HelpMnemonic = 'h';
         }
         public static void RegisterAll()
         {
@@ -25,11 +26,11 @@ namespace OSECommand
         }
         public static void RegisterVersionCommand()
         {
-            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(Names.VersionCommand, new Usage("Program version", new UsageProto("Version")), Version));
+            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(Names.VersionCommand, new Usage("Get program version", new UsageProto("Version")), Version));
         }
         public static void RegisterHelpCommand()
         {
-            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(Names.HelpCommand, new Usage("General Program Help", new UsageProto("Help")), Help,
+            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(Names.HelpCommand, new Usage("Get program help", new UsageProto("Help")), Help,
                 new CommandArgProto("Command", 1, new Usage("Command name")))
             );
         }
@@ -39,26 +40,53 @@ namespace OSECommand
                 new CommandArgProto("folder", 1, new Usage("Path to working folder"), "", new FolderValidator(), CommandArgOptions.IsPositional))
             );
         }
-        public static CommandResult Null(CommandLine args)
+        public static void RegisterVersionArgument()
+        {
+            string programName = ProgramInfo.GetProgramName();
+            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName, new UsageProto($"{programName} --version"), Version,
+                new CommandArgProto(Names.VersionCommand, CommandArgProto.NoMnemonic, new Usage("Get program version"), null, null, CommandArgOptions.IsRequired))
+                );
+        }
+        public static void RegisterHelpArgument()
+        {
+            string programName = ProgramInfo.GetProgramName();
+            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName, new UsageProto($"{programName} --help [command]"), HelpArgument,
+                new CommandArgProto(Names.HelpCommand, Names.HelpMnemonic, new Usage("Get program help"), null, null, CommandArgOptions.IsRequired),
+                new CommandArgProto("command", 1, new UsageWhere("command","Command name")))
+                );
+        }
+        public static CommandResult Null(CommandLineProto proto, CommandLine args)
         {
             return new CommandResult();
         }
-        public static CommandResult Version(CommandLine args)
+        public static CommandResult Version(CommandLineProto proto, CommandLine args)
         {
-            Assembly a = Assembly.GetEntryAssembly();
-            var name = a.GetName();
-            return new CommandResult(true, $"{name.Name} {name.Version}");
+            string name = ProgramInfo.GetProgramName();
+            string version = ProgramInfo.GetProgramVersion();
+            string copyright = ProgramInfo.GetCopyright();
+
+            return new CommandResult(true, $"{name} {version} {copyright}");
         }
-        public static CommandResult InvalidCommand(CommandLine args)
+        public static CommandResult InvalidCommand(CommandLineProto proto, CommandLine args)
         {
             return new CommandResult(false, $"'{args[0].Name}' is not a command.");
         }
-        public static CommandResult Help(CommandLine args)
+        public static CommandResult Help(CommandLineProto proto, CommandLine args)
         {
-            if (args.Count <= 1)
+            string command = args.GetValue(1);
+            if (command == null)
                 return GeneralHelp(CommandLineProtoRegistry.Instance);
             else
-                return CommandHelp(args[1].Value as string, CommandLineProtoRegistry.Instance);
+                return CommandHelp(command, CommandLineProtoRegistry.Instance);
+        }
+        public static CommandResult HelpArgument(CommandLineProto proto, CommandLine args)
+        {
+            string command = args.GetValue(1);
+            string programName = ProgramInfo.GetProgramName();
+            if (command == null)
+                return GeneralHelp(CommandLineProtoRegistry.Instance);
+            else
+                return CommandHelp(new CommandLine($"{programName} {command}"), CommandLineProtoRegistry.Instance);
         }
         public static CommandResult GeneralHelp(CommandLineProtoRegistry commands)
         {
@@ -72,38 +100,35 @@ namespace OSECommand
                 result.AddMessage();
             }
             CommandLineProto[] protos = commands.GetAll();
-            foreach (var proto in protos)
-            {
-                result.AddMessage($"{proto.GetName()}\t{proto.GetDescription()}");
-            }
+            Usage u = CommandLineProto.GetUsage(protos);
+            result.AddMessage(u.ToString());
             return result;
         }
         public static CommandResult CommandHelp(string command, CommandLineProtoRegistry commands)
         {
-            CommandLineProto[] protos = commands.Find(command);
             CommandResult result = new CommandResult();
-            foreach (var proto in protos)
-            {
-                result.AddMessage($"{proto.GetName()}\t{proto.GetDescription()}");
-                result.AddMessage();
-                if(proto.Count > 0)
-                {
-                    result.AddMessage();
-                    result.AddMessage("Where:");
-                    result.AddMessage();
-                    foreach(var arg in proto.OfType<CommandArgProto>())
-                    {
-                        result.AddMessage($"{arg.Name}\t{arg.Description}");
-                    }
-                }
-            }
+            CommandLineProto[] protos = commands.Find(command);
             if(protos.Length == 0)
             {
                 return new CommandResult(false, "'{command}' is not a command");
             }
+            Usage u = CommandLineProto.GetUsage(protos);
+            result.AddMessage(u.ToString());
             return result;
         }
-        public static CommandResult WorkingFolder(CommandLine args)
+        public static CommandResult CommandHelp(CommandLine args, CommandLineProtoRegistry commands)
+        {
+            CommandResult result = new CommandResult();
+            CommandLineProto proto = commands.Find(args);
+            if (proto == null)
+            {
+                return new CommandResult(false, "Command not found");
+            }
+            Usage u = CommandLineProto.GetUsage(proto);
+            result.AddMessage(u.ToString());
+            return result;
+        }
+        public static CommandResult WorkingFolder(CommandLineProto proto, CommandLine args)
         {
             if(args.Count == 2)
             {

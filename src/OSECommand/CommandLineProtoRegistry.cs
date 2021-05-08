@@ -71,19 +71,38 @@ namespace OSECommand
             allproto.Sort();
             return allproto.ToArray();
         }
+        private CommandLineProto[] Find(CommandLineProto[] protos, CommandLine args)
+        {
+            List<CommandLineProto> protos1 = new List<CommandLineProto>();
+            foreach(var proto in protos)
+            {
+                if(proto.HasRequired(args))
+                {
+                    protos1.Add(proto);
+                }
+            }
+            return protos1.ToArray();
+        }
 
         private CommandLineProto Find(CommandLineProto[] protos, int pos, CommandLine args)
         {
             CommandArg name = args.GetPositional(pos);
             if (name == null)
-                return Find(protos, pos);
+            {
+                foreach(var proto in protos)
+                {
+                    if (proto.HasRequired(args))
+                        return proto;
+                }
+                return null;
+            }
             else
             {
                 List<CommandLineProto> matches = new List<CommandLineProto>();
                 foreach(var proto in protos)
                 {
                     var protoArg = proto.GetPositional(pos);
-                    if (string.Compare(protoArg.Value, name.Value, true) == 0)
+                    if (protoArg != null && string.Compare(protoArg.Value, name.Value, true) == 0)
                         matches.Add(proto);
                 }
                 if (matches.Count == 0)
@@ -93,17 +112,6 @@ namespace OSECommand
                 else
                     return Find(matches.ToArray(), pos + 1, args);
             }
-        }
-
-        private CommandLineProto Find(CommandLineProto[] protos, int pos)
-        {
-            foreach(var proto in protos)
-            {
-                CommandArgProto name = proto.GetPositional(pos) as CommandArgProto;
-                if (name != null && !name.IsRequired)
-                    return proto;
-            }
-            return null;
         }
 
         public CommandLineProto[] Find(string name)

@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace OSECommand
 {
-    public class UsageProto : UsageElement
+    public class UsageExample
+        : UsageElement
     {
-        public string Proto { get; set; } = "";
-        public UsageProto(string proto, string description = "")
+        public string Example { get; private set; }
+        public UsageExample(string example, string description)
             : base(description)
         {
-            if (proto == null) throw new ArgumentNullException("Proto cannot be null");
-            Proto = proto;
+            if (example == null) throw new ArgumentNullException("Example cannot be null");
+            Example = example;
         }
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(Proto);
-            if(HasDescription)
+            sb.Append(Example);
+            if (HasDescription)
             {
                 sb.Append(GetPadding(sb.Length + 1));
                 sb.Append(Description);
@@ -28,12 +29,12 @@ namespace OSECommand
         }
         public override UsageType GetUsageType()
         {
-            return UsageType.Proto;
+            return UsageType.Example;
         }
         public override string GetHeading()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Usage:");
+            sb.AppendLine("Examples:");
             return sb.ToString();
         }
     }

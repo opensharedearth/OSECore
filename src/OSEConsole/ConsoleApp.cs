@@ -36,31 +36,16 @@ namespace OSEConsole
 
         protected virtual int Run()
         {
-            if(CommandLine.HasSwitch(StandardCommands.Names.VersionCommand))
-            {
-                CommandResult result = ScriptingEngine.Instance.Execute(StandardCommands.Names.VersionCommand);
-                WriteError(result.ToString());
-                return result.ErrorCode;
-            }
-            else if(CommandLine.HasSwitch(StandardCommands.Names.HelpCommand))
-            {
-                CommandResult result = ScriptingEngine.Instance.Execute(StandardCommands.Names.HelpCommand);
-                WriteError(result.ToString());
-                return result.ErrorCode;
-            }
-            else
-            {
-                CommandResult result = ScriptingEngine.Instance.Execute(CommandLine);
-                WriteError(result.ToString());
-                return result.ErrorCode;
-            }
+            CommandResult result = ScriptingEngine.Instance.Execute(CommandLine);
+            WriteError(result.ToString());
+            return result.ErrorCode;
         }
 
         public ConsoleApp(CommandLine args)
         {
             CommandLine = args;
-            StandardCommands.RegisterVersionCommand();
-            StandardCommands.RegisterHelpCommand();
+            StandardCommands.RegisterVersionArgument();
+            StandardCommands.RegisterHelpArgument();
             Instance = this;
         }
         public void WriteError(AggregateException exs)

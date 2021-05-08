@@ -75,6 +75,10 @@ namespace OSECommand
             _list.CopyTo(array, arrayIndex);
         }
 
+        public string GetValue(string name, char mnemonic = '\0', string defaultValue = null)
+        {
+            return GetSwitch(name, mnemonic)?.Value ?? defaultValue;
+        }
         public T GetValue<T>(string name, char mnemonic = '\0', T defaultValue = default(T)) where T : struct
         {
             return GetSwitch(name, mnemonic)?.Value.GetValue<T>() ?? defaultValue;
@@ -82,6 +86,10 @@ namespace OSECommand
         public T GetValue<T>(int index, T defaultValue = default(T)) where T : struct
         {
             return GetPositional(index)?.Value.GetValue<T>() ?? defaultValue;
+        }
+        public string GetValue(int index, string defaultValue = null)
+        {
+            return GetPositional(index)?.Value ?? defaultValue;
         }
         public T GetResolvedValue<T>(string name, char mnemonic = '\0', T defaultValue = default(T))
         {

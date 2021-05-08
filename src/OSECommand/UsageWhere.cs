@@ -9,11 +9,28 @@ namespace OSECommand
     public class UsageWhere : UsageElement
     {
         public UsageWhere(string name, string description)
+            : base(description)
         {
             Name = name;
-            Description = description;
         }
-        string Name { get; set; }
-        string Description { get; set; }
+        public string Name { get; set; }
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Name);
+            sb.Append(GetPadding(sb.Length + 1));
+            sb.Append(Description);
+            return sb.ToString();
+        }
+        public override UsageType GetUsageType()
+        {
+            return UsageType.Where;
+        }
+        public override string GetHeading()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Where:");
+            return sb.ToString();
+        }
     }
 }
