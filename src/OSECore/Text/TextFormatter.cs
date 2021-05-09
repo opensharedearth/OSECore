@@ -1,25 +1,27 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 
 namespace OSECore.Text
 {
     public class TextFormatter
     {
-        public static string FormatCollection(ICollection collection)
+        public static string FormatCollection<T>(ICollection<T> collection)
         {
             StringBuilder sb = new StringBuilder();
-            if (collection == null && collection.Count > 0)
+            sb.Append('(');
+            if (collection != null && collection.Count > 0)
             {
-                sb.Append('(');
+                bool first = true;
                 foreach (object d in collection)
                 {
+                    if(!first)
+                        sb.Append(',');
                     sb.Append(d.ToString());
-                    sb.Append(',');
+                    first = false;
                 }
-
-                sb.Length--;
-                sb.Append(')');
             }
+            sb.Append(')');
 
             return sb.ToString();
         }

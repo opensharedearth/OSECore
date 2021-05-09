@@ -825,6 +825,20 @@ namespace OSECore.Text
             val = default(T);
             return false;
         }
+        public static IEnumerable<T> ParseCollection<T>(string s) where T : struct
+        {
+            List<T> list = new List<T>();
+            if(!String.IsNullOrEmpty(s) && s[0] == '(' && s.Last() == ')')
+            {
+                string[] fields = s.Substring(1, s.Length - 2).Split(',');
+                foreach(var field in fields)
+                {
+                    T v = field.GetValue<T>();
+                    list.Add(v);
+                }
+            }
+            return list.ToArray();
+        }
 
     }
 }

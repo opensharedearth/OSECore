@@ -34,7 +34,7 @@ namespace OSECommand
                 if (sb.Length > 0) sb.Append(", ");
                 sb.Append($"-{Mnemonic}");
             }
-            sb.Append(GetPadding(sb.Length + 1));
+            sb.Append('\t');
             sb.Append(Description);
             return sb.ToString();
         }

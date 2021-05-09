@@ -154,6 +154,7 @@ namespace PathTool
                 bool isVerbose = args.HasSwitch(Names.VerboseSwitch, Names.VerboseMnemonic);
                 bool isQuiet = args.HasSwitch(Names.QuietSwitch, Names.QuietMnemonic);
                 var folders = new PathFolders(options);
+                bool commit = true;
                 folders.Fill();
                 int defaultPos = proto.GetValue<int>(Names.PositionSwitch);
                 int pos = args.GetValue<int>(Names.PositionSwitch, Names.PositionMnemonic, defaultPos);
@@ -165,19 +166,24 @@ namespace PathTool
                 {
                     app.WriteError(isVerbose ? folders.ToVerboseString() : folders.ToString());
                     app.WriteError();
-                    if (!app.GetConfirmation($"Remove {len} folder(s) from PATH starting at position {pos}?"))
-                        return new CommandResult(false, "Remove operation canceled");
+                    commit = app.GetConfirmation($"Remove {len} folder(s) from PATH starting at position {pos}?");
                 }
-                int l = len;
-                while(l-- > 0)
+                if(commit)
                 {
-                    folders.RemoveAt(pos - 1);
+                    int l = len;
+                    while (l-- > 0)
+                    {
+                        folders.RemoveAt(pos - 1);
+                    }
                 }
                 if (options == PathFolderOptions.Process)
                     app.WriteOut(folders.ToInlineString());
-                else
+                else if(commit)
                     folders.Commit();
-                return new CommandResult(true, $"{len} folder(s) removed from PATH");
+                if(commit)
+                    return new CommandResult(true, $"{len} folder(s) removed from PATH");
+                else
+                    return new CommandResult(false, "Remove operation canceled");
             }
             catch (Exception ex)
             {
@@ -194,6 +200,7 @@ namespace PathTool
                 bool isVerbose = args.HasSwitch(Names.VerboseSwitch, Names.VerboseMnemonic);
                 bool isQuiet = args.HasSwitch(Names.QuietSwitch, Names.QuietMnemonic);
                 var folders = new PathFolders(options);
+                bool commit = true;
                 folders.Fill();
                 int defaultPos = proto.GetValue<int>(Names.PositionSwitch);
                 int pos = args.GetValue<int>(Names.PositionSwitch, Names.PositionMnemonic, defaultPos);
@@ -211,33 +218,37 @@ namespace PathTool
                 {
                     app.WriteError(isVerbose ? folders.ToVerboseString() : folders.ToString());
                     app.WriteError();
-                    if (!app.GetConfirmation($"Move {folders.Count} in PATH starting at position {pos} to position {to}?"))
-                        return new CommandResult(false, "Move operation canceled");
+                    commit = app.GetConfirmation($"Move {folders.Count} in PATH starting at position {pos} to position {to}?");
                 }
-                int l = len;
-                int p = pos - 1;
-                int t = to - 1;
-                while (l-- > 0)
+                if(commit)
                 {
-                    if (t < p)
+                    int l = len;
+                    int p = pos - 1;
+                    int t = to - 1;
+                    while (l-- > 0)
                     {
-                        folders.Insert(t, folders[p]);
-                        folders.RemoveAt(p + 1);
-                        ++p;
-                        ++t;
-                    }
-                    else
-                    {
-                        folders.Insert(t, folders[p]);
-                        folders.RemoveAt(p);
+                        if (t < p)
+                        {
+                            folders.Insert(t, folders[p]);
+                            folders.RemoveAt(p + 1);
+                            ++p;
+                            ++t;
+                        }
+                        else
+                        {
+                            folders.Insert(t, folders[p]);
+                            folders.RemoveAt(p);
+                        }
                     }
                 }
                 if (options == PathFolderOptions.Process)
                     app.WriteOut(folders.ToInlineString());
-                else
+                else if(commit)
                     folders.Commit();
-                return new CommandResult(true, $"{len} folders moved from position {pos} to position {to} in PATH");
-
+                if(commit)
+                    return new CommandResult(true, $"{len} folders moved from position {pos} to position {to} in PATH");
+                else
+                    return new CommandResult(false, "Move operation canceled");
             }
             catch (Exception ex)
             {
@@ -276,7 +287,7 @@ namespace PathTool
                     app.WriteError();
                     app.WriteError(isVerbose ? folders.ToVerboseString() : folders.ToString());
                     app.WriteError();
-                    commit = app.GetConfirmation($"at position {pos}"));
+                    commit = app.GetConfirmation($"at position {pos}");
                 }
                 if(commit)
                 {
@@ -311,6 +322,7 @@ namespace PathTool
                 PathFolders finvalid = new PathFolders(options);
                 bool isVerbose = args.HasSwitch(Names.VerboseSwitch, Names.VerboseMnemonic);
                 bool isQuiet = args.HasSwitch(Names.QuietSwitch, Names.QuietMnemonic);
+                bool commit = true;
                 foriginal.Fill();
                 foreach (PathFolder f0 in foriginal)
                 {
@@ -326,18 +338,20 @@ namespace PathTool
                 if (!isQuiet)
                 {
                     ConsoleApp.Instance.WriteError(isVerbose ? finvalid.ToVerboseString() : finvalid.ToString());
-                    if (!ConsoleApp.Instance.GetConfirmation("Remove folders from PATH?"))
-                    {
-                        return new CommandResult(false, "User canceled operation");
-                    }
+                    commit = ConsoleApp.Instance.GetConfirmation("Remove folders from PATH?");
                 }
-                if (options == PathFolderOptions.Process)
+                if (options == PathFolderOptions.Process && commit)
                     ConsoleApp.Instance.WriteOut(fvalid.ToInlineString());
-                else
+                else if (options == PathFolderOptions.Process)
+                    ConsoleApp.Instance.WriteOut(foriginal.ToInlineString());
+                else if(commit)
                     fvalid.Commit();
-                return new CommandResult(true, $"{finvalid.Count} folder(s) removed from PATH");
+                if(commit)
+                    return new CommandResult(true, $"{finvalid.Count} folder(s) removed from PATH");
+                else
+                    return new CommandResult(false, "User canceled operation");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return new CommandResult(false, "Unable to clean invalid PATH elements", ex);
             }

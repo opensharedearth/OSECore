@@ -8,17 +8,11 @@ namespace OSECommand
 {
     public class UsageElement : IEquatable<UsageElement>, IComparable<UsageElement>
     {
-        public const int ColumnWidth = 20;
         public UsageElement(string description)
         {
             Description = description;
         }
-        public string Description { get; private set; } = null;
-        public static string GetPadding(int column)
-        {
-            int padding = Math.Max(ColumnWidth - column,1);
-            return new string(' ', padding);
-        }
+        public string Description { get; protected set; } = null;
 
         public bool Equals(UsageElement other)
         {

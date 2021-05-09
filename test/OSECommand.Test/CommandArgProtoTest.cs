@@ -16,6 +16,7 @@ namespace OSECommand.Test
             string n0 = "a";
             char c0 = 'c';
             Usage u0 = new Usage("usage");
+            UsageSwitch u1 = new UsageSwitch(n0, c0, "usage");
             string v0 = "b";
             CommandArgOptions o0 = CommandArgOptions.HasArgument
                 | CommandArgOptions.HasMultiple
@@ -23,7 +24,7 @@ namespace OSECommand.Test
             var d = new CommandArgProto(n0, c0, u0, v0, null, o0);
             Assert.Equal(n0, d.Name);
             Assert.Equal(c0, d.Mnemonic);
-            Assert.Equal(u0, d.Usage);
+            Assert.Equal(new Usage(u1), d.Usage);
             Assert.Equal(v0, d.Value);
             Assert.Equal(o0, d.Options);
             Assert.True(d.IsRequired);

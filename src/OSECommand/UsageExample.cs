@@ -22,7 +22,7 @@ namespace OSECommand
             sb.Append(Example);
             if (HasDescription)
             {
-                sb.Append(GetPadding(sb.Length + 1));
+                sb.Append('\t');
                 sb.Append(Description);
             }
             return sb.ToString();

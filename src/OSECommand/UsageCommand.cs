@@ -19,7 +19,7 @@ namespace OSECommand
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(Name);
-            sb.Append(GetPadding(sb.Length + 1));
+            sb.Append('\t');
             sb.Append(Description);
             return sb.ToString();
         }

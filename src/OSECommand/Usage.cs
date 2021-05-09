@@ -110,6 +110,7 @@ namespace OSECommand
             }
             else if(ue != null)
             {
+                if (!HasDescription) Description = ue.Description;
                 _list.Add(ue);
             }
         }
