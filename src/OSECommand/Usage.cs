@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OSECore.Text;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -128,6 +129,7 @@ namespace OSECommand
         {
             StringBuilder sb = new StringBuilder();
             UsageType current = UsageType.Unkonwn;
+            var lf = new LineFormatter(new LineMargins(3, 120, 10), new TabStops(new int[] { 20, 60 }));
             foreach(var ue in this)
             {
                 if(current != ue.GetUsageType())
@@ -136,7 +138,9 @@ namespace OSECommand
                     sb.AppendLine(ue.GetHeading());
                     current = ue.GetUsageType();
                 }
-                sb.AppendLine(ue.ToString());
+                var lines = lf.FormatLine(ue.ToString());
+                foreach(var line in lines)
+                    sb.AppendLine(line);
             }
             return sb.ToString();
         }

@@ -22,7 +22,7 @@ namespace OSECommand
             sb.Append(Example);
             if (HasDescription)
             {
-                sb.Append('\t');
+                sb.Append("\t\t");
                 sb.Append(Description);
             }
             return sb.ToString();

@@ -79,7 +79,8 @@ namespace PathTool
             CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName,
                 new Usage(
                     new UsageProto("pathtool clean [--machine | --user] [--quiet] [--verbose | --inline]"),
-                    new UsageExample("$env:PATH=$(pathtool clean -q)","Clean PATH in local powershell")
+                    new UsageExample("$env:PATH=$(pathtool clean -q)","Clean PATH in local powershell"),
+                    new UsageExample("for /f \"delims=\" %i in ('pathtool clean -q') do PATH=%i","Clean PATH in windows command shell")
                     ),
                 CleanCommand,
                 new CommandArgProto(Names.CleanCommand, 1, new UsageCommand(Names.CleanCommand, "Clean path of invalid and duplicate elements"), null, null, CommandArgOptions.IsRequired),

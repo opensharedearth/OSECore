@@ -86,8 +86,8 @@ namespace OSECommand
 
         private CommandLineProto Find(CommandLineProto[] protos, int pos, CommandLine args)
         {
-            CommandArg name = args.GetPositional(pos);
-            if (name == null)
+            CommandArg name = pos < args.Count ? args[pos] : null;
+            if (name == null || name.IsSwitch)
             {
                 foreach(var proto in protos)
                 {
