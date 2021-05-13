@@ -264,7 +264,7 @@ namespace OSECommand
         {
             return (from arg in this where arg.Mnemonic == mnemonic select arg).FirstOrDefault();
         }
-        public CommandArg GetPositional(int order)
+        public virtual CommandArg GetPositional(int order)
         {
             return (from arg in this where arg.PositionIndex == order select arg).FirstOrDefault();
         }

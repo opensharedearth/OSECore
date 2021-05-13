@@ -9,7 +9,7 @@ namespace OSECommand
         public CommandLineProto(string name, UsageElement usage, Func<CommandLineProto, CommandLine, CommandResult> func, params CommandArgProto[] args)
             : base(args)
         {
-            CommandArgProto proto = new CommandArgProto(name, 0, usage);
+            CommandArgProto proto = new CommandArgProto(name, 0, usage, null, null, CommandArgOptions.IsCommand | CommandArgOptions.IsRequired);
             Insert(0, proto);
             _command = func;
         }
@@ -72,6 +72,17 @@ namespace OSECommand
             }
             return args1;
         }
+        public override CommandArg GetPositional(int order)
+        {
+            foreach(CommandArgProto arg in this)
+            {
+                if (arg.PositionIndex == order)
+                    return arg;
+                else if (arg.IsPositional && arg.HasMultiple)
+                    return arg;
+            }
+            return null;
+        }
         public CommandLine CheckPositionals(CommandLine args, CommandResult result)
         {
             CommandLine args1 = new CommandLine();
@@ -84,6 +95,11 @@ namespace OSECommand
                     if(proto == null)
                     {
                         result.Append(new CommandResult(false, $"Too many arguments for command"));
+                        break;
+                    }
+                    else if(proto.IsCommand && proto.Value != arg.Value)
+                    {
+                        result.Append(new CommandResult(false, $"Expected {proto.Value} but found {arg.Value}"));
                         break;
                     }
                     else

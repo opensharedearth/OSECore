@@ -14,6 +14,7 @@ namespace OSECommand
         public bool IsRequired => (Options & CommandArgOptions.IsRequired) != 0;
         public bool HasMultiple => (Options & CommandArgOptions.HasMultiple) != 0;
         public bool HasArgument => (Options & CommandArgOptions.HasArgument) != 0;
+        public bool IsCommand => (Options & CommandArgOptions.IsCommand) != 0;
         public override bool IsSwitch => (Options & CommandArgOptions.IsPositional) == 0;
         public override bool IsPositional => (Options & CommandArgOptions.IsPositional) != 0;
         public override bool IsMnemonic => base.IsMnemonic;

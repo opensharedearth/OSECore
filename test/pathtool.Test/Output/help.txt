@@ -1,0 +1,53 @@
+pathtool 1.0.0.0
+
+pathtool is a command line utility that performs various operations on the PATH variable including listing and validating elements, removing elements, moving elements, adding folders and cleaning out invalid folders.
+
+
+Usage:
+
+  pathtool --help [command]
+  pathtool --version
+  pathtool add [--machine | --user] [--verbose | --inline] [--position pos] [--quiet] folder <folder> ...
+  pathtool clean [--machine | --user] [--quiet] [--verbose | --inline]
+  pathtool list [--filter exp] [--verbose | --inline] [--machine | --user] [--sort]
+  pathtool move [--machine | --user] [--verbose | --inline] [--position pos] [--length len] [--distance dist] [--quiet]
+  pathtool remove [--machine | --user] [--verbose | --inline] [--position pos [--length len] | --filter exp] [--quiet]
+
+Commands:
+
+  add              Add folders to path
+  clean            Clean path of invalid and duplicate elements
+  list             List elements of path
+  move             Move folders within PATH
+  remove           Remove folders from path
+
+Options:
+
+  --filter, -f     Filter list of folders with expression
+  --help, -h       Get program help
+  --inline, -i     Inline formating.  Creates output suitable for command execution.  Incompatible with -v
+  --length, -l     Number of path folders from position to include
+  --machine, -m    Use system PATH variable.  By default the local process path is used. Incompatible with -u
+  --position, -p   Starting position of folder
+  --quiet, -q      Do not confirm operation.  Otherwise Y/N confirmation is required.
+  --sort           Sort output.  By default the order of the folder is as they appear in PATH
+  --to, -t         Destination position for move
+  --user, -u       Use user PATH variable.  By default the local process path is used. Incompatible with -m
+  --verbose, -v    Verbose output. Path elements in table with position and status.
+  --version        Get program version
+
+Where:
+
+  command          Command name
+  dpos             1-based destination position
+  exp              Regular expression
+  folder           Folder to add to path
+  len              number of folders; default = 1
+  pos              position of folder; default = 1
+
+Examples:
+
+  $env:PATH=$(pathtool clean -q)                           Clean PATH in local powershell
+  for /f "delims=" %i in ('pathtool clean -q') do PATH=%i  Clean PATH in windows command shell
+  pathtool -v                                              List folders in path with position and validity
+  pathtool move -pt 15 1                                   move folder at position 15 to first in PATH

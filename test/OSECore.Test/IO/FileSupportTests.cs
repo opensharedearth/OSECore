@@ -11,10 +11,10 @@ using Xunit;
 
 namespace OSECoreTest.IO
 {
-    public class FileSupportTest : IClassFixture<TestFileFixture>, IDisposable
+    public class FileSupportTests : IClassFixture<TestFileFixture>, IDisposable
     {
         private readonly TestFileFixture _fixture;
-        public FileSupportTest(TestFileFixture fixture)
+        public FileSupportTests(TestFileFixture fixture)
         {
             _fixture = fixture;
         }
@@ -125,6 +125,31 @@ namespace OSECoreTest.IO
             string name = FileSupport.MakeValidFileName(invalidName);
             Assert.Equal(name, validName);
             Assert.Equal(validName, FileSupport.MakeValidFileName("", "", validName));
+        }
+        [Theory]
+        [InlineData(@"c:\a\b\c",true)]
+        [InlineData(@"c:\a\b\c ", false)]
+        [InlineData(@" c:\a\b\c ", false)]
+        [InlineData(@"c:\a\b\c?",false)]
+        [InlineData("c:\\a\\b\\c\"",false)]
+        [InlineData(@"c:\a\b\c*",false)]
+        [InlineData(@"", false)]
+        public void IsvalidPathTest(string path, bool valid)
+        {
+            bool v1 = FileSupport.IsValidPath(path);
+            Assert.Equal(valid, v1);
+        }
+        [Theory]
+        [InlineData(@"c", true)]
+        [InlineData(@"c ", false)]
+        [InlineData(@"c?", false)]
+        [InlineData("c\"", false)]
+        [InlineData(@"c*", false)]
+        [InlineData(@"", false)]
+        public void IsvalidFilenameTest(string path, bool valid)
+        {
+            bool v1 = FileSupport.IsValidFilename(path);
+            Assert.Equal(valid, v1);
         }
     }
 }

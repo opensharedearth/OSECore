@@ -23,6 +23,7 @@ namespace OSECommand
 
         /// <summary>   Multiple arguments of this name are permitted. </summary>
         HasMultiple = 4,
-        HasArgument = 8
+        HasArgument = 8,
+        IsCommand = 16
     }
 }

@@ -1,0 +1,23 @@
+
+Position Status           Folder
+-------- ---------------- -----------------------
+       1 Valid            d:\scratch\pathtool.Test\z00
+       2 Valid            d:\scratch\pathtool.Test\w01
+       3 Valid            d:\scratch\pathtool.Test\c2
+       4 Valid            d:\scratch\pathtool.Test\d2
+       5 Valid            d:\scratch\pathtool.Test\e4
+       6 Invalid path     d:\scratch\pathtool.Test\aa"
+       7 Invalid path     d:\scratch\pathtool.Test\bb<|>
+       8 Null path        
+       9 Does not exist   d:\scratch\pathtool.Test\n11
+      10 Does not exist   d:\scratch\pathtool.Test\o33
+      11 Not fully qualified b
+      12 Not fully qualified i
+      13 Cannot be read   d:\scratch\pathtool.Test\f
+      14 Cannot be read   d:\scratch\pathtool.Test\g
+
+14 entries.
+
+
+Move 3 folder(s) in PATH starting at position 5 to position 1? [Y/N] 
+3 folders moved from position 5 to position 1 in PATH

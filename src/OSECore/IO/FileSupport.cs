@@ -194,6 +194,19 @@ namespace OSECore.IO
                 return false;
             else if (path.IndexOfAny(Path.GetInvalidPathChars()) >= 0)
                 return false;
+            else if (!IsValidFilename(Path.GetFileName(path)))
+                return false;
+            else
+                return true;
+        }
+        public static bool IsValidFilename(string filename)
+        {
+            if (String.IsNullOrEmpty(filename))
+                return false;
+            else if (filename.Trim() != filename)
+                return false;
+            else if (filename.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
+                return false;
             else
                 return true;
         }

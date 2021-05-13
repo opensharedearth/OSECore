@@ -1,4 +1,5 @@
 ﻿using OSECommand;
+using OSECore.Program;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +31,7 @@ namespace OSEConsole
 
         public static string GetCommandName()
         {
-            var a = Assembly.GetEntryAssembly();
-            return a.GetName().Name;
+            return ProgramInfo.GetProgramName();
         }
 
         protected virtual int Run()

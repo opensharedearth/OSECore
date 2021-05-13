@@ -1,0 +1,1 @@
+d:\scratch\pathtool.Test\e4;d:\scratch\pathtool.Test\aa";d:\scratch\pathtool.Test\bb<|>;d:\scratch\pathtool.Test\z00;d:\scratch\pathtool.Test\w01;d:\scratch\pathtool.Test\c2;d:\scratch\pathtool.Test\d2;;d:\scratch\pathtool.Test\n11;d:\scratch\pathtool.Test\o33;b;i;d:\scratch\pathtool.Test\f;d:\scratch\pathtool.Test\g

@@ -1,0 +1,17 @@
+
+Position Status           Folder
+-------- ---------------- -----------------------
+       6 Invalid path     d:\scratch\pathtool.Test\aa"
+       7 Invalid path     d:\scratch\pathtool.Test\bb<|>
+       8 Null path        
+       9 Does not exist   d:\scratch\pathtool.Test\n11
+      10 Does not exist   d:\scratch\pathtool.Test\o33
+      11 Not fully qualified b
+      12 Not fully qualified i
+      13 Cannot be read   d:\scratch\pathtool.Test\f
+      14 Cannot be read   d:\scratch\pathtool.Test\g
+
+9 entries.
+
+Remove folders from PATH? [Y/N] 
+User canceled operation

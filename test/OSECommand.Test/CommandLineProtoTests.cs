@@ -33,14 +33,14 @@ namespace OSECommand.Test
             var d = new CommandLineProto(
                 n0,
                 new Usage(d0),
-                (proto, args) => { return new CommandResult(true, (args.GetValue<int>(0) + args.GetValue<int>(1)).ToString()); },
-                new CommandArgProto("add1", 0),
-                new CommandArgProto("add2", 1)
+                (proto, args) => { return new CommandResult(true, (args.GetValue<int>(1) + args.GetValue<int>(2)).ToString()); },
+                new CommandArgProto("add1", 1),
+                new CommandArgProto("add2", 2)
                 );
             string a1 = "1";
             string a2 = "5";
             string r1 = "6";
-            var r = d.Execute(new string[] { a1, a2 });
+            var r = d.Execute(new string[] { n0, a1, a2 });
             Assert.Equal(r1, r.ToString());
         }
         [Theory]
@@ -73,13 +73,12 @@ namespace OSECommand.Test
         [InlineData("add", "add", true)]
         public void CheckPositionalsTest(string c0, string c1, bool r1)
         {
-            string n0 = "a";
+            string n0 = "add";
             string d0 = "b";
             var d = new CommandLineProto(
                 n0,
                 new Usage(d0),
                 null,
-                new CommandArgProto("opcode", 0, null, null, null, CommandArgOptions.IsRequired),
                 new CommandArgProto("add", 1, null, null, null, CommandArgOptions.None),
                 new CommandArgProto("help", 'h', null, null, null, CommandArgOptions.HasArgument)
                 );
@@ -116,13 +115,12 @@ namespace OSECommand.Test
         [InlineData("add", "add", true)]
         public void ResolveTest(string c0, string c1, bool r1)
         {
-            string n0 = "a";
+            string n0 = "add";
             string d0 = "b";
             var d = new CommandLineProto(
                 n0,
                 new Usage(d0),
                 null,
-                new CommandArgProto("opcode", 0, null, null, null, CommandArgOptions.IsRequired),
                 new CommandArgProto("add", 1, null, null, null, CommandArgOptions.None),
                 new CommandArgProto("help", 'h', null, null, null, CommandArgOptions.HasArgument)
                 );

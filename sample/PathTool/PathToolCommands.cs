@@ -68,7 +68,7 @@ namespace PathTool
                     new UsageExample("pathtool -v","List folders in path with position and validity")
                     ),
                 ListCommand,
-                new CommandArgProto(Names.ListCommand, 1, new UsageCommand(Names.ListCommand, "List elements of path")),
+                new CommandArgProto(Names.ListCommand, 1, new UsageCommand(Names.ListCommand, "List elements of path"),null, null, CommandArgOptions.IsCommand),
                 filterArg,
                 verboseArg,
                 sortArg,
@@ -83,7 +83,7 @@ namespace PathTool
                     new UsageExample("for /f \"delims=\" %i in ('pathtool clean -q') do PATH=%i","Clean PATH in windows command shell")
                     ),
                 CleanCommand,
-                new CommandArgProto(Names.CleanCommand, 1, new UsageCommand(Names.CleanCommand, "Clean path of invalid and duplicate elements"), null, null, CommandArgOptions.IsRequired),
+                new CommandArgProto(Names.CleanCommand, 1, new UsageCommand(Names.CleanCommand, "Clean path of invalid and duplicate elements"), null, null, CommandArgOptions.IsRequired | CommandArgOptions.IsCommand),
                 quietArg,
                 machineArg,
                 userArg,
@@ -93,7 +93,7 @@ namespace PathTool
             CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName,
                 new UsageProto("pathtool add [--machine | --user] [--verbose | --inline] [--position pos] [--quiet] folder <folder> ..."),
                 AddCommand,
-                new CommandArgProto(Names.AddCommand, 1, new UsageCommand(Names.AddCommand, "Add folders to path"), null, null, CommandArgOptions.IsRequired),
+                new CommandArgProto(Names.AddCommand, 1, new UsageCommand(Names.AddCommand, "Add folders to path"), null, null, CommandArgOptions.IsRequired | CommandArgOptions.IsCommand),
                 machineArg,
                 userArg,
                 verboseArg,
@@ -105,7 +105,7 @@ namespace PathTool
             CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName,
                 new UsageProto("pathtool remove [--machine | --user] [--verbose | --inline] [--position pos [--length len] | --filter exp] [--quiet]"),
                 RemoveCommand,
-                new CommandArgProto(Names.RemoveCommand, 1, new UsageCommand(Names.RemoveCommand, "Remove folders from path"), null, null, CommandArgOptions.IsRequired),
+                new CommandArgProto(Names.RemoveCommand, 1, new UsageCommand(Names.RemoveCommand, "Remove folders from path"), null, null, CommandArgOptions.IsRequired | CommandArgOptions.IsCommand),
                 machineArg,
                 userArg,
                 verboseArg,
@@ -121,7 +121,7 @@ namespace PathTool
                     new UsageExample("pathtool move -pt 15 1","move folder at position 15 to first in PATH")
                     ),
                 MoveCommand,
-                new CommandArgProto(Names.MoveCommand, 1, new UsageCommand(Names.MoveCommand, "Move folders within PATH"), null, null, CommandArgOptions.IsRequired),
+                new CommandArgProto(Names.MoveCommand, 1, new UsageCommand(Names.MoveCommand, "Move folders within PATH"), null, null, CommandArgOptions.IsRequired | CommandArgOptions.IsCommand),
                 machineArg,
                 userArg,
                 verboseArg,
@@ -168,8 +168,9 @@ namespace PathTool
                     app.WriteError(isVerbose ? folders.ToVerboseString() : folders.ToString());
                     app.WriteError();
                     commit = app.GetConfirmation($"Remove {len} folder(s) from PATH starting at position {pos}?");
+                    app.WriteError();
                 }
-                if(commit)
+                if (commit)
                 {
                     int l = len;
                     while (l-- > 0)
@@ -219,9 +220,10 @@ namespace PathTool
                 {
                     app.WriteError(isVerbose ? folders.ToVerboseString() : folders.ToString());
                     app.WriteError();
-                    commit = app.GetConfirmation($"Move {folders.Count} in PATH starting at position {pos} to position {to}?");
+                    commit = app.GetConfirmation($"Move {len} folder(s) in PATH starting at position {pos} to position {to}?");
+                    app.WriteError();
                 }
-                if(commit)
+                if (commit)
                 {
                     int l = len;
                     int p = pos - 1;
@@ -237,7 +239,7 @@ namespace PathTool
                         }
                         else
                         {
-                            folders.Insert(t, folders[p]);
+                            folders.Insert(t + len, folders[p]);
                             folders.RemoveAt(p);
                         }
                     }
@@ -288,9 +290,10 @@ namespace PathTool
                     app.WriteError();
                     app.WriteError(isVerbose ? folders.ToVerboseString() : folders.ToString());
                     app.WriteError();
-                    commit = app.GetConfirmation($"at position {pos}");
+                    commit = app.GetConfirmation($"at position {pos}?");
+                    app.WriteError();
                 }
-                if(commit)
+                if (commit)
                 {
                     int p = pos - 1;
                     foreach (var f in added)
@@ -314,6 +317,7 @@ namespace PathTool
         }
         public static CommandResult CleanCommand(CommandLineProto proto, CommandLine args)
         {
+            var app = ConsoleApp.Instance;
             try
             {
                 PathFolderOptions options = GetPathFolderOptions(args);
@@ -338,13 +342,14 @@ namespace PathTool
                 }
                 if (!isQuiet)
                 {
-                    ConsoleApp.Instance.WriteError(isVerbose ? finvalid.ToVerboseString() : finvalid.ToString());
-                    commit = ConsoleApp.Instance.GetConfirmation("Remove folders from PATH?");
+                    app.WriteError(isVerbose ? finvalid.ToVerboseString() : finvalid.ToString());
+                    commit = app.GetConfirmation("Remove folders from PATH?");
+                    app.WriteError();
                 }
                 if (options == PathFolderOptions.Process && commit)
-                    ConsoleApp.Instance.WriteOut(fvalid.ToInlineString());
+                    app.WriteOut(fvalid.ToInlineString());
                 else if (options == PathFolderOptions.Process)
-                    ConsoleApp.Instance.WriteOut(foriginal.ToInlineString());
+                    app.WriteOut(foriginal.ToInlineString());
                 else if(commit)
                     fvalid.Commit();
                 if(commit)
@@ -359,6 +364,7 @@ namespace PathTool
         }
         public static CommandResult ListCommand(CommandLineProto proto, CommandLine args)
         {
+            var app = ConsoleApp.Instance;
             try
             {
                 PathFolderOptions options = GetPathFolderOptions(args);
@@ -384,11 +390,11 @@ namespace PathTool
                 }
                 if(!isInline)
                 {
-                    ConsoleApp.Instance.WriteOut(isVerbose ? folders.ToVerboseString() : folders.ToString());
+                    app.WriteOut(isVerbose ? folders.ToVerboseString() : folders.ToString());
                 }
                 else
                 {
-                    ConsoleApp.Instance.WriteOut(folders.ToInlineString());
+                    app.WriteOut(folders.ToInlineString());
                 }
                 return new CommandResult();
             }
