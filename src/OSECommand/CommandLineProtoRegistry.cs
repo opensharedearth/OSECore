@@ -101,8 +101,8 @@ namespace OSECommand
                 List<CommandLineProto> matches = new List<CommandLineProto>();
                 foreach(var proto in protos)
                 {
-                    var protoArg = proto.GetPositional(pos);
-                    if (protoArg != null && string.Compare(protoArg.Value, name.Value, true) == 0)
+                    var protoArg = proto.GetPositional(pos) as CommandArgProto;
+                    if (protoArg != null && (!protoArg.IsCommand || string.Compare(protoArg.Value, name.Value, true) == 0))
                         matches.Add(proto);
                 }
                 if (matches.Count == 0)

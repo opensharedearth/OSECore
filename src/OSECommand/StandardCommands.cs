@@ -47,13 +47,19 @@ namespace OSECommand
                 new CommandArgProto(Names.VersionCommand, CommandArgProto.NoMnemonic, new Usage("Get program version"), null, null, CommandArgOptions.IsRequired))
                 );
         }
-        public static void RegisterHelpArgument()
+        public static void RegisterHelpArgument(bool hasCommands = true)
         {
             string programName = ProgramInfo.GetProgramName();
-            CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName, new UsageProto($"{programName} --help [command]"), HelpArgument,
-                new CommandArgProto(Names.HelpCommand, Names.HelpMnemonic, new Usage("Get program help"), null, null, CommandArgOptions.IsRequired),
-                new CommandArgProto("command", 1, new UsageWhere("command","Command name")))
-                );
+            if(hasCommands)
+                CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName, new UsageProto($"{programName} --help [command]"), HelpArgument,
+                    new CommandArgProto(Names.HelpCommand, Names.HelpMnemonic, new Usage("Get program help"), null, null, CommandArgOptions.IsRequired),
+                    new CommandArgProto("command", 1, new UsageWhere("command","Command name")))
+                    );
+            else
+                CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName, new UsageProto($"{programName} --help"), HelpArgument,
+                    new CommandArgProto(Names.HelpCommand, Names.HelpMnemonic, new Usage("Get program help"), null, null, CommandArgOptions.IsRequired))
+                    );
+
         }
         public static CommandResult Null(CommandLineProto proto, CommandLine args)
         {

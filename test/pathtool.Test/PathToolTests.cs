@@ -57,12 +57,13 @@ namespace pathtool.Test
             Assert.True(_fixture.CompareFiles(_fixture.GetOutputFilePath(fout), pout));
         }
         [Theory]
-        [InlineData(0, "clean -v",'Y')]
-        [InlineData(1, "clean -q",'\0')]
-        [InlineData(2, "clean -v",'N')]
-        public void CleanTest(int testNumber, string argLine, char commit)
+        [InlineData(0, "clean -v",'Y', true)]
+        [InlineData(1, "clean -q",'\0', true)]
+        [InlineData(2, "clean -v",'N', true)]
+        [InlineData(3, "clean -q", '\0', false)]
+        public void CleanTest(int testNumber, string argLine, char commit, bool addInvalid)
         {
-            _fixture.SetTestPath();
+            _fixture.SetTestPath(addInvalid);
             string ferror = $"clean{testNumber}_error.txt";
             string fout = $"clean{testNumber}_output.txt";
             string perror = _fixture.GetTempFilePath(ferror);

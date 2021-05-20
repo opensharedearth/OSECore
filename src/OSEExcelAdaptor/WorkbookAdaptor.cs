@@ -22,6 +22,8 @@ namespace OSEExcelAdaptor
         }
         public WorksheetAdaptor GetWorksheet(object index)
         {
+            if (index is WorksheetReference w)
+                return GetWorksheet(w.Reference);
             if (index is string s)
                 return GetWorksheet(s);
             else if (index is int i)

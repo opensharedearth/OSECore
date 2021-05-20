@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,7 @@ namespace PathTool
         {
             _options = options;
         }
+        private static char pathDivider = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? ';' : ':';
 
         public void Fill()
         {
@@ -25,7 +27,7 @@ namespace PathTool
             string paths = Environment.GetEnvironmentVariable("PATH", GetEnvironmentVariableTarget(_options));
             if (!String.IsNullOrEmpty(paths))
             {
-                string[] elements = paths.Split(';');
+                string[] elements = paths.Split(pathDivider);
                 int pos = 1;
                 HashSet<string> pathHash = new HashSet<string>();
                 foreach (var element in elements)
@@ -156,7 +158,7 @@ namespace PathTool
             bool first = true;
             foreach (var f in this)
             {
-                if (!first) sb.Append(';');
+                if (!first) sb.Append(pathDivider);
                 first = false;
                 sb.Append(f.ToString());
             }

@@ -69,15 +69,18 @@ namespace pathtool.Test
             }
         }
 
-        internal void SetTestPath()
+        internal void SetTestPath(bool addInvalid = true)
         {
             List<string> paths = new List<string>();
             paths.AddRange(GetValidPaths());
-            paths.AddRange(GetInvalidPaths());
-            paths.Add("");
-            paths.AddRange(GetNonextantPaths());
-            paths.AddRange(GetNotFullyQualifiedPaths());
-            paths.AddRange(GetUnreadablePaths());
+            if(addInvalid)
+            {
+                paths.AddRange(GetInvalidPaths());
+                paths.Add("");
+                paths.AddRange(GetNonextantPaths());
+                paths.AddRange(GetNotFullyQualifiedPaths());
+                paths.AddRange(GetUnreadablePaths());
+            }
             string path = String.Join(';', paths.ToArray());
             Environment.SetEnvironmentVariable("PATH", path);
         }

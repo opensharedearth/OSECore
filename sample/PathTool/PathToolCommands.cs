@@ -4,6 +4,7 @@ using OSECore.Program;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -58,8 +59,8 @@ namespace PathTool
                 "1", new ValueValidator<int>(), CommandArgOptions.HasArgument);
             var verboseArg = new CommandArgProto(Names.VerboseSwitch, Names.VerboseMnemonic, new Usage("Verbose output. Path elements in table with position and status."));
             var sortArg = new CommandArgProto(Names.SortSwitch, CommandArgProto.NoMnemonic, new Usage("Sort output.  By default the order of the folder is as they appear in PATH"));
-            var machineArg = new CommandArgProto(Names.MachineSwitch, Names.MachineMnemonic, new Usage("Use system PATH variable.  By default the local process path is used. Incompatible with -u"));
-            var userArg = new CommandArgProto(Names.UserSwitch, Names.UserMnemonic, new Usage("Use user PATH variable.  By default the local process path is used. Incompatible with -m"));
+            var machineArg = new CommandArgProto(Names.MachineSwitch, Names.MachineMnemonic, new Usage("Use system PATH variable.  By default the local process path is used. Incompatible with -u (Windows only)"));
+            var userArg = new CommandArgProto(Names.UserSwitch, Names.UserMnemonic, new Usage("Use user PATH variable.  By default the local process path is used. Incompatible with -m (Windows only)"));
             var quietArg = new CommandArgProto(Names.QuietSwitch, Names.QuietMnemonic, new Usage("Do not confirm operation.  Otherwise Y/N confirmation is required."));
             var inlineArg = new CommandArgProto(Names.InlineSwitch, Names.InlineMnemonic, new Usage("Inline formating.  Creates output suitable for command execution.  Incompatible with -v"));
             CommandLineProtoRegistry.Instance.Register(new CommandLineProto(programName,
@@ -137,6 +138,10 @@ namespace PathTool
         {
             bool isMachine = args.HasSwitch(Names.MachineSwitch, Names.MachineMnemonic);
             bool isUser = args.HasSwitch(Names.UserSwitch, Names.UserMnemonic);
+            if(!RuntimeInformation.IsOSPlatform(OSPlatform.Windows) && (isMachine || isUser))
+            {
+                throw new ArgumentException("--machine and --user options are valid only on Windows platforms");
+            }
             PathFolderOptions options = PathFolderOptions.Process;
             if (isUser) options = PathFolderOptions.User;
             if (isMachine) options = PathFolderOptions.Machine;
@@ -338,6 +343,10 @@ namespace PathTool
                 }
                 if (finvalid.Count == 0)
                 {
+                    if(options == PathFolderOptions.Process)
+                    {
+                        app.WriteOut(fvalid.ToInlineString());
+                    }
                     return new CommandResult(true, "No invalid folders in path");
                 }
                 if (!isQuiet)

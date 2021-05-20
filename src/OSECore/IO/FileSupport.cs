@@ -4,7 +4,9 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
+using System.Runtime.Versioning;
 using OSECore.Text;
+using System.Runtime.InteropServices;
 
 namespace OSECore.IO
 {
@@ -27,11 +29,21 @@ namespace OSECore.IO
                 string folderpath = Path.GetDirectoryName(fullpath);
                 if (DoesFileExist(fullpath))
                 {
-                    return IsNormalFile(fullpath) && !IsReadOnly(fullpath) && HasFilePermission(fullpath, FileSystemRights.Write);
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                        return IsNormalFile(fullpath) && !IsReadOnly(fullpath) && HasFilePermission(fullpath, FileSystemRights.Write);
+                    else
+                        return IsNormalFile(fullpath) && !IsReadOnly(fullpath);
                 }
                 else if (DoesFolderExist(folderpath))
                 {
-                    return HasFolderPermission(folderpath, FileSystemRights.Write);
+                    if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
+                        return HasFolderPermission(folderpath, FileSystemRights.Write);
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
@@ -75,7 +87,15 @@ namespace OSECore.IO
                 string fullpath = GetFullPath(path);
                 if (DoesFileExist(fullpath))
                 {
-                    return HasFilePermission(fullpath, FileSystemRights.Read);
+                    if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
+                        return HasFilePermission(fullpath, FileSystemRights.Read);
+                    }
+                    else
+                    {
+                        FileInfo fi = new FileInfo(path);
+                        return fi.Attributes == FileAttributes.Normal;
+                    }
                 }
             }
             return false;
@@ -88,7 +108,14 @@ namespace OSECore.IO
                 string fullpath = GetFullPath(path);
                 if (DoesFolderExist(fullpath))
                 {
-                    return HasFolderPermission(fullpath, FileSystemRights.Read);
+                    if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
+                        return HasFolderPermission(fullpath, FileSystemRights.Read);
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
             }
             return false;

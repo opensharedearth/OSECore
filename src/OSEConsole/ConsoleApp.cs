@@ -41,11 +41,11 @@ namespace OSEConsole
             return result.ErrorCode;
         }
 
-        public ConsoleApp(CommandLine args)
+        public ConsoleApp(CommandLine args, bool hasCommands = true)
         {
             CommandLine = args;
             StandardCommands.RegisterVersionArgument();
-            StandardCommands.RegisterHelpArgument();
+            StandardCommands.RegisterHelpArgument(hasCommands);
             Instance = this;
         }
         public void WriteError(AggregateException exs)
