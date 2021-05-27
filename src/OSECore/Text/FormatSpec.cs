@@ -13,26 +13,208 @@ namespace OSECore.Text
     /// supported. </summary>
     public class FormatSpec : LineSegment
     {
-
+        private static Dictionary<string, Func<string, int, DateTimeFormatInfo, (int, DateTimeArgs)>> _dateTimeFormats = null;
         private int _index = 0;
         private int _alignment = 0;
         private string _format = "";
         private string _delimiter = "";
         private bool _isValid = false;
+        private static void InitializeDateTimeFormats()
+        {
+            if (_dateTimeFormats == null)
+            {
+                _dateTimeFormats = new Dictionary<string, Func<string, int, DateTimeFormatInfo, (int, DateTimeArgs)>>();
+                _dateTimeFormats["d"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                 {
+                     int i1 = TextParser.ParseInteger<int>(line, i0, out int iv);
+                     return (i1, new DateTimeArgs() { Day = iv });
+                 };
+                _dateTimeFormats["dd"] = _dateTimeFormats["d"];
+                _dateTimeFormats["ddd"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseName(line, i0, out string name, TextParser.NameChars, TextParser.NameChars);
+                    return (i1, new DateTimeArgs());
+                };
+                _dateTimeFormats["dddd"] = _dateTimeFormats["ddd"];
+                _dateTimeFormats["f"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseInteger(line, i0, out int iv);
+                    return (i1, new DateTimeArgs() { FracSecond = iv * 1000000 });
+                };
+                _dateTimeFormats["ff"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseInteger(line, i0, out int iv);
+                    return (i1, new DateTimeArgs() { FracSecond = iv * 100000 });
+                };
+                _dateTimeFormats["fff"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseInteger(line, i0, out int iv);
+                    return (i1, new DateTimeArgs() { FracSecond = iv * 10000});
+                };
+                _dateTimeFormats["ffff"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseInteger(line, i0, out int iv);
+                    return (i1, new DateTimeArgs() { FracSecond = iv * 1000 });
+                };
+                _dateTimeFormats["fffff"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseInteger(line, i0, out int iv);
+                    return (i1, new DateTimeArgs() { FracSecond = iv * 100 });
+                };
+                _dateTimeFormats["ffffff"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseInteger(line, i0, out int iv);
+                    return (i1, new DateTimeArgs() { FracSecond = iv * 10 });
+                };
+                _dateTimeFormats["fffffff"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseInteger(line, i0, out int iv);
+                    return (i1, new DateTimeArgs() { FracSecond = iv });
+                };
+                _dateTimeFormats["F"] = _dateTimeFormats["f"];
+                _dateTimeFormats["FF"] = _dateTimeFormats["ff"];
+                _dateTimeFormats["FFF"] = _dateTimeFormats["fff"];
+                _dateTimeFormats["FFFF"] = _dateTimeFormats["ffff"];
+                _dateTimeFormats["FFFFF"] = _dateTimeFormats["fffff"];
+                _dateTimeFormats["FFFFFF"] = _dateTimeFormats["ffffff"];
+                _dateTimeFormats["FFFFFFF"] = _dateTimeFormats["fffffff"];
+                _dateTimeFormats["g"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    throw new NotSupportedException("The 'g' custom date/time format is not supported");
+                };
+                _dateTimeFormats["gg"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    throw new NotSupportedException("The 'gg' custom date/time format is not supported");
+                };
+                _dateTimeFormats["h"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseInteger(line, i0, out int iv);
+                    return (i1, new DateTimeArgs() { Hour = iv });
+                };
+                _dateTimeFormats["hh"] = _dateTimeFormats["h"];
+                _dateTimeFormats["H"] = _dateTimeFormats["h"];
+                _dateTimeFormats["HH"] = _dateTimeFormats["h"];
+                _dateTimeFormats["K"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    throw new NotSupportedException("The 'K' custom date/time format is not supported");
+                };
+                _dateTimeFormats["m"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseInteger(line, i0, out int iv);
+                    return (i1, new DateTimeArgs() { Minute = iv });
+                };
+                _dateTimeFormats["mm"] = _dateTimeFormats["m"];
+                _dateTimeFormats["M"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseInteger(line, i0, out int iv);
+                    return (i1, new DateTimeArgs() { Month = iv });
+                };
+                _dateTimeFormats["MM"] = _dateTimeFormats["M"];
+                _dateTimeFormats["MMM"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseName(line, i0, out string name, TextParser.NameChars, TextParser.NameChars);
+                    if (i1 > i0)
+                    {
+                        int iv = Array.FindIndex(dtfi.AbbreviatedMonthNames, x => String.Compare(x, name, true) == 0);
+                        if (iv >= 0)
+                        {
+                            return (i1, new DateTimeArgs() { Month = iv + 1 });
+                        }
+                    }
+                    return (i0, new DateTimeArgs());
+                };
+                _dateTimeFormats["MMMM"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseName(line, i0, out string name, TextParser.NameChars, TextParser.NameChars);
+                    if (i1 > i0)
+                    {
+                        int iv = Array.FindIndex(dtfi.MonthNames, x => String.Compare(x, name, true) == 0);
+                        if (iv >= 0)
+                        {
+                            return (i1, new DateTimeArgs() { Month = iv + 1 });
+                        }
+                    }
+                    return (i0, new DateTimeArgs());
+                };
+                _dateTimeFormats["s"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseInteger(line, i0, out int iv);
+                    return (i1, new DateTimeArgs() { Second = iv });
+                };
+                _dateTimeFormats["ss"] = _dateTimeFormats["s"];
+                _dateTimeFormats["S"] = _dateTimeFormats["s"];
+                _dateTimeFormats["SS"] = _dateTimeFormats["s"];
+                _dateTimeFormats["t"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseCharacter(line, i0, out char c);
+                    switch (c)
+                    {
+                        case 'a':
+                        case 'A':
+                            return (i1, new DateTimeArgs() { AMPM = DateTimeArgs.AMPMSpec.AM });
+                        case 'p':
+                        case 'P':
+                            return (i1, new DateTimeArgs() { AMPM = DateTimeArgs.AMPMSpec.PM });
+                        default:
+                            return (i0, new DateTimeArgs());
+                    }
+                };
+                _dateTimeFormats["tt"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseCharacters(line, i0, 2, out string s);
+                    switch (s)
+                    {
+                        case "am":
+                        case "AM":
+                            return (i1, new DateTimeArgs() { AMPM = DateTimeArgs.AMPMSpec.AM });
+                        case "pm":
+                        case "PM":
+                            return (i1, new DateTimeArgs() { AMPM = DateTimeArgs.AMPMSpec.PM });
+                        default:
+                            return (i0, new DateTimeArgs());
+                    }
+                };
+                _dateTimeFormats["y"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseInteger(line, i0, out int iv);
+                    return (i1, new DateTimeArgs() { Year = iv > 50 ? 1900 + iv : 2000 + iv });
+                };
+                _dateTimeFormats["yy"] = _dateTimeFormats["y"];
+                _dateTimeFormats["yyy"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    int i1 = TextParser.ParseInteger(line, i0, out int iv);
+                    return (i1, new DateTimeArgs() { Year = iv });
+                };
+                _dateTimeFormats["yyyy"] = _dateTimeFormats["yyy"];
+                _dateTimeFormats["yyyyy"] = _dateTimeFormats["yyy"];
+                _dateTimeFormats["z"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    throw new NotSupportedException("The 'z' custom date/time format is not supported");
+                };
+                _dateTimeFormats["zz"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    throw new NotSupportedException("The 'zz' custom date/time format is not supported");
+                };
+                _dateTimeFormats["zzz"] = (string line, int i0, DateTimeFormatInfo dtfi) =>
+                {
+                    throw new NotSupportedException("The 'zzz' custom date/time format is not supported");
+                };
+            }
+        }
         /// <summary>   Constructor taking line start and length. </summary>
         ///
         /// <param name="line">     The line containing the format specfier. </param>
         /// <param name="start">    The zero-based starting index of the specifier. </param>
         /// <param name="length">   The length of the specifier. </param>
         public FormatSpec(string line, int start, int length)
-            : base(start, length)
+            : base(line, start, length)
         {
-            if (base.IsValid && Length >= 3 && line[Start] == '{' && line[End] == '}')
+            if (!base.IsNull && Length >= 3 && line[Start] == '{' && line[End] == '}')
             {
                 int i0 = start + 1;
                 i0 = TextParser.ParseInteger(line, i0, out _index, 0);
                 i0 = TextParser.ParseDelimiter(line, i0, out string delimiter, ",");
-                if(delimiter == ",")i0 = TextParser.ParseInteger(line, i0, out _alignment, 0);
+                if (delimiter == ",") i0 = TextParser.ParseInteger(line, i0, out _alignment, 0);
                 i0 = TextParser.ParseDelimiter(line, i0, out string colon, ":");
                 if (colon == ":")
                 {
@@ -50,8 +232,8 @@ namespace OSECore.Text
             }
         }
 
-        public FormatSpec(FormatSpec fs, FormatLiteral fl)
-        : base(fs.Start, fs.Length)
+        public FormatSpec(string line, FormatSpec fs, FormatLiteral fl)
+        : base(line, fs.Start, fs.Length)
         {
             _index = fs.Index;
             _alignment = fs.Alignment;
@@ -62,7 +244,7 @@ namespace OSECore.Text
 
         private void Validate()
         {
-            _isValid = Index >= 0 && Index < MaxLength && _alignment > -MaxLength && _alignment < MaxLength;
+            _isValid = Index >= 0 && !IsNull && Index < Length;
         }
 
         /// <summary>   Gets the zero-based index of the object to which the specifier is connected. </summary>
@@ -86,7 +268,7 @@ namespace OSECore.Text
         /// </summary>
         ///
         /// <value> True if this object is valid, false if not. </value>
-        public override bool IsValid => base.IsValid && _isValid;
+        public bool IsValid => !base.IsNull && _isValid;
 
         public string Delimiter
         {
@@ -119,7 +301,9 @@ namespace OSECore.Text
                 }
                 else if (t == typeof(DateTime))
                 {
-                    return ParseDateTime(s, i0, out d);
+                    (int i1, DateTime d1) = ParseDateTime(s, i0, CultureInfo.CurrentCulture.DateTimeFormat);
+                    d = d1;
+                    return i1;
                 }
                 else if (t == typeof(TimeSpan))
                 {
@@ -160,8 +344,14 @@ namespace OSECore.Text
 
         private int ParseTimeSpan(string s, int i0, out object d)
         {
+            bool negative = false;
             int i = i0;
             i = TextParser.ParseInteger(s, i, out int hours);
+            if(hours < 0)
+            {
+                negative = true;
+                hours = -hours;
+            }
             i = TextParser.ParseDelimiter(s, i, out string sep1, ".:");
             int days = 0;
             string sep2 = "";
@@ -191,171 +381,304 @@ namespace OSECore.Text
             i = TextParser.ParseInteger(s, i, out int fractions);
             if (sep3 == ":" && (sep1 == ":" || sep2 == ":"))
             {
-                if (TimeSpan.TryParse(s.Substring(i0, i - i0), null, out TimeSpan ts))
+                var ts = new TimeSpan(days, hours, minutes, seconds, fractions);
+                if(negative)
                 {
-                    d = ts;
-                    return i;
+                    ts = -ts;
                 }
+                d = ts;
+                return i;
             }
 
             d = null;
             return i0;
         }
 
-        private int ParseDateTime(string s, int i0, out object d)
+        private (int, DateTime) ParseDateTime(string s, int i0, DateTimeFormatInfo dtfi)
         {
+            InitializeDateTimeFormats();
             int i = i0;
             int j = i0;
             int k = i0;
+            DateTimeArgs dta = new DateTimeArgs();
             switch (StandardFormat)
             {
                 case "":
-                case "f":
-                case "F":
-                case "g":
-                case "R":
-                case "u":
-                case "U":
-                    j = ParseDate(s, i0);
-                    i = ParseTime(s, j);
-                    if (j > i0 && i > j) break;
-                    d = DateTime.MinValue;
-                    return i0;
-                case "O":
-                case "s":
-                    j = ParseDate(s, i0);
-                    k = TextParser.ParseCharacter(s, j, out char sep);
-                    i = ParseTime(s, k);
-                    if (j > i0 && i > j && sep == 'T') break;
-                    d = DateTime.MinValue;
-                    return i0;
-                case "D":
-                case "d":
-                case "M":
-                case "Y":
-                    i = ParseDate(s, i0);
-                    break;
-                case "t":
-                case "T":
-                    i = ParseTime(s, i0);
-                    break;
-            }
-
-            if (i > i0 && DateTime.TryParse(s.Substring(i0, i - i0), null, DateTimeStyles.AdjustToUniversal, out DateTime dt))
-            {
-                d = dt;
-                return i;
-            }
-            d = null;
-            return i0;
-        }
-
-        private int ParseTime(string s, int i0)
-        {
-            int i = i0;
-            i = TextParser.ParseInteger(s, i, out int hour);
-            i = TextParser.ParseDelimiter(s, i, out string sep1, ":");
-            i = TextParser.ParseInteger(s, i, out int minutes);
-            i = TextParser.ParseDelimiter(s, i, out string sep2, ":");
-            if (sep2 == ":")
-            {
-                i = TextParser.ParseInteger(s, i, out int seconds);
-            }
-
-            if (sep1 != ":") return i0;
-            if (StandardFormat == "R")
-            {
-                i = TextParser.ParseName(s, i, out string gmt);
-                if (gmt != "GMT") return i0;
-            }
-            else if (StandardFormat == "u")
-            {
-                i = TextParser.ParseCharacter(s, i, out char z);
-                if (z != 'Z') return i0;
-            }
-            else if (StandardFormat == "O")
-            {
-                i = TextParser.ParseDelimiter(s, i, out string sep3, ".");
-                i = TextParser.ParseInteger(s, i, out int ticks);
-                int j = TextParser.ParseDelimiter(s, i, out string sep4, "-");
-                int k = TextParser.ParseCharacter(s, i, out char z);
-                if (j > i)
-                {
-                    i = j;
-                    i = TextParser.ParseInteger(s, i, out int tzh);
-                    i = TextParser.ParseDelimiter(s, i, out string sep5, ":");
-                    i = TextParser.ParseInteger(s, i, out int tzm);
-                    if (sep5 != ":") return i0;
-                }
-                else if (z == 'Z')
-                {
-                    i = k;
-                }
-            }
-            else if((Format.Length == 1 && "fFgtTU".IndexOf(Format[0]) >= 0) || Format.Length == 0)
-            {
-                i = TextParser.ParseName(s, i, out string ampm);
-                if (ampm != "AM" && ampm != "PM") return i0;
-            }
-
-            return i;
-        }
-
-        private int ParseDate(string s, int i0)
-        {
-            int i = i0;
-            switch (Format)
-            {
-                case "":
-                case "d":
-                case "g":
-                    i = TextParser.ParseInteger(s, i, out int month);
-                    i = TextParser.ParseDelimiter(s, i, out string sep1, "/");
-                    i = TextParser.ParseInteger(s, i, out int day);
-                    i = TextParser.ParseDelimiter(s, i, out string sep2, "/");
-                    i = TextParser.ParseInteger(s, i, out int year);
-                    if (sep1 != "/" || sep2 != "/")
                     {
-                        return i0;
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.ShortDatePattern);
+                        dta.Union(dta1);
+                        (int i2, DateTimeArgs dta2) = ParseDateTime(s, i1, dtfi, dtfi.LongTimePattern);
+                        dta.Union(dta2);
+                        if (i1 == i0 || i2 == i1) return (i0, DateTime.MinValue);
+                        i = i2;
+                    }
+                    break;
+                case "f":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.LongDatePattern);
+                        dta.Union(dta1);
+                        (int i2, DateTimeArgs dta2) = ParseDateTime(s, i1, dtfi, dtfi.ShortTimePattern);
+                        dta.Union(dta2);
+                        if (i1 == i0 || i2 == i1) return (i0, DateTime.MinValue);
+                        i = i2;
+                    }
+                    break;
+                case "F":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.LongDatePattern);
+                        dta.Union(dta1);
+                        (int i2, DateTimeArgs dta2) = ParseDateTime(s, i1, dtfi, dtfi.LongTimePattern);
+                        dta.Union(dta2);
+                        if (i1 == i0 || i2 == i1) return (i0, DateTime.MinValue);
+                        i = i2;
+                    }
+                    break;
+                case "g":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.ShortDatePattern);
+                        dta.Union(dta1);
+                        (int i2, DateTimeArgs dta2) = ParseDateTime(s, i1, dtfi, dtfi.ShortTimePattern);
+                        dta.Union(dta2);
+                        if (i1 == i0 || i2 == i1) return (i0, DateTime.MinValue);
+                        i = i2;
+                    }
+                    break;
+                case "G":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.ShortDatePattern);
+                        dta.Union(dta1);
+                        (int i2, DateTimeArgs dta2) = ParseDateTime(s, i1, dtfi, dtfi.LongTimePattern);
+                        dta.Union(dta2);
+                        if (i1 == i0 || i2 == i1) return (i0, DateTime.MinValue);
+                        i = i2;
+                    }
+                    break;
+                case "R":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.RFC1123Pattern);
+                        dta.Union(dta1);
+                        dta.TimeZone = DateTimeArgs.TimeZoneSpec.Zulu;
+                        if (i1 == i0) return (i0, DateTime.MinValue);
+                        i = i1;
+                    }
+                    break;
+                case "u":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.UniversalSortableDateTimePattern);
+                        dta.Union(dta1);
+                        if (i1 == i0) return (i0, DateTime.MinValue);
+                        i = i1;
+                    }
+                    break;
+                case "U":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.LongDatePattern);
+                        dta.Union(dta1);
+                        if (i1 == i0) return (i0, DateTime.MinValue);
+                        (int i2, DateTimeArgs dta2) = ParseDateTime(s, i1, dtfi, dtfi.LongTimePattern);
+                        dta.Union(dta2);
+                        if (i2 == i1) return (i0, DateTime.MinValue);
+                        i = i2;
+                    }
+                    break;
+                case "O":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseRFC3339DateTime(s, i0, dtfi);
+                        dta.Union(dta1);
+                        if (i1 == i0) return (i0, DateTime.MinValue);
+                        i = i1;
+                    }
+                    break;
+                case "s":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.SortableDateTimePattern);
+                        dta.Union(dta1);
+                        if (i1 == i0) return (i0, DateTime.MinValue);
+                        i = i1;
+                    }
+                    break;
+                case "D":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.LongDatePattern);
+                        dta.Union(dta1);
+                        if (i1 == i0) return (i0, DateTime.MinValue);
+                        i = i1;
+                    }
+                    break;
+                case "d":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.ShortDatePattern);
+                        dta.Union(dta1);
+                        if (i1 == i0) return (i0, DateTime.MinValue);
+                        i = i1;
                     }
                     break;
                 case "M":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.MonthDayPattern);
+                        dta.Union(dta1);
+                        if (i1 == i0) return (i0, DateTime.MinValue);
+                        i = i1;
+                    }
+                    break;
                 case "Y":
-                    i = TextParser.ParseName(s, i, out string month2);
-                    i = TextParser.ParseInteger(s, i, out int monthOrYear);
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.YearMonthPattern);
+                        dta.Union(dta1);
+                        if (i1 == i0) return (i0, DateTime.MinValue);
+                        i = i1;
+                    }
                     break;
-                case "D":
-                case "f":
-                case "F":
-                case "U":
-                    i = TextParser.ParseName(s, i, out string dayName);
-                    i = TextParser.ParseDelimiter(s, i, out string sep3, ",");
-                    i = TextParser.ParseName(s, i, out string monthName2);
-                    i = TextParser.ParseInteger(s, i, out int month3);
-                    i = TextParser.ParseDelimiter(s, i, out string sep4, ",");
-                    i = TextParser.ParseInteger(s, i, out int year2);
+                case "t":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.ShortTimePattern);
+                        dta.Union(dta1);
+                        if (i1 == i0) return (i0, DateTime.MinValue);
+                        i = i1;
+                    }
                     break;
-                case "O":
-                case "s":
-                case "u":
-                    i = TextParser.ParseInteger(s, i, out int year3);
-                    i = TextParser.ParseDelimiter(s, i, out string sep5, "-");
-                    i = TextParser.ParseInteger(s, i, out int month4);
-                    i = TextParser.ParseDelimiter(s, i, out string sep6, "-");
-                    i = TextParser.ParseInteger(s, i, out int day2);
+                case "T":
+                    {
+                        (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, dtfi.LongTimePattern);
+                        dta.Union(dta1);
+                        if (i1 == i0) return (i0, DateTime.MinValue);
+                        i = i1;
+                    }
                     break;
-                case "R":
-                    i = TextParser.ParseName(s, i, out string dayName2);
-                    i = TextParser.ParseDelimiter(s, i, out string sep7, ",");
-                    i = TextParser.ParseInteger(s, i, out int day3);
-                    i = TextParser.ParseName(s, i, out string month5);
-                    i = TextParser.ParseInteger(s, i, out int year4);
-                    break;
+                default:
+                    return (i0, DateTime.MinValue);
             }
-
-            return i;
-
+            return (i, DateTimeArgs.CreateDateTime(DateTimeArgs.Normalize(dta)));
         }
+
+        private static (int, DateTimeArgs) ParseRFC3339DateTime(string s, int i0, DateTimeFormatInfo dtfi)
+        {
+            DateTimeArgs dta = new DateTimeArgs();
+            (int i1, DateTimeArgs dta1) = ParseDateTime(s, i0, dtfi, "yyyy-MM-dd'T'HH:mm:ss");
+            if (i1 == i0) return (i0, dta);
+            dta.Union(dta1);
+            (int i2, DateTimeArgs dta2) = ParseFracSecond(s, i1);
+            if (i2 == i1) return (i1, dta);
+            dta.Union(dta2);
+            (int i3, DateTimeArgs dta3) = ParseTimeZone(s, i2);
+            dta.Union(dta3);
+            return (i3, dta);
+        }
+        private static (int, DateTimeArgs) ParseTimeZone(string s, int i0)
+        {
+            DateTimeArgs dta = new DateTimeArgs();
+            int i1 = TextParser.ParseCharacter(s, i0, out char c);
+            if (i1 == i0) return (i0, dta);
+            switch (c)
+            {
+                case 'Z': dta.TimeZone = DateTimeArgs.TimeZoneSpec.Zulu; return (i1, dta);
+                case '+': dta.TimeZone = DateTimeArgs.TimeZoneSpec.Ahead; break;
+                case '-': dta.TimeZone = DateTimeArgs.TimeZoneSpec.Behind; break;
+                default: return (i0, dta);
+            }
+            int i2 = TextParser.ParseInteger(s, i1, out int tzh);
+            if (i2 == i1) return (i1, dta);
+            dta.ZoneHour = tzh;
+            int i3 = TextParser.ParseCharacter(s, i2, out char d);
+            if (i3 > i2 && d == ':')
+            {
+                int i4 = TextParser.ParseInteger(s, i3, out int tzm);
+                if (i4 > i3)
+                {
+                    dta.ZoneMinute = tzm;
+                    return (i4, dta);
+                }
+            }
+            return (i2, dta);
+        }
+
+        private static (int, DateTimeArgs) ParseFracSecond(string s, int i0)
+        {
+            DateTimeArgs dta = new DateTimeArgs();
+            int i1 = TextParser.ParseCharacter(s, i0, out char dot);
+            if (i1 > i0 && dot == '.')
+            {
+                int i2 = TextParser.ParseInteger(s, i1, out int fracsec);
+                if (i2 > i1 && i2 - i1 < 8)
+                {
+                    dta.FracSecond = fracsec * (int)Math.Pow(10, 7 - i2 + i1);
+                    return (i2, dta);
+                }
+            }
+            return (i0, dta);
+        }
+
+        private static (int, DateTimeArgs) ParseDateTime(string s, int i0, DateTimeFormatInfo dtfo, string pattern)
+        {
+            int j = 0;
+            int i = i0;
+            DateTimeArgs dta = new DateTimeArgs();
+            while (j < pattern.Length)
+            {
+                LineToken t = TextParser.Parse(pattern, j);
+                switch (t.Type)
+                {
+                    case LineToken.TokenType.Name:
+                        {
+                            if (_dateTimeFormats.TryGetValue(t.Value as string, out Func<string, int, DateTimeFormatInfo, (int, DateTimeArgs)> df))
+                            {
+                                (int i1, DateTimeArgs dta1) = df(s, i, dtfo);
+                                if (i1 > i)
+                                {
+                                    dta.Union(dta1);
+                                    i = i1;
+                                }
+                                else
+                                {
+                                    return (i0, new DateTimeArgs());
+                                }
+                            }
+                        }
+                        break;
+                    case LineToken.TokenType.QuotedString:
+                        {
+                            string ls = t.Value as string;
+                            int i1 = TextParser.ParseCharacters(s, i, ls.Length, out string ls1);
+                            if (i1 > i && ls == ls1)
+                            {
+                                i = i1;
+                            }
+                            else
+                            {
+                                return (i0, new DateTimeArgs());
+                            }
+                        }
+                        break;
+                    case LineToken.TokenType.Delimiter:
+                        {
+                            char c = (char)t.Value;
+                            int i1 = TextParser.ParseCharacter(s, i, out char c1);
+                            if (c == c1)
+                            {
+                                i = i1;
+                            }
+                            else
+                            {
+                                return (i0, new DateTimeArgs());
+                            }
+                        }
+                        break;
+                    case LineToken.TokenType.WhiteSpace:
+                        {
+                            int i1 = TextParser.ParseWhiteSpace(s, i);
+                            if (i1 == i)return (i0, new DateTimeArgs());
+                            i = i1;
+                        }
+                        break;
+                    default:
+                        return (i0, new DateTimeArgs());
+                }
+                j = t.Next;
+            }
+            return (i, dta);
+        }
+
+
 
         private int ParseDouble(string s, int i0, out object d)
         {
@@ -377,7 +700,7 @@ namespace OSECore.Text
             int i = TextParser.ParseReal(s, i0, out double rv);
             if (i > 0)
             {
-                d = (float) rv;
+                d = (float)rv;
                 return i;
             }
             else

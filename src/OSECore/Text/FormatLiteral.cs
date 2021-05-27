@@ -16,9 +16,9 @@ namespace OSECore.Text
         /// <param name="start">    The zero-based starting index of the literal. </param>
         /// <param name="length">   The length of the literal. </param>
         public FormatLiteral(string line, int start, int length)
-            : base(start, length)
+            : base(line, start, length)
         {
-            Literal = Get(line);
+            Literal = Text;
         }
         /// <summary>   Gets the literal string. </summary>
         ///
@@ -32,7 +32,7 @@ namespace OSECore.Text
         /// <returns>   True if the literal matches the input string. </returns>
         public bool Match(string s, int i0 = 0)
         {
-            return !String.IsNullOrEmpty(s) && IsValid &&  String.Compare(s, i0, Literal, 0, Length) == 0;
+            return !String.IsNullOrEmpty(s) && !IsNull &&  String.Compare(s, i0, Literal, 0, Length) == 0;
         }
     }
 }

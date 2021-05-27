@@ -18,6 +18,7 @@ namespace OSECore.Text
     /// </summary>
     public static class TextParser
     {
+        public const string NameChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private enum Stage
         {
             WhiteSpace,
@@ -39,6 +40,120 @@ namespace OSECore.Text
             InterstitialWhiteSpace
         };
 
+        public static LineToken Parse(string line, int i0)
+        {
+            if(!String.IsNullOrEmpty(line))
+            {
+                LineToken.TokenType type = GetNextTokenType(line, i0);
+                switch (type)
+                {
+                    case LineToken.TokenType.QuotedString:
+                        {
+                            int i1 = ParseQuotedString(line, i0, out string s);
+                            if(i1 > i0)
+                            {
+                                return new LineToken(line, i0, i1 - i0, LineToken.TokenType.QuotedString, s);
+                            }
+                        }
+                        break;
+                    case LineToken.TokenType.Number:
+                        {
+                            int i1 = ParseInteger<int>(line, i0, out int iv);
+                            if(i1 > i0)
+                            {
+                                return new LineToken(line, i0, i1 - i0, LineToken.TokenType.Number, iv);
+                            }
+                        }
+                        break;
+                    case LineToken.TokenType.Name:
+                        {
+                            int i1 = ParseName(line, i0, out string name, NameChars, NameChars);
+                            if(i1 > i0)
+                            {
+                                return new LineToken(line, i0, i1 - i0, LineToken.TokenType.Name, name);
+                            }
+                        }
+                        break;
+                    case LineToken.TokenType.Delimiter:
+                        {
+                            int i1 = ParseCharacter(line, i0, out char c);
+                            if(i1 > i0)
+                            {
+                                return new LineToken(line, i0, 1, LineToken.TokenType.Delimiter, c);
+                            }
+                        }
+                        break;
+                    case LineToken.TokenType.WhiteSpace:
+                        {
+                            int i1 = ParseWhiteSpace(line, i0);
+                            if(i1 > i0)
+                            {
+                                return new LineToken(line, i0, i1 - i0, LineToken.TokenType.WhiteSpace, ' ');
+                            }
+                        }
+                        break;
+                    default:
+                        {
+                            int i1 = ParseCharacter(line, i0, out char c);
+                            if(i1 > i0)
+                            {
+                                return new LineToken(line, i0, 1, LineToken.TokenType.Unknown, c);
+                            }
+                        }
+                        break;
+                }
+            }
+            return new LineToken();
+        }
+
+        private static LineToken.TokenType GetNextTokenType(string line, int i0)
+        {
+            if(i0 >= 0 && i0 < line.Length)
+            {
+                char c = line[i0];
+                if (c == '\'' || c == '"')
+                    return LineToken.TokenType.QuotedString;
+                else if (char.IsDigit(c))
+                    return LineToken.TokenType.Number;
+                else if (char.IsLetter(c))
+                    return LineToken.TokenType.Name;
+                else if (char.IsWhiteSpace(c))
+                    return LineToken.TokenType.WhiteSpace;
+                else if (char.IsPunctuation(c))
+                    return LineToken.TokenType.Delimiter;
+                else
+                    return LineToken.TokenType.Unknown;
+            }
+            return LineToken.TokenType.Null;
+        }
+
+        public static int ParseQuotedString(string line, int i0, out string stringValue, string defaultValue = "")
+        {
+            if(!String.IsNullOrEmpty(line) && i0 < line.Length - 1)
+            {
+                char quote = line[i0];
+                char escape = '\0';
+                if (quote != '\'' && quote != '"')
+                {
+                    stringValue = defaultValue;
+                    return i0;
+                }
+                for(int i = i0 + 1; i < line.Length; ++i)
+                {
+                    if (escape == '\0' && line[i] == quote)
+                    {
+                        stringValue = line.Substring(i0 + 1, i - i0 - 1);
+                        return i + 1;
+                    }
+                    else if (escape != '\0')
+                        escape = '\0';
+                    else if (line[i] == '\\')
+                        escape = line[i];
+                }
+            }
+            stringValue = defaultValue;
+            return i0;
+        }
         /// <summary>
         /// Parse an integer from the input.
         /// </summary>
@@ -682,6 +797,23 @@ namespace OSECore.Text
             return i0;
         }
 
+        public static int ParseCharacters(string line, int i0, int l, out string s, string dv = "")
+        {
+            List<char> cs = new List<char>();
+            int i = i0;
+            if (!String.IsNullOrEmpty(line) && i0 < line.Length)
+            {
+                while(i < line.Length && i < i0 + l)
+                {
+                    int i1 = ParseCharacter(line, i, out char c);
+                    if (i1 == i) break;
+                    cs.Add(c);
+                    i = i1;
+                }
+            }
+            s = new string(cs.ToArray());
+            return i;
+        }
         public static int ParseCharacter(string line, int i0, out char c, char dv = '\0')
         {
             int i = i0;

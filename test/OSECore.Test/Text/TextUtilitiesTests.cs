@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using OSECore.Text;
@@ -49,6 +50,10 @@ namespace OSECoreTest.Text
         [InlineData("<a", "aaa", "aaa")]
         public void PutTaggedBlockTest(string tag, string l0, string l1)
         {
+            if(!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                l1 = l1.Replace("\r\n", Environment.NewLine);
+            }
             string l = TextSupport.PutTaggedBlock(tag, l0, 1);
             Assert.Equal(l1, l);
         }
@@ -61,6 +66,14 @@ namespace OSECoreTest.Text
         [InlineData("aaa aaa aaa", 2, 10, " aaa aaa\r\n aaa\r\n")]
         public void GetWrappedTextTest(string s0, int scol, int ecol, string s1)
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                s1 = s1.Replace("\r\n", Environment.NewLine);
+            }
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                s1 = s1.Replace("\r\n", Environment.NewLine);
+            }
             string s = TextSupport.GetWrappedText(s0, scol, ecol);
             Assert.Equal(s1, s);
         }

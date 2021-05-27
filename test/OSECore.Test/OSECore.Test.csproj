@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\OSECore\OSECore.csproj" />
+    <ProjectReference Include="..\..\src\OSETesting\OSETesting.csproj" />
   </ItemGroup>
 
 </Project>

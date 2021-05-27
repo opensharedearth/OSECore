@@ -56,7 +56,10 @@ namespace OSECore.IO
                 string fullpath = GetFullPath(path);
                 if (DoesFolderExist(fullpath))
                 {
-                    return HasFolderPermission(fullpath, FileSystemRights.Modify);
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                        return HasFolderPermission(fullpath, FileSystemRights.Modify);
+                    else
+                        return true;
                 }
             }
 

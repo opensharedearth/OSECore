@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace OSETesting
@@ -44,6 +45,10 @@ namespace OSETesting
             if(File.Exists(path0) && File.Exists(path1))
             {
                 string s0 = File.ReadAllText(path0);
+                if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    s0 = s0.Replace("\r\n", Environment.NewLine);
+                }
                 string s1 = File.ReadAllText(path1);
                 return String.Compare(s0, s1) == 0;
             }

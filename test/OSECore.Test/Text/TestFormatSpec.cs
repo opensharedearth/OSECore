@@ -4,11 +4,17 @@ using System.Reflection.Metadata;
 using System.Text;
 using OSECore.Text;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace OSECoreTest.Text
 {
     public class TestFormatSpec
     {
+        ITestOutputHelper _output;
+        public TestFormatSpec(ITestOutputHelper output)
+        {
+            _output = output;
+        }
         [Theory]
         [InlineData("{0}",0,3,0,0,"",true)]
         [InlineData(" {1,-10:F2} ",1,10,1,-10,"F2",true)]
@@ -79,6 +85,7 @@ namespace OSECoreTest.Text
             DateTime dt0 = DateTime.SpecifyKind(dt00, DateTimeKind.Utc);
             String l0 = String.Format("***" + format + "***", dt0);
             int j1 = fs.Parse(l0, 3, typeof(DateTime), out object d1);
+            _output.WriteLine($"dt0 = {dt0}, d1 = {d1}, f0 = {f0}, l0 = {l0}");
             Assert.Equal(l0.Length - 3, j1);
             Assert.Equal(d1, dt0);
         }

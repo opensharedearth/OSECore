@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
 using OSECore.IO;
+using OSETesting;
 using Xunit;
+using Xunit.Abstractions;
 
 #pragma warning disable CA1416
 
@@ -13,12 +16,13 @@ namespace OSECoreTest.IO
 {
     public class FileSupportTests : IClassFixture<TestFileFixture>, IDisposable
     {
+        ITestOutputHelper _output;
         private readonly TestFileFixture _fixture;
-        public FileSupportTests(TestFileFixture fixture)
+        public FileSupportTests(TestFileFixture fixture, ITestOutputHelper output)
         {
             _fixture = fixture;
+            _output = output;
         }
-
 
         public void Dispose()
         {
@@ -66,15 +70,29 @@ namespace OSECoreTest.IO
         [Fact]
         public void HasFilePermissionTest()
         {
-            Assert.True(FileSupport.HasFilePermission(_fixture.WritableFilePath, FileSystemRights.Write));
-            Assert.False(FileSupport.HasFilePermission(_fixture.UnwritableFilePath, FileSystemRights.Write));
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Assert.True(FileSupport.HasFilePermission(_fixture.WritableFilePath, FileSystemRights.Write));
+                Assert.False(FileSupport.HasFilePermission(_fixture.UnwritableFilePath, FileSystemRights.Write));
+            }
+            else
+            {
+                Assert.True(true);
+            }
         }
 
         [Fact]
         public void HasDirectoryPermissionTest()
         {
-            Assert.False(FileSupport.HasFolderPermission(_fixture.TestDir, FileSystemRights.Write));
-            Assert.True(FileSupport.HasFolderPermission(_fixture.TestDir,FileSystemRights.ExecuteFile));
+            if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Assert.False(FileSupport.HasFolderPermission(_fixture.TestDir, FileSystemRights.Write));
+                Assert.True(FileSupport.HasFolderPermission(_fixture.TestDir, FileSystemRights.ExecuteFile));
+            }
+            else
+            {
+                Assert.True(true);
+            }
         }
 
         [Fact]
@@ -123,33 +141,54 @@ namespace OSECoreTest.IO
             string invalidName = "file[]()<>|\"?*'name";
             string validName = "file[]()------'name";
             string name = FileSupport.MakeValidFileName(invalidName);
-            Assert.Equal(name, validName);
+            Assert.Equal(validName, name);
             Assert.Equal(validName, FileSupport.MakeValidFileName("", "", validName));
         }
         [Theory]
-        [InlineData(@"c:\a\b\c",true)]
-        [InlineData(@"c:\a\b\c ", false)]
-        [InlineData(@" c:\a\b\c ", false)]
-        [InlineData(@"c:\a\b\c?",false)]
-        [InlineData("c:\\a\\b\\c\"",false)]
-        [InlineData(@"c:\a\b\c*",false)]
-        [InlineData(@"", false)]
-        public void IsvalidPathTest(string path, bool valid)
+        [InlineData(@"c:\a\b\c",true, OSCompatibility.Windows)]
+        [InlineData(@"c:\a\b\c ", false, OSCompatibility.Windows)]
+        [InlineData(@" c:\a\b\c ", false, OSCompatibility.Windows)]
+        [InlineData(@"c:\a\b\c?",false, OSCompatibility.Windows)]
+        [InlineData("c:\\a\\b\\c\"",false, OSCompatibility.Windows)]
+        [InlineData(@"c:\a\b\c*",false, OSCompatibility.Windows)]
+        [InlineData(@"/c/a/b/c", true, OSCompatibility.AllUnix)]
+        [InlineData(@"/c/a/b/c ", false, OSCompatibility.AllUnix)]
+        [InlineData(@" /c/a/b/c ", false, OSCompatibility.AllUnix)]
+        [InlineData(@"/c/a/b/c?", false, OSCompatibility.AllUnix)]
+        [InlineData("/c/a/b/c\"", false, OSCompatibility.AllUnix)]
+        [InlineData(@"/c/a/b/c*", false, OSCompatibility.AllUnix)]
+        [InlineData(@"", false, OSCompatibility.Any)]
+        public void IsvalidPathTest(string path, bool valid, OSCompatibility platform)
         {
-            bool v1 = FileSupport.IsValidPath(path);
-            Assert.Equal(valid, v1);
+            if(OSCompatibilitySupport.IsComplatible(platform))
+            {
+                bool v1 = FileSupport.IsValidPath(path);
+                Assert.Equal(valid, v1);
+            }
+            else
+            {
+                Assert.True(true);
+            }
         }
         [Theory]
-        [InlineData(@"c", true)]
-        [InlineData(@"c ", false)]
-        [InlineData(@"c?", false)]
-        [InlineData("c\"", false)]
-        [InlineData(@"c*", false)]
-        [InlineData(@"", false)]
-        public void IsvalidFilenameTest(string path, bool valid)
+        [InlineData(@"c", true, OSCompatibility.Any)]
+        [InlineData(@"c ", false, OSCompatibility.Any)]
+        [InlineData(@"c?", false, OSCompatibility.Any)]
+        [InlineData("c\"", false, OSCompatibility.Any)]
+        [InlineData(@"c*", false, OSCompatibility.Any)]
+        [InlineData(@"", false, OSCompatibility.Any)]
+        public void IsvalidFilenameTest(string path, bool valid, OSCompatibility platform)
         {
-            bool v1 = FileSupport.IsValidFilename(path);
-            Assert.Equal(valid, v1);
+            _output.WriteLine($"Invalid file name chars = {Path.GetInvalidFileNameChars()}");
+            if(OSCompatibilitySupport.IsComplatible(platform))
+            {
+                bool v1 = FileSupport.IsValidFilename(path);
+                Assert.Equal(valid, v1);
+            }
+            else
+            {
+                Assert.True(true);
+            }
         }
     }
 }

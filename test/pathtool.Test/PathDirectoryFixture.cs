@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using System.Security.AccessControl;
 using System.Security.Principal;
@@ -53,19 +54,21 @@ namespace pathtool.Test
                 Directory.Delete(Path.Combine(parent, folder));
         }
 
-        [SupportedOSPlatform("windows")]
         private void CreateUnreadableFolders(string parent, string[] folders)
         {
             foreach (var folder in folders)
             {
                 string path = Path.Combine(parent, folder);
                 Directory.CreateDirectory(path);
-                FileSecurity fs = new FileSecurity(path, AccessControlSections.Access);
-                SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
-                FileSystemAccessRule r = new FileSystemAccessRule(user, FileSystemRights.Read, AccessControlType.Deny);
-                fs.AddAccessRule(r);
-                FileInfo fi = new FileInfo(path);
-                fi.SetAccessControl(fs);
+                if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    FileSecurity fs = new FileSecurity(path, AccessControlSections.Access);
+                    SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
+                    FileSystemAccessRule r = new FileSystemAccessRule(user, FileSystemRights.Read, AccessControlType.Deny);
+                    fs.AddAccessRule(r);
+                    FileInfo fi = new FileInfo(path);
+                    fi.SetAccessControl(fs);
+                }
             }
         }
 

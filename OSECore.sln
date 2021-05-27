@@ -13,10 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{5C86120E-A
 		.gitignore = .gitignore
 		build.cake = build.cake
 		build.cmd = build.cmd
-		build.ps1 = build.ps1
+		buildlinuxtests.ps1 = buildlinuxtests.ps1
 		build.sh = build.sh
 		index.md = index.md
 		LICENSE.md = LICENSE.md
+		linuxtests.dockerfile = linuxtests.dockerfile
 		osecore.ico = osecore.ico
 		README.md = README.md
 	EndProjectSection
@@ -90,9 +91,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSEConfig.Test", "test\OSEC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathTool", "sample\PathTool\PathTool.csproj", "{648E2308-4FB7-4B64-ADB4-806FDA0C51BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pathtool.Test", "test\pathtool.Test\pathtool.Test.csproj", "{2C7ABFDE-4322-45B1-AA7A-5DDB29629EC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pathtool.Test", "test\pathtool.Test\pathtool.Test.csproj", "{2C7ABFDE-4322-45B1-AA7A-5DDB29629EC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSETesting", "src\OSETesting\OSETesting.csproj", "{67C435CB-3BFE-4990-8D46-3DFD044CEF1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSETesting", "src\OSETesting\OSETesting.csproj", "{67C435CB-3BFE-4990-8D46-3DFD044CEF1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

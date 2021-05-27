@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
@@ -48,12 +49,20 @@ namespace OSECoreTest.IO
 
         private void SetDirectoryReadOnly(string path)
         {
-            DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
-            SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
-            FileSystemAccessRule r = new FileSystemAccessRule(user, FileSystemRights.Write, AccessControlType.Deny);
-            ds.AddAccessRule(r);
-            DirectoryInfo di = new DirectoryInfo(path);
-            di.SetAccessControl(ds);
+            if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
+                SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
+                FileSystemAccessRule r = new FileSystemAccessRule(user, FileSystemRights.Write, AccessControlType.Deny);
+                ds.AddAccessRule(r);
+                DirectoryInfo di = new DirectoryInfo(path);
+                di.SetAccessControl(ds);
+            }
+            else
+            {
+                FileInfo fi = new FileInfo(path);
+                fi.IsReadOnly = true;
+            }
 
         }
 
@@ -61,23 +70,41 @@ namespace OSECoreTest.IO
         {
             string path = Path.Combine(testDir, ReadOnlyFileName);
             CreateFile(path);
-            FileAttributes fa = File.GetAttributes(path);
-            File.SetAttributes(path, fa | FileAttributes.ReadOnly);
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                FileAttributes fa = File.GetAttributes(path);
+                File.SetAttributes(path, fa | FileAttributes.ReadOnly);
+            }
+            else
+            {
+                FileInfo fi = new FileInfo(path);
+                fi.IsReadOnly = true;
+            }
             return path;
         }
-
         private void ClearReadOnlyAttribute(string path)
         {
-            FileAttributes fa = File.GetAttributes(path);
-            File.SetAttributes(path, fa & (~FileAttributes.ReadOnly));
+            if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                FileAttributes fa = File.GetAttributes(path);
+                File.SetAttributes(path, fa & (~FileAttributes.ReadOnly));
+            }
+            else
+            {
+                FileInfo fi = new FileInfo(path);
+                fi.IsReadOnly = false;
+            }
         }
 
         private string CreateHiddenFile(string testDir)
         {
             string path = Path.Combine(testDir, HiddenFileName);
             CreateFile(path);
-            FileAttributes fa = File.GetAttributes(path);
-            File.SetAttributes(path, fa | FileAttributes.Hidden);
+            if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                FileAttributes fa = File.GetAttributes(path);
+                File.SetAttributes(path, fa | FileAttributes.Hidden);
+            }
             return path;
         }
 
@@ -99,12 +126,15 @@ namespace OSECoreTest.IO
         {
             string path = Path.Combine(testDir, UnreadableFileName);
             CreateFile(path);
-            FileSecurity fs = new FileSecurity(path, AccessControlSections.Access);
-            SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
-            FileSystemAccessRule r = new FileSystemAccessRule(user, FileSystemRights.Read, AccessControlType.Deny);
-            fs.AddAccessRule(r);
-            FileInfo fi = new FileInfo(path);
-            fi.SetAccessControl(fs);
+            if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                FileSecurity fs = new FileSecurity(path, AccessControlSections.Access);
+                SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
+                FileSystemAccessRule r = new FileSystemAccessRule(user, FileSystemRights.Read, AccessControlType.Deny);
+                fs.AddAccessRule(r);
+                FileInfo fi = new FileInfo(path);
+                fi.SetAccessControl(fs);
+            }
             return path;
         }
 
@@ -112,12 +142,16 @@ namespace OSECoreTest.IO
         {
             string path = Path.Combine(testDir, UnwritableFileName);
             CreateFile(path);
-            FileSecurity fs = new FileSecurity(path, AccessControlSections.Access);
-            SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
-            FileSystemAccessRule r = new FileSystemAccessRule(user, FileSystemRights.Write, AccessControlType.Deny);
-            fs.AddAccessRule(r);
-            FileInfo fi = new FileInfo(path);
-            fi.SetAccessControl(fs);
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+
+                FileSecurity fs = new FileSecurity(path, AccessControlSections.Access);
+                SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
+                FileSystemAccessRule r = new FileSystemAccessRule(user, FileSystemRights.Write, AccessControlType.Deny);
+                fs.AddAccessRule(r);
+                FileInfo fi = new FileInfo(path);
+                fi.SetAccessControl(fs);
+            }
             return path;
         }
 
@@ -125,12 +159,15 @@ namespace OSECoreTest.IO
         {
             string path = Path.Combine(testDir, UnwritableFolderName);
             Directory.CreateDirectory(path);
-            FileSecurity fs = new FileSecurity(path, AccessControlSections.Access);
-            SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
-            FileSystemAccessRule r = new FileSystemAccessRule(user, FileSystemRights.Write | FileSystemRights.Modify, AccessControlType.Deny);
-            fs.AddAccessRule(r);
-            FileInfo fi = new FileInfo(path);
-            fi.SetAccessControl(fs);
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                FileSecurity fs = new FileSecurity(path, AccessControlSections.Access);
+                SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
+                FileSystemAccessRule r = new FileSystemAccessRule(user, FileSystemRights.Write | FileSystemRights.Modify, AccessControlType.Deny);
+                fs.AddAccessRule(r);
+                FileInfo fi = new FileInfo(path);
+                fi.SetAccessControl(fs);
+            }
             return path;
         }
 
@@ -138,12 +175,15 @@ namespace OSECoreTest.IO
         {
             string path = Path.Combine(testDir, UnreadableFolderName);
             Directory.CreateDirectory(path);
-            FileSecurity fs = new FileSecurity(path, AccessControlSections.Access);
-            SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
-            FileSystemAccessRule r = new FileSystemAccessRule(user, FileSystemRights.Read, AccessControlType.Deny);
-            fs.AddAccessRule(r);
-            FileInfo fi = new FileInfo(path);
-            fi.SetAccessControl(fs);
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                FileSecurity fs = new FileSecurity(path, AccessControlSections.Access);
+                SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
+                FileSystemAccessRule r = new FileSystemAccessRule(user, FileSystemRights.Read, AccessControlType.Deny);
+                fs.AddAccessRule(r);
+                FileInfo fi = new FileInfo(path);
+                fi.SetAccessControl(fs);
+            }
             return path;
         }
 

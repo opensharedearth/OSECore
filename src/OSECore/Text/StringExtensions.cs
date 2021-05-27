@@ -96,7 +96,7 @@ namespace OSECore.Text
             {
                 if (i < fss.Length - 1 && fss[i] is FormatSpec fs && fss[i + 1] is FormatLiteral fl)
                 {
-                    fss1.Add(new FormatSpec(fs, fl));
+                    fss1.Add(new FormatSpec(fss[i].Line, fs, fl));
                 }
                 else
                 {

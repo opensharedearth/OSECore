@@ -31,7 +31,7 @@ namespace OSECoreTest.IO
                 writer.Flush();
             }
             string s1 = ss.ToString();
-            Assert.Equal(s0 + "\r\n", s1);
+            Assert.Equal(s0 + Environment.NewLine, s1);
         }
 
         [Fact]
@@ -53,8 +53,8 @@ namespace OSECoreTest.IO
                 s2 = reader.ReadToEnd();
             }
             s1 = ss0.ToString();
-            Assert.Equal(s0 + "\r\n", s1);
-            Assert.Equal(s0 + "\r\n", s2);
+            Assert.Equal(s0 + Environment.NewLine, s1);
+            Assert.Equal(s0 + Environment.NewLine, s2);
         }
 
         [Fact]
@@ -69,7 +69,7 @@ namespace OSECoreTest.IO
             }
 
             s1 = ss.ToString();
-            Assert.Equal(s0 + "\r\n", s1);
+            Assert.Equal(s0 + Environment.NewLine, s1);
         }
 
         [Fact]

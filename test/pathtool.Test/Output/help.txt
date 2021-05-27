@@ -27,12 +27,14 @@ Options:
   --help, -h       Get program help
   --inline, -i     Inline formating.  Creates output suitable for command execution.  Incompatible with -v
   --length, -l     Number of path folders from position to include
-  --machine, -m    Use system PATH variable.  By default the local process path is used. Incompatible with -u
+  --machine, -m    Use system PATH variable. By default the local process path is used. Incompatible with -u (Windows
+                   only)
   --position, -p   Starting position of folder
   --quiet, -q      Do not confirm operation.  Otherwise Y/N confirmation is required.
   --sort           Sort output.  By default the order of the folder is as they appear in PATH
   --to, -t         Destination position for move
-  --user, -u       Use user PATH variable.  By default the local process path is used. Incompatible with -m
+  --user, -u       Use user PATH variable. By default the local process path is used. Incompatible with -m (Windows
+                   only)
   --verbose, -v    Verbose output. Path elements in table with position and status.
   --version        Get program version
 
