@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Mono.Unix;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
+using Xunit.Abstractions;
 
 #pragma warning disable CA1416
 
@@ -17,7 +19,7 @@ namespace OSECoreTest.IO
         public string WritableFilePath;
         public string HiddenFilePath;
         public string ReadOnlyFilePath;
-        public string InvalidFilePath = "<|>";
+        public string InvalidFilePath = " <|>";
         public string NonExistentFilePath;
         public string UnreadableFolderPath;
         public string UnwritableFolderPath;
@@ -135,6 +137,11 @@ namespace OSECoreTest.IO
                 FileInfo fi = new FileInfo(path);
                 fi.SetAccessControl(fs);
             }
+            else
+            {
+                var fi = new UnixFileInfo(path);
+                fi.FileAccessPermissions = 0;
+            }
             return path;
         }
 
@@ -152,6 +159,11 @@ namespace OSECoreTest.IO
                 FileInfo fi = new FileInfo(path);
                 fi.SetAccessControl(fs);
             }
+            else
+            {
+                var fi = new UnixFileInfo(path);
+                fi.FileAccessPermissions = FileAccessPermissions.OtherRead | FileAccessPermissions.GroupRead | FileAccessPermissions.UserRead;
+            }
             return path;
         }
 
@@ -168,6 +180,11 @@ namespace OSECoreTest.IO
                 FileInfo fi = new FileInfo(path);
                 fi.SetAccessControl(fs);
             }
+            else
+            {
+                var fi = new UnixFileInfo(path);
+                fi.FileAccessPermissions = FileAccessPermissions.OtherRead | FileAccessPermissions.GroupRead | FileAccessPermissions.UserRead;
+            }
             return path;
         }
 
@@ -183,6 +200,11 @@ namespace OSECoreTest.IO
                 fs.AddAccessRule(r);
                 FileInfo fi = new FileInfo(path);
                 fi.SetAccessControl(fs);
+            }
+            else
+            {
+                var fi = new UnixFileInfo(path);
+                fi.FileAccessPermissions = FileAccessPermissions.UserWrite | FileAccessPermissions.GroupWrite | FileAccessPermissions.OtherWrite;
             }
             return path;
         }

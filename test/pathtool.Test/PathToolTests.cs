@@ -5,15 +5,18 @@ using System.IO;
 using Xunit;
 using OSECore.Text;
 using OSECore.IO;
+using Xunit.Abstractions;
 
 namespace pathtool.Test
 {
     public class PathToolTests : IClassFixture<PathDirectoryFixture>
     {
         private readonly PathDirectoryFixture _fixture;
-        public PathToolTests(PathDirectoryFixture fixture)
+        private readonly ITestOutputHelper _output;
+        public PathToolTests(PathDirectoryFixture fixture, ITestOutputHelper output)
         {
             _fixture = fixture;
+            _output = output;
         }
         [Fact]
         public void VersionTest()
@@ -53,8 +56,8 @@ namespace pathtool.Test
             Program.Main(args);
             Console.Error.Close();
             Console.Out.Close();
-            Assert.True(_fixture.CompareFiles(_fixture.GetOutputFilePath(ferror), perror));
-            Assert.True(_fixture.CompareFiles(_fixture.GetOutputFilePath(fout), pout));
+            Assert.True(_fixture.CompareFiles(_fixture.GetPlatformOutputFilePath(ferror), perror));
+            Assert.True(_fixture.CompareFiles(_fixture.GetPlatformOutputFilePath(fout), pout));
         }
         [Theory]
         [InlineData(0, "clean -v",'Y', true)]
@@ -81,8 +84,8 @@ namespace pathtool.Test
             Console.Error.Close();
             Console.Out.Close();
             Console.In.Close();
-            Assert.True(_fixture.CompareFiles(_fixture.GetOutputFilePath(ferror), perror));
-            Assert.True(_fixture.CompareFiles(_fixture.GetOutputFilePath(fout), pout));
+            Assert.True(_fixture.CompareFiles(_fixture.GetPlatformOutputFilePath(ferror), perror));
+            Assert.True(_fixture.CompareFiles(_fixture.GetPlatformOutputFilePath(fout), pout));
         }
         [Theory]
         [InlineData(0, "add -v j k", 'Y')]
@@ -108,8 +111,8 @@ namespace pathtool.Test
             Console.Error.Close();
             Console.Out.Close();
             Console.In.Close();
-            Assert.True(_fixture.CompareFiles(_fixture.GetOutputFilePath(ferror), perror));
-            Assert.True(_fixture.CompareFiles(_fixture.GetOutputFilePath(fout), pout));
+            Assert.True(_fixture.CompareFiles(_fixture.GetPlatformOutputFilePath(ferror), perror));
+            Assert.True(_fixture.CompareFiles(_fixture.GetPlatformOutputFilePath(fout), pout));
         }
         [Theory]
         [InlineData(0, "remove -v -pl 1 3", 'Y')]
@@ -135,8 +138,8 @@ namespace pathtool.Test
             Console.Error.Close();
             Console.Out.Close();
             Console.In.Close();
-            Assert.True(_fixture.CompareFiles(_fixture.GetOutputFilePath(ferror), perror));
-            Assert.True(_fixture.CompareFiles(_fixture.GetOutputFilePath(fout), pout));
+            Assert.True(_fixture.CompareFiles(_fixture.GetPlatformOutputFilePath(ferror), perror));
+            Assert.True(_fixture.CompareFiles(_fixture.GetPlatformOutputFilePath(fout), pout));
         }
         [Theory]
         [InlineData(0, "move -v -ptl 5 1 3", 'Y')]
@@ -163,8 +166,8 @@ namespace pathtool.Test
             Console.Error.Close();
             Console.Out.Close();
             Console.In.Close();
-            Assert.True(_fixture.CompareFiles(_fixture.GetOutputFilePath(ferror), perror));
-            Assert.True(_fixture.CompareFiles(_fixture.GetOutputFilePath(fout), pout));
+            Assert.True(_fixture.CompareFiles(_fixture.GetPlatformOutputFilePath(ferror), perror));
+            Assert.True(_fixture.CompareFiles(_fixture.GetPlatformOutputFilePath(fout), pout));
         }
 
     }

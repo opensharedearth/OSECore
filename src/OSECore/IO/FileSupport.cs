@@ -7,6 +7,7 @@ using System.Text;
 using System.Runtime.Versioning;
 using OSECore.Text;
 using System.Runtime.InteropServices;
+using Mono.Unix;
 
 namespace OSECore.IO
 {
@@ -32,18 +33,7 @@ namespace OSECore.IO
                     if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                         return IsNormalFile(fullpath) && !IsReadOnly(fullpath) && HasFilePermission(fullpath, FileSystemRights.Write);
                     else
-                        return IsNormalFile(fullpath) && !IsReadOnly(fullpath);
-                }
-                else if (DoesFolderExist(folderpath))
-                {
-                    if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                    {
-                        return HasFolderPermission(folderpath, FileSystemRights.Write);
-                    }
-                    else
-                    {
-                        return true;
-                    }
+                        return HasFilePermission(fullpath, FileAccessPermissions.UserWrite | FileAccessPermissions.GroupWrite | FileAccessPermissions.OtherWrite);
                 }
             }
             return false;
@@ -57,9 +47,13 @@ namespace OSECore.IO
                 if (DoesFolderExist(fullpath))
                 {
                     if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
                         return HasFolderPermission(fullpath, FileSystemRights.Modify);
+                    }
                     else
-                        return true;
+                    {
+                        return HasFilePermission(fullpath, FileAccessPermissions.UserWrite | FileAccessPermissions.GroupWrite | FileAccessPermissions.OtherWrite);
+                    }
                 }
             }
 
@@ -96,8 +90,7 @@ namespace OSECore.IO
                     }
                     else
                     {
-                        FileInfo fi = new FileInfo(path);
-                        return fi.Attributes == FileAttributes.Normal;
+                        return HasFilePermission(fullpath, FileAccessPermissions.UserRead | FileAccessPermissions.GroupRead | FileAccessPermissions.OtherRead);
                     }
                 }
             }
@@ -117,7 +110,7 @@ namespace OSECore.IO
                     }
                     else
                     {
-                        return true;
+                        return HasFilePermission(fullpath, FileAccessPermissions.UserRead | FileAccessPermissions.GroupRead | FileAccessPermissions.OtherRead);
                     }
                 }
             }
@@ -144,6 +137,11 @@ namespace OSECore.IO
         {
             DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
             return HasPermission(ds, right);
+        }
+        public static bool HasFilePermission(string path, FileAccessPermissions fap)
+        {
+            var fi = new UnixFileInfo(path);
+            return HasPermission(fi, fap);
         }
         /// <summary>
         /// Determines whether the indicated file system security object has the indicated file system right.
@@ -180,6 +178,24 @@ namespace OSECore.IO
                 }
             }
             return explicitAllow && !explicitDeny;
+        }
+        public static bool HasPermission(UnixFileSystemInfo fi, FileAccessPermissions fap)
+        {
+
+            var effective = fi.FileAccessPermissions & fap;
+            var user = UnixUserInfo.GetRealUser();
+            if(user.UserId == fi.OwnerUserId)
+            {
+                return (effective & FileAccessPermissions.UserReadWriteExecute) == (fap & FileAccessPermissions.UserReadWriteExecute);
+            }
+            else if(user.GroupId == fi.OwnerGroupId)
+            {
+                return (effective & FileAccessPermissions.GroupReadWriteExecute) == (fap & FileAccessPermissions.GroupReadWriteExecute);
+            }
+            else
+            {
+                return (effective & FileAccessPermissions.OtherReadWriteExecute) == (fap & FileAccessPermissions.OtherReadWriteExecute);
+            }
         }
         /// <summary>
         /// Determines if the read-only file attribute is set.

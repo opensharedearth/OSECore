@@ -1,0 +1,23 @@
+
+Position Status           Folder
+-------- ---------------- -----------------------
+       1 Valid            /home/tester/scratch/pathtool.Test/z00
+       2 Valid            /home/tester/scratch/pathtool.Test/w01
+       3 Valid            /home/tester/scratch/pathtool.Test/c2
+       4 Valid            /home/tester/scratch/pathtool.Test/d2
+       5 Valid            /home/tester/scratch/pathtool.Test/e4
+       6 Does not exist   /home/tester/scratch/pathtool.Test/aa"
+       7 Does not exist   /home/tester/scratch/pathtool.Test/bb<|>
+       8 Null path        
+       9 Does not exist   /home/tester/scratch/pathtool.Test/n11
+      10 Does not exist   /home/tester/scratch/pathtool.Test/o33
+      11 Not fully qualified b
+      12 Not fully qualified i
+      13 Valid            /home/tester/scratch/pathtool.Test/f
+      14 Valid            /home/tester/scratch/pathtool.Test/g
+
+14 entries.
+
+
+Move 3 folder(s) in PATH starting at position 1 to position 5? [Y/N] 
+3 folders moved from position 1 to position 5 in PATH

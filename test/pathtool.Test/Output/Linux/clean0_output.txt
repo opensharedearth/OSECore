@@ -1,0 +1,1 @@
+/home/tester/scratch/pathtool.Test/z00:/home/tester/scratch/pathtool.Test/w01:/home/tester/scratch/pathtool.Test/c2:/home/tester/scratch/pathtool.Test/d2:/home/tester/scratch/pathtool.Test/e4:/home/tester/scratch/pathtool.Test/f:/home/tester/scratch/pathtool.Test/g

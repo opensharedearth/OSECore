@@ -36,6 +36,10 @@ namespace OSETesting
         {
             return Path.Combine(GetOutputPath(), file);
         }
+        public string GetPlatformOutputFilePath(string file)
+        {
+            return Path.Combine(GetOutputPath(), OSCompatibilitySupport.GetPlatformName(), file);
+        }
         public string GetTempFilePath(string file)
         {
             return Path.Combine(TestDir, file);

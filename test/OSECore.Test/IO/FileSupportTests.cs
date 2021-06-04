@@ -55,7 +55,10 @@ namespace OSECoreTest.IO
         [Fact]
         public void IsNormalFileTest()
         {
-            Assert.False(FileSupport.IsNormalFile(_fixture.HiddenFilePath));
+            if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Assert.False(FileSupport.IsNormalFile(_fixture.HiddenFilePath));
+            }
             Assert.False(FileSupport.IsNormalFile(_fixture.TestDir));
             Assert.True(FileSupport.IsNormalFile(_fixture.WritableFilePath));
         }
@@ -135,14 +138,21 @@ namespace OSECoreTest.IO
             Assert.Equal(FileSupport.GetFullPath(name), _fixture.WritableFilePath);
             Directory.SetCurrentDirectory(current);
         }
-        [Fact]
-        public void MakeValidFileNameTest()
+        [Theory]
+        [InlineData("file/[]()<>|?*'name", "file-[]()-----'name", OSCompatibility.Windows)]
+        [InlineData("file/[]()<>|?*'name", "file-[]()<>|?*'name", OSCompatibility.AllUnix)]
+        public void MakeValidFileNameTest(string invalidName, string validName, OSCompatibility platform)
         {
-            string invalidName = "file[]()<>|\"?*'name";
-            string validName = "file[]()------'name";
-            string name = FileSupport.MakeValidFileName(invalidName);
-            Assert.Equal(validName, name);
-            Assert.Equal(validName, FileSupport.MakeValidFileName("", "", validName));
+            if(OSCompatibilitySupport.IsComplatible(platform))
+            {
+                string name = FileSupport.MakeValidFileName(invalidName);
+                Assert.Equal(validName, name);
+                Assert.Equal(validName, FileSupport.MakeValidFileName("", "", validName));
+            }
+            else
+            {
+                Assert.True(true);
+            }
         }
         [Theory]
         [InlineData(@"c:\a\b\c",true, OSCompatibility.Windows)]
@@ -154,9 +164,9 @@ namespace OSECoreTest.IO
         [InlineData(@"/c/a/b/c", true, OSCompatibility.AllUnix)]
         [InlineData(@"/c/a/b/c ", false, OSCompatibility.AllUnix)]
         [InlineData(@" /c/a/b/c ", false, OSCompatibility.AllUnix)]
-        [InlineData(@"/c/a/b/c?", false, OSCompatibility.AllUnix)]
-        [InlineData("/c/a/b/c\"", false, OSCompatibility.AllUnix)]
-        [InlineData(@"/c/a/b/c*", false, OSCompatibility.AllUnix)]
+        [InlineData(@"/c/a/b/c?", true, OSCompatibility.AllUnix)]
+        [InlineData("/c/a/b/c\"", true, OSCompatibility.AllUnix)]
+        [InlineData(@"/c/a/b/c*", true, OSCompatibility.AllUnix)]
         [InlineData(@"", false, OSCompatibility.Any)]
         public void IsvalidPathTest(string path, bool valid, OSCompatibility platform)
         {
@@ -172,14 +182,17 @@ namespace OSECoreTest.IO
         }
         [Theory]
         [InlineData(@"c", true, OSCompatibility.Any)]
-        [InlineData(@"c ", false, OSCompatibility.Any)]
-        [InlineData(@"c?", false, OSCompatibility.Any)]
-        [InlineData("c\"", false, OSCompatibility.Any)]
-        [InlineData(@"c*", false, OSCompatibility.Any)]
+        [InlineData(@"c ", false, OSCompatibility.Windows)]
+        [InlineData(@"c?", false, OSCompatibility.Windows)]
+        [InlineData("c\"", false, OSCompatibility.Windows)]
+        [InlineData(@"c*", false, OSCompatibility.Windows)]
+        [InlineData(@"c ", false, OSCompatibility.AllUnix)]
+        [InlineData(@"c?", true, OSCompatibility.AllUnix)]
+        [InlineData("c\"", true, OSCompatibility.AllUnix)]
+        [InlineData(@"c*", true, OSCompatibility.AllUnix)]
         [InlineData(@"", false, OSCompatibility.Any)]
         public void IsvalidFilenameTest(string path, bool valid, OSCompatibility platform)
         {
-            _output.WriteLine($"Invalid file name chars = {Path.GetInvalidFileNameChars()}");
             if(OSCompatibilitySupport.IsComplatible(platform))
             {
                 bool v1 = FileSupport.IsValidFilename(path);

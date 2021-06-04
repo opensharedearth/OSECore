@@ -71,6 +71,7 @@ namespace pathtool.Test
                 }
             }
         }
+        private static char pathDivider = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? ';' : ':';
 
         internal void SetTestPath(bool addInvalid = true)
         {
@@ -84,7 +85,7 @@ namespace pathtool.Test
                 paths.AddRange(GetNotFullyQualifiedPaths());
                 paths.AddRange(GetUnreadablePaths());
             }
-            string path = String.Join(';', paths.ToArray());
+            string path = String.Join(pathDivider, paths.ToArray());
             Environment.SetEnvironmentVariable("PATH", path);
         }
 

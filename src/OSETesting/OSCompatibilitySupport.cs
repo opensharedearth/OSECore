@@ -34,6 +34,10 @@ namespace OSETesting
             else
                 return OSCompatibility.None;
         }
+        public static string GetPlatformName()
+        {
+            return GetPlatform().ToString();
+        }
         public static string ChangeLineEndings(string s, OSCompatibility from, OSCompatibility to)
         {
             if (String.IsNullOrEmpty(s))

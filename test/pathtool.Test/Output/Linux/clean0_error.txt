@@ -1,0 +1,15 @@
+
+Position Status           Folder
+-------- ---------------- -----------------------
+       6 Does not exist   /home/tester/scratch/pathtool.Test/aa"
+       7 Does not exist   /home/tester/scratch/pathtool.Test/bb<|>
+       8 Null path        
+       9 Does not exist   /home/tester/scratch/pathtool.Test/n11
+      10 Does not exist   /home/tester/scratch/pathtool.Test/o33
+      11 Not fully qualified b
+      12 Not fully qualified i
+
+7 entries.
+
+Remove folders from PATH? [Y/N] 
+7 folder(s) removed from PATH
