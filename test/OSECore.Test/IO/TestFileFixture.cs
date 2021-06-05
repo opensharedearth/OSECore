@@ -1,4 +1,6 @@
 ﻿using Mono.Unix;
+using OSETesting;
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,6 +36,7 @@ namespace OSECoreTest.IO
         public const string UnwritableFolderName = "UnwritableFolder";
         public const string ReadableFolderName = "ReadableFolder";
         public TestFileFixture()
+            : base("OSECoreText.IO")
         {
             UnwritableFilePath = CreateUnwritableFile(TestDir);
             UnreadableFilePath = CreateUnreadableFile(TestDir);
@@ -208,6 +211,27 @@ namespace OSECoreTest.IO
             }
             return path;
         }
+        public void ClearDenyACEs(string path)
+        {
+            if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                FileSecurity fs = new FileSecurity(path, AccessControlSections.Access);
+                AuthorizationRuleCollection rules = fs.GetAccessRules(true, true, typeof(SecurityIdentifier));
+                SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
+                AuthorizationRuleCollection newRules = new AuthorizationRuleCollection();
+                FileSystemSecurity fssNew = new FileSecurity();
+                foreach (FileSystemAccessRule rule in rules.OfType<FileSystemAccessRule>())
+                {
+                    if(rule.IdentityReference == user && rule.AccessControlType == AccessControlType.Deny)
+                    {
+                        fs.RemoveAccessRule(rule);
+                        FileInfo fi = new FileInfo(path);
+                        fi.SetAccessControl(fs);
+
+                    }
+                }
+            }
+        }
 
         public override void Dispose()
         {
@@ -217,9 +241,11 @@ namespace OSECoreTest.IO
             File.Delete(HiddenFilePath);
             ClearReadOnlyAttribute(ReadOnlyFilePath);
             File.Delete(ReadOnlyFilePath);
+            ClearDenyACEs(UnwritableFolderPath);
             Directory.Delete(UnwritableFolderPath);
             Directory.Delete(ReadableFolderPath);
             Directory.Delete(UnreadableFolderPath);
+            ClearDenyACEs(TestDir);
             base.Dispose();
         }
 

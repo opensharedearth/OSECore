@@ -10,7 +10,7 @@ namespace OSETesting
     {
         public string TestDir { get; }
         private bool _deleteOnDispose = true;
-        public FileFixture(string testFolder = "")
+        public FileFixture(string testFolder = "OSETesting")
         {
             System.Diagnostics.Trace.WriteLine("In file fixture constructor");
             TestDir = CreateTestDirectory(testFolder);

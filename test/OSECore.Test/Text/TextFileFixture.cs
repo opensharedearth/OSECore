@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OSETesting;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -10,6 +11,7 @@ namespace OSECoreTest.Text
         private string _taggedBlockFilename = "TaggedBlock.txt";
         public string TaggedBlockFilePath;
         public TextFileFixture()
+            : base("OSECoreTest.Text")
         {
             CreateTaggedBlockFile();
         }

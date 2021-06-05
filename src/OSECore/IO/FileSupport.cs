@@ -158,26 +158,27 @@ namespace OSECore.IO
             AuthorizationRuleCollection rules = fss.GetAccessRules(true, true, typeof(SecurityIdentifier));
             var groups = WindowsIdentity.GetCurrent().Groups;
             SecurityIdentifier user = WindowsIdentity.GetCurrent().User;
-            bool explicitAllow = false;
-            bool explicitDeny = false;
+            FileSystemRights remaining = right;
             foreach (FileSystemAccessRule rule in rules.OfType<FileSystemAccessRule>())
             {
-                if ((rule.FileSystemRights & right) == right)
+                FileSystemRights test = rule.FileSystemRights & right;
+                if (test != 0)
                 {
                     if (rule.IdentityReference == user || (groups != null && groups.Contains(rule.IdentityReference)))
                     {
                         if (rule.AccessControlType == AccessControlType.Allow)
                         {
-                            explicitAllow = true;
+                            remaining &= ~test;
+                            if (remaining == 0)return true;
                         }
                         else if (rule.AccessControlType == AccessControlType.Deny)
                         {
-                            explicitDeny = true;
+                            return false;
                         }
                     }
                 }
             }
-            return explicitAllow && !explicitDeny;
+            return false;
         }
         public static bool HasPermission(UnixFileSystemInfo fi, FileAccessPermissions fap)
         {

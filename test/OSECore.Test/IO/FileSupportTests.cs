@@ -48,7 +48,8 @@ namespace OSECoreTest.IO
         public void IsFolderWritableTest()
         {
             Assert.False(FileSupport.IsFolderWritable(_fixture.UnwritableFolderPath));
-            Assert.True(FileSupport.IsFolderWritable(_fixture.UnreadableFolderPath));
+            Assert.False(FileSupport.IsFolderWritable(_fixture.UnreadableFolderPath));
+            Assert.True(FileSupport.IsFolderWritable(_fixture.ReadableFolderPath));
             Assert.False(FileSupport.IsFolderWritable(_fixture.InvalidFilePath));
         }
 
