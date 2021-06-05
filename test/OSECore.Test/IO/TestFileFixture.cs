@@ -9,6 +9,7 @@ using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
 using Xunit.Abstractions;
+using Mono.Unix.Native;
 
 #pragma warning disable CA1416
 
@@ -207,7 +208,8 @@ namespace OSECoreTest.IO
             else
             {
                 var fi = new UnixFileInfo(path);
-                fi.FileAccessPermissions = FileAccessPermissions.UserWrite | FileAccessPermissions.GroupWrite | FileAccessPermissions.OtherWrite;
+                fi.FileAccessPermissions = 0;
+                Syscall.chown()
             }
             return path;
         }
