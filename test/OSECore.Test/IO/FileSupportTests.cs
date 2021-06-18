@@ -33,7 +33,7 @@ namespace OSECoreTest.IO
         {
             Assert.False(FileSupport.IsFileWritable(_fixture.UnwritableFilePath));
             Assert.True(FileSupport.IsFileWritable(_fixture.WritableFilePath));
-            Assert.False(FileSupport.IsFileWritable(_fixture.NonExistentFilePath));
+            Assert.True(FileSupport.IsFileWritable(_fixture.NonExistentFilePath));
             Assert.False(FileSupport.IsFileWritable(_fixture.InvalidFilePath));
         }
 
@@ -90,7 +90,7 @@ namespace OSECoreTest.IO
         {
             if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                Assert.False(FileSupport.HasFolderPermission(_fixture.TestDir, FileSystemRights.Write));
+                Assert.False(FileSupport.HasFolderPermission(_fixture.UnwritableFolderPath, FileSystemRights.Write));
                 Assert.True(FileSupport.HasFolderPermission(_fixture.TestDir, FileSystemRights.ExecuteFile));
             }
             else

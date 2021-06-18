@@ -18,7 +18,8 @@ namespace OSECore.IO
     {
         /// <summary>
         /// This method determines whether the file indicated by the path argument is writable. To be writable in this context
-        /// means that the file can be either modified, appended to, overwritten or deleted.
+        /// means that the file can be either modified, appended to, overwritten or deleted.  If the file does not exist, it can
+        /// be created.
         /// </summary>
         /// <param name="path">The path to the file to test for writability.  The path may be either relative or absolute.</param>
         /// <returns>True, if the file is writable.</returns>
@@ -26,19 +27,33 @@ namespace OSECore.IO
         {
             if (IsValidPath(path))
             {
+                bool fileWritable = false;
                 string fullpath = GetFullPath(path);
                 string folderpath = Path.GetDirectoryName(fullpath);
                 if (DoesFileExist(fullpath))
                 {
                     if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                        return IsNormalFile(fullpath) && !IsReadOnly(fullpath) && HasFilePermission(fullpath, FileSystemRights.Write);
+                        fileWritable = IsNormalFile(fullpath) && !IsReadOnly(fullpath) && HasFilePermission(fullpath, FileSystemRights.Modify);
                     else
-                        return HasFilePermission(fullpath, FileAccessPermissions.UserWrite | FileAccessPermissions.GroupWrite | FileAccessPermissions.OtherWrite);
+                        fileWritable = IsNormalFile(fullpath) && HasFilePermission(fullpath, FileAccessPermissions.UserWrite | FileAccessPermissions.UserRead 
+                            | FileAccessPermissions.GroupWrite | FileAccessPermissions.GroupRead
+                            | FileAccessPermissions.OtherWrite | FileAccessPermissions.OtherRead);
                 }
+                else
+                {
+                    fileWritable = true;
+                }
+                return fileWritable && IsFolderWritable(folderpath);
             }
             return false;
         }
 
+        /// <summary>
+        /// This method determines whether the folder indicated by the path argument is writable. To be writable in this context
+        /// means that files or folders can be added or removed from the folde.
+        /// </summary>
+        /// <param name="path">The path to the folder to test for writability.  The path may be either relative or absolute.</param>
+        /// <returns>True, if the folder is writable.</returns>
         public static bool IsFolderWritable(string path)
         {
             if (IsValidPath(path))
@@ -67,9 +82,17 @@ namespace OSECore.IO
         /// <returns>True, if the indicated file is a normal file.</returns>
         public static bool IsNormalFile(string fullpath)
         {
-            FileAttributes fa = File.GetAttributes(fullpath);
-            FileAttributes specialFile = FileAttributes.Directory | FileAttributes.Encrypted | FileAttributes.Hidden | FileAttributes.System | FileAttributes.Temporary;
-            return (fa & specialFile) == 0;
+            if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                FileAttributes fa = File.GetAttributes(fullpath);
+                FileAttributes specialFile = FileAttributes.Directory | FileAttributes.Encrypted | FileAttributes.Hidden | FileAttributes.System | FileAttributes.Temporary;
+                return (fa & specialFile) == 0;
+            }
+            else
+            {
+                var fi = new UnixFileInfo(fullpath);
+                return fi.FileType == FileTypes.RegularFile;
+            }
         }
         /// <summary>
         /// Determines whether the the file indicated by the path is readable.  To be readable means that the file can be opened to an input stream and bytes can be
@@ -86,7 +109,7 @@ namespace OSECore.IO
                 {
                     if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                     {
-                        return HasFilePermission(fullpath, FileSystemRights.Read);
+                        return IsNormalFile(fullpath) && HasFilePermission(fullpath, FileSystemRights.Read);
                     }
                     else
                     {
@@ -97,6 +120,12 @@ namespace OSECore.IO
             return false;
         }
 
+        /// <summary>
+        /// Determines whether the the folder indicated by the path is readable.  To be readable means that the folder contents can be
+        /// listed.
+        /// </summary>
+        /// <param name="path">The relative or absolute path to the folder to be tested.</param>
+        /// <returns>True, if the folder is readable.</returns>
         public static bool IsFolderReadable(string path)
         {
             if(IsValidPath(path))
@@ -138,6 +167,12 @@ namespace OSECore.IO
             DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
             return HasPermission(ds, right);
         }
+        /// <summary>   Determines whether a file has the indicated file system right. </summary>
+        ///
+        /// <param name="path"> The path to the file. </param>
+        /// <param name="fap">  The file access permissions to test. </param>
+        ///
+        /// <returns>   True, if the file has the indicated file access permissions. </returns>
         public static bool HasFilePermission(string path, FileAccessPermissions fap)
         {
             var fi = new UnixFileInfo(path);
@@ -180,6 +215,23 @@ namespace OSECore.IO
             }
             return false;
         }
+        /// <summary>
+        /// Determines whether the indicated Unix file has the indicated file access for the current user.
+        /// </summary>
+        ///
+        /// <remarks>
+        /// The current Windows user identity is used to search the security object's ACL for relevent
+        /// allow or deny rules.  To have permission for the indicated right, the object's ACL list must
+        /// contain an explicit allow rule and no deny rules for either the user identity or a group to
+        /// which the user belongs.
+        /// </remarks>
+        ///
+        /// <param name="fi">   File access permissions and owner id for the Unix file.</param>
+        /// <param name="fap">  The file access permissions to test. </param>
+        ///
+        /// <returns>
+        /// True, if the indicated file system security object has the indicated file system access.
+        /// </returns>
         public static bool HasPermission(UnixFileSystemInfo fi, FileAccessPermissions fap)
         {
 

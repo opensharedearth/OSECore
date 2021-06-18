@@ -3,7 +3,6 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0
 SHELL ["/bin/bash","-c"]
 RUN adduser --gid 100 tester
 WORKDIR /home/tester
-RUN mkdir scratch
 ENV SCRATCH=/home/tester/scratch
 COPY test/OSECommand.Test/bin/Release/net5.0/linux-x64/ .
 COPY test/OSEConfig.Test/bin/Release/net5.0/linux-x64/ .

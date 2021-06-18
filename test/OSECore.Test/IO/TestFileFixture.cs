@@ -37,21 +37,37 @@ namespace OSECoreTest.IO
         public const string UnwritableFolderName = "UnwritableFolder";
         public const string ReadableFolderName = "ReadableFolder";
         public TestFileFixture()
-            : base("OSECoreText.IO")
+            : base("OSECoreTest.IO")
         {
-            UnwritableFilePath = CreateUnwritableFile(TestDir);
-            UnreadableFilePath = CreateUnreadableFile(TestDir);
-            WritableFilePath = CreateWritableFile(TestDir);
-            HiddenFilePath = CreateHiddenFile(TestDir);
-            ReadOnlyFilePath = CreateReadOnlyFile(TestDir);
+            SetTestFilePaths();
+            DeleteTestFiles();
+            CreateTestFiles();
+        }
+
+        public void SetTestFilePaths()
+        {
+            UnwritableFilePath = Path.Combine(TestDir, UnwritableFileName);
+            UnreadableFilePath = Path.Combine(TestDir, UnreadableFileName);
+            WritableFilePath = Path.Combine(TestDir, WritableFileName);
+            HiddenFilePath = Path.Combine(TestDir, HiddenFileName);
+            ReadOnlyFilePath = Path.Combine(TestDir, ReadOnlyFileName);
             NonExistentFilePath = Path.Combine(TestDir, NonExistentFileName);
-            UnreadableFolderPath = CreateUnreadableFolder(TestDir);
-            UnwritableFolderPath = CreateUnwritableFolder(TestDir);
-            ReadableFolderPath = CreateReadableFolder(TestDir);
-            SetDirectoryReadOnly(TestDir);
+            UnreadableFolderPath = Path.Combine(TestDir, UnreadableFolderName);
+            UnwritableFolderPath = Path.Combine(TestDir, UnwritableFolderName);
+            ReadableFolderPath = Path.Combine(TestDir, ReadableFolderName);
+        }
 
-    }
-
+        public void CreateTestFiles()
+        {
+            CreateUnwritableFile();
+            CreateUnreadableFile();
+            CreateWritableFile();
+            CreateHiddenFile();
+            CreateReadOnlyFile();
+            CreateUnreadableFolder();
+            CreateUnwritableFolder();
+            CreateReadableFolder();
+        }
 
         private void SetDirectoryReadOnly(string path)
         {
@@ -72,9 +88,9 @@ namespace OSECoreTest.IO
 
         }
 
-        private string CreateReadOnlyFile(string testDir)
+        private void CreateReadOnlyFile()
         {
-            string path = Path.Combine(testDir, ReadOnlyFileName);
+            string path = ReadOnlyFilePath;
             CreateFile(path);
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
@@ -86,7 +102,6 @@ namespace OSECoreTest.IO
                 FileInfo fi = new FileInfo(path);
                 fi.IsReadOnly = true;
             }
-            return path;
         }
         private void ClearReadOnlyAttribute(string path)
         {
@@ -102,35 +117,32 @@ namespace OSECoreTest.IO
             }
         }
 
-        private string CreateHiddenFile(string testDir)
+        private void CreateHiddenFile()
         {
-            string path = Path.Combine(testDir, HiddenFileName);
+            string path = HiddenFilePath;
             CreateFile(path);
             if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 FileAttributes fa = File.GetAttributes(path);
                 File.SetAttributes(path, fa | FileAttributes.Hidden);
             }
-            return path;
         }
 
-        private string CreateWritableFile(string testDir)
+        private void CreateWritableFile()
         {
-            string path = Path.Combine(testDir, WritableFileName);
+            string path = WritableFilePath;
             CreateFile(path);
-            return path;
         }
 
-        private string CreateReadableFolder(string testDir)
+        private void CreateReadableFolder()
         {
-            string path = Path.Combine(testDir, ReadableFolderName);
+            string path = ReadableFolderPath;
             Directory.CreateDirectory(path);
-            return path;
         }
 
-        private string CreateUnreadableFile(string testDir)
+        private void CreateUnreadableFile()
         {
-            string path = Path.Combine(testDir, UnreadableFileName);
+            string path = UnreadableFilePath;
             CreateFile(path);
             if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
@@ -146,12 +158,11 @@ namespace OSECoreTest.IO
                 var fi = new UnixFileInfo(path);
                 fi.FileAccessPermissions = 0;
             }
-            return path;
         }
 
-        private string CreateUnwritableFile(string testDir)
+        private void CreateUnwritableFile()
         {
-            string path = Path.Combine(testDir, UnwritableFileName);
+            string path = UnwritableFilePath;
             CreateFile(path);
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
@@ -168,12 +179,11 @@ namespace OSECoreTest.IO
                 var fi = new UnixFileInfo(path);
                 fi.FileAccessPermissions = FileAccessPermissions.OtherRead | FileAccessPermissions.GroupRead | FileAccessPermissions.UserRead;
             }
-            return path;
         }
 
-        private string CreateUnwritableFolder(string testDir)
+        private void CreateUnwritableFolder()
         {
-            string path = Path.Combine(testDir, UnwritableFolderName);
+            string path = UnwritableFolderPath;
             Directory.CreateDirectory(path);
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
@@ -189,12 +199,11 @@ namespace OSECoreTest.IO
                 var fi = new UnixFileInfo(path);
                 fi.FileAccessPermissions = FileAccessPermissions.OtherRead | FileAccessPermissions.GroupRead | FileAccessPermissions.UserRead;
             }
-            return path;
         }
 
-        private string CreateUnreadableFolder(string testDir)
+        private void CreateUnreadableFolder()
         {
-            string path = Path.Combine(testDir, UnreadableFolderName);
+            string path = UnreadableFolderPath;
             Directory.CreateDirectory(path);
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
@@ -209,9 +218,7 @@ namespace OSECoreTest.IO
             {
                 var fi = new UnixFileInfo(path);
                 fi.FileAccessPermissions = 0;
-                Syscall.chown()
             }
-            return path;
         }
         public void ClearDenyACEs(string path)
         {
@@ -235,19 +242,36 @@ namespace OSECoreTest.IO
             }
         }
 
+        public void DeleteTestFiles()
+        {
+            if(File.Exists(UnwritableFilePath))File.Delete(UnwritableFilePath);
+            if(File.Exists(UnreadableFilePath))File.Delete(UnreadableFilePath);
+            if(File.Exists(WritableFilePath))File.Delete(WritableFilePath);
+            if (File.Exists(HiddenFilePath))File.Delete(HiddenFilePath);
+            if (File.Exists(ReadOnlyFilePath))
+            {
+                ClearReadOnlyAttribute(ReadOnlyFilePath);
+                File.Delete(ReadOnlyFilePath);
+            }
+            if (Directory.Exists(UnwritableFolderPath))
+            {
+                ClearDenyACEs(UnwritableFolderPath);
+                Directory.Delete(UnwritableFolderPath);
+            }
+            if (Directory.Exists(ReadableFolderPath))Directory.Delete(ReadableFolderPath);
+            if (Directory.Exists(UnreadableFolderPath))Directory.Delete(UnreadableFolderPath);
+        }
+        public bool NeedsCleanup()
+        {
+            var flag = Environment.GetEnvironmentVariable("NOCLEANUP");
+            return flag != "1";
+        }
         public override void Dispose()
         {
-            File.Delete(UnwritableFilePath);
-            File.Delete(UnreadableFilePath);
-            File.Delete(WritableFilePath);
-            File.Delete(HiddenFilePath);
-            ClearReadOnlyAttribute(ReadOnlyFilePath);
-            File.Delete(ReadOnlyFilePath);
-            ClearDenyACEs(UnwritableFolderPath);
-            Directory.Delete(UnwritableFolderPath);
-            Directory.Delete(ReadableFolderPath);
-            Directory.Delete(UnreadableFolderPath);
-            ClearDenyACEs(TestDir);
+            if(NeedsCleanup())
+            {
+                DeleteTestFiles();
+            }
             base.Dispose();
         }
 

@@ -38,14 +38,7 @@ namespace OSETesting
                 testDirPath = Path.Combine(testbasedir, testFolder);
             }
 
-            if (Directory.Exists(testDirPath))
-            {
-                foreach(string path in Directory.GetFiles(testDirPath))
-                {
-                    File.Delete(path);
-                }
-            }
-            else
+            if (!Directory.Exists(testDirPath))
             {
                 Directory.CreateDirectory(testDirPath);
             }
