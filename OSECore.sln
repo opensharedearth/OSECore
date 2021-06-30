@@ -13,8 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{5C86120E-A
 		.gitignore = .gitignore
 		build.cake = build.cake
 		build.cmd = build.cmd
-		buildlinuxtests.ps1 = buildlinuxtests.ps1
 		build.sh = build.sh
+		buildlinuxtests.ps1 = buildlinuxtests.ps1
 		index.md = index.md
 		LICENSE.md = LICENSE.md
 		linuxtests.dockerfile = linuxtests.dockerfile
@@ -38,6 +38,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{3D63DD3A-3937-4E84-ACFF-D056C5F3F082}"
 	ProjectSection(SolutionItems) = preProject
 		doc\images\osecore.png = doc\images\osecore.png
+		doc\images\osecoresamples.png = doc\images\osecoresamples.png
+		doc\images\oseuidesktop.wpf.sample.png = doc\images\oseuidesktop.wpf.sample.png
+		doc\images\oseusicontrols.wpf.gallery.png = doc\images\oseusicontrols.wpf.gallery.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "articles", "articles", "{1B78B59B-2884-4952-AA2B-F2B5EBB1B397}"
@@ -94,6 +97,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pathtool.Test", "test\pathtool.Test\pathtool.Test.csproj", "{2C7ABFDE-4322-45B1-AA7A-5DDB29629EC4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSETesting", "src\OSETesting\OSETesting.csproj", "{67C435CB-3BFE-4990-8D46-3DFD044CEF1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{4E793B32-34E0-4972-B012-C21F63A00249}"
+	ProjectSection(SolutionItems) = preProject
+		doc\sample\index.md = doc\sample\index.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -229,6 +237,7 @@ Global
 		{648E2308-4FB7-4B64-ADB4-806FDA0C51BC} = {D9105D6E-1D39-474C-853E-99D99E6AC702}
 		{2C7ABFDE-4322-45B1-AA7A-5DDB29629EC4} = {93E12EAF-F2EF-4C4B-B8F3-36854168078C}
 		{67C435CB-3BFE-4990-8D46-3DFD044CEF1A} = {476C6CD0-3E85-4B1A-9B43-B01D304ABFC0}
+		{4E793B32-34E0-4972-B012-C21F63A00249} = {44E02327-F079-4540-A84E-AFE2ABF7FCF6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39D62141-34E3-48E9-A5F5-CDAFDABD622B}

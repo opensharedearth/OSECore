@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathTool.PathFolderOptions
+  commentId: T:PathTool.PathFolderOptions
+  id: PathFolderOptions
+  parent: PathTool
+  children:
+  - PathTool.PathFolderOptions.Machine
+  - PathTool.PathFolderOptions.Process
+  - PathTool.PathFolderOptions.User
+  langs:
+  - csharp
+  - vb
+  name: PathFolderOptions
+  nameWithType: PathFolderOptions
+  fullName: PathTool.PathFolderOptions
+  type: Enum
+  source:
+    remote:
+      path: sample/PathTool/PathFolderOptions.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: PathFolderOptions
+    path: ../sample/PathTool/PathFolderOptions.cs
+    startLine: 8
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: 'public enum PathFolderOptions : int'
+    content.vb: Public Enum PathFolderOptions As Integer
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: PathTool.PathFolderOptions.Process
+  commentId: F:PathTool.PathFolderOptions.Process
+  id: Process
+  parent: PathTool.PathFolderOptions
+  langs:
+  - csharp
+  - vb
+  name: Process
+  nameWithType: PathFolderOptions.Process
+  fullName: PathTool.PathFolderOptions.Process
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathFolderOptions.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Process
+    path: ../sample/PathTool/PathFolderOptions.cs
+    startLine: 10
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: Process = 0
+    return:
+      type: PathTool.PathFolderOptions
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathFolderOptions.User
+  commentId: F:PathTool.PathFolderOptions.User
+  id: User
+  parent: PathTool.PathFolderOptions
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: PathFolderOptions.User
+  fullName: PathTool.PathFolderOptions.User
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathFolderOptions.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: User
+    path: ../sample/PathTool/PathFolderOptions.cs
+    startLine: 11
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: User = 1
+    return:
+      type: PathTool.PathFolderOptions
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathFolderOptions.Machine
+  commentId: F:PathTool.PathFolderOptions.Machine
+  id: Machine
+  parent: PathTool.PathFolderOptions
+  langs:
+  - csharp
+  - vb
+  name: Machine
+  nameWithType: PathFolderOptions.Machine
+  fullName: PathTool.PathFolderOptions.Machine
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathFolderOptions.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Machine
+    path: ../sample/PathTool/PathFolderOptions.cs
+    startLine: 12
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: Machine = 2
+    return:
+      type: PathTool.PathFolderOptions
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: PathTool
+  commentId: N:PathTool
+  name: PathTool
+  nameWithType: PathTool
+  fullName: PathTool
+- uid: PathTool.PathFolderOptions
+  commentId: T:PathTool.PathFolderOptions
+  parent: PathTool
+  name: PathFolderOptions
+  nameWithType: PathFolderOptions
+  fullName: PathTool.PathFolderOptions

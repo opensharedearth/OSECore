@@ -1,0 +1,210 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat
+  commentId: T:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat
+  id: SampleSettings.DateFormat
+  parent: OSEUIDesktop.WPF.Sample
+  children:
+  - OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.#ctor(System.String,System.String)
+  - OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Example
+  - OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Format
+  - OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Name
+  langs:
+  - csharp
+  - vb
+  name: SampleSettings.DateFormat
+  nameWithType: SampleSettings.DateFormat
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat
+  type: Struct
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: DateFormat
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+    startLine: 49
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public struct DateFormat
+    content.vb: Public Structure DateFormat
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.#ctor(System.String,System.String)
+  commentId: M:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat
+  langs:
+  - csharp
+  - vb
+  name: DateFormat(String, String)
+  nameWithType: SampleSettings.DateFormat.DateFormat(String, String)
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.DateFormat(System.String, System.String)
+  type: Constructor
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+    startLine: 51
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public DateFormat(string name, string format)
+    parameters:
+    - id: name
+      type: System.String
+    - id: format
+      type: System.String
+    content.vb: Public Sub New(name As String, format As String)
+  overload: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Name
+  commentId: P:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Name
+  id: Name
+  parent: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: SampleSettings.DateFormat.Name
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Name
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Name
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+    startLine: 57
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public string Name { readonly get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Name*
+  modifiers.csharp:
+  - public
+  - readonly get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Format
+  commentId: P:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Format
+  id: Format
+  parent: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat
+  langs:
+  - csharp
+  - vb
+  name: Format
+  nameWithType: SampleSettings.DateFormat.Format
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Format
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Format
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+    startLine: 58
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public string Format { readonly get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Format As String
+  overload: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Format*
+  modifiers.csharp:
+  - public
+  - readonly get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Example
+  commentId: P:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Example
+  id: Example
+  parent: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat
+  langs:
+  - csharp
+  - vb
+  name: Example
+  nameWithType: SampleSettings.DateFormat.Example
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Example
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Example
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+    startLine: 59
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public readonly string Example { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Example As String
+  overload: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Example*
+  modifiers.csharp:
+  - public
+  - readonly
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: OSEUIDesktop.WPF.Sample
+  commentId: N:OSEUIDesktop.WPF.Sample
+  name: OSEUIDesktop.WPF.Sample
+  nameWithType: OSEUIDesktop.WPF.Sample
+  fullName: OSEUIDesktop.WPF.Sample
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.#ctor*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.#ctor
+  name: DateFormat
+  nameWithType: SampleSettings.DateFormat.DateFormat
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.DateFormat
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Name*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Name
+  name: Name
+  nameWithType: SampleSettings.DateFormat.Name
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Name
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Format*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Format
+  name: Format
+  nameWithType: SampleSettings.DateFormat.Format
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Format
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Example*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Example
+  name: Example
+  nameWithType: SampleSettings.DateFormat.Example
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat.Example

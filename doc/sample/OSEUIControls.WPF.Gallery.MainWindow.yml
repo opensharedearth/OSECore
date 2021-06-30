@@ -1,0 +1,87 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIControls.WPF.Gallery.MainWindow
+  commentId: T:OSEUIControls.WPF.Gallery.MainWindow
+  id: MainWindow
+  parent: OSEUIControls.WPF.Gallery
+  children:
+  - OSEUIControls.WPF.Gallery.MainWindow.#ctor
+  langs:
+  - csharp
+  - vb
+  name: MainWindow
+  nameWithType: MainWindow
+  fullName: OSEUIControls.WPF.Gallery.MainWindow
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIControls.WPF.Gallery/MainWindow.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: MainWindow
+    path: ../sample/OSEUIControls.WPF.Gallery/MainWindow.xaml.cs
+    startLine: 22
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+  namespace: OSEUIControls.WPF.Gallery
+  summary: "\nInteraction logic for MainWindow.xaml\n"
+  example: []
+  syntax:
+    content: 'public class MainWindow : Window'
+    content.vb: >-
+      Public Class MainWindow
+          Inherits Window
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: OSEUIControls.WPF.Gallery.MainWindow.#ctor
+  commentId: M:OSEUIControls.WPF.Gallery.MainWindow.#ctor
+  id: '#ctor'
+  parent: OSEUIControls.WPF.Gallery.MainWindow
+  langs:
+  - csharp
+  - vb
+  name: MainWindow()
+  nameWithType: MainWindow.MainWindow()
+  fullName: OSEUIControls.WPF.Gallery.MainWindow.MainWindow()
+  type: Constructor
+  source:
+    remote:
+      path: sample/OSEUIControls.WPF.Gallery/MainWindow.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/OSEUIControls.WPF.Gallery/MainWindow.xaml.cs
+    startLine: 24
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+  namespace: OSEUIControls.WPF.Gallery
+  syntax:
+    content: public MainWindow()
+    content.vb: Public Sub New
+  overload: OSEUIControls.WPF.Gallery.MainWindow.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: OSEUIControls.WPF.Gallery
+  commentId: N:OSEUIControls.WPF.Gallery
+  name: OSEUIControls.WPF.Gallery
+  nameWithType: OSEUIControls.WPF.Gallery
+  fullName: OSEUIControls.WPF.Gallery
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: OSEUIControls.WPF.Gallery.MainWindow.#ctor*
+  commentId: Overload:OSEUIControls.WPF.Gallery.MainWindow.#ctor
+  name: MainWindow
+  nameWithType: MainWindow.MainWindow
+  fullName: OSEUIControls.WPF.Gallery.MainWindow.MainWindow

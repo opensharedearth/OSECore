@@ -1,0 +1,22 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSECoreExample
+  commentId: N:OSECoreExample
+  id: OSECoreExample
+  children:
+  - OSECoreExample.IOSamples
+  langs:
+  - csharp
+  - vb
+  name: OSECoreExample
+  nameWithType: OSECoreExample
+  fullName: OSECoreExample
+  type: Namespace
+  assemblies:
+  - OSECoreSamples
+references:
+- uid: OSECoreExample.IOSamples
+  commentId: T:OSECoreExample.IOSamples
+  name: IOSamples
+  nameWithType: IOSamples
+  fullName: OSECoreExample.IOSamples

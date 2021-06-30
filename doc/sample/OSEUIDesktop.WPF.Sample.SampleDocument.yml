@@ -1,0 +1,1202 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIDesktop.WPF.Sample.SampleDocument
+  commentId: T:OSEUIDesktop.WPF.Sample.SampleDocument
+  id: SampleDocument
+  parent: OSEUIDesktop.WPF.Sample
+  children:
+  - OSEUIDesktop.WPF.Sample.SampleDocument.#ctor
+  - OSEUIDesktop.WPF.Sample.SampleDocument.#ctor(SerializationInfo,StreamingContext)
+  - OSEUIDesktop.WPF.Sample.SampleDocument.Entries
+  - OSEUIDesktop.WPF.Sample.SampleDocument.GetObjectData(SerializationInfo,StreamingContext)
+  - OSEUIDesktop.WPF.Sample.SampleDocument.IsDirty
+  - OSEUIDesktop.WPF.Sample.SampleDocument.Setup
+  langs:
+  - csharp
+  - vb
+  name: SampleDocument
+  nameWithType: SampleDocument
+  fullName: OSEUIDesktop.WPF.Sample.SampleDocument
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: SampleDocument
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+    startLine: 11
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: 'public sealed class SampleDocument : DesktopDocument, IDirty, ISerializable, IDeserializationCallback, IDisposable'
+    content.vb: >-
+      Public NotInheritable Class SampleDocument
+          Inherits DesktopDocument
+          Implements IDirty, ISerializable, IDeserializationCallback, IDisposable
+  inheritance:
+  - System.Object
+  - OSECoreUI.Document.BaseDocument
+  - OSEUI.WPF.Document.DesktopDocument
+  implements:
+  - OSECoreUI.App.IDirty
+  - System.Runtime.Serialization.ISerializable
+  - System.Runtime.Serialization.IDeserializationCallback
+  - System.IDisposable
+  inheritedMembers:
+  - OSEUI.WPF.Document.DesktopDocument.Close(Window,OSEUI.WPF.Document.DesktopDocument)
+  - OSEUI.WPF.Document.DesktopDocument.SaveAs(Window,OSEUI.WPF.Document.DesktopDocument)
+  - OSEUI.WPF.Document.DesktopDocument.Save(Window,OSEUI.WPF.Document.DesktopDocument)
+  - OSEUI.WPF.Document.DesktopDocument.Open(Window,OSECoreUI.Document.DocType,ResultLog)
+  - OSECoreUI.Document.BaseDocument.RequiredVersion
+  - OSECoreUI.Document.BaseDocument.DocType
+  - OSECoreUI.Document.BaseDocument.ActualVersion
+  - OSECoreUI.Document.BaseDocument.ActualDocTypeName
+  - OSECoreUI.Document.BaseDocument.IsDisposed
+  - OSECoreUI.Document.BaseDocument.Title
+  - OSECoreUI.Document.BaseDocument.Path
+  - OSECoreUI.Document.BaseDocument.FileExtention
+  - OSECoreUI.Document.BaseDocument.FileName
+  - OSECoreUI.Document.BaseDocument.Dirty
+  - OSECoreUI.Document.BaseDocument.Undirty
+  - OSECoreUI.Document.BaseDocument.IsUnsaved
+  - OSECoreUI.Document.BaseDocument.IsEmpty
+  - OSECoreUI.Document.BaseDocument.Log
+  - OSECoreUI.Document.BaseDocument.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - OSECoreUI.Document.BaseDocument.Validate
+  - OSECoreUI.Document.BaseDocument.OnDeserialization(System.Object)
+  - OSECoreUI.Document.BaseDocument.Fixup
+  - OSECoreUI.Document.BaseDocument.Open(System.String,OSECore.Logging.ResultLog)
+  - OSECoreUI.Document.BaseDocument.Save
+  - OSECoreUI.Document.BaseDocument.Save(System.String,System.Boolean)
+  - OSECoreUI.Document.BaseDocument.Dispose(System.Boolean)
+  - OSECoreUI.Document.BaseDocument.Dispose
+  - OSECoreUI.Document.BaseDocument.GetFilterString(System.Boolean,OSECoreUI.Document.DocType[])
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: OSEUIDesktop.WPF.Sample.SampleDocument.#ctor
+  commentId: M:OSEUIDesktop.WPF.Sample.SampleDocument.#ctor
+  id: '#ctor'
+  parent: OSEUIDesktop.WPF.Sample.SampleDocument
+  langs:
+  - csharp
+  - vb
+  name: SampleDocument()
+  nameWithType: SampleDocument.SampleDocument()
+  fullName: OSEUIDesktop.WPF.Sample.SampleDocument.SampleDocument()
+  type: Constructor
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+    startLine: 15
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public SampleDocument()
+    content.vb: Public Sub New
+  overload: OSEUIDesktop.WPF.Sample.SampleDocument.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.SampleDocument.#ctor(SerializationInfo,StreamingContext)
+  commentId: M:OSEUIDesktop.WPF.Sample.SampleDocument.#ctor(SerializationInfo,StreamingContext)
+  id: '#ctor(SerializationInfo,StreamingContext)'
+  parent: OSEUIDesktop.WPF.Sample.SampleDocument
+  langs:
+  - csharp
+  - vb
+  name: SampleDocument(SerializationInfo, StreamingContext)
+  nameWithType: SampleDocument.SampleDocument(SerializationInfo, StreamingContext)
+  fullName: OSEUIDesktop.WPF.Sample.SampleDocument.SampleDocument(SerializationInfo, StreamingContext)
+  type: Constructor
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+    startLine: 19
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public SampleDocument(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: SerializationInfo
+    - id: context
+      type: StreamingContext
+    content.vb: Public Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: OSEUIDesktop.WPF.Sample.SampleDocument.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.SampleDocument.GetObjectData(SerializationInfo,StreamingContext)
+  commentId: M:OSEUIDesktop.WPF.Sample.SampleDocument.GetObjectData(SerializationInfo,StreamingContext)
+  id: GetObjectData(SerializationInfo,StreamingContext)
+  parent: OSEUIDesktop.WPF.Sample.SampleDocument
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: SampleDocument.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: OSEUIDesktop.WPF.Sample.SampleDocument.GetObjectData(SerializationInfo, StreamingContext)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: GetObjectData
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+    startLine: 38
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public override void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: SerializationInfo
+    - id: context
+      type: StreamingContext
+    content.vb: Public Overrides Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: OSEUIDesktop.WPF.Sample.SampleDocument.GetObjectData*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: OSEUIDesktop.WPF.Sample.SampleDocument.Setup
+  commentId: M:OSEUIDesktop.WPF.Sample.SampleDocument.Setup
+  id: Setup
+  parent: OSEUIDesktop.WPF.Sample.SampleDocument
+  langs:
+  - csharp
+  - vb
+  name: Setup()
+  nameWithType: SampleDocument.Setup()
+  fullName: OSEUIDesktop.WPF.Sample.SampleDocument.Setup()
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Setup
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+    startLine: 47
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: protected override void Setup()
+    content.vb: Protected Overrides Sub Setup
+  overridden: OSECoreUI.Document.BaseDocument.Setup
+  overload: OSEUIDesktop.WPF.Sample.SampleDocument.Setup*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+- uid: OSEUIDesktop.WPF.Sample.SampleDocument.IsDirty
+  commentId: P:OSEUIDesktop.WPF.Sample.SampleDocument.IsDirty
+  id: IsDirty
+  parent: OSEUIDesktop.WPF.Sample.SampleDocument
+  langs:
+  - csharp
+  - vb
+  name: IsDirty
+  nameWithType: SampleDocument.IsDirty
+  fullName: OSEUIDesktop.WPF.Sample.SampleDocument.IsDirty
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: IsDirty
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+    startLine: 53
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public override bool IsDirty { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsDirty As Boolean
+  overridden: OSECoreUI.Document.BaseDocument.IsDirty
+  overload: OSEUIDesktop.WPF.Sample.SampleDocument.IsDirty*
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.SampleDocument.Entries
+  commentId: P:OSEUIDesktop.WPF.Sample.SampleDocument.Entries
+  id: Entries
+  parent: OSEUIDesktop.WPF.Sample.SampleDocument
+  langs:
+  - csharp
+  - vb
+  name: Entries
+  nameWithType: SampleDocument.Entries
+  fullName: OSEUIDesktop.WPF.Sample.SampleDocument.Entries
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Entries
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleDocument.cs
+    startLine: 55
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public JournalEntries Entries { get; }
+    parameters: []
+    return:
+      type: OSEUIDesktop.WPF.Sample.JournalEntries
+    content.vb: Public ReadOnly Property Entries As JournalEntries
+  overload: OSEUIDesktop.WPF.Sample.SampleDocument.Entries*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: OSEUIDesktop.WPF.Sample
+  commentId: N:OSEUIDesktop.WPF.Sample
+  name: OSEUIDesktop.WPF.Sample
+  nameWithType: OSEUIDesktop.WPF.Sample
+  fullName: OSEUIDesktop.WPF.Sample
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: OSECoreUI.Document.BaseDocument
+  commentId: T:OSECoreUI.Document.BaseDocument
+  parent: OSECoreUI.Document
+  name: BaseDocument
+  nameWithType: BaseDocument
+  fullName: OSECoreUI.Document.BaseDocument
+- uid: OSEUI.WPF.Document.DesktopDocument
+  commentId: T:OSEUI.WPF.Document.DesktopDocument
+  parent: OSEUI.WPF.Document
+  name: DesktopDocument
+  nameWithType: DesktopDocument
+  fullName: OSEUI.WPF.Document.DesktopDocument
+- uid: OSECoreUI.App.IDirty
+  commentId: T:OSECoreUI.App.IDirty
+  parent: OSECoreUI.App
+  name: IDirty
+  nameWithType: IDirty
+  fullName: OSECoreUI.App.IDirty
+- uid: System.Runtime.Serialization.ISerializable
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
+- uid: System.Runtime.Serialization.IDeserializationCallback
+  commentId: '!:System.Runtime.Serialization.IDeserializationCallback'
+  isExternal: true
+  name: IDeserializationCallback
+  nameWithType: IDeserializationCallback
+  fullName: System.Runtime.Serialization.IDeserializationCallback
+- uid: System.IDisposable
+  isExternal: true
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: OSEUI.WPF.Document.DesktopDocument.Close(Window,OSEUI.WPF.Document.DesktopDocument)
+  commentId: M:OSEUI.WPF.Document.DesktopDocument.Close(Window,OSEUI.WPF.Document.DesktopDocument)
+  parent: OSEUI.WPF.Document.DesktopDocument
+  isExternal: true
+  name: Close(Window, DesktopDocument)
+  nameWithType: DesktopDocument.Close(Window, DesktopDocument)
+  fullName: OSEUI.WPF.Document.DesktopDocument.Close(Window, OSEUI.WPF.Document.DesktopDocument)
+  spec.csharp:
+  - uid: OSEUI.WPF.Document.DesktopDocument.Close(Window,OSEUI.WPF.Document.DesktopDocument)
+    name: Close
+    nameWithType: DesktopDocument.Close
+    fullName: OSEUI.WPF.Document.DesktopDocument.Close
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Window
+    name: Window
+    nameWithType: Window
+    fullName: Window
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: OSEUI.WPF.Document.DesktopDocument
+    name: DesktopDocument
+    nameWithType: DesktopDocument
+    fullName: OSEUI.WPF.Document.DesktopDocument
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEUI.WPF.Document.DesktopDocument.Close(Window,OSEUI.WPF.Document.DesktopDocument)
+    name: Close
+    nameWithType: DesktopDocument.Close
+    fullName: OSEUI.WPF.Document.DesktopDocument.Close
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Window
+    name: Window
+    nameWithType: Window
+    fullName: Window
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: OSEUI.WPF.Document.DesktopDocument
+    name: DesktopDocument
+    nameWithType: DesktopDocument
+    fullName: OSEUI.WPF.Document.DesktopDocument
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEUI.WPF.Document.DesktopDocument.SaveAs(Window,OSEUI.WPF.Document.DesktopDocument)
+  commentId: M:OSEUI.WPF.Document.DesktopDocument.SaveAs(Window,OSEUI.WPF.Document.DesktopDocument)
+  parent: OSEUI.WPF.Document.DesktopDocument
+  isExternal: true
+  name: SaveAs(Window, DesktopDocument)
+  nameWithType: DesktopDocument.SaveAs(Window, DesktopDocument)
+  fullName: OSEUI.WPF.Document.DesktopDocument.SaveAs(Window, OSEUI.WPF.Document.DesktopDocument)
+  spec.csharp:
+  - uid: OSEUI.WPF.Document.DesktopDocument.SaveAs(Window,OSEUI.WPF.Document.DesktopDocument)
+    name: SaveAs
+    nameWithType: DesktopDocument.SaveAs
+    fullName: OSEUI.WPF.Document.DesktopDocument.SaveAs
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Window
+    name: Window
+    nameWithType: Window
+    fullName: Window
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: OSEUI.WPF.Document.DesktopDocument
+    name: DesktopDocument
+    nameWithType: DesktopDocument
+    fullName: OSEUI.WPF.Document.DesktopDocument
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEUI.WPF.Document.DesktopDocument.SaveAs(Window,OSEUI.WPF.Document.DesktopDocument)
+    name: SaveAs
+    nameWithType: DesktopDocument.SaveAs
+    fullName: OSEUI.WPF.Document.DesktopDocument.SaveAs
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Window
+    name: Window
+    nameWithType: Window
+    fullName: Window
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: OSEUI.WPF.Document.DesktopDocument
+    name: DesktopDocument
+    nameWithType: DesktopDocument
+    fullName: OSEUI.WPF.Document.DesktopDocument
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEUI.WPF.Document.DesktopDocument.Save(Window,OSEUI.WPF.Document.DesktopDocument)
+  commentId: M:OSEUI.WPF.Document.DesktopDocument.Save(Window,OSEUI.WPF.Document.DesktopDocument)
+  parent: OSEUI.WPF.Document.DesktopDocument
+  isExternal: true
+  name: Save(Window, DesktopDocument)
+  nameWithType: DesktopDocument.Save(Window, DesktopDocument)
+  fullName: OSEUI.WPF.Document.DesktopDocument.Save(Window, OSEUI.WPF.Document.DesktopDocument)
+  spec.csharp:
+  - uid: OSEUI.WPF.Document.DesktopDocument.Save(Window,OSEUI.WPF.Document.DesktopDocument)
+    name: Save
+    nameWithType: DesktopDocument.Save
+    fullName: OSEUI.WPF.Document.DesktopDocument.Save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Window
+    name: Window
+    nameWithType: Window
+    fullName: Window
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: OSEUI.WPF.Document.DesktopDocument
+    name: DesktopDocument
+    nameWithType: DesktopDocument
+    fullName: OSEUI.WPF.Document.DesktopDocument
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEUI.WPF.Document.DesktopDocument.Save(Window,OSEUI.WPF.Document.DesktopDocument)
+    name: Save
+    nameWithType: DesktopDocument.Save
+    fullName: OSEUI.WPF.Document.DesktopDocument.Save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Window
+    name: Window
+    nameWithType: Window
+    fullName: Window
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: OSEUI.WPF.Document.DesktopDocument
+    name: DesktopDocument
+    nameWithType: DesktopDocument
+    fullName: OSEUI.WPF.Document.DesktopDocument
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEUI.WPF.Document.DesktopDocument.Open(Window,OSECoreUI.Document.DocType,ResultLog)
+  commentId: M:OSEUI.WPF.Document.DesktopDocument.Open(Window,OSECoreUI.Document.DocType,ResultLog)
+  parent: OSEUI.WPF.Document.DesktopDocument
+  isExternal: true
+  name: Open(Window, DocType, ResultLog)
+  nameWithType: DesktopDocument.Open(Window, DocType, ResultLog)
+  fullName: OSEUI.WPF.Document.DesktopDocument.Open(Window, OSECoreUI.Document.DocType, ResultLog)
+  spec.csharp:
+  - uid: OSEUI.WPF.Document.DesktopDocument.Open(Window,OSECoreUI.Document.DocType,ResultLog)
+    name: Open
+    nameWithType: DesktopDocument.Open
+    fullName: OSEUI.WPF.Document.DesktopDocument.Open
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Window
+    name: Window
+    nameWithType: Window
+    fullName: Window
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: OSECoreUI.Document.DocType
+    name: DocType
+    nameWithType: DocType
+    fullName: OSECoreUI.Document.DocType
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: ResultLog
+    name: ResultLog
+    nameWithType: ResultLog
+    fullName: ResultLog
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEUI.WPF.Document.DesktopDocument.Open(Window,OSECoreUI.Document.DocType,ResultLog)
+    name: Open
+    nameWithType: DesktopDocument.Open
+    fullName: OSEUI.WPF.Document.DesktopDocument.Open
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Window
+    name: Window
+    nameWithType: Window
+    fullName: Window
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: OSECoreUI.Document.DocType
+    name: DocType
+    nameWithType: DocType
+    fullName: OSECoreUI.Document.DocType
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: ResultLog
+    name: ResultLog
+    nameWithType: ResultLog
+    fullName: ResultLog
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.Document.BaseDocument.RequiredVersion
+  commentId: F:OSECoreUI.Document.BaseDocument.RequiredVersion
+  parent: OSECoreUI.Document.BaseDocument
+  name: RequiredVersion
+  nameWithType: BaseDocument.RequiredVersion
+  fullName: OSECoreUI.Document.BaseDocument.RequiredVersion
+- uid: OSECoreUI.Document.BaseDocument.DocType
+  commentId: P:OSECoreUI.Document.BaseDocument.DocType
+  parent: OSECoreUI.Document.BaseDocument
+  name: DocType
+  nameWithType: BaseDocument.DocType
+  fullName: OSECoreUI.Document.BaseDocument.DocType
+- uid: OSECoreUI.Document.BaseDocument.ActualVersion
+  commentId: F:OSECoreUI.Document.BaseDocument.ActualVersion
+  parent: OSECoreUI.Document.BaseDocument
+  name: ActualVersion
+  nameWithType: BaseDocument.ActualVersion
+  fullName: OSECoreUI.Document.BaseDocument.ActualVersion
+- uid: OSECoreUI.Document.BaseDocument.ActualDocTypeName
+  commentId: F:OSECoreUI.Document.BaseDocument.ActualDocTypeName
+  parent: OSECoreUI.Document.BaseDocument
+  name: ActualDocTypeName
+  nameWithType: BaseDocument.ActualDocTypeName
+  fullName: OSECoreUI.Document.BaseDocument.ActualDocTypeName
+- uid: OSECoreUI.Document.BaseDocument.IsDisposed
+  commentId: F:OSECoreUI.Document.BaseDocument.IsDisposed
+  parent: OSECoreUI.Document.BaseDocument
+  name: IsDisposed
+  nameWithType: BaseDocument.IsDisposed
+  fullName: OSECoreUI.Document.BaseDocument.IsDisposed
+- uid: OSECoreUI.Document.BaseDocument.Title
+  commentId: P:OSECoreUI.Document.BaseDocument.Title
+  parent: OSECoreUI.Document.BaseDocument
+  name: Title
+  nameWithType: BaseDocument.Title
+  fullName: OSECoreUI.Document.BaseDocument.Title
+- uid: OSECoreUI.Document.BaseDocument.Path
+  commentId: P:OSECoreUI.Document.BaseDocument.Path
+  parent: OSECoreUI.Document.BaseDocument
+  name: Path
+  nameWithType: BaseDocument.Path
+  fullName: OSECoreUI.Document.BaseDocument.Path
+- uid: OSECoreUI.Document.BaseDocument.FileExtention
+  commentId: P:OSECoreUI.Document.BaseDocument.FileExtention
+  parent: OSECoreUI.Document.BaseDocument
+  name: FileExtention
+  nameWithType: BaseDocument.FileExtention
+  fullName: OSECoreUI.Document.BaseDocument.FileExtention
+- uid: OSECoreUI.Document.BaseDocument.FileName
+  commentId: P:OSECoreUI.Document.BaseDocument.FileName
+  parent: OSECoreUI.Document.BaseDocument
+  name: FileName
+  nameWithType: BaseDocument.FileName
+  fullName: OSECoreUI.Document.BaseDocument.FileName
+- uid: OSECoreUI.Document.BaseDocument.Dirty
+  commentId: M:OSECoreUI.Document.BaseDocument.Dirty
+  parent: OSECoreUI.Document.BaseDocument
+  name: Dirty()
+  nameWithType: BaseDocument.Dirty()
+  fullName: OSECoreUI.Document.BaseDocument.Dirty()
+  spec.csharp:
+  - uid: OSECoreUI.Document.BaseDocument.Dirty
+    name: Dirty
+    nameWithType: BaseDocument.Dirty
+    fullName: OSECoreUI.Document.BaseDocument.Dirty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.Document.BaseDocument.Dirty
+    name: Dirty
+    nameWithType: BaseDocument.Dirty
+    fullName: OSECoreUI.Document.BaseDocument.Dirty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.Document.BaseDocument.Undirty
+  commentId: M:OSECoreUI.Document.BaseDocument.Undirty
+  parent: OSECoreUI.Document.BaseDocument
+  name: Undirty()
+  nameWithType: BaseDocument.Undirty()
+  fullName: OSECoreUI.Document.BaseDocument.Undirty()
+  spec.csharp:
+  - uid: OSECoreUI.Document.BaseDocument.Undirty
+    name: Undirty
+    nameWithType: BaseDocument.Undirty
+    fullName: OSECoreUI.Document.BaseDocument.Undirty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.Document.BaseDocument.Undirty
+    name: Undirty
+    nameWithType: BaseDocument.Undirty
+    fullName: OSECoreUI.Document.BaseDocument.Undirty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.Document.BaseDocument.IsUnsaved
+  commentId: P:OSECoreUI.Document.BaseDocument.IsUnsaved
+  parent: OSECoreUI.Document.BaseDocument
+  name: IsUnsaved
+  nameWithType: BaseDocument.IsUnsaved
+  fullName: OSECoreUI.Document.BaseDocument.IsUnsaved
+- uid: OSECoreUI.Document.BaseDocument.IsEmpty
+  commentId: P:OSECoreUI.Document.BaseDocument.IsEmpty
+  parent: OSECoreUI.Document.BaseDocument
+  name: IsEmpty
+  nameWithType: BaseDocument.IsEmpty
+  fullName: OSECoreUI.Document.BaseDocument.IsEmpty
+- uid: OSECoreUI.Document.BaseDocument.Log
+  commentId: P:OSECoreUI.Document.BaseDocument.Log
+  parent: OSECoreUI.Document.BaseDocument
+  name: Log
+  nameWithType: BaseDocument.Log
+  fullName: OSECoreUI.Document.BaseDocument.Log
+- uid: OSECoreUI.Document.BaseDocument.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:OSECoreUI.Document.BaseDocument.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: OSECoreUI.Document.BaseDocument
+  isExternal: true
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: BaseDocument.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: OSECoreUI.Document.BaseDocument.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: OSECoreUI.Document.BaseDocument.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: BaseDocument.GetObjectData
+    fullName: OSECoreUI.Document.BaseDocument.GetObjectData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.Document.BaseDocument.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: BaseDocument.GetObjectData
+    fullName: OSECoreUI.Document.BaseDocument.GetObjectData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.Document.BaseDocument.Validate
+  commentId: M:OSECoreUI.Document.BaseDocument.Validate
+  parent: OSECoreUI.Document.BaseDocument
+  name: Validate()
+  nameWithType: BaseDocument.Validate()
+  fullName: OSECoreUI.Document.BaseDocument.Validate()
+  spec.csharp:
+  - uid: OSECoreUI.Document.BaseDocument.Validate
+    name: Validate
+    nameWithType: BaseDocument.Validate
+    fullName: OSECoreUI.Document.BaseDocument.Validate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.Document.BaseDocument.Validate
+    name: Validate
+    nameWithType: BaseDocument.Validate
+    fullName: OSECoreUI.Document.BaseDocument.Validate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.Document.BaseDocument.OnDeserialization(System.Object)
+  commentId: M:OSECoreUI.Document.BaseDocument.OnDeserialization(System.Object)
+  parent: OSECoreUI.Document.BaseDocument
+  isExternal: true
+  name: OnDeserialization(Object)
+  nameWithType: BaseDocument.OnDeserialization(Object)
+  fullName: OSECoreUI.Document.BaseDocument.OnDeserialization(System.Object)
+  spec.csharp:
+  - uid: OSECoreUI.Document.BaseDocument.OnDeserialization(System.Object)
+    name: OnDeserialization
+    nameWithType: BaseDocument.OnDeserialization
+    fullName: OSECoreUI.Document.BaseDocument.OnDeserialization
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.Document.BaseDocument.OnDeserialization(System.Object)
+    name: OnDeserialization
+    nameWithType: BaseDocument.OnDeserialization
+    fullName: OSECoreUI.Document.BaseDocument.OnDeserialization
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.Document.BaseDocument.Fixup
+  commentId: M:OSECoreUI.Document.BaseDocument.Fixup
+  parent: OSECoreUI.Document.BaseDocument
+  name: Fixup()
+  nameWithType: BaseDocument.Fixup()
+  fullName: OSECoreUI.Document.BaseDocument.Fixup()
+  spec.csharp:
+  - uid: OSECoreUI.Document.BaseDocument.Fixup
+    name: Fixup
+    nameWithType: BaseDocument.Fixup
+    fullName: OSECoreUI.Document.BaseDocument.Fixup
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.Document.BaseDocument.Fixup
+    name: Fixup
+    nameWithType: BaseDocument.Fixup
+    fullName: OSECoreUI.Document.BaseDocument.Fixup
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.Document.BaseDocument.Open(System.String,OSECore.Logging.ResultLog)
+  commentId: M:OSECoreUI.Document.BaseDocument.Open(System.String,OSECore.Logging.ResultLog)
+  parent: OSECoreUI.Document.BaseDocument
+  isExternal: true
+  name: Open(String, ResultLog)
+  nameWithType: BaseDocument.Open(String, ResultLog)
+  fullName: OSECoreUI.Document.BaseDocument.Open(System.String, OSECore.Logging.ResultLog)
+  spec.csharp:
+  - uid: OSECoreUI.Document.BaseDocument.Open(System.String,OSECore.Logging.ResultLog)
+    name: Open
+    nameWithType: BaseDocument.Open
+    fullName: OSECoreUI.Document.BaseDocument.Open
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: OSECore.Logging.ResultLog
+    name: ResultLog
+    nameWithType: ResultLog
+    fullName: OSECore.Logging.ResultLog
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.Document.BaseDocument.Open(System.String,OSECore.Logging.ResultLog)
+    name: Open
+    nameWithType: BaseDocument.Open
+    fullName: OSECoreUI.Document.BaseDocument.Open
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: OSECore.Logging.ResultLog
+    name: ResultLog
+    nameWithType: ResultLog
+    fullName: OSECore.Logging.ResultLog
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.Document.BaseDocument.Save
+  commentId: M:OSECoreUI.Document.BaseDocument.Save
+  parent: OSECoreUI.Document.BaseDocument
+  name: Save()
+  nameWithType: BaseDocument.Save()
+  fullName: OSECoreUI.Document.BaseDocument.Save()
+  spec.csharp:
+  - uid: OSECoreUI.Document.BaseDocument.Save
+    name: Save
+    nameWithType: BaseDocument.Save
+    fullName: OSECoreUI.Document.BaseDocument.Save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.Document.BaseDocument.Save
+    name: Save
+    nameWithType: BaseDocument.Save
+    fullName: OSECoreUI.Document.BaseDocument.Save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.Document.BaseDocument.Save(System.String,System.Boolean)
+  commentId: M:OSECoreUI.Document.BaseDocument.Save(System.String,System.Boolean)
+  parent: OSECoreUI.Document.BaseDocument
+  isExternal: true
+  name: Save(String, Boolean)
+  nameWithType: BaseDocument.Save(String, Boolean)
+  fullName: OSECoreUI.Document.BaseDocument.Save(System.String, System.Boolean)
+  spec.csharp:
+  - uid: OSECoreUI.Document.BaseDocument.Save(System.String,System.Boolean)
+    name: Save
+    nameWithType: BaseDocument.Save
+    fullName: OSECoreUI.Document.BaseDocument.Save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.Document.BaseDocument.Save(System.String,System.Boolean)
+    name: Save
+    nameWithType: BaseDocument.Save
+    fullName: OSECoreUI.Document.BaseDocument.Save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.Document.BaseDocument.Dispose(System.Boolean)
+  commentId: M:OSECoreUI.Document.BaseDocument.Dispose(System.Boolean)
+  parent: OSECoreUI.Document.BaseDocument
+  isExternal: true
+  name: Dispose(Boolean)
+  nameWithType: BaseDocument.Dispose(Boolean)
+  fullName: OSECoreUI.Document.BaseDocument.Dispose(System.Boolean)
+  spec.csharp:
+  - uid: OSECoreUI.Document.BaseDocument.Dispose(System.Boolean)
+    name: Dispose
+    nameWithType: BaseDocument.Dispose
+    fullName: OSECoreUI.Document.BaseDocument.Dispose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.Document.BaseDocument.Dispose(System.Boolean)
+    name: Dispose
+    nameWithType: BaseDocument.Dispose
+    fullName: OSECoreUI.Document.BaseDocument.Dispose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.Document.BaseDocument.Dispose
+  commentId: M:OSECoreUI.Document.BaseDocument.Dispose
+  parent: OSECoreUI.Document.BaseDocument
+  name: Dispose()
+  nameWithType: BaseDocument.Dispose()
+  fullName: OSECoreUI.Document.BaseDocument.Dispose()
+  spec.csharp:
+  - uid: OSECoreUI.Document.BaseDocument.Dispose
+    name: Dispose
+    nameWithType: BaseDocument.Dispose
+    fullName: OSECoreUI.Document.BaseDocument.Dispose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.Document.BaseDocument.Dispose
+    name: Dispose
+    nameWithType: BaseDocument.Dispose
+    fullName: OSECoreUI.Document.BaseDocument.Dispose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.Document.BaseDocument.GetFilterString(System.Boolean,OSECoreUI.Document.DocType[])
+  commentId: M:OSECoreUI.Document.BaseDocument.GetFilterString(System.Boolean,OSECoreUI.Document.DocType[])
+  parent: OSECoreUI.Document.BaseDocument
+  isExternal: true
+  name: GetFilterString(Boolean, DocType[])
+  nameWithType: BaseDocument.GetFilterString(Boolean, DocType[])
+  fullName: OSECoreUI.Document.BaseDocument.GetFilterString(System.Boolean, OSECoreUI.Document.DocType[])
+  nameWithType.vb: BaseDocument.GetFilterString(Boolean, DocType())
+  fullName.vb: OSECoreUI.Document.BaseDocument.GetFilterString(System.Boolean, OSECoreUI.Document.DocType())
+  name.vb: GetFilterString(Boolean, DocType())
+  spec.csharp:
+  - uid: OSECoreUI.Document.BaseDocument.GetFilterString(System.Boolean,OSECoreUI.Document.DocType[])
+    name: GetFilterString
+    nameWithType: BaseDocument.GetFilterString
+    fullName: OSECoreUI.Document.BaseDocument.GetFilterString
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: OSECoreUI.Document.DocType
+    name: DocType
+    nameWithType: DocType
+    fullName: OSECoreUI.Document.DocType
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.Document.BaseDocument.GetFilterString(System.Boolean,OSECoreUI.Document.DocType[])
+    name: GetFilterString
+    nameWithType: BaseDocument.GetFilterString
+    fullName: OSECoreUI.Document.BaseDocument.GetFilterString
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: OSECoreUI.Document.DocType
+    name: DocType
+    nameWithType: DocType
+    fullName: OSECoreUI.Document.DocType
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.Document
+  commentId: N:OSECoreUI.Document
+  name: OSECoreUI.Document
+  nameWithType: OSECoreUI.Document
+  fullName: OSECoreUI.Document
+- uid: OSEUI.WPF.Document
+  commentId: N:OSEUI.WPF.Document
+  name: OSEUI.WPF.Document
+  nameWithType: OSEUI.WPF.Document
+  fullName: OSEUI.WPF.Document
+- uid: OSECoreUI.App
+  commentId: N:OSECoreUI.App
+  name: OSECoreUI.App
+  nameWithType: OSECoreUI.App
+  fullName: OSECoreUI.App
+- uid: OSEUIDesktop.WPF.Sample.SampleDocument.#ctor*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleDocument.#ctor
+  name: SampleDocument
+  nameWithType: SampleDocument.SampleDocument
+  fullName: OSEUIDesktop.WPF.Sample.SampleDocument.SampleDocument
+- uid: SerializationInfo
+  isExternal: true
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: SerializationInfo
+- uid: StreamingContext
+  isExternal: true
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: StreamingContext
+- uid: OSEUIDesktop.WPF.Sample.SampleDocument.GetObjectData*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleDocument.GetObjectData
+  name: GetObjectData
+  nameWithType: SampleDocument.GetObjectData
+  fullName: OSEUIDesktop.WPF.Sample.SampleDocument.GetObjectData
+- uid: OSECoreUI.Document.BaseDocument.Setup
+  commentId: M:OSECoreUI.Document.BaseDocument.Setup
+  parent: OSECoreUI.Document.BaseDocument
+  name: Setup()
+  nameWithType: BaseDocument.Setup()
+  fullName: OSECoreUI.Document.BaseDocument.Setup()
+  spec.csharp:
+  - uid: OSECoreUI.Document.BaseDocument.Setup
+    name: Setup
+    nameWithType: BaseDocument.Setup
+    fullName: OSECoreUI.Document.BaseDocument.Setup
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.Document.BaseDocument.Setup
+    name: Setup
+    nameWithType: BaseDocument.Setup
+    fullName: OSECoreUI.Document.BaseDocument.Setup
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEUIDesktop.WPF.Sample.SampleDocument.Setup*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleDocument.Setup
+  name: Setup
+  nameWithType: SampleDocument.Setup
+  fullName: OSEUIDesktop.WPF.Sample.SampleDocument.Setup
+- uid: OSECoreUI.Document.BaseDocument.IsDirty
+  commentId: P:OSECoreUI.Document.BaseDocument.IsDirty
+  parent: OSECoreUI.Document.BaseDocument
+  name: IsDirty
+  nameWithType: BaseDocument.IsDirty
+  fullName: OSECoreUI.Document.BaseDocument.IsDirty
+- uid: OSEUIDesktop.WPF.Sample.SampleDocument.IsDirty*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleDocument.IsDirty
+  name: IsDirty
+  nameWithType: SampleDocument.IsDirty
+  fullName: OSEUIDesktop.WPF.Sample.SampleDocument.IsDirty
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: OSEUIDesktop.WPF.Sample.SampleDocument.Entries*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleDocument.Entries
+  name: Entries
+  nameWithType: SampleDocument.Entries
+  fullName: OSEUIDesktop.WPF.Sample.SampleDocument.Entries
+- uid: OSEUIDesktop.WPF.Sample.JournalEntries
+  commentId: T:OSEUIDesktop.WPF.Sample.JournalEntries
+  parent: OSEUIDesktop.WPF.Sample
+  name: JournalEntries
+  nameWithType: JournalEntries
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntries

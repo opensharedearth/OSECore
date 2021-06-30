@@ -1,0 +1,284 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathTool.FolderStatus
+  commentId: T:PathTool.FolderStatus
+  id: FolderStatus
+  parent: PathTool
+  children:
+  - PathTool.FolderStatus.Duplicate
+  - PathTool.FolderStatus.InvalidPath
+  - PathTool.FolderStatus.Nonextant
+  - PathTool.FolderStatus.NotFullyQualified
+  - PathTool.FolderStatus.NullPath
+  - PathTool.FolderStatus.Unreadable
+  - PathTool.FolderStatus.Valid
+  langs:
+  - csharp
+  - vb
+  name: FolderStatus
+  nameWithType: FolderStatus
+  fullName: PathTool.FolderStatus
+  type: Enum
+  source:
+    remote:
+      path: sample/PathTool/FolderStatus.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: FolderStatus
+    path: ../sample/PathTool/FolderStatus.cs
+    startLine: 8
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: 'public enum FolderStatus : int'
+    content.vb: Public Enum FolderStatus As Integer
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: PathTool.FolderStatus.Valid
+  commentId: F:PathTool.FolderStatus.Valid
+  id: Valid
+  parent: PathTool.FolderStatus
+  langs:
+  - csharp
+  - vb
+  name: Valid
+  nameWithType: FolderStatus.Valid
+  fullName: PathTool.FolderStatus.Valid
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/FolderStatus.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Valid
+    path: ../sample/PathTool/FolderStatus.cs
+    startLine: 11
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: Valid = null
+    return:
+      type: PathTool.FolderStatus
+    content.vb: Valid = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.FolderStatus.NullPath
+  commentId: F:PathTool.FolderStatus.NullPath
+  id: NullPath
+  parent: PathTool.FolderStatus
+  langs:
+  - csharp
+  - vb
+  name: NullPath
+  nameWithType: FolderStatus.NullPath
+  fullName: PathTool.FolderStatus.NullPath
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/FolderStatus.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: NullPath
+    path: ../sample/PathTool/FolderStatus.cs
+    startLine: 12
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: NullPath = null
+    return:
+      type: PathTool.FolderStatus
+    content.vb: NullPath = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.FolderStatus.InvalidPath
+  commentId: F:PathTool.FolderStatus.InvalidPath
+  id: InvalidPath
+  parent: PathTool.FolderStatus
+  langs:
+  - csharp
+  - vb
+  name: InvalidPath
+  nameWithType: FolderStatus.InvalidPath
+  fullName: PathTool.FolderStatus.InvalidPath
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/FolderStatus.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: InvalidPath
+    path: ../sample/PathTool/FolderStatus.cs
+    startLine: 13
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: InvalidPath = null
+    return:
+      type: PathTool.FolderStatus
+    content.vb: InvalidPath = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.FolderStatus.NotFullyQualified
+  commentId: F:PathTool.FolderStatus.NotFullyQualified
+  id: NotFullyQualified
+  parent: PathTool.FolderStatus
+  langs:
+  - csharp
+  - vb
+  name: NotFullyQualified
+  nameWithType: FolderStatus.NotFullyQualified
+  fullName: PathTool.FolderStatus.NotFullyQualified
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/FolderStatus.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: NotFullyQualified
+    path: ../sample/PathTool/FolderStatus.cs
+    startLine: 14
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: NotFullyQualified = null
+    return:
+      type: PathTool.FolderStatus
+    content.vb: NotFullyQualified = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.FolderStatus.Nonextant
+  commentId: F:PathTool.FolderStatus.Nonextant
+  id: Nonextant
+  parent: PathTool.FolderStatus
+  langs:
+  - csharp
+  - vb
+  name: Nonextant
+  nameWithType: FolderStatus.Nonextant
+  fullName: PathTool.FolderStatus.Nonextant
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/FolderStatus.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Nonextant
+    path: ../sample/PathTool/FolderStatus.cs
+    startLine: 15
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: Nonextant = null
+    return:
+      type: PathTool.FolderStatus
+    content.vb: Nonextant = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.FolderStatus.Unreadable
+  commentId: F:PathTool.FolderStatus.Unreadable
+  id: Unreadable
+  parent: PathTool.FolderStatus
+  langs:
+  - csharp
+  - vb
+  name: Unreadable
+  nameWithType: FolderStatus.Unreadable
+  fullName: PathTool.FolderStatus.Unreadable
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/FolderStatus.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Unreadable
+    path: ../sample/PathTool/FolderStatus.cs
+    startLine: 16
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: Unreadable = null
+    return:
+      type: PathTool.FolderStatus
+    content.vb: Unreadable = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.FolderStatus.Duplicate
+  commentId: F:PathTool.FolderStatus.Duplicate
+  id: Duplicate
+  parent: PathTool.FolderStatus
+  langs:
+  - csharp
+  - vb
+  name: Duplicate
+  nameWithType: FolderStatus.Duplicate
+  fullName: PathTool.FolderStatus.Duplicate
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/FolderStatus.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Duplicate
+    path: ../sample/PathTool/FolderStatus.cs
+    startLine: 17
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: Duplicate = null
+    return:
+      type: PathTool.FolderStatus
+    content.vb: Duplicate = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: PathTool
+  commentId: N:PathTool
+  name: PathTool
+  nameWithType: PathTool
+  fullName: PathTool
+- uid: PathTool.FolderStatus
+  commentId: T:PathTool.FolderStatus
+  parent: PathTool
+  name: FolderStatus
+  nameWithType: FolderStatus
+  fullName: PathTool.FolderStatus

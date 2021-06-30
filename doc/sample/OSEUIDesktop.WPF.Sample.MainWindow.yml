@@ -1,0 +1,322 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIDesktop.WPF.Sample.MainWindow
+  commentId: T:OSEUIDesktop.WPF.Sample.MainWindow
+  id: MainWindow
+  parent: OSEUIDesktop.WPF.Sample
+  children:
+  - OSEUIDesktop.WPF.Sample.MainWindow.#ctor
+  - OSEUIDesktop.WPF.Sample.MainWindow._form_Closing(System.Object,System.ComponentModel.CancelEventArgs)
+  - OSEUIDesktop.WPF.Sample.MainWindow.CanShowResultLogForm(System.Object,CanExecuteRoutedEventArgs)
+  - OSEUIDesktop.WPF.Sample.MainWindow.OnClosing(CancelEventArgs)
+  - OSEUIDesktop.WPF.Sample.MainWindow.OnInitialized(EventArgs)
+  - OSEUIDesktop.WPF.Sample.MainWindow.ShowResultLogForm(System.Object,ExecutedRoutedEventArgs)
+  langs:
+  - csharp
+  - vb
+  name: MainWindow
+  nameWithType: MainWindow
+  fullName: OSEUIDesktop.WPF.Sample.MainWindow
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: MainWindow
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+    startLine: 32
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  summary: "\nInteraction logic for MainWindow.xaml\n"
+  example: []
+  syntax:
+    content: 'public class MainWindow : Window'
+    content.vb: >-
+      Public Class MainWindow
+          Inherits Window
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: OSEUIDesktop.WPF.Sample.MainWindow.#ctor
+  commentId: M:OSEUIDesktop.WPF.Sample.MainWindow.#ctor
+  id: '#ctor'
+  parent: OSEUIDesktop.WPF.Sample.MainWindow
+  langs:
+  - csharp
+  - vb
+  name: MainWindow()
+  nameWithType: MainWindow.MainWindow()
+  fullName: OSEUIDesktop.WPF.Sample.MainWindow.MainWindow()
+  type: Constructor
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+    startLine: 34
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public MainWindow()
+    content.vb: Public Sub New
+  overload: OSEUIDesktop.WPF.Sample.MainWindow.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainWindow.OnInitialized(EventArgs)
+  commentId: M:OSEUIDesktop.WPF.Sample.MainWindow.OnInitialized(EventArgs)
+  id: OnInitialized(EventArgs)
+  parent: OSEUIDesktop.WPF.Sample.MainWindow
+  langs:
+  - csharp
+  - vb
+  name: OnInitialized(EventArgs)
+  nameWithType: MainWindow.OnInitialized(EventArgs)
+  fullName: OSEUIDesktop.WPF.Sample.MainWindow.OnInitialized(EventArgs)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: OnInitialized
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+    startLine: 51
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: protected override void OnInitialized(EventArgs e)
+    parameters:
+    - id: e
+      type: EventArgs
+    content.vb: Protected Overrides Sub OnInitialized(e As EventArgs)
+  overload: OSEUIDesktop.WPF.Sample.MainWindow.OnInitialized*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+- uid: OSEUIDesktop.WPF.Sample.MainWindow.OnClosing(CancelEventArgs)
+  commentId: M:OSEUIDesktop.WPF.Sample.MainWindow.OnClosing(CancelEventArgs)
+  id: OnClosing(CancelEventArgs)
+  parent: OSEUIDesktop.WPF.Sample.MainWindow
+  langs:
+  - csharp
+  - vb
+  name: OnClosing(CancelEventArgs)
+  nameWithType: MainWindow.OnClosing(CancelEventArgs)
+  fullName: OSEUIDesktop.WPF.Sample.MainWindow.OnClosing(CancelEventArgs)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: OnClosing
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+    startLine: 56
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: protected override void OnClosing(CancelEventArgs e)
+    parameters:
+    - id: e
+      type: CancelEventArgs
+    content.vb: Protected Overrides Sub OnClosing(e As CancelEventArgs)
+  overload: OSEUIDesktop.WPF.Sample.MainWindow.OnClosing*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+- uid: OSEUIDesktop.WPF.Sample.MainWindow.CanShowResultLogForm(System.Object,CanExecuteRoutedEventArgs)
+  commentId: M:OSEUIDesktop.WPF.Sample.MainWindow.CanShowResultLogForm(System.Object,CanExecuteRoutedEventArgs)
+  id: CanShowResultLogForm(System.Object,CanExecuteRoutedEventArgs)
+  parent: OSEUIDesktop.WPF.Sample.MainWindow
+  langs:
+  - csharp
+  - vb
+  name: CanShowResultLogForm(Object, CanExecuteRoutedEventArgs)
+  nameWithType: MainWindow.CanShowResultLogForm(Object, CanExecuteRoutedEventArgs)
+  fullName: OSEUIDesktop.WPF.Sample.MainWindow.CanShowResultLogForm(System.Object, CanExecuteRoutedEventArgs)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: CanShowResultLogForm
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+    startLine: 357
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: protected void CanShowResultLogForm(object sender, CanExecuteRoutedEventArgs e)
+    parameters:
+    - id: sender
+      type: System.Object
+    - id: e
+      type: CanExecuteRoutedEventArgs
+    content.vb: Protected Sub CanShowResultLogForm(sender As Object, e As CanExecuteRoutedEventArgs)
+  overload: OSEUIDesktop.WPF.Sample.MainWindow.CanShowResultLogForm*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: OSEUIDesktop.WPF.Sample.MainWindow.ShowResultLogForm(System.Object,ExecutedRoutedEventArgs)
+  commentId: M:OSEUIDesktop.WPF.Sample.MainWindow.ShowResultLogForm(System.Object,ExecutedRoutedEventArgs)
+  id: ShowResultLogForm(System.Object,ExecutedRoutedEventArgs)
+  parent: OSEUIDesktop.WPF.Sample.MainWindow
+  langs:
+  - csharp
+  - vb
+  name: ShowResultLogForm(Object, ExecutedRoutedEventArgs)
+  nameWithType: MainWindow.ShowResultLogForm(Object, ExecutedRoutedEventArgs)
+  fullName: OSEUIDesktop.WPF.Sample.MainWindow.ShowResultLogForm(System.Object, ExecutedRoutedEventArgs)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ShowResultLogForm
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+    startLine: 362
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: protected void ShowResultLogForm(object sender, ExecutedRoutedEventArgs e)
+    parameters:
+    - id: sender
+      type: System.Object
+    - id: e
+      type: ExecutedRoutedEventArgs
+    content.vb: Protected Sub ShowResultLogForm(sender As Object, e As ExecutedRoutedEventArgs)
+  overload: OSEUIDesktop.WPF.Sample.MainWindow.ShowResultLogForm*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: OSEUIDesktop.WPF.Sample.MainWindow._form_Closing(System.Object,System.ComponentModel.CancelEventArgs)
+  commentId: M:OSEUIDesktop.WPF.Sample.MainWindow._form_Closing(System.Object,System.ComponentModel.CancelEventArgs)
+  id: _form_Closing(System.Object,System.ComponentModel.CancelEventArgs)
+  parent: OSEUIDesktop.WPF.Sample.MainWindow
+  langs:
+  - csharp
+  - vb
+  name: _form_Closing(Object, System.ComponentModel.CancelEventArgs)
+  nameWithType: MainWindow._form_Closing(Object, System.ComponentModel.CancelEventArgs)
+  fullName: OSEUIDesktop.WPF.Sample.MainWindow._form_Closing(System.Object, System.ComponentModel.CancelEventArgs)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: _form_Closing
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainWindow.xaml.cs
+    startLine: 378
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: protected void _form_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    parameters:
+    - id: sender
+      type: System.Object
+    - id: e
+      type: System.ComponentModel.CancelEventArgs
+    content.vb: Protected Sub _form_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs)
+  overload: OSEUIDesktop.WPF.Sample.MainWindow._form_Closing*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+references:
+- uid: OSEUIDesktop.WPF.Sample
+  commentId: N:OSEUIDesktop.WPF.Sample
+  name: OSEUIDesktop.WPF.Sample
+  nameWithType: OSEUIDesktop.WPF.Sample
+  fullName: OSEUIDesktop.WPF.Sample
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: OSEUIDesktop.WPF.Sample.MainWindow.#ctor*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainWindow.#ctor
+  name: MainWindow
+  nameWithType: MainWindow.MainWindow
+  fullName: OSEUIDesktop.WPF.Sample.MainWindow.MainWindow
+- uid: OSEUIDesktop.WPF.Sample.MainWindow.OnInitialized*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainWindow.OnInitialized
+  name: OnInitialized
+  nameWithType: MainWindow.OnInitialized
+  fullName: OSEUIDesktop.WPF.Sample.MainWindow.OnInitialized
+- uid: EventArgs
+  commentId: '!:EventArgs'
+  isExternal: true
+  name: EventArgs
+  nameWithType: EventArgs
+  fullName: EventArgs
+- uid: OSEUIDesktop.WPF.Sample.MainWindow.OnClosing*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainWindow.OnClosing
+  name: OnClosing
+  nameWithType: MainWindow.OnClosing
+  fullName: OSEUIDesktop.WPF.Sample.MainWindow.OnClosing
+- uid: CancelEventArgs
+  commentId: '!:CancelEventArgs'
+  isExternal: true
+  name: CancelEventArgs
+  nameWithType: CancelEventArgs
+  fullName: CancelEventArgs
+- uid: OSEUIDesktop.WPF.Sample.MainWindow.CanShowResultLogForm*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainWindow.CanShowResultLogForm
+  name: CanShowResultLogForm
+  nameWithType: MainWindow.CanShowResultLogForm
+  fullName: OSEUIDesktop.WPF.Sample.MainWindow.CanShowResultLogForm
+- uid: CanExecuteRoutedEventArgs
+  commentId: '!:CanExecuteRoutedEventArgs'
+  isExternal: true
+  name: CanExecuteRoutedEventArgs
+  nameWithType: CanExecuteRoutedEventArgs
+  fullName: CanExecuteRoutedEventArgs
+- uid: OSEUIDesktop.WPF.Sample.MainWindow.ShowResultLogForm*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainWindow.ShowResultLogForm
+  name: ShowResultLogForm
+  nameWithType: MainWindow.ShowResultLogForm
+  fullName: OSEUIDesktop.WPF.Sample.MainWindow.ShowResultLogForm
+- uid: ExecutedRoutedEventArgs
+  commentId: '!:ExecutedRoutedEventArgs'
+  isExternal: true
+  name: ExecutedRoutedEventArgs
+  nameWithType: ExecutedRoutedEventArgs
+  fullName: ExecutedRoutedEventArgs
+- uid: OSEUIDesktop.WPF.Sample.MainWindow._form_Closing*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainWindow._form_Closing
+  name: _form_Closing
+  nameWithType: MainWindow._form_Closing
+  fullName: OSEUIDesktop.WPF.Sample.MainWindow._form_Closing
+- uid: System.ComponentModel.CancelEventArgs
+  commentId: '!:System.ComponentModel.CancelEventArgs'
+  isExternal: true
+  name: System.ComponentModel.CancelEventArgs
+  nameWithType: System.ComponentModel.CancelEventArgs
+  fullName: System.ComponentModel.CancelEventArgs

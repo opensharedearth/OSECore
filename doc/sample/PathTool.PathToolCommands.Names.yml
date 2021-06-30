@@ -1,0 +1,900 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathTool.PathToolCommands.Names
+  commentId: T:PathTool.PathToolCommands.Names
+  id: PathToolCommands.Names
+  parent: PathTool
+  children:
+  - PathTool.PathToolCommands.Names.AddCommand
+  - PathTool.PathToolCommands.Names.CleanCommand
+  - PathTool.PathToolCommands.Names.FilterMnemonic
+  - PathTool.PathToolCommands.Names.FilterSwitch
+  - PathTool.PathToolCommands.Names.FolderArgument
+  - PathTool.PathToolCommands.Names.InlineMnemonic
+  - PathTool.PathToolCommands.Names.InlineSwitch
+  - PathTool.PathToolCommands.Names.LengthMnemonic
+  - PathTool.PathToolCommands.Names.LengthSwitch
+  - PathTool.PathToolCommands.Names.ListCommand
+  - PathTool.PathToolCommands.Names.MachineMnemonic
+  - PathTool.PathToolCommands.Names.MachineSwitch
+  - PathTool.PathToolCommands.Names.MoveCommand
+  - PathTool.PathToolCommands.Names.PositionMnemonic
+  - PathTool.PathToolCommands.Names.PositionSwitch
+  - PathTool.PathToolCommands.Names.QuietMnemonic
+  - PathTool.PathToolCommands.Names.QuietSwitch
+  - PathTool.PathToolCommands.Names.RemoveCommand
+  - PathTool.PathToolCommands.Names.SortSwitch
+  - PathTool.PathToolCommands.Names.ToMnemonic
+  - PathTool.PathToolCommands.Names.ToSwitch
+  - PathTool.PathToolCommands.Names.UserMnemonic
+  - PathTool.PathToolCommands.Names.UserSwitch
+  - PathTool.PathToolCommands.Names.VerboseMnemonic
+  - PathTool.PathToolCommands.Names.VerboseSwitch
+  langs:
+  - csharp
+  - vb
+  name: PathToolCommands.Names
+  nameWithType: PathToolCommands.Names
+  fullName: PathTool.PathToolCommands.Names
+  type: Struct
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Names
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 15
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public struct Names
+    content.vb: Public Structure Names
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: PathTool.PathToolCommands.Names.ListCommand
+  commentId: F:PathTool.PathToolCommands.Names.ListCommand
+  id: ListCommand
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: ListCommand
+  nameWithType: PathToolCommands.Names.ListCommand
+  fullName: PathTool.PathToolCommands.Names.ListCommand
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ListCommand
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 17
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string ListCommand = null
+    return:
+      type: System.String
+    content.vb: Public Const ListCommand As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.AddCommand
+  commentId: F:PathTool.PathToolCommands.Names.AddCommand
+  id: AddCommand
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: AddCommand
+  nameWithType: PathToolCommands.Names.AddCommand
+  fullName: PathTool.PathToolCommands.Names.AddCommand
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: AddCommand
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 18
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string AddCommand = null
+    return:
+      type: System.String
+    content.vb: Public Const AddCommand As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.RemoveCommand
+  commentId: F:PathTool.PathToolCommands.Names.RemoveCommand
+  id: RemoveCommand
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: RemoveCommand
+  nameWithType: PathToolCommands.Names.RemoveCommand
+  fullName: PathTool.PathToolCommands.Names.RemoveCommand
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: RemoveCommand
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 19
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string RemoveCommand = null
+    return:
+      type: System.String
+    content.vb: Public Const RemoveCommand As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.FilterSwitch
+  commentId: F:PathTool.PathToolCommands.Names.FilterSwitch
+  id: FilterSwitch
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: FilterSwitch
+  nameWithType: PathToolCommands.Names.FilterSwitch
+  fullName: PathTool.PathToolCommands.Names.FilterSwitch
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: FilterSwitch
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 20
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string FilterSwitch = null
+    return:
+      type: System.String
+    content.vb: Public Const FilterSwitch As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.FilterMnemonic
+  commentId: F:PathTool.PathToolCommands.Names.FilterMnemonic
+  id: FilterMnemonic
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: FilterMnemonic
+  nameWithType: PathToolCommands.Names.FilterMnemonic
+  fullName: PathTool.PathToolCommands.Names.FilterMnemonic
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: FilterMnemonic
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 21
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const char FilterMnemonic = null
+    return:
+      type: System.Char
+    content.vb: Public Const FilterMnemonic As Char = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.VerboseSwitch
+  commentId: F:PathTool.PathToolCommands.Names.VerboseSwitch
+  id: VerboseSwitch
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: VerboseSwitch
+  nameWithType: PathToolCommands.Names.VerboseSwitch
+  fullName: PathTool.PathToolCommands.Names.VerboseSwitch
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: VerboseSwitch
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 22
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string VerboseSwitch = null
+    return:
+      type: System.String
+    content.vb: Public Const VerboseSwitch As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.VerboseMnemonic
+  commentId: F:PathTool.PathToolCommands.Names.VerboseMnemonic
+  id: VerboseMnemonic
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: VerboseMnemonic
+  nameWithType: PathToolCommands.Names.VerboseMnemonic
+  fullName: PathTool.PathToolCommands.Names.VerboseMnemonic
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: VerboseMnemonic
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 23
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const char VerboseMnemonic = null
+    return:
+      type: System.Char
+    content.vb: Public Const VerboseMnemonic As Char = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.SortSwitch
+  commentId: F:PathTool.PathToolCommands.Names.SortSwitch
+  id: SortSwitch
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: SortSwitch
+  nameWithType: PathToolCommands.Names.SortSwitch
+  fullName: PathTool.PathToolCommands.Names.SortSwitch
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: SortSwitch
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 24
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string SortSwitch = null
+    return:
+      type: System.String
+    content.vb: Public Const SortSwitch As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.MachineSwitch
+  commentId: F:PathTool.PathToolCommands.Names.MachineSwitch
+  id: MachineSwitch
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: MachineSwitch
+  nameWithType: PathToolCommands.Names.MachineSwitch
+  fullName: PathTool.PathToolCommands.Names.MachineSwitch
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: MachineSwitch
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 25
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string MachineSwitch = null
+    return:
+      type: System.String
+    content.vb: Public Const MachineSwitch As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.MachineMnemonic
+  commentId: F:PathTool.PathToolCommands.Names.MachineMnemonic
+  id: MachineMnemonic
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: MachineMnemonic
+  nameWithType: PathToolCommands.Names.MachineMnemonic
+  fullName: PathTool.PathToolCommands.Names.MachineMnemonic
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: MachineMnemonic
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 26
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const char MachineMnemonic = null
+    return:
+      type: System.Char
+    content.vb: Public Const MachineMnemonic As Char = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.UserSwitch
+  commentId: F:PathTool.PathToolCommands.Names.UserSwitch
+  id: UserSwitch
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: UserSwitch
+  nameWithType: PathToolCommands.Names.UserSwitch
+  fullName: PathTool.PathToolCommands.Names.UserSwitch
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: UserSwitch
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 27
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string UserSwitch = null
+    return:
+      type: System.String
+    content.vb: Public Const UserSwitch As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.UserMnemonic
+  commentId: F:PathTool.PathToolCommands.Names.UserMnemonic
+  id: UserMnemonic
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: UserMnemonic
+  nameWithType: PathToolCommands.Names.UserMnemonic
+  fullName: PathTool.PathToolCommands.Names.UserMnemonic
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: UserMnemonic
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 28
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const char UserMnemonic = null
+    return:
+      type: System.Char
+    content.vb: Public Const UserMnemonic As Char = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.CleanCommand
+  commentId: F:PathTool.PathToolCommands.Names.CleanCommand
+  id: CleanCommand
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: CleanCommand
+  nameWithType: PathToolCommands.Names.CleanCommand
+  fullName: PathTool.PathToolCommands.Names.CleanCommand
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: CleanCommand
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 29
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string CleanCommand = null
+    return:
+      type: System.String
+    content.vb: Public Const CleanCommand As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.QuietSwitch
+  commentId: F:PathTool.PathToolCommands.Names.QuietSwitch
+  id: QuietSwitch
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: QuietSwitch
+  nameWithType: PathToolCommands.Names.QuietSwitch
+  fullName: PathTool.PathToolCommands.Names.QuietSwitch
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: QuietSwitch
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 30
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string QuietSwitch = null
+    return:
+      type: System.String
+    content.vb: Public Const QuietSwitch As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.QuietMnemonic
+  commentId: F:PathTool.PathToolCommands.Names.QuietMnemonic
+  id: QuietMnemonic
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: QuietMnemonic
+  nameWithType: PathToolCommands.Names.QuietMnemonic
+  fullName: PathTool.PathToolCommands.Names.QuietMnemonic
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: QuietMnemonic
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 31
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const char QuietMnemonic = null
+    return:
+      type: System.Char
+    content.vb: Public Const QuietMnemonic As Char = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.InlineSwitch
+  commentId: F:PathTool.PathToolCommands.Names.InlineSwitch
+  id: InlineSwitch
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: InlineSwitch
+  nameWithType: PathToolCommands.Names.InlineSwitch
+  fullName: PathTool.PathToolCommands.Names.InlineSwitch
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: InlineSwitch
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 32
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string InlineSwitch = null
+    return:
+      type: System.String
+    content.vb: Public Const InlineSwitch As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.InlineMnemonic
+  commentId: F:PathTool.PathToolCommands.Names.InlineMnemonic
+  id: InlineMnemonic
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: InlineMnemonic
+  nameWithType: PathToolCommands.Names.InlineMnemonic
+  fullName: PathTool.PathToolCommands.Names.InlineMnemonic
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: InlineMnemonic
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 33
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const char InlineMnemonic = null
+    return:
+      type: System.Char
+    content.vb: Public Const InlineMnemonic As Char = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.MoveCommand
+  commentId: F:PathTool.PathToolCommands.Names.MoveCommand
+  id: MoveCommand
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: MoveCommand
+  nameWithType: PathToolCommands.Names.MoveCommand
+  fullName: PathTool.PathToolCommands.Names.MoveCommand
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: MoveCommand
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 34
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string MoveCommand = null
+    return:
+      type: System.String
+    content.vb: Public Const MoveCommand As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.PositionSwitch
+  commentId: F:PathTool.PathToolCommands.Names.PositionSwitch
+  id: PositionSwitch
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: PositionSwitch
+  nameWithType: PathToolCommands.Names.PositionSwitch
+  fullName: PathTool.PathToolCommands.Names.PositionSwitch
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: PositionSwitch
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 35
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string PositionSwitch = null
+    return:
+      type: System.String
+    content.vb: Public Const PositionSwitch As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.PositionMnemonic
+  commentId: F:PathTool.PathToolCommands.Names.PositionMnemonic
+  id: PositionMnemonic
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: PositionMnemonic
+  nameWithType: PathToolCommands.Names.PositionMnemonic
+  fullName: PathTool.PathToolCommands.Names.PositionMnemonic
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: PositionMnemonic
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 36
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const char PositionMnemonic = null
+    return:
+      type: System.Char
+    content.vb: Public Const PositionMnemonic As Char = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.LengthSwitch
+  commentId: F:PathTool.PathToolCommands.Names.LengthSwitch
+  id: LengthSwitch
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: LengthSwitch
+  nameWithType: PathToolCommands.Names.LengthSwitch
+  fullName: PathTool.PathToolCommands.Names.LengthSwitch
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: LengthSwitch
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 37
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string LengthSwitch = null
+    return:
+      type: System.String
+    content.vb: Public Const LengthSwitch As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.LengthMnemonic
+  commentId: F:PathTool.PathToolCommands.Names.LengthMnemonic
+  id: LengthMnemonic
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: LengthMnemonic
+  nameWithType: PathToolCommands.Names.LengthMnemonic
+  fullName: PathTool.PathToolCommands.Names.LengthMnemonic
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: LengthMnemonic
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 38
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const char LengthMnemonic = null
+    return:
+      type: System.Char
+    content.vb: Public Const LengthMnemonic As Char = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.ToSwitch
+  commentId: F:PathTool.PathToolCommands.Names.ToSwitch
+  id: ToSwitch
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: ToSwitch
+  nameWithType: PathToolCommands.Names.ToSwitch
+  fullName: PathTool.PathToolCommands.Names.ToSwitch
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ToSwitch
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 39
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string ToSwitch = null
+    return:
+      type: System.String
+    content.vb: Public Const ToSwitch As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.ToMnemonic
+  commentId: F:PathTool.PathToolCommands.Names.ToMnemonic
+  id: ToMnemonic
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: ToMnemonic
+  nameWithType: PathToolCommands.Names.ToMnemonic
+  fullName: PathTool.PathToolCommands.Names.ToMnemonic
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ToMnemonic
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 40
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const char ToMnemonic = null
+    return:
+      type: System.Char
+    content.vb: Public Const ToMnemonic As Char = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PathTool.PathToolCommands.Names.FolderArgument
+  commentId: F:PathTool.PathToolCommands.Names.FolderArgument
+  id: FolderArgument
+  parent: PathTool.PathToolCommands.Names
+  langs:
+  - csharp
+  - vb
+  name: FolderArgument
+  nameWithType: PathToolCommands.Names.FolderArgument
+  fullName: PathTool.PathToolCommands.Names.FolderArgument
+  type: Field
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: FolderArgument
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 41
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public const string FolderArgument = null
+    return:
+      type: System.String
+    content.vb: Public Const FolderArgument As String = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: PathTool
+  commentId: N:PathTool
+  name: PathTool
+  nameWithType: PathTool
+  fullName: PathTool
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Char
+  isExternal: true
+  name: Char
+  nameWithType: Char
+  fullName: System.Char

@@ -1,0 +1,141 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIDesktop.WPF.Sample.FocusAdorner
+  commentId: T:OSEUIDesktop.WPF.Sample.FocusAdorner
+  id: FocusAdorner
+  parent: OSEUIDesktop.WPF.Sample
+  children:
+  - OSEUIDesktop.WPF.Sample.FocusAdorner.#ctor(UIElement)
+  - OSEUIDesktop.WPF.Sample.FocusAdorner.OnRender(DrawingContext)
+  langs:
+  - csharp
+  - vb
+  name: FocusAdorner
+  nameWithType: FocusAdorner
+  fullName: OSEUIDesktop.WPF.Sample.FocusAdorner
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/FocusAdorner.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: FocusAdorner
+    path: ../sample/OSEUIDesktop.WPF.Sample/FocusAdorner.cs
+    startLine: 14
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: 'public class FocusAdorner : Adorner'
+    content.vb: >-
+      Public Class FocusAdorner
+          Inherits Adorner
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: OSEUIDesktop.WPF.Sample.FocusAdorner.#ctor(UIElement)
+  commentId: M:OSEUIDesktop.WPF.Sample.FocusAdorner.#ctor(UIElement)
+  id: '#ctor(UIElement)'
+  parent: OSEUIDesktop.WPF.Sample.FocusAdorner
+  langs:
+  - csharp
+  - vb
+  name: FocusAdorner(UIElement)
+  nameWithType: FocusAdorner.FocusAdorner(UIElement)
+  fullName: OSEUIDesktop.WPF.Sample.FocusAdorner.FocusAdorner(UIElement)
+  type: Constructor
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/FocusAdorner.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/OSEUIDesktop.WPF.Sample/FocusAdorner.cs
+    startLine: 16
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public FocusAdorner(UIElement adornedElement)
+    parameters:
+    - id: adornedElement
+      type: UIElement
+    content.vb: Public Sub New(adornedElement As UIElement)
+  overload: OSEUIDesktop.WPF.Sample.FocusAdorner.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.FocusAdorner.OnRender(DrawingContext)
+  commentId: M:OSEUIDesktop.WPF.Sample.FocusAdorner.OnRender(DrawingContext)
+  id: OnRender(DrawingContext)
+  parent: OSEUIDesktop.WPF.Sample.FocusAdorner
+  langs:
+  - csharp
+  - vb
+  name: OnRender(DrawingContext)
+  nameWithType: FocusAdorner.OnRender(DrawingContext)
+  fullName: OSEUIDesktop.WPF.Sample.FocusAdorner.OnRender(DrawingContext)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/FocusAdorner.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: OnRender
+    path: ../sample/OSEUIDesktop.WPF.Sample/FocusAdorner.cs
+    startLine: 21
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: protected override void OnRender(DrawingContext drawingContext)
+    parameters:
+    - id: drawingContext
+      type: DrawingContext
+    content.vb: Protected Overrides Sub OnRender(drawingContext As DrawingContext)
+  overload: OSEUIDesktop.WPF.Sample.FocusAdorner.OnRender*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+references:
+- uid: OSEUIDesktop.WPF.Sample
+  commentId: N:OSEUIDesktop.WPF.Sample
+  name: OSEUIDesktop.WPF.Sample
+  nameWithType: OSEUIDesktop.WPF.Sample
+  fullName: OSEUIDesktop.WPF.Sample
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: OSEUIDesktop.WPF.Sample.FocusAdorner.#ctor*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.FocusAdorner.#ctor
+  name: FocusAdorner
+  nameWithType: FocusAdorner.FocusAdorner
+  fullName: OSEUIDesktop.WPF.Sample.FocusAdorner.FocusAdorner
+- uid: UIElement
+  commentId: '!:UIElement'
+  isExternal: true
+  name: UIElement
+  nameWithType: UIElement
+  fullName: UIElement
+- uid: OSEUIDesktop.WPF.Sample.FocusAdorner.OnRender*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.FocusAdorner.OnRender
+  name: OnRender
+  nameWithType: FocusAdorner.OnRender
+  fullName: OSEUIDesktop.WPF.Sample.FocusAdorner.OnRender
+- uid: DrawingContext
+  commentId: '!:DrawingContext'
+  isExternal: true
+  name: DrawingContext
+  nameWithType: DrawingContext
+  fullName: DrawingContext

@@ -1,0 +1,311 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIDesktop.WPF.Sample.App
+  commentId: T:OSEUIDesktop.WPF.Sample.App
+  id: App
+  parent: OSEUIDesktop.WPF.Sample
+  children:
+  - OSEUIDesktop.WPF.Sample.App.#ctor
+  - OSEUIDesktop.WPF.Sample.App.Instance
+  - OSEUIDesktop.WPF.Sample.App.Settings
+  langs:
+  - csharp
+  - vb
+  name: App
+  nameWithType: App
+  fullName: OSEUIDesktop.WPF.Sample.App
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/App.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: App
+    path: ../sample/OSEUIDesktop.WPF.Sample/App.xaml.cs
+    startLine: 15
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  summary: "\nInteraction logic for App.xaml\n"
+  example: []
+  syntax:
+    content: 'public class App : DesktopApp'
+    content.vb: >-
+      Public Class App
+          Inherits DesktopApp
+  inheritance:
+  - System.Object
+  - OSEUI.WPF.App.DesktopApp
+  inheritedMembers:
+  - OSEUI.WPF.App.DesktopApp.CurrentDocument
+  - OSEUI.WPF.App.DesktopApp.Config
+  - OSEUI.WPF.App.DesktopApp.UndoRedo
+  - OSEUI.WPF.App.DesktopApp.DefaultDocType
+  - OSEUI.WPF.App.DesktopApp.NewDocument
+  - OSEUI.WPF.App.DesktopApp.CloseDocument
+  - OSEUI.WPF.App.DesktopApp.UpdateDocumentFolder
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: OSEUIDesktop.WPF.Sample.App.#ctor
+  commentId: M:OSEUIDesktop.WPF.Sample.App.#ctor
+  id: '#ctor'
+  parent: OSEUIDesktop.WPF.Sample.App
+  langs:
+  - csharp
+  - vb
+  name: App()
+  nameWithType: App.App()
+  fullName: OSEUIDesktop.WPF.Sample.App.App()
+  type: Constructor
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/App.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/OSEUIDesktop.WPF.Sample/App.xaml.cs
+    startLine: 17
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public App()
+    content.vb: Public Sub New
+  overload: OSEUIDesktop.WPF.Sample.App.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.App.Instance
+  commentId: P:OSEUIDesktop.WPF.Sample.App.Instance
+  id: Instance
+  parent: OSEUIDesktop.WPF.Sample.App
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: App.Instance
+  fullName: OSEUIDesktop.WPF.Sample.App.Instance
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/App.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Instance
+    path: ../sample/OSEUIDesktop.WPF.Sample/App.xaml.cs
+    startLine: 25
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public static App Instance { get; }
+    parameters: []
+    return:
+      type: OSEUIDesktop.WPF.Sample.App
+    content.vb: Public Shared ReadOnly Property Instance As App
+  overload: OSEUIDesktop.WPF.Sample.App.Instance*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.App.Settings
+  commentId: P:OSEUIDesktop.WPF.Sample.App.Settings
+  id: Settings
+  parent: OSEUIDesktop.WPF.Sample.App
+  langs:
+  - csharp
+  - vb
+  name: Settings
+  nameWithType: App.Settings
+  fullName: OSEUIDesktop.WPF.Sample.App.Settings
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/App.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Settings
+    path: ../sample/OSEUIDesktop.WPF.Sample/App.xaml.cs
+    startLine: 27
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public SampleSettings Settings { get; }
+    parameters: []
+    return:
+      type: OSEUIDesktop.WPF.Sample.SampleSettings
+    content.vb: Public ReadOnly Property Settings As SampleSettings
+  overload: OSEUIDesktop.WPF.Sample.App.Settings*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: OSEUIDesktop.WPF.Sample
+  commentId: N:OSEUIDesktop.WPF.Sample
+  name: OSEUIDesktop.WPF.Sample
+  nameWithType: OSEUIDesktop.WPF.Sample
+  fullName: OSEUIDesktop.WPF.Sample
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: OSEUI.WPF.App.DesktopApp
+  commentId: T:OSEUI.WPF.App.DesktopApp
+  parent: OSEUI.WPF.App
+  name: DesktopApp
+  nameWithType: DesktopApp
+  fullName: OSEUI.WPF.App.DesktopApp
+- uid: OSEUI.WPF.App.DesktopApp.CurrentDocument
+  commentId: P:OSEUI.WPF.App.DesktopApp.CurrentDocument
+  parent: OSEUI.WPF.App.DesktopApp
+  name: CurrentDocument
+  nameWithType: DesktopApp.CurrentDocument
+  fullName: OSEUI.WPF.App.DesktopApp.CurrentDocument
+- uid: OSEUI.WPF.App.DesktopApp.Config
+  commentId: P:OSEUI.WPF.App.DesktopApp.Config
+  parent: OSEUI.WPF.App.DesktopApp
+  name: Config
+  nameWithType: DesktopApp.Config
+  fullName: OSEUI.WPF.App.DesktopApp.Config
+- uid: OSEUI.WPF.App.DesktopApp.UndoRedo
+  commentId: P:OSEUI.WPF.App.DesktopApp.UndoRedo
+  parent: OSEUI.WPF.App.DesktopApp
+  name: UndoRedo
+  nameWithType: DesktopApp.UndoRedo
+  fullName: OSEUI.WPF.App.DesktopApp.UndoRedo
+- uid: OSEUI.WPF.App.DesktopApp.DefaultDocType
+  commentId: P:OSEUI.WPF.App.DesktopApp.DefaultDocType
+  parent: OSEUI.WPF.App.DesktopApp
+  name: DefaultDocType
+  nameWithType: DesktopApp.DefaultDocType
+  fullName: OSEUI.WPF.App.DesktopApp.DefaultDocType
+- uid: OSEUI.WPF.App.DesktopApp.NewDocument
+  commentId: M:OSEUI.WPF.App.DesktopApp.NewDocument
+  parent: OSEUI.WPF.App.DesktopApp
+  name: NewDocument()
+  nameWithType: DesktopApp.NewDocument()
+  fullName: OSEUI.WPF.App.DesktopApp.NewDocument()
+  spec.csharp:
+  - uid: OSEUI.WPF.App.DesktopApp.NewDocument
+    name: NewDocument
+    nameWithType: DesktopApp.NewDocument
+    fullName: OSEUI.WPF.App.DesktopApp.NewDocument
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEUI.WPF.App.DesktopApp.NewDocument
+    name: NewDocument
+    nameWithType: DesktopApp.NewDocument
+    fullName: OSEUI.WPF.App.DesktopApp.NewDocument
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEUI.WPF.App.DesktopApp.CloseDocument
+  commentId: M:OSEUI.WPF.App.DesktopApp.CloseDocument
+  parent: OSEUI.WPF.App.DesktopApp
+  name: CloseDocument()
+  nameWithType: DesktopApp.CloseDocument()
+  fullName: OSEUI.WPF.App.DesktopApp.CloseDocument()
+  spec.csharp:
+  - uid: OSEUI.WPF.App.DesktopApp.CloseDocument
+    name: CloseDocument
+    nameWithType: DesktopApp.CloseDocument
+    fullName: OSEUI.WPF.App.DesktopApp.CloseDocument
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEUI.WPF.App.DesktopApp.CloseDocument
+    name: CloseDocument
+    nameWithType: DesktopApp.CloseDocument
+    fullName: OSEUI.WPF.App.DesktopApp.CloseDocument
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEUI.WPF.App.DesktopApp.UpdateDocumentFolder
+  commentId: M:OSEUI.WPF.App.DesktopApp.UpdateDocumentFolder
+  parent: OSEUI.WPF.App.DesktopApp
+  name: UpdateDocumentFolder()
+  nameWithType: DesktopApp.UpdateDocumentFolder()
+  fullName: OSEUI.WPF.App.DesktopApp.UpdateDocumentFolder()
+  spec.csharp:
+  - uid: OSEUI.WPF.App.DesktopApp.UpdateDocumentFolder
+    name: UpdateDocumentFolder
+    nameWithType: DesktopApp.UpdateDocumentFolder
+    fullName: OSEUI.WPF.App.DesktopApp.UpdateDocumentFolder
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEUI.WPF.App.DesktopApp.UpdateDocumentFolder
+    name: UpdateDocumentFolder
+    nameWithType: DesktopApp.UpdateDocumentFolder
+    fullName: OSEUI.WPF.App.DesktopApp.UpdateDocumentFolder
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEUI.WPF.App
+  commentId: N:OSEUI.WPF.App
+  name: OSEUI.WPF.App
+  nameWithType: OSEUI.WPF.App
+  fullName: OSEUI.WPF.App
+- uid: OSEUIDesktop.WPF.Sample.App.#ctor*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.App.#ctor
+  name: App
+  nameWithType: App.App
+  fullName: OSEUIDesktop.WPF.Sample.App.App
+- uid: OSEUIDesktop.WPF.Sample.App.Instance*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.App.Instance
+  name: Instance
+  nameWithType: App.Instance
+  fullName: OSEUIDesktop.WPF.Sample.App.Instance
+- uid: OSEUIDesktop.WPF.Sample.App
+  commentId: T:OSEUIDesktop.WPF.Sample.App
+  parent: OSEUIDesktop.WPF.Sample
+  name: App
+  nameWithType: App
+  fullName: OSEUIDesktop.WPF.Sample.App
+- uid: OSEUIDesktop.WPF.Sample.App.Settings*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.App.Settings
+  name: Settings
+  nameWithType: App.Settings
+  fullName: OSEUIDesktop.WPF.Sample.App.Settings
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings
+  commentId: T:OSEUIDesktop.WPF.Sample.SampleSettings
+  parent: OSEUIDesktop.WPF.Sample
+  name: SampleSettings
+  nameWithType: SampleSettings
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings

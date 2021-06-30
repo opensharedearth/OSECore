@@ -1,0 +1,1239 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathTool.PathFolder
+  commentId: T:PathTool.PathFolder
+  id: PathFolder
+  parent: PathTool
+  children:
+  - PathTool.PathFolder.#ctor(System.String)
+  - PathTool.PathFolder.CompareTo(PathTool.PathFolder)
+  - PathTool.PathFolder.Equals(PathTool.PathFolder)
+  - PathTool.PathFolder.Equals(System.Object)
+  - PathTool.PathFolder.GetHashCode
+  - PathTool.PathFolder.GetStatusDescription(PathTool.FolderStatus)
+  - PathTool.PathFolder.HasInvalidPath
+  - PathTool.PathFolder.IsDuplicate
+  - PathTool.PathFolder.IsNullPath
+  - PathTool.PathFolder.IsUnreadable
+  - PathTool.PathFolder.IsValid
+  - PathTool.PathFolder.NonExtant
+  - PathTool.PathFolder.NotFullyQualified
+  - PathTool.PathFolder.op_Equality(PathTool.PathFolder,PathTool.PathFolder)
+  - PathTool.PathFolder.op_GreaterThan(PathTool.PathFolder,PathTool.PathFolder)
+  - PathTool.PathFolder.op_GreaterThanOrEqual(PathTool.PathFolder,PathTool.PathFolder)
+  - PathTool.PathFolder.op_Inequality(PathTool.PathFolder,PathTool.PathFolder)
+  - PathTool.PathFolder.op_LessThan(PathTool.PathFolder,PathTool.PathFolder)
+  - PathTool.PathFolder.op_LessThanOrEqual(PathTool.PathFolder,PathTool.PathFolder)
+  - PathTool.PathFolder.Path
+  - PathTool.PathFolder.Position
+  - PathTool.PathFolder.SetDuplicate
+  - PathTool.PathFolder.SetPosition(System.Int32)
+  - PathTool.PathFolder.ToString
+  - PathTool.PathFolder.ToVerboseString(System.String)
+  - PathTool.PathFolder.Validate(System.String)
+  langs:
+  - csharp
+  - vb
+  name: PathFolder
+  nameWithType: PathFolder
+  fullName: PathTool.PathFolder
+  type: Class
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: PathFolder
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 10
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: 'public class PathFolder : IEquatable<PathFolder>, IComparable<PathFolder>'
+    content.vb: >-
+      Public Class PathFolder
+          Inherits IEquatable(Of PathFolder)
+          Implements IComparable(Of PathFolder)
+  inheritance:
+  - System.Object
+  implements:
+  - IComparable{PathTool.PathFolder}
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: PathTool.PathFolder.Position
+  commentId: P:PathTool.PathFolder.Position
+  id: Position
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: PathFolder.Position
+  fullName: PathTool.PathFolder.Position
+  type: Property
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Position
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 14
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public int Position { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Position As Integer
+  overload: PathTool.PathFolder.Position*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: PathTool.PathFolder.Path
+  commentId: P:PathTool.PathFolder.Path
+  id: Path
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: Path
+  nameWithType: PathFolder.Path
+  fullName: PathTool.PathFolder.Path
+  type: Property
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Path
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 15
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public string Path { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Path As String
+  overload: PathTool.PathFolder.Path*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: PathTool.PathFolder.IsValid
+  commentId: P:PathTool.PathFolder.IsValid
+  id: IsValid
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: PathFolder.IsValid
+  fullName: PathTool.PathFolder.IsValid
+  type: Property
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: IsValid
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 18
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsValid As Boolean
+  overload: PathTool.PathFolder.IsValid*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: PathTool.PathFolder.IsNullPath
+  commentId: P:PathTool.PathFolder.IsNullPath
+  id: IsNullPath
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: IsNullPath
+  nameWithType: PathFolder.IsNullPath
+  fullName: PathTool.PathFolder.IsNullPath
+  type: Property
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: IsNullPath
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 19
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public bool IsNullPath { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsNullPath As Boolean
+  overload: PathTool.PathFolder.IsNullPath*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: PathTool.PathFolder.HasInvalidPath
+  commentId: P:PathTool.PathFolder.HasInvalidPath
+  id: HasInvalidPath
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: HasInvalidPath
+  nameWithType: PathFolder.HasInvalidPath
+  fullName: PathTool.PathFolder.HasInvalidPath
+  type: Property
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: HasInvalidPath
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 20
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public bool HasInvalidPath { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasInvalidPath As Boolean
+  overload: PathTool.PathFolder.HasInvalidPath*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: PathTool.PathFolder.NotFullyQualified
+  commentId: P:PathTool.PathFolder.NotFullyQualified
+  id: NotFullyQualified
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: NotFullyQualified
+  nameWithType: PathFolder.NotFullyQualified
+  fullName: PathTool.PathFolder.NotFullyQualified
+  type: Property
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: NotFullyQualified
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 21
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public bool NotFullyQualified { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property NotFullyQualified As Boolean
+  overload: PathTool.PathFolder.NotFullyQualified*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: PathTool.PathFolder.NonExtant
+  commentId: P:PathTool.PathFolder.NonExtant
+  id: NonExtant
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: NonExtant
+  nameWithType: PathFolder.NonExtant
+  fullName: PathTool.PathFolder.NonExtant
+  type: Property
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: NonExtant
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 22
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public bool NonExtant { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property NonExtant As Boolean
+  overload: PathTool.PathFolder.NonExtant*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: PathTool.PathFolder.IsUnreadable
+  commentId: P:PathTool.PathFolder.IsUnreadable
+  id: IsUnreadable
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: IsUnreadable
+  nameWithType: PathFolder.IsUnreadable
+  fullName: PathTool.PathFolder.IsUnreadable
+  type: Property
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: IsUnreadable
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 23
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public bool IsUnreadable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsUnreadable As Boolean
+  overload: PathTool.PathFolder.IsUnreadable*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: PathTool.PathFolder.IsDuplicate
+  commentId: P:PathTool.PathFolder.IsDuplicate
+  id: IsDuplicate
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: IsDuplicate
+  nameWithType: PathFolder.IsDuplicate
+  fullName: PathTool.PathFolder.IsDuplicate
+  type: Property
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: IsDuplicate
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 24
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public bool IsDuplicate { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsDuplicate As Boolean
+  overload: PathTool.PathFolder.IsDuplicate*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: PathTool.PathFolder.SetDuplicate
+  commentId: M:PathTool.PathFolder.SetDuplicate
+  id: SetDuplicate
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: SetDuplicate()
+  nameWithType: PathFolder.SetDuplicate()
+  fullName: PathTool.PathFolder.SetDuplicate()
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: SetDuplicate
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 25
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public void SetDuplicate()
+    content.vb: Public Sub SetDuplicate
+  overload: PathTool.PathFolder.SetDuplicate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolder.#ctor(System.String)
+  commentId: M:PathTool.PathFolder.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: PathFolder(String)
+  nameWithType: PathFolder.PathFolder(String)
+  fullName: PathTool.PathFolder.PathFolder(System.String)
+  type: Constructor
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 29
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public PathFolder(string path)
+    parameters:
+    - id: path
+      type: System.String
+    content.vb: Public Sub New(path As String)
+  overload: PathTool.PathFolder.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolder.Validate(System.String)
+  commentId: M:PathTool.PathFolder.Validate(System.String)
+  id: Validate(System.String)
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: Validate(String)
+  nameWithType: PathFolder.Validate(String)
+  fullName: PathTool.PathFolder.Validate(System.String)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Validate
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 35
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static FolderStatus Validate(string path)
+    parameters:
+    - id: path
+      type: System.String
+    return:
+      type: PathTool.FolderStatus
+    content.vb: Public Shared Function Validate(path As String) As FolderStatus
+  overload: PathTool.PathFolder.Validate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: PathTool.PathFolder.SetPosition(System.Int32)
+  commentId: M:PathTool.PathFolder.SetPosition(System.Int32)
+  id: SetPosition(System.Int32)
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: SetPosition(Int32)
+  nameWithType: PathFolder.SetPosition(Int32)
+  fullName: PathTool.PathFolder.SetPosition(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: SetPosition
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 60
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public void SetPosition(int position)
+    parameters:
+    - id: position
+      type: System.Int32
+    content.vb: Public Sub SetPosition(position As Integer)
+  overload: PathTool.PathFolder.SetPosition*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolder.Equals(PathTool.PathFolder)
+  commentId: M:PathTool.PathFolder.Equals(PathTool.PathFolder)
+  id: Equals(PathTool.PathFolder)
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: Equals(PathFolder)
+  nameWithType: PathFolder.Equals(PathFolder)
+  fullName: PathTool.PathFolder.Equals(PathTool.PathFolder)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Equals
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 65
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public bool Equals(PathFolder other)
+    parameters:
+    - id: other
+      type: PathTool.PathFolder
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As PathFolder) As Boolean
+  overload: PathTool.PathFolder.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolder.CompareTo(PathTool.PathFolder)
+  commentId: M:PathTool.PathFolder.CompareTo(PathTool.PathFolder)
+  id: CompareTo(PathTool.PathFolder)
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: CompareTo(PathFolder)
+  nameWithType: PathFolder.CompareTo(PathFolder)
+  fullName: PathTool.PathFolder.CompareTo(PathTool.PathFolder)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: CompareTo
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 73
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public int CompareTo(PathFolder other)
+    parameters:
+    - id: other
+      type: PathTool.PathFolder
+    return:
+      type: System.Int32
+    content.vb: Public Function CompareTo(other As PathFolder) As Integer
+  overload: PathTool.PathFolder.CompareTo*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolder.Equals(System.Object)
+  commentId: M:PathTool.PathFolder.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: Equals(Object)
+  nameWithType: PathFolder.Equals(Object)
+  fullName: PathTool.PathFolder.Equals(System.Object)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Equals
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 80
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overload: PathTool.PathFolder.Equals*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: PathTool.PathFolder.GetHashCode
+  commentId: M:PathTool.PathFolder.GetHashCode
+  id: GetHashCode
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PathFolder.GetHashCode()
+  fullName: PathTool.PathFolder.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: GetHashCode
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 86
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overload: PathTool.PathFolder.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: PathTool.PathFolder.op_Equality(PathTool.PathFolder,PathTool.PathFolder)
+  commentId: M:PathTool.PathFolder.op_Equality(PathTool.PathFolder,PathTool.PathFolder)
+  id: op_Equality(PathTool.PathFolder,PathTool.PathFolder)
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: Equality(PathFolder, PathFolder)
+  nameWithType: PathFolder.Equality(PathFolder, PathFolder)
+  fullName: PathTool.PathFolder.Equality(PathTool.PathFolder, PathTool.PathFolder)
+  type: Operator
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: op_Equality
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 90
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static bool operator ==(PathFolder a, PathFolder b)
+    parameters:
+    - id: a
+      type: PathTool.PathFolder
+    - id: b
+      type: PathTool.PathFolder
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(a As PathFolder, b As PathFolder) As Boolean
+  overload: PathTool.PathFolder.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: PathTool.PathFolder.op_Inequality(PathTool.PathFolder,PathTool.PathFolder)
+  commentId: M:PathTool.PathFolder.op_Inequality(PathTool.PathFolder,PathTool.PathFolder)
+  id: op_Inequality(PathTool.PathFolder,PathTool.PathFolder)
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: Inequality(PathFolder, PathFolder)
+  nameWithType: PathFolder.Inequality(PathFolder, PathFolder)
+  fullName: PathTool.PathFolder.Inequality(PathTool.PathFolder, PathTool.PathFolder)
+  type: Operator
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: op_Inequality
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 98
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static bool operator !=(PathFolder a, PathFolder b)
+    parameters:
+    - id: a
+      type: PathTool.PathFolder
+    - id: b
+      type: PathTool.PathFolder
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(a As PathFolder, b As PathFolder) As Boolean
+  overload: PathTool.PathFolder.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: PathTool.PathFolder.op_LessThan(PathTool.PathFolder,PathTool.PathFolder)
+  commentId: M:PathTool.PathFolder.op_LessThan(PathTool.PathFolder,PathTool.PathFolder)
+  id: op_LessThan(PathTool.PathFolder,PathTool.PathFolder)
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: LessThan(PathFolder, PathFolder)
+  nameWithType: PathFolder.LessThan(PathFolder, PathFolder)
+  fullName: PathTool.PathFolder.LessThan(PathTool.PathFolder, PathTool.PathFolder)
+  type: Operator
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: op_LessThan
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 106
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static bool operator <(PathFolder a, PathFolder b)
+    parameters:
+    - id: a
+      type: PathTool.PathFolder
+    - id: b
+      type: PathTool.PathFolder
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <(a As PathFolder, b As PathFolder) As Boolean
+  overload: PathTool.PathFolder.op_LessThan*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: PathTool.PathFolder.op_LessThanOrEqual(PathTool.PathFolder,PathTool.PathFolder)
+  commentId: M:PathTool.PathFolder.op_LessThanOrEqual(PathTool.PathFolder,PathTool.PathFolder)
+  id: op_LessThanOrEqual(PathTool.PathFolder,PathTool.PathFolder)
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: LessThanOrEqual(PathFolder, PathFolder)
+  nameWithType: PathFolder.LessThanOrEqual(PathFolder, PathFolder)
+  fullName: PathTool.PathFolder.LessThanOrEqual(PathTool.PathFolder, PathTool.PathFolder)
+  type: Operator
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: op_LessThanOrEqual
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 114
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static bool operator <=(PathFolder a, PathFolder b)
+    parameters:
+    - id: a
+      type: PathTool.PathFolder
+    - id: b
+      type: PathTool.PathFolder
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <=(a As PathFolder, b As PathFolder) As Boolean
+  overload: PathTool.PathFolder.op_LessThanOrEqual*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: PathTool.PathFolder.op_GreaterThan(PathTool.PathFolder,PathTool.PathFolder)
+  commentId: M:PathTool.PathFolder.op_GreaterThan(PathTool.PathFolder,PathTool.PathFolder)
+  id: op_GreaterThan(PathTool.PathFolder,PathTool.PathFolder)
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: GreaterThan(PathFolder, PathFolder)
+  nameWithType: PathFolder.GreaterThan(PathFolder, PathFolder)
+  fullName: PathTool.PathFolder.GreaterThan(PathTool.PathFolder, PathTool.PathFolder)
+  type: Operator
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: op_GreaterThan
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 122
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static bool operator>(PathFolder a, PathFolder b)
+    parameters:
+    - id: a
+      type: PathTool.PathFolder
+    - id: b
+      type: PathTool.PathFolder
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator>(a As PathFolder, b As PathFolder) As Boolean
+  overload: PathTool.PathFolder.op_GreaterThan*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: PathTool.PathFolder.op_GreaterThanOrEqual(PathTool.PathFolder,PathTool.PathFolder)
+  commentId: M:PathTool.PathFolder.op_GreaterThanOrEqual(PathTool.PathFolder,PathTool.PathFolder)
+  id: op_GreaterThanOrEqual(PathTool.PathFolder,PathTool.PathFolder)
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: GreaterThanOrEqual(PathFolder, PathFolder)
+  nameWithType: PathFolder.GreaterThanOrEqual(PathFolder, PathFolder)
+  fullName: PathTool.PathFolder.GreaterThanOrEqual(PathTool.PathFolder, PathTool.PathFolder)
+  type: Operator
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: op_GreaterThanOrEqual
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 130
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static bool operator >=(PathFolder a, PathFolder b)
+    parameters:
+    - id: a
+      type: PathTool.PathFolder
+    - id: b
+      type: PathTool.PathFolder
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator >=(a As PathFolder, b As PathFolder) As Boolean
+  overload: PathTool.PathFolder.op_GreaterThanOrEqual*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: PathTool.PathFolder.ToString
+  commentId: M:PathTool.PathFolder.ToString
+  id: ToString
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: PathFolder.ToString()
+  fullName: PathTool.PathFolder.ToString()
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ToString
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 138
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overload: PathTool.PathFolder.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: PathTool.PathFolder.ToVerboseString(System.String)
+  commentId: M:PathTool.PathFolder.ToVerboseString(System.String)
+  id: ToVerboseString(System.String)
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: ToVerboseString(String)
+  nameWithType: PathFolder.ToVerboseString(String)
+  fullName: PathTool.PathFolder.ToVerboseString(System.String)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ToVerboseString
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 142
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public string ToVerboseString(string format = "{0,8:d} {1,-16:s} {2:s}")
+    parameters:
+    - id: format
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function ToVerboseString(format As String = "{0,8:d} {1,-16:s} {2:s}") As String
+  overload: PathTool.PathFolder.ToVerboseString*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolder.GetStatusDescription(PathTool.FolderStatus)
+  commentId: M:PathTool.PathFolder.GetStatusDescription(PathTool.FolderStatus)
+  id: GetStatusDescription(PathTool.FolderStatus)
+  parent: PathTool.PathFolder
+  langs:
+  - csharp
+  - vb
+  name: GetStatusDescription(FolderStatus)
+  nameWithType: PathFolder.GetStatusDescription(FolderStatus)
+  fullName: PathTool.PathFolder.GetStatusDescription(PathTool.FolderStatus)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolder.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: GetStatusDescription
+    path: ../sample/PathTool/PathFolder.cs
+    startLine: 146
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static string GetStatusDescription(FolderStatus status)
+    parameters:
+    - id: status
+      type: PathTool.FolderStatus
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetStatusDescription(status As FolderStatus) As String
+  overload: PathTool.PathFolder.GetStatusDescription*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: PathTool
+  commentId: N:PathTool
+  name: PathTool
+  nameWithType: PathTool
+  fullName: PathTool
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: IComparable{PathTool.PathFolder}
+  commentId: '!:IComparable{PathTool.PathFolder}'
+  definition: IComparable`1
+  name: IComparable<PathFolder>
+  nameWithType: IComparable<PathFolder>
+  fullName: IComparable<PathTool.PathFolder>
+  nameWithType.vb: IComparable(Of PathFolder)
+  fullName.vb: IComparable(Of PathTool.PathFolder)
+  name.vb: IComparable(Of PathFolder)
+  spec.csharp:
+  - uid: IComparable`1
+    name: IComparable
+    nameWithType: IComparable
+    fullName: IComparable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: PathTool.PathFolder
+    name: PathFolder
+    nameWithType: PathFolder
+    fullName: PathTool.PathFolder
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IComparable`1
+    name: IComparable
+    nameWithType: IComparable
+    fullName: IComparable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: PathTool.PathFolder
+    name: PathFolder
+    nameWithType: PathFolder
+    fullName: PathTool.PathFolder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IComparable`1
+  commentId: '!:IComparable`1'
+  isExternal: true
+  name: IComparable<>
+  nameWithType: IComparable<>
+  fullName: IComparable<>
+  nameWithType.vb: IComparable(Of )
+  fullName.vb: IComparable(Of )
+  name.vb: IComparable(Of )
+  spec.csharp:
+  - uid: IComparable`1
+    name: IComparable
+    nameWithType: IComparable
+    fullName: IComparable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IComparable`1
+    name: IComparable
+    nameWithType: IComparable
+    fullName: IComparable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: PathTool.PathFolder.Position*
+  commentId: Overload:PathTool.PathFolder.Position
+  name: Position
+  nameWithType: PathFolder.Position
+  fullName: PathTool.PathFolder.Position
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: PathTool.PathFolder.Path*
+  commentId: Overload:PathTool.PathFolder.Path
+  name: Path
+  nameWithType: PathFolder.Path
+  fullName: PathTool.PathFolder.Path
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: PathTool.PathFolder.IsValid*
+  commentId: Overload:PathTool.PathFolder.IsValid
+  name: IsValid
+  nameWithType: PathFolder.IsValid
+  fullName: PathTool.PathFolder.IsValid
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: PathTool.PathFolder.IsNullPath*
+  commentId: Overload:PathTool.PathFolder.IsNullPath
+  name: IsNullPath
+  nameWithType: PathFolder.IsNullPath
+  fullName: PathTool.PathFolder.IsNullPath
+- uid: PathTool.PathFolder.HasInvalidPath*
+  commentId: Overload:PathTool.PathFolder.HasInvalidPath
+  name: HasInvalidPath
+  nameWithType: PathFolder.HasInvalidPath
+  fullName: PathTool.PathFolder.HasInvalidPath
+- uid: PathTool.PathFolder.NotFullyQualified*
+  commentId: Overload:PathTool.PathFolder.NotFullyQualified
+  name: NotFullyQualified
+  nameWithType: PathFolder.NotFullyQualified
+  fullName: PathTool.PathFolder.NotFullyQualified
+- uid: PathTool.PathFolder.NonExtant*
+  commentId: Overload:PathTool.PathFolder.NonExtant
+  name: NonExtant
+  nameWithType: PathFolder.NonExtant
+  fullName: PathTool.PathFolder.NonExtant
+- uid: PathTool.PathFolder.IsUnreadable*
+  commentId: Overload:PathTool.PathFolder.IsUnreadable
+  name: IsUnreadable
+  nameWithType: PathFolder.IsUnreadable
+  fullName: PathTool.PathFolder.IsUnreadable
+- uid: PathTool.PathFolder.IsDuplicate*
+  commentId: Overload:PathTool.PathFolder.IsDuplicate
+  name: IsDuplicate
+  nameWithType: PathFolder.IsDuplicate
+  fullName: PathTool.PathFolder.IsDuplicate
+- uid: PathTool.PathFolder.SetDuplicate*
+  commentId: Overload:PathTool.PathFolder.SetDuplicate
+  name: SetDuplicate
+  nameWithType: PathFolder.SetDuplicate
+  fullName: PathTool.PathFolder.SetDuplicate
+- uid: PathTool.PathFolder.#ctor*
+  commentId: Overload:PathTool.PathFolder.#ctor
+  name: PathFolder
+  nameWithType: PathFolder.PathFolder
+  fullName: PathTool.PathFolder.PathFolder
+- uid: PathTool.PathFolder.Validate*
+  commentId: Overload:PathTool.PathFolder.Validate
+  name: Validate
+  nameWithType: PathFolder.Validate
+  fullName: PathTool.PathFolder.Validate
+- uid: PathTool.FolderStatus
+  commentId: T:PathTool.FolderStatus
+  parent: PathTool
+  name: FolderStatus
+  nameWithType: FolderStatus
+  fullName: PathTool.FolderStatus
+- uid: PathTool.PathFolder.SetPosition*
+  commentId: Overload:PathTool.PathFolder.SetPosition
+  name: SetPosition
+  nameWithType: PathFolder.SetPosition
+  fullName: PathTool.PathFolder.SetPosition
+- uid: PathTool.PathFolder.Equals*
+  commentId: Overload:PathTool.PathFolder.Equals
+  name: Equals
+  nameWithType: PathFolder.Equals
+  fullName: PathTool.PathFolder.Equals
+- uid: PathTool.PathFolder
+  commentId: T:PathTool.PathFolder
+  parent: PathTool
+  name: PathFolder
+  nameWithType: PathFolder
+  fullName: PathTool.PathFolder
+- uid: PathTool.PathFolder.CompareTo*
+  commentId: Overload:PathTool.PathFolder.CompareTo
+  name: CompareTo
+  nameWithType: PathFolder.CompareTo
+  fullName: PathTool.PathFolder.CompareTo
+- uid: PathTool.PathFolder.GetHashCode*
+  commentId: Overload:PathTool.PathFolder.GetHashCode
+  name: GetHashCode
+  nameWithType: PathFolder.GetHashCode
+  fullName: PathTool.PathFolder.GetHashCode
+- uid: PathTool.PathFolder.op_Equality*
+  commentId: Overload:PathTool.PathFolder.op_Equality
+  name: Equality
+  nameWithType: PathFolder.Equality
+  fullName: PathTool.PathFolder.Equality
+- uid: PathTool.PathFolder.op_Inequality*
+  commentId: Overload:PathTool.PathFolder.op_Inequality
+  name: Inequality
+  nameWithType: PathFolder.Inequality
+  fullName: PathTool.PathFolder.Inequality
+- uid: PathTool.PathFolder.op_LessThan*
+  commentId: Overload:PathTool.PathFolder.op_LessThan
+  name: LessThan
+  nameWithType: PathFolder.LessThan
+  fullName: PathTool.PathFolder.LessThan
+- uid: PathTool.PathFolder.op_LessThanOrEqual*
+  commentId: Overload:PathTool.PathFolder.op_LessThanOrEqual
+  name: LessThanOrEqual
+  nameWithType: PathFolder.LessThanOrEqual
+  fullName: PathTool.PathFolder.LessThanOrEqual
+- uid: PathTool.PathFolder.op_GreaterThan*
+  commentId: Overload:PathTool.PathFolder.op_GreaterThan
+  name: GreaterThan
+  nameWithType: PathFolder.GreaterThan
+  fullName: PathTool.PathFolder.GreaterThan
+- uid: PathTool.PathFolder.op_GreaterThanOrEqual*
+  commentId: Overload:PathTool.PathFolder.op_GreaterThanOrEqual
+  name: GreaterThanOrEqual
+  nameWithType: PathFolder.GreaterThanOrEqual
+  fullName: PathTool.PathFolder.GreaterThanOrEqual
+- uid: PathTool.PathFolder.ToString*
+  commentId: Overload:PathTool.PathFolder.ToString
+  name: ToString
+  nameWithType: PathFolder.ToString
+  fullName: PathTool.PathFolder.ToString
+- uid: PathTool.PathFolder.ToVerboseString*
+  commentId: Overload:PathTool.PathFolder.ToVerboseString
+  name: ToVerboseString
+  nameWithType: PathFolder.ToVerboseString
+  fullName: PathTool.PathFolder.ToVerboseString
+- uid: PathTool.PathFolder.GetStatusDescription*
+  commentId: Overload:PathTool.PathFolder.GetStatusDescription
+  name: GetStatusDescription
+  nameWithType: PathFolder.GetStatusDescription
+  fullName: PathTool.PathFolder.GetStatusDescription

@@ -1,0 +1,394 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIControls.WPF.Gallery.MainViewModel
+  commentId: T:OSEUIControls.WPF.Gallery.MainViewModel
+  id: MainViewModel
+  parent: OSEUIControls.WPF.Gallery
+  children:
+  - OSEUIControls.WPF.Gallery.MainViewModel.ActualTicks
+  - OSEUIControls.WPF.Gallery.MainViewModel.DesiredTicks
+  - OSEUIControls.WPF.Gallery.MainViewModel.Max
+  - OSEUIControls.WPF.Gallery.MainViewModel.Min
+  - OSEUIControls.WPF.Gallery.MainViewModel.OnPropertyChanged(System.String)
+  - OSEUIControls.WPF.Gallery.MainViewModel.PropertyChanged
+  - OSEUIControls.WPF.Gallery.MainViewModel.TickIncrement
+  - OSEUIControls.WPF.Gallery.MainViewModel.UndoRedo
+  langs:
+  - csharp
+  - vb
+  name: MainViewModel
+  nameWithType: MainViewModel
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: MainViewModel
+    path: ../sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+    startLine: 11
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+  namespace: OSEUIControls.WPF.Gallery
+  syntax:
+    content: 'public class MainViewModel : INotifyPropertyChanged'
+    content.vb: >-
+      Public Class MainViewModel
+          Inherits INotifyPropertyChanged
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.PropertyChanged
+  commentId: E:OSEUIControls.WPF.Gallery.MainViewModel.PropertyChanged
+  id: PropertyChanged
+  parent: OSEUIControls.WPF.Gallery.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: MainViewModel.PropertyChanged
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.PropertyChanged
+  type: Event
+  source:
+    remote:
+      path: sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: PropertyChanged
+    path: ../sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+    startLine: 13
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+  namespace: OSEUIControls.WPF.Gallery
+  syntax:
+    content: public event PropertyChangedEventHandler PropertyChanged
+    return:
+      type: PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.UndoRedo
+  commentId: P:OSEUIControls.WPF.Gallery.MainViewModel.UndoRedo
+  id: UndoRedo
+  parent: OSEUIControls.WPF.Gallery.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: UndoRedo
+  nameWithType: MainViewModel.UndoRedo
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.UndoRedo
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: UndoRedo
+    path: ../sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+    startLine: 19
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+  namespace: OSEUIControls.WPF.Gallery
+  syntax:
+    content: public UndoRedoFrameworkView UndoRedo { get; }
+    parameters: []
+    return:
+      type: UndoRedoFrameworkView
+    content.vb: Public ReadOnly Property UndoRedo As UndoRedoFrameworkView
+  overload: OSEUIControls.WPF.Gallery.MainViewModel.UndoRedo*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.Min
+  commentId: P:OSEUIControls.WPF.Gallery.MainViewModel.Min
+  id: Min
+  parent: OSEUIControls.WPF.Gallery.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: Min
+  nameWithType: MainViewModel.Min
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.Min
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Min
+    path: ../sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+    startLine: 22
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+  namespace: OSEUIControls.WPF.Gallery
+  syntax:
+    content: public double Min { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Min As Double
+  overload: OSEUIControls.WPF.Gallery.MainViewModel.Min*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.Max
+  commentId: P:OSEUIControls.WPF.Gallery.MainViewModel.Max
+  id: Max
+  parent: OSEUIControls.WPF.Gallery.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: Max
+  nameWithType: MainViewModel.Max
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.Max
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Max
+    path: ../sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+    startLine: 35
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+  namespace: OSEUIControls.WPF.Gallery
+  syntax:
+    content: public double Max { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Max As Double
+  overload: OSEUIControls.WPF.Gallery.MainViewModel.Max*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.DesiredTicks
+  commentId: P:OSEUIControls.WPF.Gallery.MainViewModel.DesiredTicks
+  id: DesiredTicks
+  parent: OSEUIControls.WPF.Gallery.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: DesiredTicks
+  nameWithType: MainViewModel.DesiredTicks
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.DesiredTicks
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: DesiredTicks
+    path: ../sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+    startLine: 48
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+  namespace: OSEUIControls.WPF.Gallery
+  syntax:
+    content: public int DesiredTicks { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DesiredTicks As Integer
+  overload: OSEUIControls.WPF.Gallery.MainViewModel.DesiredTicks*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.ActualTicks
+  commentId: P:OSEUIControls.WPF.Gallery.MainViewModel.ActualTicks
+  id: ActualTicks
+  parent: OSEUIControls.WPF.Gallery.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: ActualTicks
+  nameWithType: MainViewModel.ActualTicks
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.ActualTicks
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ActualTicks
+    path: ../sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+    startLine: 61
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+  namespace: OSEUIControls.WPF.Gallery
+  syntax:
+    content: public int ActualTicks { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ActualTicks As Integer
+  overload: OSEUIControls.WPF.Gallery.MainViewModel.ActualTicks*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.TickIncrement
+  commentId: P:OSEUIControls.WPF.Gallery.MainViewModel.TickIncrement
+  id: TickIncrement
+  parent: OSEUIControls.WPF.Gallery.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: TickIncrement
+  nameWithType: MainViewModel.TickIncrement
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.TickIncrement
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: TickIncrement
+    path: ../sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+    startLine: 74
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+  namespace: OSEUIControls.WPF.Gallery
+  syntax:
+    content: public double TickIncrement { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property TickIncrement As Double
+  overload: OSEUIControls.WPF.Gallery.MainViewModel.TickIncrement*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.OnPropertyChanged(System.String)
+  commentId: M:OSEUIControls.WPF.Gallery.MainViewModel.OnPropertyChanged(System.String)
+  id: OnPropertyChanged(System.String)
+  parent: OSEUIControls.WPF.Gallery.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: OnPropertyChanged(String)
+  nameWithType: MainViewModel.OnPropertyChanged(String)
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.OnPropertyChanged(System.String)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: OnPropertyChanged
+    path: ../sample/OSEUIControls.WPF.Gallery/MainViewModel.cs
+    startLine: 87
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+  namespace: OSEUIControls.WPF.Gallery
+  syntax:
+    content: protected virtual void OnPropertyChanged(string propertyName = null)
+    parameters:
+    - id: propertyName
+      type: System.String
+    content.vb: Protected Overridable Sub OnPropertyChanged(propertyName As String = Nothing)
+  overload: OSEUIControls.WPF.Gallery.MainViewModel.OnPropertyChanged*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+references:
+- uid: OSEUIControls.WPF.Gallery
+  commentId: N:OSEUIControls.WPF.Gallery
+  name: OSEUIControls.WPF.Gallery
+  nameWithType: OSEUIControls.WPF.Gallery
+  fullName: OSEUIControls.WPF.Gallery
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: PropertyChangedEventHandler
+  isExternal: true
+  name: PropertyChangedEventHandler
+  nameWithType: PropertyChangedEventHandler
+  fullName: PropertyChangedEventHandler
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.UndoRedo*
+  commentId: Overload:OSEUIControls.WPF.Gallery.MainViewModel.UndoRedo
+  name: UndoRedo
+  nameWithType: MainViewModel.UndoRedo
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.UndoRedo
+- uid: UndoRedoFrameworkView
+  commentId: '!:UndoRedoFrameworkView'
+  isExternal: true
+  name: UndoRedoFrameworkView
+  nameWithType: UndoRedoFrameworkView
+  fullName: UndoRedoFrameworkView
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.Min*
+  commentId: Overload:OSEUIControls.WPF.Gallery.MainViewModel.Min
+  name: Min
+  nameWithType: MainViewModel.Min
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.Min
+- uid: System.Double
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.Max*
+  commentId: Overload:OSEUIControls.WPF.Gallery.MainViewModel.Max
+  name: Max
+  nameWithType: MainViewModel.Max
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.Max
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.DesiredTicks*
+  commentId: Overload:OSEUIControls.WPF.Gallery.MainViewModel.DesiredTicks
+  name: DesiredTicks
+  nameWithType: MainViewModel.DesiredTicks
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.DesiredTicks
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.ActualTicks*
+  commentId: Overload:OSEUIControls.WPF.Gallery.MainViewModel.ActualTicks
+  name: ActualTicks
+  nameWithType: MainViewModel.ActualTicks
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.ActualTicks
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.TickIncrement*
+  commentId: Overload:OSEUIControls.WPF.Gallery.MainViewModel.TickIncrement
+  name: TickIncrement
+  nameWithType: MainViewModel.TickIncrement
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.TickIncrement
+- uid: OSEUIControls.WPF.Gallery.MainViewModel.OnPropertyChanged*
+  commentId: Overload:OSEUIControls.WPF.Gallery.MainViewModel.OnPropertyChanged
+  name: OnPropertyChanged
+  nameWithType: MainViewModel.OnPropertyChanged
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel.OnPropertyChanged
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String

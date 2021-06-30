@@ -1,0 +1,66 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathTool
+  commentId: N:PathTool
+  id: PathTool
+  children:
+  - PathTool.FolderStatus
+  - PathTool.PathFolder
+  - PathTool.PathFolderOptions
+  - PathTool.PathFolders
+  - PathTool.PathToolCommands
+  - PathTool.PathToolCommands.Names
+  - PathTool.Program
+  langs:
+  - csharp
+  - vb
+  name: PathTool
+  nameWithType: PathTool
+  fullName: PathTool
+  type: Namespace
+  assemblies:
+  - pathtool
+references:
+- uid: PathTool.FolderStatus
+  commentId: T:PathTool.FolderStatus
+  parent: PathTool
+  name: FolderStatus
+  nameWithType: FolderStatus
+  fullName: PathTool.FolderStatus
+- uid: PathTool.PathFolder
+  commentId: T:PathTool.PathFolder
+  parent: PathTool
+  name: PathFolder
+  nameWithType: PathFolder
+  fullName: PathTool.PathFolder
+- uid: PathTool.PathFolderOptions
+  commentId: T:PathTool.PathFolderOptions
+  parent: PathTool
+  name: PathFolderOptions
+  nameWithType: PathFolderOptions
+  fullName: PathTool.PathFolderOptions
+- uid: PathTool.PathFolders
+  commentId: T:PathTool.PathFolders
+  name: PathFolders
+  nameWithType: PathFolders
+  fullName: PathTool.PathFolders
+- uid: PathTool.PathToolCommands
+  commentId: T:PathTool.PathToolCommands
+  name: PathToolCommands
+  nameWithType: PathToolCommands
+  fullName: PathTool.PathToolCommands
+- uid: PathTool.PathToolCommands.Names
+  commentId: T:PathTool.PathToolCommands.Names
+  name: PathToolCommands.Names
+  nameWithType: PathToolCommands.Names
+  fullName: PathTool.PathToolCommands.Names
+- uid: PathTool.Program
+  commentId: T:PathTool.Program
+  name: Program
+  nameWithType: Program
+  fullName: PathTool.Program
+- uid: PathTool
+  commentId: N:PathTool
+  name: PathTool
+  nameWithType: PathTool
+  fullName: PathTool

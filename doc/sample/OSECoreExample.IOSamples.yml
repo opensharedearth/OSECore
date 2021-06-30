@@ -1,0 +1,49 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSECoreExample.IOSamples
+  commentId: T:OSECoreExample.IOSamples
+  id: IOSamples
+  parent: OSECoreExample
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IOSamples
+  nameWithType: IOSamples
+  fullName: OSECoreExample.IOSamples
+  type: Class
+  source:
+    remote:
+      path: sample/OSECoreSamples/IOSamples.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: IOSamples
+    path: ../sample/OSECoreSamples/IOSamples.cs
+    startLine: 6
+  assemblies:
+  - OSECoreSamples
+  namespace: OSECoreExample
+  syntax:
+    content: 'public class IOSamples : object'
+    content.vb: >-
+      Public Class IOSamples
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+references:
+- uid: OSECoreExample
+  commentId: N:OSECoreExample
+  name: OSECoreExample
+  nameWithType: OSECoreExample
+  fullName: OSECoreExample
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object

@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FMTool
+namespace OSECore.Windows
 {
     public static class StringExtensions
     {

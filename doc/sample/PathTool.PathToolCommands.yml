@@ -1,0 +1,376 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathTool.PathToolCommands
+  commentId: T:PathTool.PathToolCommands
+  id: PathToolCommands
+  parent: PathTool
+  children:
+  - PathTool.PathToolCommands.AddCommand(CommandLineProto,CommandLine)
+  - PathTool.PathToolCommands.CleanCommand(CommandLineProto,CommandLine)
+  - PathTool.PathToolCommands.GetPathFolderOptions(CommandLine)
+  - PathTool.PathToolCommands.ListCommand(CommandLineProto,CommandLine)
+  - PathTool.PathToolCommands.MoveCommand(CommandLineProto,CommandLine)
+  - PathTool.PathToolCommands.RegisterAll
+  - PathTool.PathToolCommands.RemoveCommand(CommandLineProto,CommandLine)
+  langs:
+  - csharp
+  - vb
+  name: PathToolCommands
+  nameWithType: PathToolCommands
+  fullName: PathTool.PathToolCommands
+  type: Class
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: PathToolCommands
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 13
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: 'public class PathToolCommands : object'
+    content.vb: >-
+      Public Class PathToolCommands
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: PathTool.PathToolCommands.RegisterAll
+  commentId: M:PathTool.PathToolCommands.RegisterAll
+  id: RegisterAll
+  parent: PathTool.PathToolCommands
+  langs:
+  - csharp
+  - vb
+  name: RegisterAll()
+  nameWithType: PathToolCommands.RegisterAll()
+  fullName: PathTool.PathToolCommands.RegisterAll()
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: RegisterAll
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 43
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static void RegisterAll()
+    content.vb: Public Shared Sub RegisterAll
+  overload: PathTool.PathToolCommands.RegisterAll*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: PathTool.PathToolCommands.GetPathFolderOptions(CommandLine)
+  commentId: M:PathTool.PathToolCommands.GetPathFolderOptions(CommandLine)
+  id: GetPathFolderOptions(CommandLine)
+  parent: PathTool.PathToolCommands
+  langs:
+  - csharp
+  - vb
+  name: GetPathFolderOptions(CommandLine)
+  nameWithType: PathToolCommands.GetPathFolderOptions(CommandLine)
+  fullName: PathTool.PathToolCommands.GetPathFolderOptions(CommandLine)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: GetPathFolderOptions
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 136
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static PathFolderOptions GetPathFolderOptions(CommandLine args)
+    parameters:
+    - id: args
+      type: CommandLine
+    return:
+      type: PathTool.PathFolderOptions
+    content.vb: Public Shared Function GetPathFolderOptions(args As CommandLine) As PathFolderOptions
+  overload: PathTool.PathToolCommands.GetPathFolderOptions*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: PathTool.PathToolCommands.RemoveCommand(CommandLineProto,CommandLine)
+  commentId: M:PathTool.PathToolCommands.RemoveCommand(CommandLineProto,CommandLine)
+  id: RemoveCommand(CommandLineProto,CommandLine)
+  parent: PathTool.PathToolCommands
+  langs:
+  - csharp
+  - vb
+  name: RemoveCommand(CommandLineProto, CommandLine)
+  nameWithType: PathToolCommands.RemoveCommand(CommandLineProto, CommandLine)
+  fullName: PathTool.PathToolCommands.RemoveCommand(CommandLineProto, CommandLine)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: RemoveCommand
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 153
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static CommandResult RemoveCommand(CommandLineProto proto, CommandLine args)
+    parameters:
+    - id: proto
+      type: CommandLineProto
+    - id: args
+      type: CommandLine
+    return:
+      type: CommandResult
+    content.vb: Public Shared Function RemoveCommand(proto As CommandLineProto, args As CommandLine) As CommandResult
+  overload: PathTool.PathToolCommands.RemoveCommand*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: PathTool.PathToolCommands.MoveCommand(CommandLineProto,CommandLine)
+  commentId: M:PathTool.PathToolCommands.MoveCommand(CommandLineProto,CommandLine)
+  id: MoveCommand(CommandLineProto,CommandLine)
+  parent: PathTool.PathToolCommands
+  langs:
+  - csharp
+  - vb
+  name: MoveCommand(CommandLineProto, CommandLine)
+  nameWithType: PathToolCommands.MoveCommand(CommandLineProto, CommandLine)
+  fullName: PathTool.PathToolCommands.MoveCommand(CommandLineProto, CommandLine)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: MoveCommand
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 199
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static CommandResult MoveCommand(CommandLineProto proto, CommandLine args)
+    parameters:
+    - id: proto
+      type: CommandLineProto
+    - id: args
+      type: CommandLine
+    return:
+      type: CommandResult
+    content.vb: Public Shared Function MoveCommand(proto As CommandLineProto, args As CommandLine) As CommandResult
+  overload: PathTool.PathToolCommands.MoveCommand*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: PathTool.PathToolCommands.AddCommand(CommandLineProto,CommandLine)
+  commentId: M:PathTool.PathToolCommands.AddCommand(CommandLineProto,CommandLine)
+  id: AddCommand(CommandLineProto,CommandLine)
+  parent: PathTool.PathToolCommands
+  langs:
+  - csharp
+  - vb
+  name: AddCommand(CommandLineProto, CommandLine)
+  nameWithType: PathToolCommands.AddCommand(CommandLineProto, CommandLine)
+  fullName: PathTool.PathToolCommands.AddCommand(CommandLineProto, CommandLine)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: AddCommand
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 265
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static CommandResult AddCommand(CommandLineProto proto, CommandLine args)
+    parameters:
+    - id: proto
+      type: CommandLineProto
+    - id: args
+      type: CommandLine
+    return:
+      type: CommandResult
+    content.vb: Public Shared Function AddCommand(proto As CommandLineProto, args As CommandLine) As CommandResult
+  overload: PathTool.PathToolCommands.AddCommand*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: PathTool.PathToolCommands.CleanCommand(CommandLineProto,CommandLine)
+  commentId: M:PathTool.PathToolCommands.CleanCommand(CommandLineProto,CommandLine)
+  id: CleanCommand(CommandLineProto,CommandLine)
+  parent: PathTool.PathToolCommands
+  langs:
+  - csharp
+  - vb
+  name: CleanCommand(CommandLineProto, CommandLine)
+  nameWithType: PathToolCommands.CleanCommand(CommandLineProto, CommandLine)
+  fullName: PathTool.PathToolCommands.CleanCommand(CommandLineProto, CommandLine)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: CleanCommand
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 322
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static CommandResult CleanCommand(CommandLineProto proto, CommandLine args)
+    parameters:
+    - id: proto
+      type: CommandLineProto
+    - id: args
+      type: CommandLine
+    return:
+      type: CommandResult
+    content.vb: Public Shared Function CleanCommand(proto As CommandLineProto, args As CommandLine) As CommandResult
+  overload: PathTool.PathToolCommands.CleanCommand*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: PathTool.PathToolCommands.ListCommand(CommandLineProto,CommandLine)
+  commentId: M:PathTool.PathToolCommands.ListCommand(CommandLineProto,CommandLine)
+  id: ListCommand(CommandLineProto,CommandLine)
+  parent: PathTool.PathToolCommands
+  langs:
+  - csharp
+  - vb
+  name: ListCommand(CommandLineProto, CommandLine)
+  nameWithType: PathToolCommands.ListCommand(CommandLineProto, CommandLine)
+  fullName: PathTool.PathToolCommands.ListCommand(CommandLineProto, CommandLine)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathToolCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ListCommand
+    path: ../sample/PathTool/PathToolCommands.cs
+    startLine: 373
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public static CommandResult ListCommand(CommandLineProto proto, CommandLine args)
+    parameters:
+    - id: proto
+      type: CommandLineProto
+    - id: args
+      type: CommandLine
+    return:
+      type: CommandResult
+    content.vb: Public Shared Function ListCommand(proto As CommandLineProto, args As CommandLine) As CommandResult
+  overload: PathTool.PathToolCommands.ListCommand*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: PathTool
+  commentId: N:PathTool
+  name: PathTool
+  nameWithType: PathTool
+  fullName: PathTool
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: PathTool.PathToolCommands.RegisterAll*
+  commentId: Overload:PathTool.PathToolCommands.RegisterAll
+  name: RegisterAll
+  nameWithType: PathToolCommands.RegisterAll
+  fullName: PathTool.PathToolCommands.RegisterAll
+- uid: PathTool.PathToolCommands.GetPathFolderOptions*
+  commentId: Overload:PathTool.PathToolCommands.GetPathFolderOptions
+  name: GetPathFolderOptions
+  nameWithType: PathToolCommands.GetPathFolderOptions
+  fullName: PathTool.PathToolCommands.GetPathFolderOptions
+- uid: CommandLine
+  isExternal: true
+  name: CommandLine
+  nameWithType: CommandLine
+  fullName: CommandLine
+- uid: PathTool.PathFolderOptions
+  commentId: T:PathTool.PathFolderOptions
+  parent: PathTool
+  name: PathFolderOptions
+  nameWithType: PathFolderOptions
+  fullName: PathTool.PathFolderOptions
+- uid: PathTool.PathToolCommands.RemoveCommand*
+  commentId: Overload:PathTool.PathToolCommands.RemoveCommand
+  name: RemoveCommand
+  nameWithType: PathToolCommands.RemoveCommand
+  fullName: PathTool.PathToolCommands.RemoveCommand
+- uid: CommandLineProto
+  isExternal: true
+  name: CommandLineProto
+  nameWithType: CommandLineProto
+  fullName: CommandLineProto
+- uid: CommandResult
+  isExternal: true
+  name: CommandResult
+  nameWithType: CommandResult
+  fullName: CommandResult
+- uid: PathTool.PathToolCommands.MoveCommand*
+  commentId: Overload:PathTool.PathToolCommands.MoveCommand
+  name: MoveCommand
+  nameWithType: PathToolCommands.MoveCommand
+  fullName: PathTool.PathToolCommands.MoveCommand
+- uid: PathTool.PathToolCommands.AddCommand*
+  commentId: Overload:PathTool.PathToolCommands.AddCommand
+  name: AddCommand
+  nameWithType: PathToolCommands.AddCommand
+  fullName: PathTool.PathToolCommands.AddCommand
+- uid: PathTool.PathToolCommands.CleanCommand*
+  commentId: Overload:PathTool.PathToolCommands.CleanCommand
+  name: CleanCommand
+  nameWithType: PathToolCommands.CleanCommand
+  fullName: PathTool.PathToolCommands.CleanCommand
+- uid: PathTool.PathToolCommands.ListCommand*
+  commentId: Overload:PathTool.PathToolCommands.ListCommand
+  name: ListCommand
+  nameWithType: PathToolCommands.ListCommand
+  fullName: PathTool.PathToolCommands.ListCommand

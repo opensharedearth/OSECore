@@ -1,0 +1,235 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIDesktop.WPF.Sample.SampleCommands
+  commentId: T:OSEUIDesktop.WPF.Sample.SampleCommands
+  id: SampleCommands
+  parent: OSEUIDesktop.WPF.Sample
+  children:
+  - OSEUIDesktop.WPF.Sample.SampleCommands.AddEntry
+  - OSEUIDesktop.WPF.Sample.SampleCommands.AddImage
+  - OSEUIDesktop.WPF.Sample.SampleCommands.DeleteEntry
+  - OSEUIDesktop.WPF.Sample.SampleCommands.DeleteImage
+  - OSEUIDesktop.WPF.Sample.SampleCommands.EditEntry
+  langs:
+  - csharp
+  - vb
+  name: SampleCommands
+  nameWithType: SampleCommands
+  fullName: OSEUIDesktop.WPF.Sample.SampleCommands
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: SampleCommands
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleCommands.cs
+    startLine: 9
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: 'public static class SampleCommands : object'
+    content.vb: >-
+      Public Module SampleCommands
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: OSEUIDesktop.WPF.Sample.SampleCommands.AddEntry
+  commentId: F:OSEUIDesktop.WPF.Sample.SampleCommands.AddEntry
+  id: AddEntry
+  parent: OSEUIDesktop.WPF.Sample.SampleCommands
+  langs:
+  - csharp
+  - vb
+  name: AddEntry
+  nameWithType: SampleCommands.AddEntry
+  fullName: OSEUIDesktop.WPF.Sample.SampleCommands.AddEntry
+  type: Field
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: AddEntry
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleCommands.cs
+    startLine: 11
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public static readonly RoutedUICommand AddEntry
+    return:
+      type: RoutedUICommand
+    content.vb: Public Shared ReadOnly AddEntry As RoutedUICommand
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.SampleCommands.EditEntry
+  commentId: F:OSEUIDesktop.WPF.Sample.SampleCommands.EditEntry
+  id: EditEntry
+  parent: OSEUIDesktop.WPF.Sample.SampleCommands
+  langs:
+  - csharp
+  - vb
+  name: EditEntry
+  nameWithType: SampleCommands.EditEntry
+  fullName: OSEUIDesktop.WPF.Sample.SampleCommands.EditEntry
+  type: Field
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: EditEntry
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleCommands.cs
+    startLine: 12
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public static readonly RoutedUICommand EditEntry
+    return:
+      type: RoutedUICommand
+    content.vb: Public Shared ReadOnly EditEntry As RoutedUICommand
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.SampleCommands.DeleteEntry
+  commentId: F:OSEUIDesktop.WPF.Sample.SampleCommands.DeleteEntry
+  id: DeleteEntry
+  parent: OSEUIDesktop.WPF.Sample.SampleCommands
+  langs:
+  - csharp
+  - vb
+  name: DeleteEntry
+  nameWithType: SampleCommands.DeleteEntry
+  fullName: OSEUIDesktop.WPF.Sample.SampleCommands.DeleteEntry
+  type: Field
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: DeleteEntry
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleCommands.cs
+    startLine: 13
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public static readonly RoutedUICommand DeleteEntry
+    return:
+      type: RoutedUICommand
+    content.vb: Public Shared ReadOnly DeleteEntry As RoutedUICommand
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.SampleCommands.AddImage
+  commentId: F:OSEUIDesktop.WPF.Sample.SampleCommands.AddImage
+  id: AddImage
+  parent: OSEUIDesktop.WPF.Sample.SampleCommands
+  langs:
+  - csharp
+  - vb
+  name: AddImage
+  nameWithType: SampleCommands.AddImage
+  fullName: OSEUIDesktop.WPF.Sample.SampleCommands.AddImage
+  type: Field
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: AddImage
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleCommands.cs
+    startLine: 14
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public static readonly RoutedUICommand AddImage
+    return:
+      type: RoutedUICommand
+    content.vb: Public Shared ReadOnly AddImage As RoutedUICommand
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.SampleCommands.DeleteImage
+  commentId: F:OSEUIDesktop.WPF.Sample.SampleCommands.DeleteImage
+  id: DeleteImage
+  parent: OSEUIDesktop.WPF.Sample.SampleCommands
+  langs:
+  - csharp
+  - vb
+  name: DeleteImage
+  nameWithType: SampleCommands.DeleteImage
+  fullName: OSEUIDesktop.WPF.Sample.SampleCommands.DeleteImage
+  type: Field
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleCommands.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: DeleteImage
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleCommands.cs
+    startLine: 15
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public static readonly RoutedUICommand DeleteImage
+    return:
+      type: RoutedUICommand
+    content.vb: Public Shared ReadOnly DeleteImage As RoutedUICommand
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+references:
+- uid: OSEUIDesktop.WPF.Sample
+  commentId: N:OSEUIDesktop.WPF.Sample
+  name: OSEUIDesktop.WPF.Sample
+  nameWithType: OSEUIDesktop.WPF.Sample
+  fullName: OSEUIDesktop.WPF.Sample
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: RoutedUICommand
+  isExternal: true
+  name: RoutedUICommand
+  nameWithType: RoutedUICommand
+  fullName: RoutedUICommand

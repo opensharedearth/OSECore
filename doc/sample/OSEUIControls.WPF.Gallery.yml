@@ -1,0 +1,34 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIControls.WPF.Gallery
+  commentId: N:OSEUIControls.WPF.Gallery
+  id: OSEUIControls.WPF.Gallery
+  children:
+  - OSEUIControls.WPF.Gallery.App
+  - OSEUIControls.WPF.Gallery.MainViewModel
+  - OSEUIControls.WPF.Gallery.MainWindow
+  langs:
+  - csharp
+  - vb
+  name: OSEUIControls.WPF.Gallery
+  nameWithType: OSEUIControls.WPF.Gallery
+  fullName: OSEUIControls.WPF.Gallery
+  type: Namespace
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+references:
+- uid: OSEUIControls.WPF.Gallery.App
+  commentId: T:OSEUIControls.WPF.Gallery.App
+  name: App
+  nameWithType: App
+  fullName: OSEUIControls.WPF.Gallery.App
+- uid: OSEUIControls.WPF.Gallery.MainViewModel
+  commentId: T:OSEUIControls.WPF.Gallery.MainViewModel
+  name: MainViewModel
+  nameWithType: MainViewModel
+  fullName: OSEUIControls.WPF.Gallery.MainViewModel
+- uid: OSEUIControls.WPF.Gallery.MainWindow
+  commentId: T:OSEUIControls.WPF.Gallery.MainWindow
+  name: MainWindow
+  nameWithType: MainWindow
+  fullName: OSEUIControls.WPF.Gallery.MainWindow

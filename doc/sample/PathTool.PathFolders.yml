@@ -1,0 +1,1012 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathTool.PathFolders
+  commentId: T:PathTool.PathFolders
+  id: PathFolders
+  parent: PathTool
+  children:
+  - PathTool.PathFolders.#ctor(IEnumerable{PathTool.PathFolder})
+  - PathTool.PathFolders.#ctor(PathTool.PathFolderOptions)
+  - PathTool.PathFolders.Add(PathTool.PathFolder)
+  - PathTool.PathFolders.Clear
+  - PathTool.PathFolders.Commit
+  - PathTool.PathFolders.Contains(PathTool.PathFolder)
+  - PathTool.PathFolders.CopyTo(PathTool.PathFolder[],System.Int32)
+  - PathTool.PathFolders.Count
+  - PathTool.PathFolders.Fill
+  - PathTool.PathFolders.GetEnumerator
+  - PathTool.PathFolders.IndexOf(PathTool.PathFolder)
+  - PathTool.PathFolders.Insert(System.Int32,PathTool.PathFolder)
+  - PathTool.PathFolders.IsReadOnly
+  - PathTool.PathFolders.Item(System.Int32)
+  - PathTool.PathFolders.Remove(PathTool.PathFolder)
+  - PathTool.PathFolders.RemoveAt(System.Int32)
+  - PathTool.PathFolders.ToInlineString
+  - PathTool.PathFolders.ToString
+  - PathTool.PathFolders.ToVerboseString
+  langs:
+  - csharp
+  - vb
+  name: PathFolders
+  nameWithType: PathFolders
+  fullName: PathTool.PathFolders
+  type: Class
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: PathFolders
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 10
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: 'public class PathFolders : IList<PathFolder>'
+    content.vb: >-
+      Public Class PathFolders
+          Inherits IList(Of PathFolder)
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: PathTool.PathFolders.#ctor(IEnumerable{PathTool.PathFolder})
+  commentId: M:PathTool.PathFolders.#ctor(IEnumerable{PathTool.PathFolder})
+  id: '#ctor(IEnumerable{PathTool.PathFolder})'
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: PathFolders(IEnumerable<PathFolder>)
+  nameWithType: PathFolders.PathFolders(IEnumerable<PathFolder>)
+  fullName: PathTool.PathFolders.PathFolders(IEnumerable<PathTool.PathFolder>)
+  type: Constructor
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 13
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public PathFolders(IEnumerable<PathFolder> folders)
+    parameters:
+    - id: folders
+      type: IEnumerable{PathTool.PathFolder}
+    content.vb: Public Sub New(folders As IEnumerable(Of PathFolder))
+  overload: PathTool.PathFolders.#ctor*
+  nameWithType.vb: PathFolders.PathFolders(IEnumerable(Of PathFolder))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: PathTool.PathFolders.PathFolders(IEnumerable(Of PathTool.PathFolder))
+  name.vb: PathFolders(IEnumerable(Of PathFolder))
+- uid: PathTool.PathFolders.#ctor(PathTool.PathFolderOptions)
+  commentId: M:PathTool.PathFolders.#ctor(PathTool.PathFolderOptions)
+  id: '#ctor(PathTool.PathFolderOptions)'
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: PathFolders(PathFolderOptions)
+  nameWithType: PathFolders.PathFolders(PathFolderOptions)
+  fullName: PathTool.PathFolders.PathFolders(PathTool.PathFolderOptions)
+  type: Constructor
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 17
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public PathFolders(PathFolderOptions options = PathFolderOptions.Process)
+    parameters:
+    - id: options
+      type: PathTool.PathFolderOptions
+    content.vb: Public Sub New(options As PathFolderOptions = PathFolderOptions.Process)
+  overload: PathTool.PathFolders.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolders.Fill
+  commentId: M:PathTool.PathFolders.Fill
+  id: Fill
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: Fill()
+  nameWithType: PathFolders.Fill()
+  fullName: PathTool.PathFolders.Fill()
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Fill
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 23
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public void Fill()
+    content.vb: Public Sub Fill
+  overload: PathTool.PathFolders.Fill*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolders.Commit
+  commentId: M:PathTool.PathFolders.Commit
+  id: Commit
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: Commit()
+  nameWithType: PathFolders.Commit()
+  fullName: PathTool.PathFolders.Commit()
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Commit
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 42
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public void Commit()
+    content.vb: Public Sub Commit
+  overload: PathTool.PathFolders.Commit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolders.Item(System.Int32)
+  commentId: P:PathTool.PathFolders.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32]
+  nameWithType: PathFolders.Item[Int32]
+  fullName: PathTool.PathFolders.Item[System.Int32]
+  type: Property
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: this[]
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 76
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public PathFolder this[int index] { get; set; }
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: PathTool.PathFolder
+    content.vb: Public Property Item(index As Integer) As PathFolder
+  overload: PathTool.PathFolders.Item*
+  nameWithType.vb: PathFolders.Item(Int32)
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: PathTool.PathFolders.Item(System.Int32)
+  name.vb: Item(Int32)
+- uid: PathTool.PathFolders.Count
+  commentId: P:PathTool.PathFolders.Count
+  id: Count
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: PathFolders.Count
+  fullName: PathTool.PathFolders.Count
+  type: Property
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Count
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 78
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: PathTool.PathFolders.Count*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: PathTool.PathFolders.IsReadOnly
+  commentId: P:PathTool.PathFolders.IsReadOnly
+  id: IsReadOnly
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly
+  nameWithType: PathFolders.IsReadOnly
+  fullName: PathTool.PathFolders.IsReadOnly
+  type: Property
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: IsReadOnly
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 80
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public bool IsReadOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsReadOnly As Boolean
+  overload: PathTool.PathFolders.IsReadOnly*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: PathTool.PathFolders.Add(PathTool.PathFolder)
+  commentId: M:PathTool.PathFolders.Add(PathTool.PathFolder)
+  id: Add(PathTool.PathFolder)
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: Add(PathFolder)
+  nameWithType: PathFolders.Add(PathFolder)
+  fullName: PathTool.PathFolders.Add(PathTool.PathFolder)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Add
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 82
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public void Add(PathFolder item)
+    parameters:
+    - id: item
+      type: PathTool.PathFolder
+    content.vb: Public Sub Add(item As PathFolder)
+  overload: PathTool.PathFolders.Add*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolders.Clear
+  commentId: M:PathTool.PathFolders.Clear
+  id: Clear
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: PathFolders.Clear()
+  fullName: PathTool.PathFolders.Clear()
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Clear
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 87
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear
+  overload: PathTool.PathFolders.Clear*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolders.Contains(PathTool.PathFolder)
+  commentId: M:PathTool.PathFolders.Contains(PathTool.PathFolder)
+  id: Contains(PathTool.PathFolder)
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: Contains(PathFolder)
+  nameWithType: PathFolders.Contains(PathFolder)
+  fullName: PathTool.PathFolders.Contains(PathTool.PathFolder)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Contains
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 92
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public bool Contains(PathFolder item)
+    parameters:
+    - id: item
+      type: PathTool.PathFolder
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(item As PathFolder) As Boolean
+  overload: PathTool.PathFolders.Contains*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolders.CopyTo(PathTool.PathFolder[],System.Int32)
+  commentId: M:PathTool.PathFolders.CopyTo(PathTool.PathFolder[],System.Int32)
+  id: CopyTo(PathTool.PathFolder[],System.Int32)
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(PathFolder[], Int32)
+  nameWithType: PathFolders.CopyTo(PathFolder[], Int32)
+  fullName: PathTool.PathFolders.CopyTo(PathTool.PathFolder[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: CopyTo
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 97
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public void CopyTo(PathFolder[] array, int arrayIndex)
+    parameters:
+    - id: array
+      type: PathTool.PathFolder[]
+    - id: arrayIndex
+      type: System.Int32
+    content.vb: Public Sub CopyTo(array As PathFolder(), arrayIndex As Integer)
+  overload: PathTool.PathFolders.CopyTo*
+  nameWithType.vb: PathFolders.CopyTo(PathFolder(), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: PathTool.PathFolders.CopyTo(PathTool.PathFolder(), System.Int32)
+  name.vb: CopyTo(PathFolder(), Int32)
+- uid: PathTool.PathFolders.GetEnumerator
+  commentId: M:PathTool.PathFolders.GetEnumerator
+  id: GetEnumerator
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: PathFolders.GetEnumerator()
+  fullName: PathTool.PathFolders.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: GetEnumerator
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 102
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public IEnumerator<PathFolder> GetEnumerator()
+    return:
+      type: IEnumerator{PathTool.PathFolder}
+    content.vb: Public Function GetEnumerator As IEnumerator(Of PathFolder)
+  overload: PathTool.PathFolders.GetEnumerator*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolders.IndexOf(PathTool.PathFolder)
+  commentId: M:PathTool.PathFolders.IndexOf(PathTool.PathFolder)
+  id: IndexOf(PathTool.PathFolder)
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: IndexOf(PathFolder)
+  nameWithType: PathFolders.IndexOf(PathFolder)
+  fullName: PathTool.PathFolders.IndexOf(PathTool.PathFolder)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: IndexOf
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 107
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public int IndexOf(PathFolder item)
+    parameters:
+    - id: item
+      type: PathTool.PathFolder
+    return:
+      type: System.Int32
+    content.vb: Public Function IndexOf(item As PathFolder) As Integer
+  overload: PathTool.PathFolders.IndexOf*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolders.Insert(System.Int32,PathTool.PathFolder)
+  commentId: M:PathTool.PathFolders.Insert(System.Int32,PathTool.PathFolder)
+  id: Insert(System.Int32,PathTool.PathFolder)
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: Insert(Int32, PathFolder)
+  nameWithType: PathFolders.Insert(Int32, PathFolder)
+  fullName: PathTool.PathFolders.Insert(System.Int32, PathTool.PathFolder)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Insert
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 112
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public void Insert(int index, PathFolder item)
+    parameters:
+    - id: index
+      type: System.Int32
+    - id: item
+      type: PathTool.PathFolder
+    content.vb: Public Sub Insert(index As Integer, item As PathFolder)
+  overload: PathTool.PathFolders.Insert*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolders.Remove(PathTool.PathFolder)
+  commentId: M:PathTool.PathFolders.Remove(PathTool.PathFolder)
+  id: Remove(PathTool.PathFolder)
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: Remove(PathFolder)
+  nameWithType: PathFolders.Remove(PathFolder)
+  fullName: PathTool.PathFolders.Remove(PathTool.PathFolder)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Remove
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 117
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public bool Remove(PathFolder item)
+    parameters:
+    - id: item
+      type: PathTool.PathFolder
+    return:
+      type: System.Boolean
+    content.vb: Public Function Remove(item As PathFolder) As Boolean
+  overload: PathTool.PathFolders.Remove*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolders.RemoveAt(System.Int32)
+  commentId: M:PathTool.PathFolders.RemoveAt(System.Int32)
+  id: RemoveAt(System.Int32)
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: RemoveAt(Int32)
+  nameWithType: PathFolders.RemoveAt(Int32)
+  fullName: PathTool.PathFolders.RemoveAt(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: RemoveAt
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 122
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public void RemoveAt(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub RemoveAt(index As Integer)
+  overload: PathTool.PathFolders.RemoveAt*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolders.ToString
+  commentId: M:PathTool.PathFolders.ToString
+  id: ToString
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: PathFolders.ToString()
+  fullName: PathTool.PathFolders.ToString()
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ToString
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 131
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overload: PathTool.PathFolders.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: PathTool.PathFolders.ToVerboseString
+  commentId: M:PathTool.PathFolders.ToVerboseString
+  id: ToVerboseString
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: ToVerboseString()
+  nameWithType: PathFolders.ToVerboseString()
+  fullName: PathTool.PathFolders.ToVerboseString()
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ToVerboseString
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 140
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public string ToVerboseString()
+    return:
+      type: System.String
+    content.vb: Public Function ToVerboseString As String
+  overload: PathTool.PathFolders.ToVerboseString*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.PathFolders.ToInlineString
+  commentId: M:PathTool.PathFolders.ToInlineString
+  id: ToInlineString
+  parent: PathTool.PathFolders
+  langs:
+  - csharp
+  - vb
+  name: ToInlineString()
+  nameWithType: PathFolders.ToInlineString()
+  fullName: PathTool.PathFolders.ToInlineString()
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/PathFolders.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ToInlineString
+    path: ../sample/PathTool/PathFolders.cs
+    startLine: 154
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public string ToInlineString()
+    return:
+      type: System.String
+    content.vb: Public Function ToInlineString As String
+  overload: PathTool.PathFolders.ToInlineString*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: PathTool
+  commentId: N:PathTool
+  name: PathTool
+  nameWithType: PathTool
+  fullName: PathTool
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: PathTool.PathFolders.#ctor*
+  commentId: Overload:PathTool.PathFolders.#ctor
+  name: PathFolders
+  nameWithType: PathFolders.PathFolders
+  fullName: PathTool.PathFolders.PathFolders
+- uid: IEnumerable{PathTool.PathFolder}
+  commentId: '!:IEnumerable{PathTool.PathFolder}'
+  definition: IEnumerable`1
+  name: IEnumerable<PathFolder>
+  nameWithType: IEnumerable<PathFolder>
+  fullName: IEnumerable<PathTool.PathFolder>
+  nameWithType.vb: IEnumerable(Of PathFolder)
+  fullName.vb: IEnumerable(Of PathTool.PathFolder)
+  name.vb: IEnumerable(Of PathFolder)
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: PathTool.PathFolder
+    name: PathFolder
+    nameWithType: PathFolder
+    fullName: PathTool.PathFolder
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: PathTool.PathFolder
+    name: PathFolder
+    nameWithType: PathFolder
+    fullName: PathTool.PathFolder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IEnumerable`1
+  commentId: '!:IEnumerable`1'
+  isExternal: true
+  name: IEnumerable<>
+  nameWithType: IEnumerable<>
+  fullName: IEnumerable<>
+  nameWithType.vb: IEnumerable(Of )
+  fullName.vb: IEnumerable(Of )
+  name.vb: IEnumerable(Of )
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: PathTool.PathFolderOptions
+  commentId: T:PathTool.PathFolderOptions
+  parent: PathTool
+  name: PathFolderOptions
+  nameWithType: PathFolderOptions
+  fullName: PathTool.PathFolderOptions
+- uid: PathTool.PathFolders.Fill*
+  commentId: Overload:PathTool.PathFolders.Fill
+  name: Fill
+  nameWithType: PathFolders.Fill
+  fullName: PathTool.PathFolders.Fill
+- uid: PathTool.PathFolders.Commit*
+  commentId: Overload:PathTool.PathFolders.Commit
+  name: Commit
+  nameWithType: PathFolders.Commit
+  fullName: PathTool.PathFolders.Commit
+- uid: PathTool.PathFolders.Item*
+  commentId: Overload:PathTool.PathFolders.Item
+  name: Item
+  nameWithType: PathFolders.Item
+  fullName: PathTool.PathFolders.Item
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: PathTool.PathFolder
+  commentId: T:PathTool.PathFolder
+  parent: PathTool
+  name: PathFolder
+  nameWithType: PathFolder
+  fullName: PathTool.PathFolder
+- uid: PathTool.PathFolders.Count*
+  commentId: Overload:PathTool.PathFolders.Count
+  name: Count
+  nameWithType: PathFolders.Count
+  fullName: PathTool.PathFolders.Count
+- uid: PathTool.PathFolders.IsReadOnly*
+  commentId: Overload:PathTool.PathFolders.IsReadOnly
+  name: IsReadOnly
+  nameWithType: PathFolders.IsReadOnly
+  fullName: PathTool.PathFolders.IsReadOnly
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: PathTool.PathFolders.Add*
+  commentId: Overload:PathTool.PathFolders.Add
+  name: Add
+  nameWithType: PathFolders.Add
+  fullName: PathTool.PathFolders.Add
+- uid: PathTool.PathFolders.Clear*
+  commentId: Overload:PathTool.PathFolders.Clear
+  name: Clear
+  nameWithType: PathFolders.Clear
+  fullName: PathTool.PathFolders.Clear
+- uid: PathTool.PathFolders.Contains*
+  commentId: Overload:PathTool.PathFolders.Contains
+  name: Contains
+  nameWithType: PathFolders.Contains
+  fullName: PathTool.PathFolders.Contains
+- uid: PathTool.PathFolders.CopyTo*
+  commentId: Overload:PathTool.PathFolders.CopyTo
+  name: CopyTo
+  nameWithType: PathFolders.CopyTo
+  fullName: PathTool.PathFolders.CopyTo
+- uid: PathTool.PathFolder[]
+  isExternal: true
+  name: PathFolder[]
+  nameWithType: PathFolder[]
+  fullName: PathTool.PathFolder[]
+  nameWithType.vb: PathFolder()
+  fullName.vb: PathTool.PathFolder()
+  name.vb: PathFolder()
+  spec.csharp:
+  - uid: PathTool.PathFolder
+    name: PathFolder
+    nameWithType: PathFolder
+    fullName: PathTool.PathFolder
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: PathTool.PathFolder
+    name: PathFolder
+    nameWithType: PathFolder
+    fullName: PathTool.PathFolder
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: PathTool.PathFolders.GetEnumerator*
+  commentId: Overload:PathTool.PathFolders.GetEnumerator
+  name: GetEnumerator
+  nameWithType: PathFolders.GetEnumerator
+  fullName: PathTool.PathFolders.GetEnumerator
+- uid: IEnumerator{PathTool.PathFolder}
+  commentId: '!:IEnumerator{PathTool.PathFolder}'
+  definition: IEnumerator`1
+  name: IEnumerator<PathFolder>
+  nameWithType: IEnumerator<PathFolder>
+  fullName: IEnumerator<PathTool.PathFolder>
+  nameWithType.vb: IEnumerator(Of PathFolder)
+  fullName.vb: IEnumerator(Of PathTool.PathFolder)
+  name.vb: IEnumerator(Of PathFolder)
+  spec.csharp:
+  - uid: IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: PathTool.PathFolder
+    name: PathFolder
+    nameWithType: PathFolder
+    fullName: PathTool.PathFolder
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: PathTool.PathFolder
+    name: PathFolder
+    nameWithType: PathFolder
+    fullName: PathTool.PathFolder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IEnumerator`1
+  commentId: '!:IEnumerator`1'
+  isExternal: true
+  name: IEnumerator<>
+  nameWithType: IEnumerator<>
+  fullName: IEnumerator<>
+  nameWithType.vb: IEnumerator(Of )
+  fullName.vb: IEnumerator(Of )
+  name.vb: IEnumerator(Of )
+  spec.csharp:
+  - uid: IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: PathTool.PathFolders.IndexOf*
+  commentId: Overload:PathTool.PathFolders.IndexOf
+  name: IndexOf
+  nameWithType: PathFolders.IndexOf
+  fullName: PathTool.PathFolders.IndexOf
+- uid: PathTool.PathFolders.Insert*
+  commentId: Overload:PathTool.PathFolders.Insert
+  name: Insert
+  nameWithType: PathFolders.Insert
+  fullName: PathTool.PathFolders.Insert
+- uid: PathTool.PathFolders.Remove*
+  commentId: Overload:PathTool.PathFolders.Remove
+  name: Remove
+  nameWithType: PathFolders.Remove
+  fullName: PathTool.PathFolders.Remove
+- uid: PathTool.PathFolders.RemoveAt*
+  commentId: Overload:PathTool.PathFolders.RemoveAt
+  name: RemoveAt
+  nameWithType: PathFolders.RemoveAt
+  fullName: PathTool.PathFolders.RemoveAt
+- uid: PathTool.PathFolders.ToString*
+  commentId: Overload:PathTool.PathFolders.ToString
+  name: ToString
+  nameWithType: PathFolders.ToString
+  fullName: PathTool.PathFolders.ToString
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: PathTool.PathFolders.ToVerboseString*
+  commentId: Overload:PathTool.PathFolders.ToVerboseString
+  name: ToVerboseString
+  nameWithType: PathFolders.ToVerboseString
+  fullName: PathTool.PathFolders.ToVerboseString
+- uid: PathTool.PathFolders.ToInlineString*
+  commentId: Overload:PathTool.PathFolders.ToInlineString
+  name: ToInlineString
+  nameWithType: PathFolders.ToInlineString
+  fullName: PathTool.PathFolders.ToInlineString

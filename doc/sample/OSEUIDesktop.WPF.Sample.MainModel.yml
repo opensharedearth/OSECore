@@ -1,0 +1,197 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIDesktop.WPF.Sample.MainModel
+  commentId: T:OSEUIDesktop.WPF.Sample.MainModel
+  id: MainModel
+  parent: OSEUIDesktop.WPF.Sample
+  children:
+  - OSEUIDesktop.WPF.Sample.MainModel.Document
+  - OSEUIDesktop.WPF.Sample.MainModel.Instance
+  - OSEUIDesktop.WPF.Sample.MainModel.Log
+  langs:
+  - csharp
+  - vb
+  name: MainModel
+  nameWithType: MainModel
+  fullName: OSEUIDesktop.WPF.Sample.MainModel
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: MainModel
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainModel.cs
+    startLine: 9
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: 'public class MainModel : object'
+    content.vb: >-
+      Public Class MainModel
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: OSEUIDesktop.WPF.Sample.MainModel.Instance
+  commentId: P:OSEUIDesktop.WPF.Sample.MainModel.Instance
+  id: Instance
+  parent: OSEUIDesktop.WPF.Sample.MainModel
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: MainModel.Instance
+  fullName: OSEUIDesktop.WPF.Sample.MainModel.Instance
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Instance
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainModel.cs
+    startLine: 11
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public static MainModel Instance { get; }
+    parameters: []
+    return:
+      type: OSEUIDesktop.WPF.Sample.MainModel
+    content.vb: Public Shared ReadOnly Property Instance As MainModel
+  overload: OSEUIDesktop.WPF.Sample.MainModel.Instance*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.MainModel.Log
+  commentId: P:OSEUIDesktop.WPF.Sample.MainModel.Log
+  id: Log
+  parent: OSEUIDesktop.WPF.Sample.MainModel
+  langs:
+  - csharp
+  - vb
+  name: Log
+  nameWithType: MainModel.Log
+  fullName: OSEUIDesktop.WPF.Sample.MainModel.Log
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Log
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainModel.cs
+    startLine: 13
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public ResultLog Log { get; }
+    parameters: []
+    return:
+      type: OSECore.Logging.ResultLog
+    content.vb: Public ReadOnly Property Log As ResultLog
+  overload: OSEUIDesktop.WPF.Sample.MainModel.Log*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.MainModel.Document
+  commentId: P:OSEUIDesktop.WPF.Sample.MainModel.Document
+  id: Document
+  parent: OSEUIDesktop.WPF.Sample.MainModel
+  langs:
+  - csharp
+  - vb
+  name: Document
+  nameWithType: MainModel.Document
+  fullName: OSEUIDesktop.WPF.Sample.MainModel.Document
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Document
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainModel.cs
+    startLine: 14
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public SampleDocument Document { get; set; }
+    parameters: []
+    return:
+      type: OSEUIDesktop.WPF.Sample.SampleDocument
+    content.vb: Public Property Document As SampleDocument
+  overload: OSEUIDesktop.WPF.Sample.MainModel.Document*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: OSEUIDesktop.WPF.Sample
+  commentId: N:OSEUIDesktop.WPF.Sample
+  name: OSEUIDesktop.WPF.Sample
+  nameWithType: OSEUIDesktop.WPF.Sample
+  fullName: OSEUIDesktop.WPF.Sample
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: OSEUIDesktop.WPF.Sample.MainModel.Instance*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainModel.Instance
+  name: Instance
+  nameWithType: MainModel.Instance
+  fullName: OSEUIDesktop.WPF.Sample.MainModel.Instance
+- uid: OSEUIDesktop.WPF.Sample.MainModel
+  commentId: T:OSEUIDesktop.WPF.Sample.MainModel
+  parent: OSEUIDesktop.WPF.Sample
+  name: MainModel
+  nameWithType: MainModel
+  fullName: OSEUIDesktop.WPF.Sample.MainModel
+- uid: OSEUIDesktop.WPF.Sample.MainModel.Log*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainModel.Log
+  name: Log
+  nameWithType: MainModel.Log
+  fullName: OSEUIDesktop.WPF.Sample.MainModel.Log
+- uid: OSECore.Logging.ResultLog
+  commentId: T:OSECore.Logging.ResultLog
+  parent: OSECore.Logging
+  name: ResultLog
+  nameWithType: ResultLog
+  fullName: OSECore.Logging.ResultLog
+- uid: OSECore.Logging
+  commentId: N:OSECore.Logging
+  name: OSECore.Logging
+  nameWithType: OSECore.Logging
+  fullName: OSECore.Logging
+- uid: OSEUIDesktop.WPF.Sample.MainModel.Document*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainModel.Document
+  name: Document
+  nameWithType: MainModel.Document
+  fullName: OSEUIDesktop.WPF.Sample.MainModel.Document
+- uid: OSEUIDesktop.WPF.Sample.SampleDocument
+  commentId: T:OSEUIDesktop.WPF.Sample.SampleDocument
+  parent: OSEUIDesktop.WPF.Sample
+  name: SampleDocument
+  nameWithType: SampleDocument
+  fullName: OSEUIDesktop.WPF.Sample.SampleDocument

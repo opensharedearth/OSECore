@@ -9,7 +9,18 @@
           "src": "../src"
         }
       ],
-      "dest": "api",
+      "dest": "api"
+    },
+    {
+      "src": [
+        {
+          "files": [
+            "**.csproj"
+          ],
+          "src": "../sample"
+        }
+      ],
+      "dest": "sample"
     }
   ],
   "build": {
@@ -18,6 +29,12 @@
         "files": [
           "api/**.yml",
           "api/index.md"
+        ]
+      },
+      {
+        "files": [
+          "sample/**.yml",
+          "sample/index.md"
         ]
       },
       {

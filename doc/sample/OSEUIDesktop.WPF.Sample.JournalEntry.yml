@@ -1,0 +1,614 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry
+  commentId: T:OSEUIDesktop.WPF.Sample.JournalEntry
+  id: JournalEntry
+  parent: OSEUIDesktop.WPF.Sample
+  children:
+  - OSEUIDesktop.WPF.Sample.JournalEntry.#ctor
+  - OSEUIDesktop.WPF.Sample.JournalEntry.#ctor(OSEUIDesktop.WPF.Sample.JournalEntry)
+  - OSEUIDesktop.WPF.Sample.JournalEntry.#ctor(SerializationInfo,StreamingContext)
+  - OSEUIDesktop.WPF.Sample.JournalEntry.DateLine
+  - OSEUIDesktop.WPF.Sample.JournalEntry.DateLineString
+  - OSEUIDesktop.WPF.Sample.JournalEntry.Entry
+  - OSEUIDesktop.WPF.Sample.JournalEntry.Equals(System.Object)
+  - OSEUIDesktop.WPF.Sample.JournalEntry.GetHashCode
+  - OSEUIDesktop.WPF.Sample.JournalEntry.GetObjectData(SerializationInfo,StreamingContext)
+  - OSEUIDesktop.WPF.Sample.JournalEntry.Image
+  - OSEUIDesktop.WPF.Sample.JournalEntry.OnPropertyChanged(System.String)
+  - OSEUIDesktop.WPF.Sample.JournalEntry.PropertyChanged
+  - OSEUIDesktop.WPF.Sample.JournalEntry.Title
+  langs:
+  - csharp
+  - vb
+  name: JournalEntry
+  nameWithType: JournalEntry
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: JournalEntry
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 14
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: 'public class JournalEntry : INotifyPropertyChanged, ISerializable'
+    content.vb: >-
+      Public Class JournalEntry
+          Inherits INotifyPropertyChanged
+          Implements ISerializable
+  inheritance:
+  - System.Object
+  implements:
+  - ISerializable
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.#ctor
+  commentId: M:OSEUIDesktop.WPF.Sample.JournalEntry.#ctor
+  id: '#ctor'
+  parent: OSEUIDesktop.WPF.Sample.JournalEntry
+  langs:
+  - csharp
+  - vb
+  name: JournalEntry()
+  nameWithType: JournalEntry.JournalEntry()
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.JournalEntry()
+  type: Constructor
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 22
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public JournalEntry()
+    content.vb: Public Sub New
+  overload: OSEUIDesktop.WPF.Sample.JournalEntry.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.#ctor(OSEUIDesktop.WPF.Sample.JournalEntry)
+  commentId: M:OSEUIDesktop.WPF.Sample.JournalEntry.#ctor(OSEUIDesktop.WPF.Sample.JournalEntry)
+  id: '#ctor(OSEUIDesktop.WPF.Sample.JournalEntry)'
+  parent: OSEUIDesktop.WPF.Sample.JournalEntry
+  langs:
+  - csharp
+  - vb
+  name: JournalEntry(JournalEntry)
+  nameWithType: JournalEntry.JournalEntry(JournalEntry)
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.JournalEntry(OSEUIDesktop.WPF.Sample.JournalEntry)
+  type: Constructor
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 29
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public JournalEntry(JournalEntry d)
+    parameters:
+    - id: d
+      type: OSEUIDesktop.WPF.Sample.JournalEntry
+    content.vb: Public Sub New(d As JournalEntry)
+  overload: OSEUIDesktop.WPF.Sample.JournalEntry.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.#ctor(SerializationInfo,StreamingContext)
+  commentId: M:OSEUIDesktop.WPF.Sample.JournalEntry.#ctor(SerializationInfo,StreamingContext)
+  id: '#ctor(SerializationInfo,StreamingContext)'
+  parent: OSEUIDesktop.WPF.Sample.JournalEntry
+  langs:
+  - csharp
+  - vb
+  name: JournalEntry(SerializationInfo, StreamingContext)
+  nameWithType: JournalEntry.JournalEntry(SerializationInfo, StreamingContext)
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.JournalEntry(SerializationInfo, StreamingContext)
+  type: Constructor
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 36
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public JournalEntry(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: SerializationInfo
+    - id: context
+      type: StreamingContext
+    content.vb: Public Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: OSEUIDesktop.WPF.Sample.JournalEntry.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.GetObjectData(SerializationInfo,StreamingContext)
+  commentId: M:OSEUIDesktop.WPF.Sample.JournalEntry.GetObjectData(SerializationInfo,StreamingContext)
+  id: GetObjectData(SerializationInfo,StreamingContext)
+  parent: OSEUIDesktop.WPF.Sample.JournalEntry
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: JournalEntry.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.GetObjectData(SerializationInfo, StreamingContext)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: GetObjectData
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 56
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: SerializationInfo
+    - id: context
+      type: StreamingContext
+    content.vb: Public Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: OSEUIDesktop.WPF.Sample.JournalEntry.GetObjectData*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.Title
+  commentId: P:OSEUIDesktop.WPF.Sample.JournalEntry.Title
+  id: Title
+  parent: OSEUIDesktop.WPF.Sample.JournalEntry
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: JournalEntry.Title
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.Title
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Title
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 74
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public string Title { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Title As String
+  overload: OSEUIDesktop.WPF.Sample.JournalEntry.Title*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.Entry
+  commentId: P:OSEUIDesktop.WPF.Sample.JournalEntry.Entry
+  id: Entry
+  parent: OSEUIDesktop.WPF.Sample.JournalEntry
+  langs:
+  - csharp
+  - vb
+  name: Entry
+  nameWithType: JournalEntry.Entry
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.Entry
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Entry
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 86
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public string Entry { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Entry As String
+  overload: OSEUIDesktop.WPF.Sample.JournalEntry.Entry*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.Image
+  commentId: P:OSEUIDesktop.WPF.Sample.JournalEntry.Image
+  id: Image
+  parent: OSEUIDesktop.WPF.Sample.JournalEntry
+  langs:
+  - csharp
+  - vb
+  name: Image
+  nameWithType: JournalEntry.Image
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.Image
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Image
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 98
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public BitmapSource Image { get; set; }
+    parameters: []
+    return:
+      type: BitmapSource
+    content.vb: Public Property Image As BitmapSource
+  overload: OSEUIDesktop.WPF.Sample.JournalEntry.Image*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.DateLine
+  commentId: P:OSEUIDesktop.WPF.Sample.JournalEntry.DateLine
+  id: DateLine
+  parent: OSEUIDesktop.WPF.Sample.JournalEntry
+  langs:
+  - csharp
+  - vb
+  name: DateLine
+  nameWithType: JournalEntry.DateLine
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.DateLine
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: DateLine
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 109
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public DateTime DateLine { get; set; }
+    parameters: []
+    return:
+      type: DateTime
+    content.vb: Public Property DateLine As DateTime
+  overload: OSEUIDesktop.WPF.Sample.JournalEntry.DateLine*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.DateLineString
+  commentId: P:OSEUIDesktop.WPF.Sample.JournalEntry.DateLineString
+  id: DateLineString
+  parent: OSEUIDesktop.WPF.Sample.JournalEntry
+  langs:
+  - csharp
+  - vb
+  name: DateLineString
+  nameWithType: JournalEntry.DateLineString
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.DateLineString
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: DateLineString
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 121
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public string DateLineString { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property DateLineString As String
+  overload: OSEUIDesktop.WPF.Sample.JournalEntry.DateLineString*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.PropertyChanged
+  commentId: E:OSEUIDesktop.WPF.Sample.JournalEntry.PropertyChanged
+  id: PropertyChanged
+  parent: OSEUIDesktop.WPF.Sample.JournalEntry
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: JournalEntry.PropertyChanged
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.PropertyChanged
+  type: Event
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: PropertyChanged
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 123
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public event PropertyChangedEventHandler PropertyChanged
+    return:
+      type: PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.OnPropertyChanged(System.String)
+  commentId: M:OSEUIDesktop.WPF.Sample.JournalEntry.OnPropertyChanged(System.String)
+  id: OnPropertyChanged(System.String)
+  parent: OSEUIDesktop.WPF.Sample.JournalEntry
+  langs:
+  - csharp
+  - vb
+  name: OnPropertyChanged(String)
+  nameWithType: JournalEntry.OnPropertyChanged(String)
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.OnPropertyChanged(System.String)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: OnPropertyChanged
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 124
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: protected virtual void OnPropertyChanged(string propertyName = null)
+    parameters:
+    - id: propertyName
+      type: System.String
+    content.vb: Protected Overridable Sub OnPropertyChanged(propertyName As String = Nothing)
+  overload: OSEUIDesktop.WPF.Sample.JournalEntry.OnPropertyChanged*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.Equals(System.Object)
+  commentId: M:OSEUIDesktop.WPF.Sample.JournalEntry.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: OSEUIDesktop.WPF.Sample.JournalEntry
+  langs:
+  - csharp
+  - vb
+  name: Equals(Object)
+  nameWithType: JournalEntry.Equals(Object)
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.Equals(System.Object)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Equals
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 128
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overload: OSEUIDesktop.WPF.Sample.JournalEntry.Equals*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.GetHashCode
+  commentId: M:OSEUIDesktop.WPF.Sample.JournalEntry.GetHashCode
+  id: GetHashCode
+  parent: OSEUIDesktop.WPF.Sample.JournalEntry
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: JournalEntry.GetHashCode()
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: GetHashCode
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntry.cs
+    startLine: 136
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overload: OSEUIDesktop.WPF.Sample.JournalEntry.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: OSEUIDesktop.WPF.Sample
+  commentId: N:OSEUIDesktop.WPF.Sample
+  name: OSEUIDesktop.WPF.Sample
+  nameWithType: OSEUIDesktop.WPF.Sample
+  fullName: OSEUIDesktop.WPF.Sample
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: ISerializable
+  commentId: '!:ISerializable'
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: ISerializable
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.#ctor*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.JournalEntry.#ctor
+  name: JournalEntry
+  nameWithType: JournalEntry.JournalEntry
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.JournalEntry
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry
+  commentId: T:OSEUIDesktop.WPF.Sample.JournalEntry
+  parent: OSEUIDesktop.WPF.Sample
+  name: JournalEntry
+  nameWithType: JournalEntry
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry
+- uid: SerializationInfo
+  isExternal: true
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: SerializationInfo
+- uid: StreamingContext
+  isExternal: true
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: StreamingContext
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.GetObjectData*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.JournalEntry.GetObjectData
+  name: GetObjectData
+  nameWithType: JournalEntry.GetObjectData
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.GetObjectData
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.Title*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.JournalEntry.Title
+  name: Title
+  nameWithType: JournalEntry.Title
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.Title
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.Entry*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.JournalEntry.Entry
+  name: Entry
+  nameWithType: JournalEntry.Entry
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.Entry
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.Image*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.JournalEntry.Image
+  name: Image
+  nameWithType: JournalEntry.Image
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.Image
+- uid: BitmapSource
+  commentId: '!:BitmapSource'
+  isExternal: true
+  name: BitmapSource
+  nameWithType: BitmapSource
+  fullName: BitmapSource
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.DateLine*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.JournalEntry.DateLine
+  name: DateLine
+  nameWithType: JournalEntry.DateLine
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.DateLine
+- uid: DateTime
+  commentId: '!:DateTime'
+  isExternal: true
+  name: DateTime
+  nameWithType: DateTime
+  fullName: DateTime
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.DateLineString*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.JournalEntry.DateLineString
+  name: DateLineString
+  nameWithType: JournalEntry.DateLineString
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.DateLineString
+- uid: PropertyChangedEventHandler
+  isExternal: true
+  name: PropertyChangedEventHandler
+  nameWithType: PropertyChangedEventHandler
+  fullName: PropertyChangedEventHandler
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.OnPropertyChanged*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.JournalEntry.OnPropertyChanged
+  name: OnPropertyChanged
+  nameWithType: JournalEntry.OnPropertyChanged
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.OnPropertyChanged
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.Equals*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.JournalEntry.Equals
+  name: Equals
+  nameWithType: JournalEntry.Equals
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.Equals
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry.GetHashCode*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.JournalEntry.GetHashCode
+  name: GetHashCode
+  nameWithType: JournalEntry.GetHashCode
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry.GetHashCode
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

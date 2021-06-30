@@ -1,0 +1,784 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings
+  commentId: T:OSEUIDesktop.WPF.Sample.SampleSettings
+  id: SampleSettings
+  parent: OSEUIDesktop.WPF.Sample
+  children:
+  - OSEUIDesktop.WPF.Sample.SampleSettings.#ctor
+  - OSEUIDesktop.WPF.Sample.SampleSettings.#ctor(SerializationInfo,StreamingContext)
+  - OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatIndex
+  - OSEUIDesktop.WPF.Sample.SampleSettings.DateFormats
+  - OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatString
+  - OSEUIDesktop.WPF.Sample.SampleSettings.GetObjectData(SerializationInfo,StreamingContext)
+  - OSEUIDesktop.WPF.Sample.SampleSettings.IsDirty
+  langs:
+  - csharp
+  - vb
+  name: SampleSettings
+  nameWithType: SampleSettings
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: SampleSettings
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+    startLine: 10
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: 'public class SampleSettings : DesktopAppSettings, IDirty, ISerializable, IDisposable'
+    content.vb: >-
+      Public Class SampleSettings
+          Inherits DesktopAppSettings
+          Implements IDirty, ISerializable, IDisposable
+  inheritance:
+  - System.Object
+  - OSECoreUI.App.BaseAppSettings
+  - OSEUI.WPF.App.DesktopAppSettings
+  implements:
+  - OSECoreUI.App.IDirty
+  - System.Runtime.Serialization.ISerializable
+  - System.IDisposable
+  inheritedMembers:
+  - OSEUI.WPF.App.DesktopAppSettings.MainWindowBounds
+  - OSEUI.WPF.App.DesktopAppSettings.RecentFiles
+  - OSEUI.WPF.App.DesktopAppSettings.ApplyMainWindowBounds(Window)
+  - OSEUI.WPF.App.DesktopAppSettings.UpdateMainWindowBounds(Window)
+  - OSECoreUI.App.BaseAppSettings.DocumentFolder
+  - OSECoreUI.App.BaseAppSettings.TempFolder
+  - OSECoreUI.App.BaseAppSettings.IsDisposed
+  - OSECoreUI.App.BaseAppSettings.Dirty
+  - OSECoreUI.App.BaseAppSettings.Undirty
+  - OSECoreUI.App.BaseAppSettings.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - OSECoreUI.App.BaseAppSettings.Dispose(System.Boolean)
+  - OSECoreUI.App.BaseAppSettings.Dispose
+  - OSECoreUI.App.BaseAppSettings.Validate(OSECore.Logging.ResultLog,System.Boolean)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.#ctor
+  commentId: M:OSEUIDesktop.WPF.Sample.SampleSettings.#ctor
+  id: '#ctor'
+  parent: OSEUIDesktop.WPF.Sample.SampleSettings
+  langs:
+  - csharp
+  - vb
+  name: SampleSettings()
+  nameWithType: SampleSettings.SampleSettings()
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.SampleSettings()
+  type: Constructor
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+    startLine: 14
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public SampleSettings()
+    content.vb: Public Sub New
+  overload: OSEUIDesktop.WPF.Sample.SampleSettings.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.#ctor(SerializationInfo,StreamingContext)
+  commentId: M:OSEUIDesktop.WPF.Sample.SampleSettings.#ctor(SerializationInfo,StreamingContext)
+  id: '#ctor(SerializationInfo,StreamingContext)'
+  parent: OSEUIDesktop.WPF.Sample.SampleSettings
+  langs:
+  - csharp
+  - vb
+  name: SampleSettings(SerializationInfo, StreamingContext)
+  nameWithType: SampleSettings.SampleSettings(SerializationInfo, StreamingContext)
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.SampleSettings(SerializationInfo, StreamingContext)
+  type: Constructor
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+    startLine: 17
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public SampleSettings(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: SerializationInfo
+    - id: context
+      type: StreamingContext
+    content.vb: Public Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: OSEUIDesktop.WPF.Sample.SampleSettings.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.GetObjectData(SerializationInfo,StreamingContext)
+  commentId: M:OSEUIDesktop.WPF.Sample.SampleSettings.GetObjectData(SerializationInfo,StreamingContext)
+  id: GetObjectData(SerializationInfo,StreamingContext)
+  parent: OSEUIDesktop.WPF.Sample.SampleSettings
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: SampleSettings.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.GetObjectData(SerializationInfo, StreamingContext)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: GetObjectData
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+    startLine: 29
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public override void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: SerializationInfo
+    - id: context
+      type: StreamingContext
+    content.vb: Public Overrides Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: OSEUIDesktop.WPF.Sample.SampleSettings.GetObjectData*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.IsDirty
+  commentId: P:OSEUIDesktop.WPF.Sample.SampleSettings.IsDirty
+  id: IsDirty
+  parent: OSEUIDesktop.WPF.Sample.SampleSettings
+  langs:
+  - csharp
+  - vb
+  name: IsDirty
+  nameWithType: SampleSettings.IsDirty
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.IsDirty
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: IsDirty
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+    startLine: 34
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public override bool IsDirty { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsDirty As Boolean
+  overridden: OSEUI.WPF.App.DesktopAppSettings.IsDirty
+  overload: OSEUIDesktop.WPF.Sample.SampleSettings.IsDirty*
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatIndex
+  commentId: P:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatIndex
+  id: DateFormatIndex
+  parent: OSEUIDesktop.WPF.Sample.SampleSettings
+  langs:
+  - csharp
+  - vb
+  name: DateFormatIndex
+  nameWithType: SampleSettings.DateFormatIndex
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatIndex
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: DateFormatIndex
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+    startLine: 36
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public int DateFormatIndex { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DateFormatIndex As Integer
+  overload: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatIndex*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatString
+  commentId: P:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatString
+  id: DateFormatString
+  parent: OSEUIDesktop.WPF.Sample.SampleSettings
+  langs:
+  - csharp
+  - vb
+  name: DateFormatString
+  nameWithType: SampleSettings.DateFormatString
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatString
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: DateFormatString
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+    startLine: 48
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public string DateFormatString { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property DateFormatString As String
+  overload: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatString*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormats
+  commentId: P:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormats
+  id: DateFormats
+  parent: OSEUIDesktop.WPF.Sample.SampleSettings
+  langs:
+  - csharp
+  - vb
+  name: DateFormats
+  nameWithType: SampleSettings.DateFormats
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormats
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: DateFormats
+    path: ../sample/OSEUIDesktop.WPF.Sample/SampleSettings.cs
+    startLine: 61
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public SampleSettings.DateFormat[] DateFormats { get; }
+    parameters: []
+    return:
+      type: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat[]
+    content.vb: Public ReadOnly Property DateFormats As SampleSettings.DateFormat()
+  overload: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormats*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: OSEUIDesktop.WPF.Sample
+  commentId: N:OSEUIDesktop.WPF.Sample
+  name: OSEUIDesktop.WPF.Sample
+  nameWithType: OSEUIDesktop.WPF.Sample
+  fullName: OSEUIDesktop.WPF.Sample
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: OSECoreUI.App.BaseAppSettings
+  commentId: T:OSECoreUI.App.BaseAppSettings
+  parent: OSECoreUI.App
+  name: BaseAppSettings
+  nameWithType: BaseAppSettings
+  fullName: OSECoreUI.App.BaseAppSettings
+- uid: OSEUI.WPF.App.DesktopAppSettings
+  commentId: T:OSEUI.WPF.App.DesktopAppSettings
+  parent: OSEUI.WPF.App
+  name: DesktopAppSettings
+  nameWithType: DesktopAppSettings
+  fullName: OSEUI.WPF.App.DesktopAppSettings
+- uid: OSECoreUI.App.IDirty
+  commentId: T:OSECoreUI.App.IDirty
+  parent: OSECoreUI.App
+  name: IDirty
+  nameWithType: IDirty
+  fullName: OSECoreUI.App.IDirty
+- uid: System.Runtime.Serialization.ISerializable
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
+- uid: System.IDisposable
+  isExternal: true
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: OSEUI.WPF.App.DesktopAppSettings.MainWindowBounds
+  commentId: P:OSEUI.WPF.App.DesktopAppSettings.MainWindowBounds
+  parent: OSEUI.WPF.App.DesktopAppSettings
+  name: MainWindowBounds
+  nameWithType: DesktopAppSettings.MainWindowBounds
+  fullName: OSEUI.WPF.App.DesktopAppSettings.MainWindowBounds
+- uid: OSEUI.WPF.App.DesktopAppSettings.RecentFiles
+  commentId: P:OSEUI.WPF.App.DesktopAppSettings.RecentFiles
+  parent: OSEUI.WPF.App.DesktopAppSettings
+  name: RecentFiles
+  nameWithType: DesktopAppSettings.RecentFiles
+  fullName: OSEUI.WPF.App.DesktopAppSettings.RecentFiles
+- uid: OSEUI.WPF.App.DesktopAppSettings.ApplyMainWindowBounds(Window)
+  commentId: M:OSEUI.WPF.App.DesktopAppSettings.ApplyMainWindowBounds(Window)
+  parent: OSEUI.WPF.App.DesktopAppSettings
+  isExternal: true
+  name: ApplyMainWindowBounds(Window)
+  nameWithType: DesktopAppSettings.ApplyMainWindowBounds(Window)
+  fullName: OSEUI.WPF.App.DesktopAppSettings.ApplyMainWindowBounds(Window)
+  spec.csharp:
+  - uid: OSEUI.WPF.App.DesktopAppSettings.ApplyMainWindowBounds(Window)
+    name: ApplyMainWindowBounds
+    nameWithType: DesktopAppSettings.ApplyMainWindowBounds
+    fullName: OSEUI.WPF.App.DesktopAppSettings.ApplyMainWindowBounds
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Window
+    name: Window
+    nameWithType: Window
+    fullName: Window
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEUI.WPF.App.DesktopAppSettings.ApplyMainWindowBounds(Window)
+    name: ApplyMainWindowBounds
+    nameWithType: DesktopAppSettings.ApplyMainWindowBounds
+    fullName: OSEUI.WPF.App.DesktopAppSettings.ApplyMainWindowBounds
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Window
+    name: Window
+    nameWithType: Window
+    fullName: Window
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEUI.WPF.App.DesktopAppSettings.UpdateMainWindowBounds(Window)
+  commentId: M:OSEUI.WPF.App.DesktopAppSettings.UpdateMainWindowBounds(Window)
+  parent: OSEUI.WPF.App.DesktopAppSettings
+  isExternal: true
+  name: UpdateMainWindowBounds(Window)
+  nameWithType: DesktopAppSettings.UpdateMainWindowBounds(Window)
+  fullName: OSEUI.WPF.App.DesktopAppSettings.UpdateMainWindowBounds(Window)
+  spec.csharp:
+  - uid: OSEUI.WPF.App.DesktopAppSettings.UpdateMainWindowBounds(Window)
+    name: UpdateMainWindowBounds
+    nameWithType: DesktopAppSettings.UpdateMainWindowBounds
+    fullName: OSEUI.WPF.App.DesktopAppSettings.UpdateMainWindowBounds
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Window
+    name: Window
+    nameWithType: Window
+    fullName: Window
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEUI.WPF.App.DesktopAppSettings.UpdateMainWindowBounds(Window)
+    name: UpdateMainWindowBounds
+    nameWithType: DesktopAppSettings.UpdateMainWindowBounds
+    fullName: OSEUI.WPF.App.DesktopAppSettings.UpdateMainWindowBounds
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Window
+    name: Window
+    nameWithType: Window
+    fullName: Window
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.App.BaseAppSettings.DocumentFolder
+  commentId: P:OSECoreUI.App.BaseAppSettings.DocumentFolder
+  parent: OSECoreUI.App.BaseAppSettings
+  name: DocumentFolder
+  nameWithType: BaseAppSettings.DocumentFolder
+  fullName: OSECoreUI.App.BaseAppSettings.DocumentFolder
+- uid: OSECoreUI.App.BaseAppSettings.TempFolder
+  commentId: P:OSECoreUI.App.BaseAppSettings.TempFolder
+  parent: OSECoreUI.App.BaseAppSettings
+  name: TempFolder
+  nameWithType: BaseAppSettings.TempFolder
+  fullName: OSECoreUI.App.BaseAppSettings.TempFolder
+- uid: OSECoreUI.App.BaseAppSettings.IsDisposed
+  commentId: F:OSECoreUI.App.BaseAppSettings.IsDisposed
+  parent: OSECoreUI.App.BaseAppSettings
+  name: IsDisposed
+  nameWithType: BaseAppSettings.IsDisposed
+  fullName: OSECoreUI.App.BaseAppSettings.IsDisposed
+- uid: OSECoreUI.App.BaseAppSettings.Dirty
+  commentId: M:OSECoreUI.App.BaseAppSettings.Dirty
+  parent: OSECoreUI.App.BaseAppSettings
+  name: Dirty()
+  nameWithType: BaseAppSettings.Dirty()
+  fullName: OSECoreUI.App.BaseAppSettings.Dirty()
+  spec.csharp:
+  - uid: OSECoreUI.App.BaseAppSettings.Dirty
+    name: Dirty
+    nameWithType: BaseAppSettings.Dirty
+    fullName: OSECoreUI.App.BaseAppSettings.Dirty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.App.BaseAppSettings.Dirty
+    name: Dirty
+    nameWithType: BaseAppSettings.Dirty
+    fullName: OSECoreUI.App.BaseAppSettings.Dirty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.App.BaseAppSettings.Undirty
+  commentId: M:OSECoreUI.App.BaseAppSettings.Undirty
+  parent: OSECoreUI.App.BaseAppSettings
+  name: Undirty()
+  nameWithType: BaseAppSettings.Undirty()
+  fullName: OSECoreUI.App.BaseAppSettings.Undirty()
+  spec.csharp:
+  - uid: OSECoreUI.App.BaseAppSettings.Undirty
+    name: Undirty
+    nameWithType: BaseAppSettings.Undirty
+    fullName: OSECoreUI.App.BaseAppSettings.Undirty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.App.BaseAppSettings.Undirty
+    name: Undirty
+    nameWithType: BaseAppSettings.Undirty
+    fullName: OSECoreUI.App.BaseAppSettings.Undirty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.App.BaseAppSettings.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:OSECoreUI.App.BaseAppSettings.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: OSECoreUI.App.BaseAppSettings
+  isExternal: true
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: BaseAppSettings.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: OSECoreUI.App.BaseAppSettings.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: OSECoreUI.App.BaseAppSettings.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: BaseAppSettings.GetObjectData
+    fullName: OSECoreUI.App.BaseAppSettings.GetObjectData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.App.BaseAppSettings.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: BaseAppSettings.GetObjectData
+    fullName: OSECoreUI.App.BaseAppSettings.GetObjectData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.App.BaseAppSettings.Dispose(System.Boolean)
+  commentId: M:OSECoreUI.App.BaseAppSettings.Dispose(System.Boolean)
+  parent: OSECoreUI.App.BaseAppSettings
+  isExternal: true
+  name: Dispose(Boolean)
+  nameWithType: BaseAppSettings.Dispose(Boolean)
+  fullName: OSECoreUI.App.BaseAppSettings.Dispose(System.Boolean)
+  spec.csharp:
+  - uid: OSECoreUI.App.BaseAppSettings.Dispose(System.Boolean)
+    name: Dispose
+    nameWithType: BaseAppSettings.Dispose
+    fullName: OSECoreUI.App.BaseAppSettings.Dispose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.App.BaseAppSettings.Dispose(System.Boolean)
+    name: Dispose
+    nameWithType: BaseAppSettings.Dispose
+    fullName: OSECoreUI.App.BaseAppSettings.Dispose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.App.BaseAppSettings.Dispose
+  commentId: M:OSECoreUI.App.BaseAppSettings.Dispose
+  parent: OSECoreUI.App.BaseAppSettings
+  name: Dispose()
+  nameWithType: BaseAppSettings.Dispose()
+  fullName: OSECoreUI.App.BaseAppSettings.Dispose()
+  spec.csharp:
+  - uid: OSECoreUI.App.BaseAppSettings.Dispose
+    name: Dispose
+    nameWithType: BaseAppSettings.Dispose
+    fullName: OSECoreUI.App.BaseAppSettings.Dispose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.App.BaseAppSettings.Dispose
+    name: Dispose
+    nameWithType: BaseAppSettings.Dispose
+    fullName: OSECoreUI.App.BaseAppSettings.Dispose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.App.BaseAppSettings.Validate(OSECore.Logging.ResultLog,System.Boolean)
+  commentId: M:OSECoreUI.App.BaseAppSettings.Validate(OSECore.Logging.ResultLog,System.Boolean)
+  parent: OSECoreUI.App.BaseAppSettings
+  isExternal: true
+  name: Validate(ResultLog, Boolean)
+  nameWithType: BaseAppSettings.Validate(ResultLog, Boolean)
+  fullName: OSECoreUI.App.BaseAppSettings.Validate(OSECore.Logging.ResultLog, System.Boolean)
+  spec.csharp:
+  - uid: OSECoreUI.App.BaseAppSettings.Validate(OSECore.Logging.ResultLog,System.Boolean)
+    name: Validate
+    nameWithType: BaseAppSettings.Validate
+    fullName: OSECoreUI.App.BaseAppSettings.Validate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: OSECore.Logging.ResultLog
+    name: ResultLog
+    nameWithType: ResultLog
+    fullName: OSECore.Logging.ResultLog
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSECoreUI.App.BaseAppSettings.Validate(OSECore.Logging.ResultLog,System.Boolean)
+    name: Validate
+    nameWithType: BaseAppSettings.Validate
+    fullName: OSECoreUI.App.BaseAppSettings.Validate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: OSECore.Logging.ResultLog
+    name: ResultLog
+    nameWithType: ResultLog
+    fullName: OSECore.Logging.ResultLog
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSECoreUI.App
+  commentId: N:OSECoreUI.App
+  name: OSECoreUI.App
+  nameWithType: OSECoreUI.App
+  fullName: OSECoreUI.App
+- uid: OSEUI.WPF.App
+  commentId: N:OSEUI.WPF.App
+  name: OSEUI.WPF.App
+  nameWithType: OSEUI.WPF.App
+  fullName: OSEUI.WPF.App
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.#ctor*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleSettings.#ctor
+  name: SampleSettings
+  nameWithType: SampleSettings.SampleSettings
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.SampleSettings
+- uid: SerializationInfo
+  isExternal: true
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: SerializationInfo
+- uid: StreamingContext
+  isExternal: true
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: StreamingContext
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.GetObjectData*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleSettings.GetObjectData
+  name: GetObjectData
+  nameWithType: SampleSettings.GetObjectData
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.GetObjectData
+- uid: OSEUI.WPF.App.DesktopAppSettings.IsDirty
+  commentId: P:OSEUI.WPF.App.DesktopAppSettings.IsDirty
+  parent: OSEUI.WPF.App.DesktopAppSettings
+  name: IsDirty
+  nameWithType: DesktopAppSettings.IsDirty
+  fullName: OSEUI.WPF.App.DesktopAppSettings.IsDirty
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.IsDirty*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleSettings.IsDirty
+  name: IsDirty
+  nameWithType: SampleSettings.IsDirty
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.IsDirty
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatIndex*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatIndex
+  name: DateFormatIndex
+  nameWithType: SampleSettings.DateFormatIndex
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatIndex
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatString*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatString
+  name: DateFormatString
+  nameWithType: SampleSettings.DateFormatString
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormatString
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormats*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.SampleSettings.DateFormats
+  name: DateFormats
+  nameWithType: SampleSettings.DateFormats
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormats
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat[]
+  isExternal: true
+  name: SampleSettings.DateFormat[]
+  nameWithType: SampleSettings.DateFormat[]
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat[]
+  nameWithType.vb: SampleSettings.DateFormat()
+  fullName.vb: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat()
+  name.vb: SampleSettings.DateFormat()
+  spec.csharp:
+  - uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat
+    name: SampleSettings.DateFormat
+    nameWithType: SampleSettings.DateFormat
+    fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat
+    name: SampleSettings.DateFormat
+    nameWithType: SampleSettings.DateFormat
+    fullName: OSEUIDesktop.WPF.Sample.SampleSettings.DateFormat
+  - name: ()
+    nameWithType: ()
+    fullName: ()

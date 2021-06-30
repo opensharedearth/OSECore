@@ -1,0 +1,100 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIControls.WPF.Gallery.App
+  commentId: T:OSEUIControls.WPF.Gallery.App
+  id: App
+  parent: OSEUIControls.WPF.Gallery
+  children:
+  - OSEUIControls.WPF.Gallery.App.UndoRedo
+  langs:
+  - csharp
+  - vb
+  name: App
+  nameWithType: App
+  fullName: OSEUIControls.WPF.Gallery.App
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIControls.WPF.Gallery/App.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: App
+    path: ../sample/OSEUIControls.WPF.Gallery/App.xaml.cs
+    startLine: 15
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+  namespace: OSEUIControls.WPF.Gallery
+  summary: "\nInteraction logic for App.xaml\n"
+  example: []
+  syntax:
+    content: 'public class App : Application'
+    content.vb: >-
+      Public Class App
+          Inherits Application
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: OSEUIControls.WPF.Gallery.App.UndoRedo
+  commentId: P:OSEUIControls.WPF.Gallery.App.UndoRedo
+  id: UndoRedo
+  parent: OSEUIControls.WPF.Gallery.App
+  langs:
+  - csharp
+  - vb
+  name: UndoRedo
+  nameWithType: App.UndoRedo
+  fullName: OSEUIControls.WPF.Gallery.App.UndoRedo
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIControls.WPF.Gallery/App.xaml.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: UndoRedo
+    path: ../sample/OSEUIControls.WPF.Gallery/App.xaml.cs
+    startLine: 17
+  assemblies:
+  - OSEUIControls.WPF.Gallery
+  namespace: OSEUIControls.WPF.Gallery
+  syntax:
+    content: public static UndoRedoFramework UndoRedo { get; }
+    parameters: []
+    return:
+      type: UndoRedoFramework
+    content.vb: Public Shared ReadOnly Property UndoRedo As UndoRedoFramework
+  overload: OSEUIControls.WPF.Gallery.App.UndoRedo*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+references:
+- uid: OSEUIControls.WPF.Gallery
+  commentId: N:OSEUIControls.WPF.Gallery
+  name: OSEUIControls.WPF.Gallery
+  nameWithType: OSEUIControls.WPF.Gallery
+  fullName: OSEUIControls.WPF.Gallery
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: OSEUIControls.WPF.Gallery.App.UndoRedo*
+  commentId: Overload:OSEUIControls.WPF.Gallery.App.UndoRedo
+  name: UndoRedo
+  nameWithType: App.UndoRedo
+  fullName: OSEUIControls.WPF.Gallery.App.UndoRedo
+- uid: UndoRedoFramework
+  commentId: '!:UndoRedoFramework'
+  isExternal: true
+  name: UndoRedoFramework
+  nameWithType: UndoRedoFramework
+  fullName: UndoRedoFramework

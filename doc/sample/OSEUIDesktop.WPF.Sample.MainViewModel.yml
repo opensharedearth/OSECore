@@ -1,0 +1,1055 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel
+  commentId: T:OSEUIDesktop.WPF.Sample.MainViewModel
+  id: MainViewModel
+  parent: OSEUIDesktop.WPF.Sample
+  children:
+  - OSEUIDesktop.WPF.Sample.MainViewModel.#ctor
+  - OSEUIDesktop.WPF.Sample.MainViewModel._entryInEdit
+  - OSEUIDesktop.WPF.Sample.MainViewModel._resultLog
+  - OSEUIDesktop.WPF.Sample.MainViewModel._selectedEntry
+  - OSEUIDesktop.WPF.Sample.MainViewModel.AddEntry
+  - OSEUIDesktop.WPF.Sample.MainViewModel.CommitEdit
+  - OSEUIDesktop.WPF.Sample.MainViewModel.Entries
+  - OSEUIDesktop.WPF.Sample.MainViewModel.EntryInEdit
+  - OSEUIDesktop.WPF.Sample.MainViewModel.InEdit
+  - OSEUIDesktop.WPF.Sample.MainViewModel.Model
+  - OSEUIDesktop.WPF.Sample.MainViewModel.NotInEdit
+  - OSEUIDesktop.WPF.Sample.MainViewModel.OnPropertyChanged(System.String)
+  - OSEUIDesktop.WPF.Sample.MainViewModel.PropertyChanged
+  - OSEUIDesktop.WPF.Sample.MainViewModel.ResultLog
+  - OSEUIDesktop.WPF.Sample.MainViewModel.SelectedEntry
+  - OSEUIDesktop.WPF.Sample.MainViewModel.SelectedIndex
+  - OSEUIDesktop.WPF.Sample.MainViewModel.Settings
+  - OSEUIDesktop.WPF.Sample.MainViewModel.ShowDocumentToolBar
+  - OSEUIDesktop.WPF.Sample.MainViewModel.ShowEditToolBar
+  - OSEUIDesktop.WPF.Sample.MainViewModel.StartEdit
+  - OSEUIDesktop.WPF.Sample.MainViewModel.UiStatus
+  - OSEUIDesktop.WPF.Sample.MainViewModel.UIZoom
+  - OSEUIDesktop.WPF.Sample.MainViewModel.UndoRedo
+  - OSEUIDesktop.WPF.Sample.MainViewModel.UpdateViewModel
+  langs:
+  - csharp
+  - vb
+  name: MainViewModel
+  nameWithType: MainViewModel
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: MainViewModel
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 15
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: 'public class MainViewModel : INotifyPropertyChanged'
+    content.vb: >-
+      Public Class MainViewModel
+          Inherits INotifyPropertyChanged
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.PropertyChanged
+  commentId: E:OSEUIDesktop.WPF.Sample.MainViewModel.PropertyChanged
+  id: PropertyChanged
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: MainViewModel.PropertyChanged
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.PropertyChanged
+  type: Event
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: PropertyChanged
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 20
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public event PropertyChangedEventHandler PropertyChanged
+    return:
+      type: PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.UndoRedo
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.UndoRedo
+  id: UndoRedo
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: UndoRedo
+  nameWithType: MainViewModel.UndoRedo
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.UndoRedo
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: UndoRedo
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 21
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public UndoRedoFrameworkView UndoRedo { get; }
+    parameters: []
+    return:
+      type: OSECoreUI.Undo.UndoRedoFrameworkView
+    content.vb: Public ReadOnly Property UndoRedo As UndoRedoFrameworkView
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.UndoRedo*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.#ctor
+  commentId: M:OSEUIDesktop.WPF.Sample.MainViewModel.#ctor
+  id: '#ctor'
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: MainViewModel()
+  nameWithType: MainViewModel.MainViewModel()
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.MainViewModel()
+  type: Constructor
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 22
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public MainViewModel()
+    content.vb: Public Sub New
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.OnPropertyChanged(System.String)
+  commentId: M:OSEUIDesktop.WPF.Sample.MainViewModel.OnPropertyChanged(System.String)
+  id: OnPropertyChanged(System.String)
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: OnPropertyChanged(String)
+  nameWithType: MainViewModel.OnPropertyChanged(String)
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.OnPropertyChanged(System.String)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: OnPropertyChanged
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 28
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: protected virtual void OnPropertyChanged(string propertyName = null)
+    parameters:
+    - id: propertyName
+      type: System.String
+    content.vb: Protected Overridable Sub OnPropertyChanged(propertyName As String = Nothing)
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.OnPropertyChanged*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel._resultLog
+  commentId: F:OSEUIDesktop.WPF.Sample.MainViewModel._resultLog
+  id: _resultLog
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: _resultLog
+  nameWithType: MainViewModel._resultLog
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel._resultLog
+  type: Field
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: _resultLog
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 32
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public ResultLog _resultLog
+    return:
+      type: OSECore.Logging.ResultLog
+    content.vb: Public _resultLog As ResultLog
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.ResultLog
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.ResultLog
+  id: ResultLog
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: ResultLog
+  nameWithType: MainViewModel.ResultLog
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.ResultLog
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ResultLog
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 33
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public ResultLog ResultLog { get; set; }
+    parameters: []
+    return:
+      type: OSECore.Logging.ResultLog
+    content.vb: Public Property ResultLog As ResultLog
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.ResultLog*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.Settings
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.Settings
+  id: Settings
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: Settings
+  nameWithType: MainViewModel.Settings
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.Settings
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Settings
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 46
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public SampleSettings Settings { get; }
+    parameters: []
+    return:
+      type: OSEUIDesktop.WPF.Sample.SampleSettings
+    content.vb: Public ReadOnly Property Settings As SampleSettings
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.Settings*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.UIZoom
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.UIZoom
+  id: UIZoom
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: UIZoom
+  nameWithType: MainViewModel.UIZoom
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.UIZoom
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: UIZoom
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 47
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public UIZoom UIZoom { get; }
+    parameters: []
+    return:
+      type: OSECoreUI.App.UIZoom
+    content.vb: Public ReadOnly Property UIZoom As UIZoom
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.UIZoom*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.UiStatus
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.UiStatus
+  id: UiStatus
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: UiStatus
+  nameWithType: MainViewModel.UiStatus
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.UiStatus
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: UiStatus
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 48
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public UIStatus UiStatus { get; }
+    parameters: []
+    return:
+      type: OSECoreUI.App.UIStatus
+    content.vb: Public ReadOnly Property UiStatus As UIStatus
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.UiStatus*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.Model
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.Model
+  id: Model
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: Model
+  nameWithType: MainViewModel.Model
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.Model
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Model
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 49
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public MainModel Model { get; }
+    parameters: []
+    return:
+      type: OSEUIDesktop.WPF.Sample.MainModel
+    content.vb: Public ReadOnly Property Model As MainModel
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.Model*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.Entries
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.Entries
+  id: Entries
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: Entries
+  nameWithType: MainViewModel.Entries
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.Entries
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Entries
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 50
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public JournalEntries Entries { get; }
+    parameters: []
+    return:
+      type: OSEUIDesktop.WPF.Sample.JournalEntries
+    content.vb: Public ReadOnly Property Entries As JournalEntries
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.Entries*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel._selectedEntry
+  commentId: F:OSEUIDesktop.WPF.Sample.MainViewModel._selectedEntry
+  id: _selectedEntry
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: _selectedEntry
+  nameWithType: MainViewModel._selectedEntry
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel._selectedEntry
+  type: Field
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: _selectedEntry
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 51
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public JournalEntry _selectedEntry
+    return:
+      type: OSEUIDesktop.WPF.Sample.JournalEntry
+    content.vb: Public _selectedEntry As JournalEntry
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.SelectedEntry
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.SelectedEntry
+  id: SelectedEntry
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectedEntry
+  nameWithType: MainViewModel.SelectedEntry
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.SelectedEntry
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: SelectedEntry
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 52
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public JournalEntry SelectedEntry { get; set; }
+    parameters: []
+    return:
+      type: OSEUIDesktop.WPF.Sample.JournalEntry
+    content.vb: Public Property SelectedEntry As JournalEntry
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.SelectedEntry*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel._entryInEdit
+  commentId: F:OSEUIDesktop.WPF.Sample.MainViewModel._entryInEdit
+  id: _entryInEdit
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: _entryInEdit
+  nameWithType: MainViewModel._entryInEdit
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel._entryInEdit
+  type: Field
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: _entryInEdit
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 64
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public JournalEntry _entryInEdit
+    return:
+      type: OSEUIDesktop.WPF.Sample.JournalEntry
+    content.vb: Public _entryInEdit As JournalEntry
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.EntryInEdit
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.EntryInEdit
+  id: EntryInEdit
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: EntryInEdit
+  nameWithType: MainViewModel.EntryInEdit
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.EntryInEdit
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: EntryInEdit
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 65
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public JournalEntry EntryInEdit { get; set; }
+    parameters: []
+    return:
+      type: OSEUIDesktop.WPF.Sample.JournalEntry
+    content.vb: Public Property EntryInEdit As JournalEntry
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.EntryInEdit*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.SelectedIndex
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.SelectedIndex
+  id: SelectedIndex
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectedIndex
+  nameWithType: MainViewModel.SelectedIndex
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.SelectedIndex
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: SelectedIndex
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 79
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public int SelectedIndex { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SelectedIndex As Integer
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.SelectedIndex*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.AddEntry
+  commentId: M:OSEUIDesktop.WPF.Sample.MainViewModel.AddEntry
+  id: AddEntry
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: AddEntry()
+  nameWithType: MainViewModel.AddEntry()
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.AddEntry()
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: AddEntry
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 92
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public void AddEntry()
+    content.vb: Public Sub AddEntry
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.AddEntry*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.NotInEdit
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.NotInEdit
+  id: NotInEdit
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: NotInEdit
+  nameWithType: MainViewModel.NotInEdit
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.NotInEdit
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: NotInEdit
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 124
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public bool NotInEdit { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property NotInEdit As Boolean
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.NotInEdit*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.InEdit
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.InEdit
+  id: InEdit
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: InEdit
+  nameWithType: MainViewModel.InEdit
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.InEdit
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: InEdit
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 125
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public bool InEdit { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property InEdit As Boolean
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.InEdit*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.ShowDocumentToolBar
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.ShowDocumentToolBar
+  id: ShowDocumentToolBar
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: ShowDocumentToolBar
+  nameWithType: MainViewModel.ShowDocumentToolBar
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.ShowDocumentToolBar
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ShowDocumentToolBar
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 140
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public bool ShowDocumentToolBar { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ShowDocumentToolBar As Boolean
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.ShowDocumentToolBar*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.ShowEditToolBar
+  commentId: P:OSEUIDesktop.WPF.Sample.MainViewModel.ShowEditToolBar
+  id: ShowEditToolBar
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: ShowEditToolBar
+  nameWithType: MainViewModel.ShowEditToolBar
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.ShowEditToolBar
+  type: Property
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ShowEditToolBar
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 153
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public bool ShowEditToolBar { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ShowEditToolBar As Boolean
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.ShowEditToolBar*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.StartEdit
+  commentId: M:OSEUIDesktop.WPF.Sample.MainViewModel.StartEdit
+  id: StartEdit
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: StartEdit()
+  nameWithType: MainViewModel.StartEdit()
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.StartEdit()
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: StartEdit
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 193
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public void StartEdit()
+    content.vb: Public Sub StartEdit
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.StartEdit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.CommitEdit
+  commentId: M:OSEUIDesktop.WPF.Sample.MainViewModel.CommitEdit
+  id: CommitEdit
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: CommitEdit()
+  nameWithType: MainViewModel.CommitEdit()
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.CommitEdit()
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: CommitEdit
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 201
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public void CommitEdit()
+    content.vb: Public Sub CommitEdit
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.CommitEdit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.UpdateViewModel
+  commentId: M:OSEUIDesktop.WPF.Sample.MainViewModel.UpdateViewModel
+  id: UpdateViewModel
+  parent: OSEUIDesktop.WPF.Sample.MainViewModel
+  langs:
+  - csharp
+  - vb
+  name: UpdateViewModel()
+  nameWithType: MainViewModel.UpdateViewModel()
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.UpdateViewModel()
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: UpdateViewModel
+    path: ../sample/OSEUIDesktop.WPF.Sample/MainViewModel.cs
+    startLine: 249
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public void UpdateViewModel()
+    content.vb: Public Sub UpdateViewModel
+  overload: OSEUIDesktop.WPF.Sample.MainViewModel.UpdateViewModel*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: OSEUIDesktop.WPF.Sample
+  commentId: N:OSEUIDesktop.WPF.Sample
+  name: OSEUIDesktop.WPF.Sample
+  nameWithType: OSEUIDesktop.WPF.Sample
+  fullName: OSEUIDesktop.WPF.Sample
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: PropertyChangedEventHandler
+  isExternal: true
+  name: PropertyChangedEventHandler
+  nameWithType: PropertyChangedEventHandler
+  fullName: PropertyChangedEventHandler
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.UndoRedo*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.UndoRedo
+  name: UndoRedo
+  nameWithType: MainViewModel.UndoRedo
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.UndoRedo
+- uid: OSECoreUI.Undo.UndoRedoFrameworkView
+  commentId: T:OSECoreUI.Undo.UndoRedoFrameworkView
+  parent: OSECoreUI.Undo
+  name: UndoRedoFrameworkView
+  nameWithType: UndoRedoFrameworkView
+  fullName: OSECoreUI.Undo.UndoRedoFrameworkView
+- uid: OSECoreUI.Undo
+  commentId: N:OSECoreUI.Undo
+  name: OSECoreUI.Undo
+  nameWithType: OSECoreUI.Undo
+  fullName: OSECoreUI.Undo
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.#ctor*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.#ctor
+  name: MainViewModel
+  nameWithType: MainViewModel.MainViewModel
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.MainViewModel
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.OnPropertyChanged*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.OnPropertyChanged
+  name: OnPropertyChanged
+  nameWithType: MainViewModel.OnPropertyChanged
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.OnPropertyChanged
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: OSECore.Logging.ResultLog
+  commentId: T:OSECore.Logging.ResultLog
+  parent: OSECore.Logging
+  name: ResultLog
+  nameWithType: ResultLog
+  fullName: OSECore.Logging.ResultLog
+- uid: OSECore.Logging
+  commentId: N:OSECore.Logging
+  name: OSECore.Logging
+  nameWithType: OSECore.Logging
+  fullName: OSECore.Logging
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.ResultLog*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.ResultLog
+  name: ResultLog
+  nameWithType: MainViewModel.ResultLog
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.ResultLog
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.Settings*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.Settings
+  name: Settings
+  nameWithType: MainViewModel.Settings
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.Settings
+- uid: OSEUIDesktop.WPF.Sample.SampleSettings
+  commentId: T:OSEUIDesktop.WPF.Sample.SampleSettings
+  parent: OSEUIDesktop.WPF.Sample
+  name: SampleSettings
+  nameWithType: SampleSettings
+  fullName: OSEUIDesktop.WPF.Sample.SampleSettings
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.UIZoom*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.UIZoom
+  name: UIZoom
+  nameWithType: MainViewModel.UIZoom
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.UIZoom
+- uid: OSECoreUI.App.UIZoom
+  commentId: T:OSECoreUI.App.UIZoom
+  parent: OSECoreUI.App
+  name: UIZoom
+  nameWithType: UIZoom
+  fullName: OSECoreUI.App.UIZoom
+- uid: OSECoreUI.App
+  commentId: N:OSECoreUI.App
+  name: OSECoreUI.App
+  nameWithType: OSECoreUI.App
+  fullName: OSECoreUI.App
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.UiStatus*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.UiStatus
+  name: UiStatus
+  nameWithType: MainViewModel.UiStatus
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.UiStatus
+- uid: OSECoreUI.App.UIStatus
+  commentId: T:OSECoreUI.App.UIStatus
+  parent: OSECoreUI.App
+  name: UIStatus
+  nameWithType: UIStatus
+  fullName: OSECoreUI.App.UIStatus
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.Model*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.Model
+  name: Model
+  nameWithType: MainViewModel.Model
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.Model
+- uid: OSEUIDesktop.WPF.Sample.MainModel
+  commentId: T:OSEUIDesktop.WPF.Sample.MainModel
+  parent: OSEUIDesktop.WPF.Sample
+  name: MainModel
+  nameWithType: MainModel
+  fullName: OSEUIDesktop.WPF.Sample.MainModel
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.Entries*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.Entries
+  name: Entries
+  nameWithType: MainViewModel.Entries
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.Entries
+- uid: OSEUIDesktop.WPF.Sample.JournalEntries
+  commentId: T:OSEUIDesktop.WPF.Sample.JournalEntries
+  parent: OSEUIDesktop.WPF.Sample
+  name: JournalEntries
+  nameWithType: JournalEntries
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntries
+- uid: OSEUIDesktop.WPF.Sample.JournalEntry
+  commentId: T:OSEUIDesktop.WPF.Sample.JournalEntry
+  parent: OSEUIDesktop.WPF.Sample
+  name: JournalEntry
+  nameWithType: JournalEntry
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntry
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.SelectedEntry*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.SelectedEntry
+  name: SelectedEntry
+  nameWithType: MainViewModel.SelectedEntry
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.SelectedEntry
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.EntryInEdit*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.EntryInEdit
+  name: EntryInEdit
+  nameWithType: MainViewModel.EntryInEdit
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.EntryInEdit
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.SelectedIndex*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.SelectedIndex
+  name: SelectedIndex
+  nameWithType: MainViewModel.SelectedIndex
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.SelectedIndex
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.AddEntry*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.AddEntry
+  name: AddEntry
+  nameWithType: MainViewModel.AddEntry
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.AddEntry
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.NotInEdit*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.NotInEdit
+  name: NotInEdit
+  nameWithType: MainViewModel.NotInEdit
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.NotInEdit
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.InEdit*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.InEdit
+  name: InEdit
+  nameWithType: MainViewModel.InEdit
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.InEdit
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.ShowDocumentToolBar*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.ShowDocumentToolBar
+  name: ShowDocumentToolBar
+  nameWithType: MainViewModel.ShowDocumentToolBar
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.ShowDocumentToolBar
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.ShowEditToolBar*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.ShowEditToolBar
+  name: ShowEditToolBar
+  nameWithType: MainViewModel.ShowEditToolBar
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.ShowEditToolBar
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.StartEdit*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.StartEdit
+  name: StartEdit
+  nameWithType: MainViewModel.StartEdit
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.StartEdit
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.CommitEdit*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.CommitEdit
+  name: CommitEdit
+  nameWithType: MainViewModel.CommitEdit
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.CommitEdit
+- uid: OSEUIDesktop.WPF.Sample.MainViewModel.UpdateViewModel*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.MainViewModel.UpdateViewModel
+  name: UpdateViewModel
+  nameWithType: MainViewModel.UpdateViewModel
+  fullName: OSEUIDesktop.WPF.Sample.MainViewModel.UpdateViewModel

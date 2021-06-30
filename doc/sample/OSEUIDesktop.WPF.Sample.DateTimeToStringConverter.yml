@@ -1,0 +1,153 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter
+  commentId: T:OSEUIDesktop.WPF.Sample.DateTimeToStringConverter
+  id: DateTimeToStringConverter
+  parent: OSEUIDesktop.WPF.Sample
+  children:
+  - OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.Convert(System.Object,Type,System.Object,CultureInfo)
+  - OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.ConvertBack(System.Object,Type,System.Object,CultureInfo)
+  langs:
+  - csharp
+  - vb
+  name: DateTimeToStringConverter
+  nameWithType: DateTimeToStringConverter
+  fullName: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/DateTimeToStringConverter.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: DateTimeToStringConverter
+    path: ../sample/OSEUIDesktop.WPF.Sample/DateTimeToStringConverter.cs
+    startLine: 11
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: 'public class DateTimeToStringConverter : IValueConverter'
+    content.vb: >-
+      Public Class DateTimeToStringConverter
+          Inherits IValueConverter
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.Convert(System.Object,Type,System.Object,CultureInfo)
+  commentId: M:OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.Convert(System.Object,Type,System.Object,CultureInfo)
+  id: Convert(System.Object,Type,System.Object,CultureInfo)
+  parent: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter
+  langs:
+  - csharp
+  - vb
+  name: Convert(Object, Type, Object, CultureInfo)
+  nameWithType: DateTimeToStringConverter.Convert(Object, Type, Object, CultureInfo)
+  fullName: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.Convert(System.Object, Type, System.Object, CultureInfo)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/DateTimeToStringConverter.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Convert
+    path: ../sample/OSEUIDesktop.WPF.Sample/DateTimeToStringConverter.cs
+    startLine: 13
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    parameters:
+    - id: value
+      type: System.Object
+    - id: targetType
+      type: Type
+    - id: parameter
+      type: System.Object
+    - id: culture
+      type: CultureInfo
+    return:
+      type: System.Object
+    content.vb: Public Function Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object
+  overload: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.Convert*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.ConvertBack(System.Object,Type,System.Object,CultureInfo)
+  commentId: M:OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.ConvertBack(System.Object,Type,System.Object,CultureInfo)
+  id: ConvertBack(System.Object,Type,System.Object,CultureInfo)
+  parent: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter
+  langs:
+  - csharp
+  - vb
+  name: ConvertBack(Object, Type, Object, CultureInfo)
+  nameWithType: DateTimeToStringConverter.ConvertBack(Object, Type, Object, CultureInfo)
+  fullName: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.ConvertBack(System.Object, Type, System.Object, CultureInfo)
+  type: Method
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/DateTimeToStringConverter.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: ConvertBack
+    path: ../sample/OSEUIDesktop.WPF.Sample/DateTimeToStringConverter.cs
+    startLine: 22
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    parameters:
+    - id: value
+      type: System.Object
+    - id: targetType
+      type: Type
+    - id: parameter
+      type: System.Object
+    - id: culture
+      type: CultureInfo
+    return:
+      type: System.Object
+    content.vb: Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object
+  overload: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.ConvertBack*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: OSEUIDesktop.WPF.Sample
+  commentId: N:OSEUIDesktop.WPF.Sample
+  name: OSEUIDesktop.WPF.Sample
+  nameWithType: OSEUIDesktop.WPF.Sample
+  fullName: OSEUIDesktop.WPF.Sample
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.Convert*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.Convert
+  name: Convert
+  nameWithType: DateTimeToStringConverter.Convert
+  fullName: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.Convert
+- uid: Type
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: Type
+- uid: CultureInfo
+  isExternal: true
+  name: CultureInfo
+  nameWithType: CultureInfo
+  fullName: CultureInfo
+- uid: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.ConvertBack*
+  commentId: Overload:OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.ConvertBack
+  name: ConvertBack
+  nameWithType: DateTimeToStringConverter.ConvertBack
+  fullName: OSEUIDesktop.WPF.Sample.DateTimeToStringConverter.ConvertBack

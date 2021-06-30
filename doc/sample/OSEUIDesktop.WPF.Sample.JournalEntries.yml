@@ -1,0 +1,49 @@
+### YamlMime:ManagedReference
+items:
+- uid: OSEUIDesktop.WPF.Sample.JournalEntries
+  commentId: T:OSEUIDesktop.WPF.Sample.JournalEntries
+  id: JournalEntries
+  parent: OSEUIDesktop.WPF.Sample
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: JournalEntries
+  nameWithType: JournalEntries
+  fullName: OSEUIDesktop.WPF.Sample.JournalEntries
+  type: Class
+  source:
+    remote:
+      path: sample/OSEUIDesktop.WPF.Sample/JournalEntries.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: JournalEntries
+    path: ../sample/OSEUIDesktop.WPF.Sample/JournalEntries.cs
+    startLine: 9
+  assemblies:
+  - OSEUIDesktop.WPF.Sample
+  namespace: OSEUIDesktop.WPF.Sample
+  syntax:
+    content: 'public class JournalEntries : ObservableCollection<JournalEntry>'
+    content.vb: >-
+      Public Class JournalEntries
+          Inherits ObservableCollection(Of JournalEntry)
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+references:
+- uid: OSEUIDesktop.WPF.Sample
+  commentId: N:OSEUIDesktop.WPF.Sample
+  name: OSEUIDesktop.WPF.Sample
+  nameWithType: OSEUIDesktop.WPF.Sample
+  fullName: OSEUIDesktop.WPF.Sample
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object

@@ -22,6 +22,10 @@ Classes and interfaces used to issue warnings, errors and normal messages from c
 
 Classes to handle .NET objects.
 
+# Program
+
+Classes that act at the process level.
+
 # Text
 
 Various utilities to handle text.

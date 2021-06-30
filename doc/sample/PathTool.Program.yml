@@ -1,0 +1,689 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathTool.Program
+  commentId: T:PathTool.Program
+  id: Program
+  parent: PathTool
+  children:
+  - PathTool.Program.#ctor(CommandLine)
+  - PathTool.Program.DefineCommands
+  langs:
+  - csharp
+  - vb
+  name: Program
+  nameWithType: Program
+  fullName: PathTool.Program
+  type: Class
+  source:
+    remote:
+      path: sample/PathTool/Program.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: Program
+    path: ../sample/PathTool/Program.cs
+    startLine: 10
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: 'public class Program : ConsoleApp'
+    content.vb: >-
+      Public Class Program
+          Inherits ConsoleApp
+  inheritance:
+  - System.Object
+  - OSEConsole.ConsoleApp
+  inheritedMembers:
+  - OSEConsole.ConsoleApp.Instance
+  - OSEConsole.ConsoleApp.Commands
+  - OSEConsole.ConsoleApp.CommandLine
+  - OSEConsole.ConsoleApp.GetCommandLine(System.String[])
+  - OSEConsole.ConsoleApp.GetCommandName
+  - OSEConsole.ConsoleApp.Run
+  - OSEConsole.ConsoleApp.WriteError(AggregateException)
+  - OSEConsole.ConsoleApp.WriteError(Exception)
+  - OSEConsole.ConsoleApp.WriteError
+  - OSEConsole.ConsoleApp.WriteError(System.String,System.Boolean)
+  - OSEConsole.ConsoleApp.WriteError(System.String[])
+  - OSEConsole.ConsoleApp.WriteOut
+  - OSEConsole.ConsoleApp.WriteOut(System.String,System.Boolean)
+  - OSEConsole.ConsoleApp.WriteOut(System.String[])
+  - OSEConsole.ConsoleApp.GetConfirmation(System.String)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: PathTool.Program.#ctor(CommandLine)
+  commentId: M:PathTool.Program.#ctor(CommandLine)
+  id: '#ctor(CommandLine)'
+  parent: PathTool.Program
+  langs:
+  - csharp
+  - vb
+  name: Program(CommandLine)
+  nameWithType: Program.Program(CommandLine)
+  fullName: PathTool.Program.Program(CommandLine)
+  type: Constructor
+  source:
+    remote:
+      path: sample/PathTool/Program.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: .ctor
+    path: ../sample/PathTool/Program.cs
+    startLine: 20
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: public Program(CommandLine args)
+    parameters:
+    - id: args
+      type: CommandLine
+    content.vb: Public Sub New(args As CommandLine)
+  overload: PathTool.Program.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: PathTool.Program.DefineCommands
+  commentId: M:PathTool.Program.DefineCommands
+  id: DefineCommands
+  parent: PathTool.Program
+  langs:
+  - csharp
+  - vb
+  name: DefineCommands()
+  nameWithType: Program.DefineCommands()
+  fullName: PathTool.Program.DefineCommands()
+  type: Method
+  source:
+    remote:
+      path: sample/PathTool/Program.cs
+      branch: master
+      repo: https://github.com/opensharedearth/OSECore.git
+    id: DefineCommands
+    path: ../sample/PathTool/Program.cs
+    startLine: 25
+  assemblies:
+  - pathtool
+  namespace: PathTool
+  syntax:
+    content: protected override void DefineCommands()
+    content.vb: Protected Overrides Sub DefineCommands
+  overridden: OSEConsole.ConsoleApp.DefineCommands
+  overload: PathTool.Program.DefineCommands*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+references:
+- uid: PathTool
+  commentId: N:PathTool
+  name: PathTool
+  nameWithType: PathTool
+  fullName: PathTool
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: OSEConsole.ConsoleApp
+  commentId: T:OSEConsole.ConsoleApp
+  parent: OSEConsole
+  name: ConsoleApp
+  nameWithType: ConsoleApp
+  fullName: OSEConsole.ConsoleApp
+- uid: OSEConsole.ConsoleApp.Instance
+  commentId: P:OSEConsole.ConsoleApp.Instance
+  parent: OSEConsole.ConsoleApp
+  name: Instance
+  nameWithType: ConsoleApp.Instance
+  fullName: OSEConsole.ConsoleApp.Instance
+- uid: OSEConsole.ConsoleApp.Commands
+  commentId: F:OSEConsole.ConsoleApp.Commands
+  parent: OSEConsole.ConsoleApp
+  name: Commands
+  nameWithType: ConsoleApp.Commands
+  fullName: OSEConsole.ConsoleApp.Commands
+- uid: OSEConsole.ConsoleApp.CommandLine
+  commentId: P:OSEConsole.ConsoleApp.CommandLine
+  parent: OSEConsole.ConsoleApp
+  name: CommandLine
+  nameWithType: ConsoleApp.CommandLine
+  fullName: OSEConsole.ConsoleApp.CommandLine
+- uid: OSEConsole.ConsoleApp.GetCommandLine(System.String[])
+  commentId: M:OSEConsole.ConsoleApp.GetCommandLine(System.String[])
+  parent: OSEConsole.ConsoleApp
+  isExternal: true
+  name: GetCommandLine(String[])
+  nameWithType: ConsoleApp.GetCommandLine(String[])
+  fullName: OSEConsole.ConsoleApp.GetCommandLine(System.String[])
+  nameWithType.vb: ConsoleApp.GetCommandLine(String())
+  fullName.vb: OSEConsole.ConsoleApp.GetCommandLine(System.String())
+  name.vb: GetCommandLine(String())
+  spec.csharp:
+  - uid: OSEConsole.ConsoleApp.GetCommandLine(System.String[])
+    name: GetCommandLine
+    nameWithType: ConsoleApp.GetCommandLine
+    fullName: OSEConsole.ConsoleApp.GetCommandLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEConsole.ConsoleApp.GetCommandLine(System.String[])
+    name: GetCommandLine
+    nameWithType: ConsoleApp.GetCommandLine
+    fullName: OSEConsole.ConsoleApp.GetCommandLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEConsole.ConsoleApp.GetCommandName
+  commentId: M:OSEConsole.ConsoleApp.GetCommandName
+  parent: OSEConsole.ConsoleApp
+  name: GetCommandName()
+  nameWithType: ConsoleApp.GetCommandName()
+  fullName: OSEConsole.ConsoleApp.GetCommandName()
+  spec.csharp:
+  - uid: OSEConsole.ConsoleApp.GetCommandName
+    name: GetCommandName
+    nameWithType: ConsoleApp.GetCommandName
+    fullName: OSEConsole.ConsoleApp.GetCommandName
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEConsole.ConsoleApp.GetCommandName
+    name: GetCommandName
+    nameWithType: ConsoleApp.GetCommandName
+    fullName: OSEConsole.ConsoleApp.GetCommandName
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEConsole.ConsoleApp.Run
+  commentId: M:OSEConsole.ConsoleApp.Run
+  parent: OSEConsole.ConsoleApp
+  name: Run()
+  nameWithType: ConsoleApp.Run()
+  fullName: OSEConsole.ConsoleApp.Run()
+  spec.csharp:
+  - uid: OSEConsole.ConsoleApp.Run
+    name: Run
+    nameWithType: ConsoleApp.Run
+    fullName: OSEConsole.ConsoleApp.Run
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEConsole.ConsoleApp.Run
+    name: Run
+    nameWithType: ConsoleApp.Run
+    fullName: OSEConsole.ConsoleApp.Run
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEConsole.ConsoleApp.WriteError(AggregateException)
+  commentId: M:OSEConsole.ConsoleApp.WriteError(AggregateException)
+  parent: OSEConsole.ConsoleApp
+  isExternal: true
+  name: WriteError(AggregateException)
+  nameWithType: ConsoleApp.WriteError(AggregateException)
+  fullName: OSEConsole.ConsoleApp.WriteError(AggregateException)
+  spec.csharp:
+  - uid: OSEConsole.ConsoleApp.WriteError(AggregateException)
+    name: WriteError
+    nameWithType: ConsoleApp.WriteError
+    fullName: OSEConsole.ConsoleApp.WriteError
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: AggregateException
+    name: AggregateException
+    nameWithType: AggregateException
+    fullName: AggregateException
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEConsole.ConsoleApp.WriteError(AggregateException)
+    name: WriteError
+    nameWithType: ConsoleApp.WriteError
+    fullName: OSEConsole.ConsoleApp.WriteError
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: AggregateException
+    name: AggregateException
+    nameWithType: AggregateException
+    fullName: AggregateException
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEConsole.ConsoleApp.WriteError(Exception)
+  commentId: M:OSEConsole.ConsoleApp.WriteError(Exception)
+  parent: OSEConsole.ConsoleApp
+  isExternal: true
+  name: WriteError(Exception)
+  nameWithType: ConsoleApp.WriteError(Exception)
+  fullName: OSEConsole.ConsoleApp.WriteError(Exception)
+  spec.csharp:
+  - uid: OSEConsole.ConsoleApp.WriteError(Exception)
+    name: WriteError
+    nameWithType: ConsoleApp.WriteError
+    fullName: OSEConsole.ConsoleApp.WriteError
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Exception
+    name: Exception
+    nameWithType: Exception
+    fullName: Exception
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEConsole.ConsoleApp.WriteError(Exception)
+    name: WriteError
+    nameWithType: ConsoleApp.WriteError
+    fullName: OSEConsole.ConsoleApp.WriteError
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Exception
+    name: Exception
+    nameWithType: Exception
+    fullName: Exception
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEConsole.ConsoleApp.WriteError
+  commentId: M:OSEConsole.ConsoleApp.WriteError
+  parent: OSEConsole.ConsoleApp
+  name: WriteError()
+  nameWithType: ConsoleApp.WriteError()
+  fullName: OSEConsole.ConsoleApp.WriteError()
+  spec.csharp:
+  - uid: OSEConsole.ConsoleApp.WriteError
+    name: WriteError
+    nameWithType: ConsoleApp.WriteError
+    fullName: OSEConsole.ConsoleApp.WriteError
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEConsole.ConsoleApp.WriteError
+    name: WriteError
+    nameWithType: ConsoleApp.WriteError
+    fullName: OSEConsole.ConsoleApp.WriteError
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEConsole.ConsoleApp.WriteError(System.String,System.Boolean)
+  commentId: M:OSEConsole.ConsoleApp.WriteError(System.String,System.Boolean)
+  parent: OSEConsole.ConsoleApp
+  isExternal: true
+  name: WriteError(String, Boolean)
+  nameWithType: ConsoleApp.WriteError(String, Boolean)
+  fullName: OSEConsole.ConsoleApp.WriteError(System.String, System.Boolean)
+  spec.csharp:
+  - uid: OSEConsole.ConsoleApp.WriteError(System.String,System.Boolean)
+    name: WriteError
+    nameWithType: ConsoleApp.WriteError
+    fullName: OSEConsole.ConsoleApp.WriteError
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEConsole.ConsoleApp.WriteError(System.String,System.Boolean)
+    name: WriteError
+    nameWithType: ConsoleApp.WriteError
+    fullName: OSEConsole.ConsoleApp.WriteError
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEConsole.ConsoleApp.WriteError(System.String[])
+  commentId: M:OSEConsole.ConsoleApp.WriteError(System.String[])
+  parent: OSEConsole.ConsoleApp
+  isExternal: true
+  name: WriteError(String[])
+  nameWithType: ConsoleApp.WriteError(String[])
+  fullName: OSEConsole.ConsoleApp.WriteError(System.String[])
+  nameWithType.vb: ConsoleApp.WriteError(String())
+  fullName.vb: OSEConsole.ConsoleApp.WriteError(System.String())
+  name.vb: WriteError(String())
+  spec.csharp:
+  - uid: OSEConsole.ConsoleApp.WriteError(System.String[])
+    name: WriteError
+    nameWithType: ConsoleApp.WriteError
+    fullName: OSEConsole.ConsoleApp.WriteError
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEConsole.ConsoleApp.WriteError(System.String[])
+    name: WriteError
+    nameWithType: ConsoleApp.WriteError
+    fullName: OSEConsole.ConsoleApp.WriteError
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEConsole.ConsoleApp.WriteOut
+  commentId: M:OSEConsole.ConsoleApp.WriteOut
+  parent: OSEConsole.ConsoleApp
+  name: WriteOut()
+  nameWithType: ConsoleApp.WriteOut()
+  fullName: OSEConsole.ConsoleApp.WriteOut()
+  spec.csharp:
+  - uid: OSEConsole.ConsoleApp.WriteOut
+    name: WriteOut
+    nameWithType: ConsoleApp.WriteOut
+    fullName: OSEConsole.ConsoleApp.WriteOut
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEConsole.ConsoleApp.WriteOut
+    name: WriteOut
+    nameWithType: ConsoleApp.WriteOut
+    fullName: OSEConsole.ConsoleApp.WriteOut
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEConsole.ConsoleApp.WriteOut(System.String,System.Boolean)
+  commentId: M:OSEConsole.ConsoleApp.WriteOut(System.String,System.Boolean)
+  parent: OSEConsole.ConsoleApp
+  isExternal: true
+  name: WriteOut(String, Boolean)
+  nameWithType: ConsoleApp.WriteOut(String, Boolean)
+  fullName: OSEConsole.ConsoleApp.WriteOut(System.String, System.Boolean)
+  spec.csharp:
+  - uid: OSEConsole.ConsoleApp.WriteOut(System.String,System.Boolean)
+    name: WriteOut
+    nameWithType: ConsoleApp.WriteOut
+    fullName: OSEConsole.ConsoleApp.WriteOut
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEConsole.ConsoleApp.WriteOut(System.String,System.Boolean)
+    name: WriteOut
+    nameWithType: ConsoleApp.WriteOut
+    fullName: OSEConsole.ConsoleApp.WriteOut
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEConsole.ConsoleApp.WriteOut(System.String[])
+  commentId: M:OSEConsole.ConsoleApp.WriteOut(System.String[])
+  parent: OSEConsole.ConsoleApp
+  isExternal: true
+  name: WriteOut(String[])
+  nameWithType: ConsoleApp.WriteOut(String[])
+  fullName: OSEConsole.ConsoleApp.WriteOut(System.String[])
+  nameWithType.vb: ConsoleApp.WriteOut(String())
+  fullName.vb: OSEConsole.ConsoleApp.WriteOut(System.String())
+  name.vb: WriteOut(String())
+  spec.csharp:
+  - uid: OSEConsole.ConsoleApp.WriteOut(System.String[])
+    name: WriteOut
+    nameWithType: ConsoleApp.WriteOut
+    fullName: OSEConsole.ConsoleApp.WriteOut
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEConsole.ConsoleApp.WriteOut(System.String[])
+    name: WriteOut
+    nameWithType: ConsoleApp.WriteOut
+    fullName: OSEConsole.ConsoleApp.WriteOut
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEConsole.ConsoleApp.GetConfirmation(System.String)
+  commentId: M:OSEConsole.ConsoleApp.GetConfirmation(System.String)
+  parent: OSEConsole.ConsoleApp
+  isExternal: true
+  name: GetConfirmation(String)
+  nameWithType: ConsoleApp.GetConfirmation(String)
+  fullName: OSEConsole.ConsoleApp.GetConfirmation(System.String)
+  spec.csharp:
+  - uid: OSEConsole.ConsoleApp.GetConfirmation(System.String)
+    name: GetConfirmation
+    nameWithType: ConsoleApp.GetConfirmation
+    fullName: OSEConsole.ConsoleApp.GetConfirmation
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEConsole.ConsoleApp.GetConfirmation(System.String)
+    name: GetConfirmation
+    nameWithType: ConsoleApp.GetConfirmation
+    fullName: OSEConsole.ConsoleApp.GetConfirmation
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: OSEConsole
+  commentId: N:OSEConsole
+  name: OSEConsole
+  nameWithType: OSEConsole
+  fullName: OSEConsole
+- uid: PathTool.Program.#ctor*
+  commentId: Overload:PathTool.Program.#ctor
+  name: Program
+  nameWithType: Program.Program
+  fullName: PathTool.Program.Program
+- uid: CommandLine
+  isExternal: true
+  name: CommandLine
+  nameWithType: CommandLine
+  fullName: CommandLine
+- uid: OSEConsole.ConsoleApp.DefineCommands
+  commentId: M:OSEConsole.ConsoleApp.DefineCommands
+  parent: OSEConsole.ConsoleApp
+  name: DefineCommands()
+  nameWithType: ConsoleApp.DefineCommands()
+  fullName: OSEConsole.ConsoleApp.DefineCommands()
+  spec.csharp:
+  - uid: OSEConsole.ConsoleApp.DefineCommands
+    name: DefineCommands
+    nameWithType: ConsoleApp.DefineCommands
+    fullName: OSEConsole.ConsoleApp.DefineCommands
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: OSEConsole.ConsoleApp.DefineCommands
+    name: DefineCommands
+    nameWithType: ConsoleApp.DefineCommands
+    fullName: OSEConsole.ConsoleApp.DefineCommands
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: PathTool.Program.DefineCommands*
+  commentId: Overload:PathTool.Program.DefineCommands
+  name: DefineCommands
+  nameWithType: Program.DefineCommands
+  fullName: PathTool.Program.DefineCommands
