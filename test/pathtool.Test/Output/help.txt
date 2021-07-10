@@ -1,4 +1,4 @@
-pathtool 1.0.0.0
+pathtool 1.1.0.0
 
 pathtool is a command line utility that performs various operations on the PATH variable including listing and validating elements, removing elements, moving elements, adding folders and cleaning out invalid folders.
 
@@ -41,11 +41,11 @@ Options:
 Where:
 
   command          Command name
-  dpos             1-based destination position
+  dpos             1-based destination position, default = 0 (last)
   exp              Regular expression
   folder           Folder to add to path
   len              number of folders; default = 1
-  pos              position of folder; default = 1
+  pos              1-based position of folder; default = 0 (last)
 
 Examples:
 

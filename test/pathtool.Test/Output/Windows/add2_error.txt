@@ -27,5 +27,5 @@ Position Status           Folder
 14 entries.
 
 
-at position 1? [Y/N] 
+at position 15? [Y/N] 
 Add folders operation canceled

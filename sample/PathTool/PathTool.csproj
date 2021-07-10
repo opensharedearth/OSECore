@@ -10,6 +10,8 @@
     <Description>pathtool is a command line utility that performs various operations on the PATH variable including listing and validating elements, removing elements, moving elements, adding folders and cleaning out invalid folders.</Description>
     <Copyright>Copyright (c) 2021 Open Shared Earth</Copyright>
     <InvariantGlobalization>true</InvariantGlobalization>
+    <Version>1.1.0</Version>
+    <PackageReleaseNotes>1-based position argument defaults to 0 which is interpreted as end of list.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

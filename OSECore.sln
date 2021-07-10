@@ -20,6 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{5C86120E-A
 		linuxtests.dockerfile = linuxtests.dockerfile
 		osecore.ico = osecore.ico
 		README.md = README.md
+		runlinuxtests.ps1 = runlinuxtests.ps1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{93E12EAF-F2EF-4C4B-B8F3-36854168078C}"

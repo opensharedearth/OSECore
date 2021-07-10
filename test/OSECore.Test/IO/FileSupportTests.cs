@@ -130,6 +130,28 @@ namespace OSECoreTest.IO
             Assert.False(FileSupport.IsValidPath(""));
             Assert.False(FileSupport.IsValidPath(_fixture.InvalidFilePath));
         }
+        [Theory]
+        [InlineData(null, null, OSCompatibility.Any)]
+        [InlineData("","",OSCompatibility.Any)]
+        [InlineData(@"dir\file",@"dir\file", OSCompatibility.Windows)]
+        [InlineData(@"dir\file\",@"dir\file", OSCompatibility.Windows)]
+        [InlineData(@"dir/file/", @"dir\file", OSCompatibility.Windows)]
+        [InlineData(@"c:\dir\file",@"c:\dir\file", OSCompatibility.Windows)]
+        [InlineData(@"/dir/dir1/dir2/",@"/dir/dir1/dir2", OSCompatibility.AllUnix)]
+        [InlineData(@"c:\\a\\b\\c", @"c:\a\b\c", OSCompatibility.Windows)]
+        [InlineData(@"//a//b//c", "/a/b/c", OSCompatibility.AllUnix)]
+        [InlineData(@"c:\\a\\b\..\c\d",@"c:\a\c\d", OSCompatibility.Windows)]
+        [InlineData(@"//a//b/../c/d",@"/a/c/d", OSCompatibility.AllUnix)]
+        [InlineData(@"c:\\a\\b\..\\..\c\d", @"c:\c\d", OSCompatibility.Windows)]
+        [InlineData(@"//a//b/../../c/d", @"/c/d", OSCompatibility.AllUnix)]
+
+        public void NormalizePathTest(string path0, string path1, OSCompatibility platform)
+        {
+            if(OSCompatibilitySupport.IsComplatible(platform))
+            {
+                Assert.Equal(path1, FileSupport.NormalizePath(path0));
+            }
+        }
         [Fact]
         public void GetFullPathTest()
         {

@@ -8,6 +8,7 @@ using System.Runtime.Versioning;
 using OSECore.Text;
 using System.Runtime.InteropServices;
 using Mono.Unix;
+using System.Collections.Generic;
 
 namespace OSECore.IO
 {
@@ -308,6 +309,47 @@ namespace OSECore.IO
                 return false;
             else
                 return true;
+        }
+        /// <summary>
+        /// Normalize the path.  This changes the alternate path separator to the primary path separate; resolves embedded ".." path elements;
+        /// Remove double path separators and trailing path separator.
+        /// </summary>
+        /// <param name="path">The path to be normalized.</param>
+        /// <returns>Normaized path.  Original path if path could not be normalized.</returns>
+        public static string NormalizePath(string path)
+        {
+            if (!String.IsNullOrEmpty(path))
+            {
+                Stack<string> pes = new Stack<string>();
+                var pr = path.Trim();
+                while(pr != null)
+                {
+                    var name = Path.GetFileName(pr);
+                    if(name == "" && Path.GetPathRoot(path) == pr)
+                        pes.Push(pr);
+                    else
+                        pes.Push(name);
+                    pr = Path.GetDirectoryName(pr);
+                }
+                string path1 = "";
+                while(pes.Count > 0)
+                {
+                    string pe = pes.Pop();
+                    if(pe == "")
+                        ;
+                    else if(pe == "..")
+                        path1 = Path.GetDirectoryName(path1);
+                    else if(path1 == "")
+                        path1 = pe;
+                    else
+                        path1 = Path.Combine(path1, pe);
+                }
+                if (path1.Length > 0)
+                    return path1;
+                else
+                    return path;
+            }
+            return path;
         }
         /// <summary>
         /// Get the full path for the indicated relative path.

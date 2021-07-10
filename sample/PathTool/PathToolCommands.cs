@@ -49,14 +49,14 @@ namespace PathTool
                     new UsageWhere("exp", "Regular expression")),
                 null, null, CommandArgOptions.HasArgument);
             var positionArg = new CommandArgProto(Names.PositionSwitch, Names.PositionMnemonic,
-                new Usage("Starting position of folder", new UsageWhere("pos", "position of folder; default = 1")),
-                "1", new ValueValidator<int>(), CommandArgOptions.HasArgument);
+                new Usage("Starting position of folder", new UsageWhere("pos", "1-based position of folder; default = 0 (last)")),
+                "0", new ValueValidator<int>(), CommandArgOptions.HasArgument);
             var lengthArg = new CommandArgProto(Names.LengthSwitch, Names.LengthMnemonic,
                 new Usage("Number of path folders from position to include", new UsageWhere("len", "number of folders; default = 1")),
                 "1", new ValueValidator<int>(), CommandArgOptions.HasArgument);
             var toArg = new CommandArgProto(Names.ToSwitch, Names.ToMnemonic,
-                new Usage("Destination position for move", new UsageWhere("dpos", "1-based destination position")),
-                "1", new ValueValidator<int>(), CommandArgOptions.HasArgument);
+                new Usage("Destination position for move", new UsageWhere("dpos", "1-based destination position, default = 0 (last)")),
+                "0", new ValueValidator<int>(), CommandArgOptions.HasArgument);
             var verboseArg = new CommandArgProto(Names.VerboseSwitch, Names.VerboseMnemonic, new Usage("Verbose output. Path elements in table with position and status."));
             var sortArg = new CommandArgProto(Names.SortSwitch, CommandArgProto.NoMnemonic, new Usage("Sort output.  By default the order of the folder is as they appear in PATH"));
             var machineArg = new CommandArgProto(Names.MachineSwitch, Names.MachineMnemonic, new Usage("Use system PATH variable.  By default the local process path is used. Incompatible with -u (Windows only)"));
@@ -215,6 +215,7 @@ namespace PathTool
                 int len = args.GetValue<int>(Names.LengthSwitch, Names.LengthMnemonic, defaultLength);
                 int defaultTo = proto.GetValue<int>(Names.ToSwitch);
                 int to = args.GetValue<int>(Names.ToSwitch, Names.ToMnemonic, defaultTo);
+                if (to == 0) to = folders.Count + 1;
                 if (pos < 1 || pos + len - 1> folders.Count)
                     throw new ApplicationException("Position and length outside valid range for move operation");
                 if (to < 1 || to >  folders.Count)
@@ -279,6 +280,7 @@ namespace PathTool
                 int parg = 2;
                 string path = args.GetResolvedValue<string>(parg++);
                 bool commit = true;
+                if (pos == 0) pos = folders.Count + 1;
                 while(path != null)
                 {
                     added.Add(new PathFolder(path));

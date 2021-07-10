@@ -27,5 +27,5 @@ Position Status           Folder
 14 entries.
 
 
-at position 1? [Y/N] 
-2 folder(s) added to PATH at position 1
+at position 15? [Y/N] 
+2 folder(s) added to PATH at position 15

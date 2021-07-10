@@ -2,7 +2,7 @@
   "profiles": {
     "PathTool": {
       "commandName": "Project",
-      "commandLineArgs": "--help move",
+      "commandLineArgs": "-v",
       "workingDirectory": "C:\\Users\\rundl"
     }
   }
