@@ -29,8 +29,8 @@ namespace PathTool
         }
         public PathFolder(string path)
         {
-            _path = path;
-            _status = Validate(path);
+            _path = FileSupport.NormalizePath(path);
+            _status = Validate(_path);
         }
 
         public static FolderStatus Validate(string path)
