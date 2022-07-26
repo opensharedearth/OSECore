@@ -971,6 +971,45 @@ namespace OSECore.Text
             }
             return list.ToArray();
         }
-
+        public static Array ParseArray(string s)
+        {
+            if (!String.IsNullOrEmpty(s))
+            {
+                int i = 0;
+                return ParseArray(s, ref i);
+            }
+            return new object[0];
+        }
+        private static Array ParseArray(string s, ref int i)
+        {
+            int i0 = i;
+            List<object> list = new List<object>();
+            List<char> field = new List<char>();
+            if(s[i++] == '(')
+            {
+                while (i < s.Length)
+                {
+                    char c = s[i];
+                    switch(c)
+                    {
+                        case '(':
+                            list.Add(ParseArray(s, ref i));
+                            break;
+                        case ',':
+                            list.Add(new string(field.ToArray()));
+                            field.Clear();
+                            i++;
+                            break;
+                        case ')':
+                            break;
+                        default:
+                            field.Add(c);
+                            i++;
+                            break;
+                    }
+                }
+            }
+            return list.ToArray();
+        }
     }
 }

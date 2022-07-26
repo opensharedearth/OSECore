@@ -101,5 +101,31 @@ namespace OSECore.Text
             }
             return formatted.ToArray();
         }
+        public string[] FormatTitleLine(string line)
+        {
+            List<string> formatted = new List<string>();
+            formatted.AddRange(FormatLine(line));
+            int columns = TabStops.Count;
+            int i = Margins.LeftMargin;
+            int j = 0;
+            string outLine = "";
+            int ts0 = 1;
+            foreach(int ts in TabStops)
+            {
+                int l = ts - ts0 - 1;
+                if (l > 0)
+                {
+                    (outLine, i) = FormatColumn(outLine, i, j, new string('-', l), formatted);
+                }
+                j++;
+                ts0 = ts;
+            }
+            if(i < Margins.RightMargin)
+            {
+                (outLine, i) = FormatColumn(outLine, i, j, new string('-', Margins.RightMargin - ts0 - 1), formatted);
+            }
+            formatted.Add(outLine);
+            return formatted.ToArray();
+        }
     }
 }

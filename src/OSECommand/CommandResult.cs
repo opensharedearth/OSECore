@@ -28,6 +28,13 @@ namespace OSECommand
         {
             ErrorCode = error;
         }
+        public CommandResult(bool succeeded, bool cont, int error, string message)
+        {
+            Succeeded = succeeded;
+            Continue = cont;
+            ErrorCode = error;
+            AddMessage(message);
+        }
         public CommandResult(bool succeeded, bool cont, int error, string[] message)
         {
             Succeeded = succeeded;

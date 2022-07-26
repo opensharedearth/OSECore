@@ -17,8 +17,8 @@ namespace OSECommand
             None = 0,
             Exists = 1,
             Readable = 3,
-            Writable = 5,
-            Folder = 9
+            Writable = 4,
+            Folder = 9,
         }
         private bool Exists => (PathDisposition & Disposition.Exists) == Disposition.Exists;
         private bool Readable => (PathDisposition & Disposition.Readable) == Disposition.Readable;
@@ -72,6 +72,7 @@ namespace OSECommand
                 {
                     return new CommandResult(false, $"File '{path}' is not writable.");
                 }
+
                 arg.ResolvedValue = path;
             }
             return result;

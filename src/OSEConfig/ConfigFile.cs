@@ -15,10 +15,6 @@ namespace OSEConfig
 {
     public class ConfigFile : IDictionary<string, ConfigSection>, IDirty, IDirtyEventSource, IDirtyEvents
     {
-        static ConfigFile()
-        {
-            Instance = new ConfigFile();
-        }
         public static ConfigFile _instance;
         public static ConfigFile Instance 
         { 
@@ -149,6 +145,7 @@ namespace OSEConfig
                     s.Undirty();
                 }
                 OnUndirtied();
+                Save();
             }
         }
 
@@ -238,6 +235,7 @@ namespace OSEConfig
 
         public void UndirtiedHandler(object sender, EventArgs args)
         {
+            Undirty();
         }
         public ConfigSection FindOrCreate(string name)
         {

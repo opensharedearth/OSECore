@@ -152,7 +152,7 @@ namespace OSEConfig
 
         public void Undirty()
         {
-            if(!_isDirty)
+            if(_isDirty)
             {
                 _isDirty = false;
                 OnUndirtied();

@@ -1,4 +1,5 @@
 ﻿using OSECommand;
+using OSEConfig;
 using OSECore.Program;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace OSEConsole
     public class ConsoleApp
     {
         public static ConsoleApp Instance { get; private set; } = null;
-        public CommandLineProtoRegistry Commands = new CommandLineProtoRegistry();
+        public CommandLineProtoRegistry Commands =>  CommandLineProtoRegistry.Instance;
         public CommandLine CommandLine { get; set; } 
         static int Main(string[] args)
         {
@@ -43,6 +44,7 @@ namespace OSEConsole
 
         public ConsoleApp(CommandLine args, bool hasCommands = true)
         {
+            ConfigFile.Instance = ConfigFile.Load();
             CommandLine = args;
             StandardCommands.RegisterVersionArgument();
             StandardCommands.RegisterHelpArgument(hasCommands);
@@ -100,6 +102,11 @@ namespace OSEConsole
         protected virtual void DefineCommands()
         {
             StandardCommands.RegisterAll();
+        }
+        protected virtual string ReadIn(string prompt)
+        {
+            Console.Error.Write(prompt);
+            return Console.ReadLine();
         }
         public bool GetConfirmation(string prompt)
         {

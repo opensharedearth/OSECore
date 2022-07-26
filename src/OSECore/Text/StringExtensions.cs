@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace OSECore.Text
@@ -200,44 +201,11 @@ namespace OSECore.Text
 
             return fields.ToArray();
         }
-        public static T GetObject<T>(this string s, T defaultValue) where T : class
-        {
-            var ctor = typeof(T).GetConstructor(new Type[] { typeof(string) });
-            if(ctor != null)
-            {
-                try
-                {
-                    return ctor.Invoke(new object[] { s }) as T;
-                }
-                catch(Exception ex)
-                {
-                    Trace.WriteLine($"Constructor for {typeof(T).Name} failed: {ex.Message}");
-                    return defaultValue;
-                }
-            }
-            return defaultValue;
-        }
-        public static T GetObject<T>(this string s) where T : class
-        {
-            var ctor = typeof(T).GetConstructor(new Type[] { typeof(string) });
-            if (ctor != null)
-            {
-                try
-                {
-                    return ctor.Invoke(new object[] { s }) as T;
-                }
-                catch(Exception ex)
-                {
-                    throw new ArgumentException("Unable to construct {T.Name} from string", ex);
-                }
-            }
-            throw new ArgumentException("No constructor found for {T.Name} which takes a single string argument");
-        }
-        public static T GetValue<T>(this string s) where T : struct
+        public static T GetValue<T>(this string s)
         {
             if (s == null)
             {
-                throw new ArgumentNullException("String cannot be null.");
+                throw new ArgumentNullException("s");
             }
             else if (typeof(T) == typeof(int))
             {
@@ -261,21 +229,51 @@ namespace OSECore.Text
             }
             else if (typeof(T).IsEnum)
             {
-                if (Enum.TryParse<T>(s, out T ev))
-                    return (T)(object)ev;
-                else
-                    throw new ArgumentException($"{s} is not a valid member of {typeof(T).Name}");
+                return (T)GetEnumValue(typeof(T), s);
             }
             else
             {
+                MethodInfo mi = typeof(T).GetMethod("Parse", new Type[] { typeof(string) });
+                if (mi != null)
+                {
+                    return (T)mi.Invoke(typeof(T), new object[] { s });
+                }
                 throw new ArgumentException($"No conversion supported for {typeof(T).Name}");
             }
         }
-        public static T GetValue<T>(this string s, T defaultValue) where T : struct
+        private static object GetEnumValue(Type tEnum, string s)
+        {
+            MethodInfo mi = typeof(Enum).GetMethod("TryParse", new Type[] { typeof(Type), typeof(string), typeof(object).MakeByRefType() });
+            if(mi != null)
+            {
+                var parameters = new object[] { tEnum, s, null };
+                if ((bool)mi.Invoke(null, parameters))
+                {
+                    return parameters[2];
+                }
+                else
+                    throw new FormatException($"{s} is not a valid member of {tEnum.Name}");
+            }
+            throw new FormatException($"No conversion supported for {tEnum.Name}");
+        }
+        private static object GetEnumValue(Type tEnum, string s, object defaultValue)
+        {
+            MethodInfo mi = typeof(Enum).GetMethod("TryParse", new Type[] { typeof(Type), typeof(string), typeof(object).MakeByRefType() });
+            if (mi != null)
+            {
+                var parameters = new object[] { tEnum, s, null };
+                if ((bool)mi.Invoke(null, parameters))
+                {
+                    return parameters[2];
+                }
+            }
+            return defaultValue;
+        }
+        public static T GetValue<T>(this string s, T defaultValue)
         {
             if (s == null)
             {
-                return default(T);
+                return defaultValue;
             }
             else if (typeof(T) == typeof(int) && int.TryParse(s, out int iv))
             {
@@ -297,12 +295,20 @@ namespace OSECore.Text
             {
                 return (T)(object)dtv;
             }
-            else if (typeof(T).IsEnum && Enum.TryParse<T>(s, out T ev))
+            else if (typeof(T).IsEnum)
             {
-                return (T)ev;
+                return (T)GetEnumValue(typeof(T), s, defaultValue);
             }
             else
             {
+                MethodInfo mi = typeof(T).GetMethod("TryParse", new Type[] { typeof(string), typeof(T).MakeByRefType() });
+                if (mi != null)
+                {
+                    T v;
+                    var p = new object[] { s, null };
+                    if ((bool)mi.Invoke(null, p))
+                        return (T)p[1];
+                }
                 return defaultValue;
             }
         }

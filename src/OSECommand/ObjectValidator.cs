@@ -14,7 +14,7 @@ namespace OSECommand
             CommandResult result = base.Validate(arg);
             try
             {
-                arg.ResolvedValue = arg.Value.GetObject<T>();
+                arg.ResolvedValue = arg.Value.GetValue<T>();
             }
             catch(Exception ex)
             {
